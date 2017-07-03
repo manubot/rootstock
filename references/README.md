@@ -13,3 +13,9 @@ You should not edit these files manually.
 
 [`manual-references.json`](manual-references.json) contains manually managed
 reference data, which overrides the automatically extracted data.
+
+## Reference overrides
+Overriding the automatically extracted reference data should be reserved for references that contain errors, which is most common for `[@url:]` references.
+Create a new record in [`manual-references.json`](manual-references.json) in [CSL JSON](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html) format.
+The record must contain the field `"standard_citation"` with the appropriate reference identifier as the value.
+The identifier can be obtained from the `standard_citation` column of `processed-citations.tsv`, which is located in the base directory of the `references` branch or in the `references/generated` subdirectory if you build the manuscript locally.
