@@ -21,4 +21,4 @@ The system also supports tags, which may be helpful when a single reference is c
 For example, you can add a reference to the tag `study_x` using the following syntax: `[@tag:study_x]`.
 If you add references that use tags, make sure to add those tags and their corresponding citations to [`references/tags.tsv`](references/tags.tsv).
 
-If the automatically extracted reference information contains errors, it can be [manually overridden](../references/README.md#reference-overrides).
+If the automatically extracted reference information contains errors, it can be [manually overridden](references/README.md#reference-overrides).
