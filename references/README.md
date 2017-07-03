@@ -10,3 +10,6 @@ You should edit this table to contain any new citation tags you create.
 
 [`generated`](generated) contains auto-generated files related to referencing.
 You should not edit these files manually.
+
+[`manual-references.json`](manual-references.json) contains manually managed
+reference data, which overrides the automatically extracted data.
