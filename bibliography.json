@@ -276,5 +276,25 @@
     "URL": "https://doi.org/10.1101/142760",
     "relation": {},
     "id": "tJKvnIaZ"
+  },
+  {
+    "URL": "https://github.com/greenelab/manubot-rootstock",
+    "title": "greenelab/manubot-rootstock GitHub repository",
+    "container-title": "GitHub",
+    "issued": {
+      "date-parts": [
+        [
+          2017
+        ]
+      ]
+    },
+    "author": [
+      {
+        "family": "Himmelstein",
+        "given": "Daniel"
+      }
+    ],
+    "type": "webpage",
+    "id": "1B7Y2HVtw"
   }
 ]
