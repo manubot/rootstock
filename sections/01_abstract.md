@@ -8,3 +8,9 @@ Equations can be integrated and labeled like this `{{ '{{ \'{#eq:label}\' }}' }}
 referenced using `{@eq:label}` like this for Equation @eq:line.
 
 $$ y = mx + b $$ {{ '{#eq:line}' }}
+
+Images can be included and labeled like `{{ '{{ \'{#fig:label}\' }}' }}` and then
+referenced using `{@fig:label}` like this for Figure @fig:lotus.
+
+![An example image.](./images/lotus.jpg){{ '{#fig:lotus}' }}
+

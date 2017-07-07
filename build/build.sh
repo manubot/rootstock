@@ -11,6 +11,8 @@ INPUT_PATH=references/generated/all-sections.md
 
 # Make output directory
 mkdir -p output
+# Move images to output directory
+cp -R sections/images output/
 
 # Create HTML outpout
 # http://pandoc.org/MANUAL.html
@@ -30,13 +32,14 @@ pandoc --verbose \
 
 # Create PDF outpout
 echo "Exporting PDF manuscript"
+cd output
 pandoc \
   --from=markdown \
   --to=html5 \
   --filter pandoc-fignos \
   --filter pandoc-eqnos \
-  --bibliography=$BIBLIOGRAPHY_PATH \
-  --csl=$CSL_PATH \
+  --bibliography=../$BIBLIOGRAPHY_PATH \
+  --csl=../$CSL_PATH \
   --metadata link-citations=true \
-  --output=output/manuscript.pdf \
-  $INPUT_PATH
+  --output=manuscript.pdf \
+  ../$INPUT_PATH
