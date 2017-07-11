@@ -169,7 +169,10 @@ for old, new in zip(ref_df.text, ref_df.citation_id):
 converted_text = semicolon_separate_references(converted_text)
 
 # Template using jina2
-template = jinja2.Template(converted_text)
+#env = jinja2.Environment(comment_start_string='{##')
+#template = env.get_template(converted_text)
+template = jinja2.Environment(loader=jinja2.BaseLoader(),
+                              comment_start_string='{##').from_string(converted_text)
 converted_text = template.render(**stats)
 
 # Write manuscript for pandoc
