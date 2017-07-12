@@ -14,6 +14,7 @@ import textwrap
 
 import jinja2
 import pandas
+import yaml
 
 from authors import get_author_info
 from citations import (
@@ -171,8 +172,33 @@ converted_text = semicolon_separate_references(converted_text)
 template = jinja2.Template(converted_text)
 converted_text = template.render(**stats)
 
+all_sections_file = gen_dir.joinpath('all-sections.md')
+
+#FIXME: Stubbing metadata:
+title_text = "Manubot Rootstock: Manuscript Title"
+abstract_text = "This is the abstract from the metadata."
+keywords_list = ['keyword0', 'keyword1', 'keyword2']
+yaml_metadata_block = True
+
+# Handle metadata:
+if yaml_metadata_block is True:
+    if all_sections_file.exists():
+        all_sections_file.unlink()
+    metadata = {'title': title_text,
+                'author': [],
+                'keywords': keywords_list,
+                'institution': [],
+                'abstract': abstract_text}
+    for author in stats['authors']:
+        metadata['author'].append(author['full_name'])
+        metadata['institution'].append(author['affiliations'])
+    # Write yaml metadata block
+    with all_sections_file.open('at') as write_file:
+        yaml.dump(metadata, write_file, explicit_start=True, explicit_end=True, default_flow_style=False)
+
 # Write manuscript for pandoc
-gen_dir.joinpath('all-sections.md').write_text(converted_text)
+with all_sections_file.open('at') as write_file:
+    write_file.write(converted_text)
 
 # Write citation table
 path = gen_dir.joinpath('processed-citations.tsv')
