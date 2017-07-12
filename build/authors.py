@@ -31,7 +31,7 @@ def get_author_info(path):
         raise ValueError(msg)
 
     # Replace missing values with None
-    #author_df.fillna("None", inplace=True)
+    author_df.where((pandas.notnull(author_df)), None,inplace=True)
 
     authors = author_df.to_dict(orient='records')
     return authors
