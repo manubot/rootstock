@@ -21,6 +21,43 @@
 </ul>
 <h2 id="abstract">Abstract</h2>
 <p>Offspring of the <a href="https://github.com/greenelab/deep-review">Deep Review</a>. We cite the Deep Review like <span class="citation">[<a href="#ref-tJKvnIaZ">1</a>]</span> or <span class="citation">[<a href="#ref-tJKvnIaZ">1</a>]</span>. The source repository is <span class="citation">[<a href="#ref-1B7Y2HVtw">2</a>]</span>.</p>
+<h2 id="equations">Equations</h2>
+<p>Numbered equations can be included by using <code>$$</code> delimeters with embedded LaTeX math. Equations can be labeled with tags like this <code>{#eq:label}</code> and referenced in text using <code>@eq:label</code>.</p>
+<p><a name="eq:line"></a><span style="display: inline-block; position: relative; width: 100%"><br /><span class="math display"><em>y</em> = <em>m</em><em>x</em> + <em>b</em></span><br /><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(1)</span></span> </p>
+<p>Equation <a href="#eq:line">1</a> is the equation for a line in slope-intercept form.</p>
+<h2 id="figures">Figures</h2>
+<p>Numbered figures can be included by using the format <code>![Caption text](URL){#fig:label}</code>. The figures can be referenced in the text by using <code>@fig:label</code>.</p>
+<p>Figure <a href="#fig:googletrends">1</a> shows the interest for &quot;Sci-Hub&quot; and &quot;LigGen&quot; over time.</p>
+<div class="figure">
+<img src="https://cdn.rawgit.com/greenelab/scihub/7891082161dbcfcd5eeb1d7b76ee99ab44b95064/explore/trends/google-trends.svg" alt="Figure 1: Google Trends Search interest for Sci-Hub and LibGen." id="fig:googletrends" />
+<p class="caption">Figure 1: Google Trends Search interest for Sci-Hub and LibGen.</p>
+</div>
+<h1 id="tables">Tables</h1>
+<p>Numbered tables can be included by using Markdown syntax to create the table and then adding a tag after the caption like this <code>{#tbl:label}</code>. The tables can be referenced in the text by using <code>@tbl:label</code>.</p>
+<p>Table <a href="#tbl:interest">1</a> shows the relative search interest of the terms &quot;Sci-Hub&quot; and &quot;LibGen&quot; the week of June 25, 2017.</p>
+<a name="tbl:interest"></a>
+<table>
+<caption>Table 1: Google Trends Search interest for Sci-Hub and LibGen. </caption>
+<thead>
+<tr class="header">
+<th>week</th>
+<th>search_term</th>
+<th>interest</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2017-06-25</td>
+<td>LibGen</td>
+<td>47</td>
+</tr>
+<tr class="even">
+<td>2017-06-25</td>
+<td>Sci-Hub</td>
+<td>56</td>
+</tr>
+</tbody>
+</table>
 <div id="refs" class="references">
 <div id="ref-tJKvnIaZ">
 <p>1. Ching T <em>et al.</em> 2017 Opportunities And Obstacles For Deep Learning In Biology And Medicine. See <a href="https://doi.org/10.1101/142760" class="uri">https://doi.org/10.1101/142760</a>.</p>
