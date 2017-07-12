@@ -169,8 +169,7 @@ for old, new in zip(ref_df.text, ref_df.citation_id):
 converted_text = semicolon_separate_references(converted_text)
 
 # Template using jina2
-env = jinja2.Environment(loader=jinja2.BaseLoader(),
-                              comment_start_string='{##')
+env = jinja2.Environment(loader=jinja2.BaseLoader(), comment_start_string='{##'
 template = env.from_string(converted_text)
 converted_text = template.render(**stats)
 
