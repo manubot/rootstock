@@ -3,7 +3,6 @@ Process author table
 """
 
 import pandas
-import numpy
 
 
 def get_author_info(path):
