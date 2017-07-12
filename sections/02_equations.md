@@ -1,8 +1,7 @@
 ## Equations
 
-Numbered equations can be included by using `$$` delimeters with embedded LaTeX
-math. Equations can be labeled with tags like this `{#eq:label}` and referenced
-in text using `@eq:label`.
+Numbered equations can be included by using `$$` delimeters with embedded LaTeX math. 
+Equations can be labeled with tags like this `{#eq:label}` and referenced in text using `@eq:label`.
 
 $$ y = mx + b $$ {#eq:line}
 
