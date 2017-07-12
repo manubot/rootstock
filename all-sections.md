@@ -45,7 +45,7 @@ Figure @fig:googletrends shows the interest for "Sci-Hub" and "LigGen" over time
 ![Google Trends Search interest for Sci-Hub and LibGen.](https://cdn.rawgit.com/greenelab/scihub/7891082161dbcfcd5eeb1d7b76ee99ab44b95064/explore/trends/google-trends.svg){#fig:googletrends}
 
 
-# Tables
+## Tables
 
 Numbered tables can be included by using Markdown syntax to create the table and then adding a tag after the caption like this `{#tbl:label}`.
 The tables can be referenced in the text by using `@tbl:label`.
