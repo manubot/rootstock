@@ -12,15 +12,15 @@ def get_author_info(path):
     author_df = pandas.read_table(path)
 
     # Detect missing full name
-    missing_full_name = list(numpy.where(author_df['full_name'].isnull())[0])
+    missing_full_name = author_df[author_df['full_name'].isnull()].index.tolist()
     if missing_full_name:
         msg = f'Missing full name in authors.tsv for author(s): {missing_full_name}'
         raise ValueError(msg)
 
     # Detect missing author initials
-    missing_initials = list(numpy.where(author_df['initials'].isnull())[0])
+    missing_initials = author_df[author_df['initials'].isnull()].index.tolist()
     if missing_initials:
-        msg = f'Missing initials in authors.tsv for author(s): {missing_full_name}'
+        msg = f'Missing initials in authors.tsv for author(s): {missing_initials}'
         raise ValueError(msg)
 
     # Detect duplicate author initials
@@ -31,7 +31,7 @@ def get_author_info(path):
         raise ValueError(msg)
 
     # Replace missing values with None
-    author_df.fillna("None", inplace=True)
+    #author_df.fillna("None", inplace=True)
 
     authors = author_df.to_dict(orient='records')
     return authors
