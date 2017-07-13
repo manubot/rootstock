@@ -4,17 +4,21 @@
 
 
 + **Daniel S. Himmelstein**<br>
-  [\@dhimmel](https://github.com/dhimmel) ·
-  [0000-0002-3012-7446](https://orcid.org/0000-0002-3012-7446) ·
-  Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania ·
-  Funded by GBMF4552
+  [0000-0002-3012-7446](https://orcid.org/0000-0002-3012-7446)
+     · [\@dhimmel](https://github.com/dhimmel)
+     · Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania
+     · Funded by GBMF4552
 
 + **Anthony Gitter**<br>
-  [\@agitter](https://github.com/agitter) ·
-  [0000-0002-5324-9833](https://orcid.org/0000-0002-5324-9833) ·
-  Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison and Morgridge Institute for Research ·
-  Funded by NIH U54AI117924
+  [0000-0002-5324-9833](https://orcid.org/0000-0002-5324-9833)
+     · [\@agitter](https://github.com/agitter)
+     · Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison and Morgridge Institute for Research
+     · Funded by NIH U54AI117924
 
++ **Venkat S. Malladi**<br>
+  [0000-0002-0144-0564](https://orcid.org/0000-0002-0144-0564)
+     · [\@vsmalladi](https://github.com/vsmalladi)
+     · The Laboratory of Signaling and Gene Expression, Cecil H. and Ida Green Center for Reproductive Biology Sciences, University of Texas Southwestern Medical Center
 
 
 
