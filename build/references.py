@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 """
-Process citations and retrieve metadata
+Process citations and retrieve citation metadata
 """
 
 import collections
@@ -26,6 +26,7 @@ from citations import (
     semicolon_separate_references,
     validate_reference,
 )
+from metadata import get_metadata_info
 
 # Run only as a script
 assert __name__ == '__main__'
@@ -153,7 +154,7 @@ print('References by type:')
 print(ref_counts)
 
 # Author table information
-authors_path = pathlib.Path('../content/authors.tsv')
+authors_path = pathlib.Path('../content/metadata.yaml')
 stats['authors'] = get_author_info(authors_path)
 
 with gen_dir.joinpath('stats.json').open('wt') as write_file:
@@ -172,32 +173,14 @@ converted_text = semicolon_separate_references(converted_text)
 template = jinja2.Template(converted_text)
 converted_text = template.render(**stats)
 
-all_sections_file = gen_dir.joinpath('all-sections.md')
-
-#FIXME: Stubbing metadata:
-title_text = "Manubot Rootstock: Manuscript Title"
-abstract_text = "This is the abstract from the metadata."
-keywords_list = ['keyword0', 'keyword1', 'keyword2']
-yaml_metadata_block = True
-
-# Handle metadata:
-if yaml_metadata_block is True:
-    if all_sections_file.exists():
-        all_sections_file.unlink()
-    metadata = {'title': title_text,
-                'author': [],
-                'keywords': keywords_list,
-                'institution': [],
-                'abstract': abstract_text}
-    for author in stats['authors']:
-        metadata['author'].append(author['full_name'])
-        metadata['institution'].append(author['affiliations'])
-    # Write yaml metadata block
-    with all_sections_file.open('at') as write_file:
-        yaml.dump(metadata, write_file, explicit_start=True, explicit_end=True, default_flow_style=False)
+# Fetch metadata
+metadata_dict = get_metadata_info(pathlib.Path('../content/metadata.yaml'))
 
 # Write manuscript for pandoc
-with all_sections_file.open('at') as write_file:
+all_sections_file = gen_dir.joinpath('all-sections.md')
+with all_sections_file.open('wt') as write_file:
+    yaml.dump(metadata_dict, write_file, explicit_start=True,
+              explicit_end=True, default_flow_style=False)
     write_file.write(converted_text)
 
 # Write citation table
