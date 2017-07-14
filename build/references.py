@@ -16,7 +16,6 @@ import jinja2
 import pandas
 import yaml
 
-from authors import get_author_info
 from citations import (
     citation_to_metadata,
     citeproc_passthrough,
@@ -26,7 +25,6 @@ from citations import (
     semicolon_separate_references,
     validate_reference,
 )
-from metadata import get_metadata_info
 
 # Run only as a script
 assert __name__ == '__main__'
@@ -42,6 +40,68 @@ def get_divider(title='Error', linewidth=79, fill_character='#'):
         f' {title} '.center(linewidth, fill_character),
     ]
     return '\n'.join(lines)
+
+
+def get_all_metadata(path):
+    """
+    Load all of the metadata from a yaml file, & return.
+
+    :param path: pathlib.Path to a metadata YAML file.
+    :return: structured metadata object.
+    """
+    with path.open('r') as read_file:
+        metadata_dict = yaml.load(read_file)
+    metadata_dict['author'] = []
+    # Reformat author to match ``yaml_metadata_block`` formatting
+    for author in metadata_dict['author_info']
+        if 'full_name' in author.keys():
+            metadata_dict['author'].append(author['full_name'])
+
+    # Detect issues with author information
+    format_issues_dict = {'missing': {'initials': []},
+                     'duplicate': {'initials': [], 'full_name': []} }
+    format_check_failed = True
+    for author_index, author in enumerate(metadata_dict['author_info']):
+        for key, key_absences in format_issues_dict['missing'].items()
+            if key not in author.keys():
+                key_absences.append(author_index)
+                format_check_failed = True
+        for key, key_occurences in format_issues_dict['duplicate'].items():
+            if key in author and author[key] in key_occurences:
+                key_occurences[author[key]].append(author_index)
+                format_check_failed = True
+
+    # Print descriptive message for invalid author information
+    if format_check_failed is True:
+        msg = ''
+        for format_issue, format_issue_sub_dict in format_issues_dict.items():
+            for key, blame_list in format_issue_sub_dict:
+                msg += f'{format_issue} {key} detected in metadata.yaml for author(s): {blame_list}\n'.replace('_', ' ').capitalize()
+        raise ValueError(msg)
+    metadata = dict()
+    metadata['author_info'] = metadata_dict.pop('author_info')
+    metadata['pandoc_metadata'] = metadata_dict
+    return metadata
+
+
+def get_author_info(path):
+    """
+    Load the author table and return the list of authors.
+
+    :param path: pathlib.Path to a metadata YAML file.
+    :return: dict with structured author metadata.
+    """
+    return get_all_metadata(path)['author_info']
+
+
+def get_pandoc_metadata(path):
+    """
+    Load the metadata yaml block for doc header
+
+    :param path: pathlib.Path to a metadata YAML file.
+    :return: dict with structured metadata.
+    """
+    return get_all_metadata(path)['pandoc_metadata']
 
 
 # Manuscript statistics
@@ -169,15 +229,19 @@ for old, new in zip(ref_df.text, ref_df.citation_id):
 # Semicolon separate multiple refernces for pandoc-citeproc
 converted_text = semicolon_separate_references(converted_text)
 
-# Template using jina2
-template = jinja2.Template(converted_text)
+# Template using jinja2
+jinja_environment = jinja2.Environment(
+    loader=jinja2.BaseLoader(),
+    comment_start_string='{##',
+)
+template = jinja_environment.from_string(converted_text)
 converted_text = template.render(**stats)
 
 # Fetch metadata
-metadata_dict = get_metadata_info(pathlib.Path('../content/metadata.yaml'))
+pandoc_metadata = get_pandoc_metadata(pathlib.Path('../content/metadata.yaml'))
 
 # Write manuscript for pandoc
-all_sections_file = gen_dir.joinpath('all-sections.md')
+all_sections_path = gen_dir.joinpath('all-sections.md')
 with all_sections_file.open('wt') as write_file:
     yaml.dump(metadata_dict, write_file, explicit_start=True,
               explicit_end=True, default_flow_style=False)
