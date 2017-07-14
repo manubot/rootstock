@@ -37,7 +37,7 @@ pandoc --verbose \
 # Create PDF output
 echo "Exporting PDF manuscript"
 pandoc \
-  --from=markdown+yaml_metadata_block \
+  --from=markdown \
   --to=html5 \
   --filter pandoc-fignos \
   --filter pandoc-eqnos \
