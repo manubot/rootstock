@@ -16,8 +16,6 @@ def get_metadata_object(path):
     :param path: pathlib.Path to a metadata YAML file.
     :return: structured metadata object.
     """
-    class metadata(object):
-        pass
     with path.open('r') as read_file:
         metadata_dict = yaml.load(read_file)
     initials = []
@@ -31,8 +29,9 @@ def get_metadata_object(path):
         duplicated_initials = [k for k, v in d.items() if v > 1]
         msg = f'Duplicated initials in metadata.yaml: {duplicated_initials}'
         raise ValueError(msg)
-    metadata.author_info = metadata_dict.pop('author_info')
-    metadata.header_block = metadata_dict
+    metadata = dict()
+    metadata['author_info'] = metadata_dict.pop('author_info')
+    metadata['header_block'] = metadata_dict
     return metadata
 
 def get_metadata_info(path):
@@ -42,5 +41,5 @@ def get_metadata_info(path):
     :param path: pathlib.Path to a metadata YAML file.
     :return: dict with structured metadata.
     """
-    return get_metadata_object(path).header_block
+    return get_metadata_object(path)['header_block']
 
