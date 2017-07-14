@@ -42,7 +42,7 @@ def get_divider(title='Error', linewidth=79, fill_character='#'):
     return '\n'.join(lines)
 
 
-def get_all_metadata(path):
+def get_pandoc_metadata(path):
     """
     Load all of the metadata from a yaml file, & return.
 
@@ -56,10 +56,7 @@ def get_all_metadata(path):
     for author in metadata_dict['author_info']:
         if 'full_name' in author.keys():
             metadata_dict['author'].append(author['full_name'])
-    metadata = dict()
-    metadata['author_info'] = metadata_dict.pop('author_info')
-    metadata['pandoc_metadata'] = metadata_dict
-    return metadata
+    return metadata_dict
 
 
 def get_author_info(path):
@@ -70,7 +67,7 @@ def get_author_info(path):
     :return: dict with structured author metadata.
     """
     # Detect issues with author information
-    metadata_dict = get_all_metadata(path)['author_info']
+    metadata_dict = get_pandoc_metadata(path)['author_info']
     format_issues_dict = {'missing': {'initials': []},
                      'duplicate': {'initials': [], 'full_name': []} }
     format_check_failed = False
@@ -92,16 +89,6 @@ def get_author_info(path):
                 msg += f'{format_issue} {key} detected in metadata.yaml for author(s): {blame_list}\n'.replace('_', ' ').capitalize()
         raise ValueError(msg)
     return metadata_dict
-
-
-def get_pandoc_metadata(path):
-    """
-    Load the metadata yaml block for doc header
-
-    :param path: pathlib.Path to a metadata YAML file.
-    :return: dict with structured metadata.
-    """
-    return get_all_metadata(path)['pandoc_metadata']
 
 
 # Manuscript statistics
