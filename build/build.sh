@@ -20,7 +20,7 @@ mkdir -p output
 # http://pandoc.org/MANUAL.html
 echo "Exporting HTML manuscript"
 pandoc --verbose \
-  --from=markdown+yaml_metadata_block \
+  --from=markdown \
   --to=html \
   --filter pandoc-fignos \
   --filter pandoc-eqnos \
