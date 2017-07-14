@@ -53,31 +53,9 @@ def get_all_metadata(path):
         metadata_dict = yaml.load(read_file)
     metadata_dict['author'] = []
     # Reformat author to match ``yaml_metadata_block`` formatting
-    for author in metadata_dict['author_info']
+    for author in metadata_dict['author_info']:
         if 'full_name' in author.keys():
             metadata_dict['author'].append(author['full_name'])
-
-    # Detect issues with author information
-    format_issues_dict = {'missing': {'initials': []},
-                     'duplicate': {'initials': [], 'full_name': []} }
-    format_check_failed = True
-    for author_index, author in enumerate(metadata_dict['author_info']):
-        for key, key_absences in format_issues_dict['missing'].items()
-            if key not in author.keys():
-                key_absences.append(author_index)
-                format_check_failed = True
-        for key, key_occurences in format_issues_dict['duplicate'].items():
-            if key in author and author[key] in key_occurences:
-                key_occurences[author[key]].append(author_index)
-                format_check_failed = True
-
-    # Print descriptive message for invalid author information
-    if format_check_failed is True:
-        msg = ''
-        for format_issue, format_issue_sub_dict in format_issues_dict.items():
-            for key, blame_list in format_issue_sub_dict:
-                msg += f'{format_issue} {key} detected in metadata.yaml for author(s): {blame_list}\n'.replace('_', ' ').capitalize()
-        raise ValueError(msg)
     metadata = dict()
     metadata['author_info'] = metadata_dict.pop('author_info')
     metadata['pandoc_metadata'] = metadata_dict
@@ -91,7 +69,29 @@ def get_author_info(path):
     :param path: pathlib.Path to a metadata YAML file.
     :return: dict with structured author metadata.
     """
-    return get_all_metadata(path)['author_info']
+    # Detect issues with author information
+    metadata_dict = get_all_metadata(path)['author_info']
+    format_issues_dict = {'missing': {'initials': []},
+                     'duplicate': {'initials': [], 'full_name': []} }
+    format_check_failed = False
+    for author_index, author in enumerate(metadata_dict):
+        for key, key_absences in format_issues_dict['missing'].items():
+            if key not in author.keys():
+                key_absences.append(author_index)
+                format_check_failed = True
+        for key, key_occurences in format_issues_dict['duplicate'].items():
+            if key in author and author[key] in key_occurences:
+                key_occurences[author[key]].append(author_index)
+                format_check_failed = True
+
+    # Print descriptive message for invalid author information
+    if format_check_failed is True:
+        msg = ''
+        for format_issue, format_issue_sub_dict in format_issues_dict.items():
+            for key, blame_list in format_issue_sub_dict.items():
+                msg += f'{format_issue} {key} detected in metadata.yaml for author(s): {blame_list}\n'.replace('_', ' ').capitalize()
+        raise ValueError(msg)
+    return metadata_dict
 
 
 def get_pandoc_metadata(path):
@@ -214,7 +214,7 @@ print('References by type:')
 print(ref_counts)
 
 # Author table information
-authors_path = pathlib.Path('../content/metadata.yaml')
+authors_path = pathlib.Path('../content/metadata.yml')
 stats['authors'] = get_author_info(authors_path)
 
 with gen_dir.joinpath('stats.json').open('wt') as write_file:
@@ -238,12 +238,12 @@ template = jinja_environment.from_string(converted_text)
 converted_text = template.render(**stats)
 
 # Fetch metadata
-pandoc_metadata = get_pandoc_metadata(pathlib.Path('../content/metadata.yaml'))
+pandoc_metadata_dict = get_pandoc_metadata(pathlib.Path('../content/metadata.yml'))
 
 # Write manuscript for pandoc
 all_sections_path = gen_dir.joinpath('all-sections.md')
-with all_sections_file.open('wt') as write_file:
-    yaml.dump(metadata_dict, write_file, explicit_start=True,
+with all_sections_path.open('wt') as write_file:
+    yaml.dump(pandoc_metadata_dict, write_file, explicit_start=True,
               explicit_end=True, default_flow_style=False)
     write_file.write(converted_text)
 

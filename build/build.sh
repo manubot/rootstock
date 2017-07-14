@@ -5,7 +5,7 @@ export LC_ALL=en_US.UTF-8
 
 # Generate reference information
 echo "Retrieving and processing reference metadata"
-(cd build && python references.py && python metadata.py)
+(cd build && python references.py)
 
 # pandoc settings
 CSL_PATH=references/style.csl
