@@ -15,11 +15,15 @@ INPUT_PATH=references/generated/all-sections.md
 # Make output directory
 mkdir -p output
 
-# Create HTML outpout
+# Create HTML output
 # http://pandoc.org/MANUAL.html
 echo "Exporting HTML manuscript"
 pandoc --verbose \
-  --from=markdown --to=html \
+  --from=markdown \
+  --to=html \
+  --filter pandoc-fignos \
+  --filter pandoc-eqnos \
+  --filter pandoc-tablenos \
   --bibliography=$BIBLIOGRAPHY_PATH \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
@@ -29,13 +33,13 @@ pandoc --verbose \
   --output=output/index.html \
   $INPUT_PATH
 
-# Create PDF outpout
+# Remove h2 author names from HTML body but keep them as
+# metadata in the head.
+sed --in-place '/<h2 class="author">/d' output/index.html
+
+# Create PDF output
 echo "Exporting PDF manuscript"
-pandoc \
-  --from=markdown \
-  --to=html5 \
-  --bibliography=$BIBLIOGRAPHY_PATH \
-  --csl=$CSL_PATH \
-  --metadata link-citations=true \
-  --output=output/manuscript.pdf \
-  $INPUT_PATH
+wkhtmltopdf \
+  --quiet \
+  output/index.html \
+  output/manuscript.pdf
