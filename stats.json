@@ -36,5 +36,9 @@
       "full_name": "Evan M. Cofer",
       "initials": "EMC"
     }
-  ]
+  ],
+  "ci_source": {
+    "repo_slug": "greenelab/manubot-rootstock",
+    "commit": "6744cdc920d36d01df76be791adf6c0503556224"
+  }
 }
