@@ -36,7 +36,7 @@ pandoc --verbose \
 
 # Remove h2 author names from HTML body but keep them as
 # metadata in the head.
-#sed --in-place '/<h2 class="author">/d' output/index.html
+sed --in-place '/<h2 class="author">/d' output/index.html
 
 # Create PDF output
 echo "Exporting PDF manuscript"
@@ -53,8 +53,9 @@ pandoc --verbose \
 --filter pandoc-fignos \
 --filter pandoc-tablenos \
 --bibliography=$BIBLIOGRAPHY_PATH \
- --csl=$CSL_PATH \
+--csl=$CSL_PATH \
 --reference-docx=$DOCX_PATH \
+--self-contained \
 --metadata link-citations=true \
 --include-in-header=build/assets/analytics.js \
 --include-after-body=build/assets/anchors.js \
