@@ -60,7 +60,7 @@ Equation @eq:line is the equation for a line in slope-intercept form.
 Numbered figures can be included by using the format `![Caption text](URL){#fig:label}`.
 The figures can be referenced in the text by using `@fig:label`.
 
-Figure @fig:googletrends shows the interest for "Sci-Hub" and "LigGen" over time.
+Figure @fig:googletrends shows the interest for "Sci-Hub" and "LibGen" over time.
 
 ![Google Trends Search interest for Sci-Hub and LibGen.](https://cdn.rawgit.com/greenelab/scihub/7891082161dbcfcd5eeb1d7b76ee99ab44b95064/explore/trends/google-trends.svg){#fig:googletrends}
 
