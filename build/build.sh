@@ -9,6 +9,7 @@ echo "Retrieving and processing reference metadata"
 
 # pandoc settings
 CSL_PATH=references/style.csl
+DOCX_PATH=references/reference-docx.docx
 BIBLIOGRAPHY_PATH=references/generated/bibliography.json
 INPUT_PATH=references/generated/all-sections.md
 
@@ -52,7 +53,8 @@ pandoc --verbose \
 --filter pandoc-fignos \
 --filter pandoc-tablenos \
 --bibliography=$BIBLIOGRAPHY_PATH \
---csl=$CSL_PATH \
+ --csl=$CSL_PATH \
+--reference-docx=$DOCX_PATH \
 --metadata link-citations=true \
 --include-in-header=build/assets/analytics.js \
 --include-after-body=build/assets/anchors.js \
