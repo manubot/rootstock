@@ -1,4 +1,16 @@
-# Manubot Rootstock: Manuscript Title
+---
+author:
+- Daniel S. Himmelstein
+- Anthony Gitter
+- Venkat S. Malladi
+- Evan M. Cofer
+keywords:
+- work-in-progress
+- markdown
+- manuscript
+- publishing
+title: 'Manubot Rootstock: Manuscript Title'
+...
 
 ## Authors
 
@@ -20,6 +32,10 @@
      · [\@vsmalladi](https://github.com/vsmalladi)
      · The Laboratory of Signaling and Gene Expression, Cecil H. and Ida Green Center for Reproductive Biology Sciences, University of Texas Southwestern Medical Center
 
++ **Evan M. Cofer**<br>
+  [](https://orcid.org/)
+     · [\@evancofer](https://github.com/evancofer)
+
 
 
 ## Abstract
@@ -29,7 +45,7 @@ We cite the Deep Review like [@tJKvnIaZ] or [@tJKvnIaZ].
 The source repository is [@1B7Y2HVtw].
 
 
-## Equations
+### Equations
 
 Numbered equations can be included by using `$$` delimeters with embedded LaTeX math.
 Equations can be labeled with tags like this `{#eq:label}` and referenced in text using `@eq:label`.
@@ -39,7 +55,7 @@ $$ y = mx + b $$ {#eq:line}
 Equation @eq:line is the equation for a line in slope-intercept form.
 
 
-## Figures
+### Figures
 
 Numbered figures can be included by using the format `![Caption text](URL){#fig:label}`.
 The figures can be referenced in the text by using `@fig:label`.
@@ -49,7 +65,7 @@ Figure @fig:googletrends shows the interest for "Sci-Hub" and "LigGen" over time
 ![Google Trends Search interest for Sci-Hub and LibGen.](https://cdn.rawgit.com/greenelab/scihub/7891082161dbcfcd5eeb1d7b76ee99ab44b95064/explore/trends/google-trends.svg){#fig:googletrends}
 
 
-## Tables
+### Tables
 
 Numbered tables can be included by using Markdown syntax to create the table and then adding a tag after the caption like this `{#tbl:label}`.
 The tables can be referenced in the text by using `@tbl:label`.
