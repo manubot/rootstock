@@ -20,6 +20,7 @@ mkdir -p output
 # http://pandoc.org/MANUAL.html
 echo "Exporting HTML manuscript"
 pandoc --verbose \
+  --smart \
   --from=markdown \
   --to=html \
   --filter pandoc-fignos \
@@ -55,9 +56,6 @@ pandoc --verbose \
 --bibliography=$BIBLIOGRAPHY_PATH \
 --csl=$CSL_PATH \
 --reference-docx=$DOCX_PATH \
---self-contained \
 --metadata link-citations=true \
---include-in-header=build/assets/analytics.js \
---include-after-body=build/assets/anchors.js \
 --output=output/manuscript.docx \
 $INPUT_PATH
