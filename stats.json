@@ -10,6 +10,7 @@
       "full_name": "Daniel S. Himmelstein",
       "initials": "DSH",
       "orcid": "0000-0002-3012-7446",
+      "twitter_username": "dhimmel",
       "email": "daniel.himmelstein@gmail.com",
       "affiliations": "Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania",
       "funders": "GBMF4552"
@@ -39,6 +40,6 @@
   ],
   "ci_source": {
     "repo_slug": "greenelab/manubot-rootstock",
-    "commit": "2f51e26c9e5f0a41cd7eb246e5bfc6b6be06c2c0"
+    "commit": "89e0cbc8650d62f177772fc4dd5814ed9acebe42"
   }
 }

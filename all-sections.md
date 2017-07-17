@@ -14,7 +14,7 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 
 <small><em>
-This manuscript was automatically generated from [greenelab/manubot-rootstock@2f51e26](https://github.com/greenelab/manubot-rootstock/tree/2f51e26c9e5f0a41cd7eb246e5bfc6b6be06c2c0).
+This manuscript was automatically generated from [greenelab/manubot-rootstock@89e0cbc](https://github.com/greenelab/manubot-rootstock/tree/89e0cbc8650d62f177772fc4dd5814ed9acebe42).
 </em></small>
 
 
@@ -22,25 +22,41 @@ This manuscript was automatically generated from [greenelab/manubot-rootstock@2f
 
 
 + **Daniel S. Himmelstein**<br>
-  [0000-0002-3012-7446](https://orcid.org/0000-0002-3012-7446)
-     · [\@dhimmel](https://github.com/dhimmel)
-     · Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania
+    ![ORCID icon](images/orcid.svg){height="13px"}
+    [0000-0002-3012-7446](https://orcid.org/0000-0002-3012-7446)
+    · ![GitHub icon](images/github.svg){height="13px"}
+    [dhimmel](https://github.com/dhimmel)
+    · ![Twitter icon](images/twitter.svg){height="13px"}
+    [dhimmel](https://twitter.com/dhimmel)<br>
+  <small>
+     Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania
      · Funded by GBMF4552
+  </small>
 
 + **Anthony Gitter**<br>
-  [0000-0002-5324-9833](https://orcid.org/0000-0002-5324-9833)
-     · [\@agitter](https://github.com/agitter)
-     · Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison and Morgridge Institute for Research
+    ![ORCID icon](images/orcid.svg){height="13px"}
+    [0000-0002-5324-9833](https://orcid.org/0000-0002-5324-9833)
+    · ![GitHub icon](images/github.svg){height="13px"}
+    [agitter](https://github.com/agitter)<br>
+  <small>
+     Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison and Morgridge Institute for Research
      · Funded by NIH U54AI117924
+  </small>
 
 + **Venkat S. Malladi**<br>
-  [0000-0002-0144-0564](https://orcid.org/0000-0002-0144-0564)
-     · [\@vsmalladi](https://github.com/vsmalladi)
-     · The Laboratory of Signaling and Gene Expression, Cecil H. and Ida Green Center for Reproductive Biology Sciences, University of Texas Southwestern Medical Center
+    ![ORCID icon](images/orcid.svg){height="13px"}
+    [0000-0002-0144-0564](https://orcid.org/0000-0002-0144-0564)
+    · ![GitHub icon](images/github.svg){height="13px"}
+    [vsmalladi](https://github.com/vsmalladi)<br>
+  <small>
+     The Laboratory of Signaling and Gene Expression, Cecil H. and Ida Green Center for Reproductive Biology Sciences, University of Texas Southwestern Medical Center
+  </small>
 
 + **Evan M. Cofer**<br>
-  [](https://orcid.org/)
-     · [\@evancofer](https://github.com/evancofer)
+    · ![GitHub icon](images/github.svg){height="13px"}
+    [evancofer](https://github.com/evancofer)<br>
+  <small>
+  </small>
 
 
 
