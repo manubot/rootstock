@@ -14,7 +14,7 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 
 <small><em>
-This manuscript was automatically generated from [greenelab/manubot-rootstock@83659ae](https://github.com/greenelab/manubot-rootstock/tree/83659ae612b840226b9683ee30cc277bd40ae54e).
+This manuscript was automatically generated from [greenelab/manubot-rootstock@9117720](https://github.com/greenelab/manubot-rootstock/tree/911772075b730621079d98ac346a60245b0179ec).
 </em></small>
 
 
@@ -69,7 +69,7 @@ The source repository is [@1B7Y2HVtw].
 
 ### Equations
 
-Numbered equations can be included by using `$$` delimeters with embedded LaTeX math.
+Numbered equations can be included by using `$$` delimiters with embedded LaTeX math.
 Equations can be labeled with tags like this `{#eq:label}` and referenced in text using `@eq:label`.
 
 $$ y = mx + b $$ {#eq:line}
