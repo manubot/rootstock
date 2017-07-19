@@ -2,6 +2,7 @@
 
 [`build.sh`](build.sh) builds the repository.
 `sh build.sh` should be executed from the root directory of the repository.
+`BUILD_DOCX=true sh build/build.sh` should be executed to build DOCX document, otherwise will be skipped.
 
 ## Environment
 

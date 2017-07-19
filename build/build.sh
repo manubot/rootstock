@@ -46,16 +46,20 @@ wkhtmltopdf \
   output/index.html \
   output/manuscript.pdf
 
-echo "Exporting Word Docx manuscript"
-pandoc --verbose \
---smart \
---from=markdown \
---to=docx \
---filter pandoc-fignos \
---filter pandoc-tablenos \
---bibliography=$BIBLIOGRAPHY_PATH \
---csl=$CSL_PATH \
---reference-docx=$DOCX_PATH \
---metadata link-citations=true \
---output=output/manuscript.docx \
-$INPUT_PATH
+# Create DOCX output when user specifies to do so
+if [[ $BUILD_DOCX == true ]]
+then
+    echo "Exporting Word Docx manuscript"
+    pandoc --verbose \
+    --smart \
+    --from=markdown \
+    --to=docx \
+    --filter pandoc-fignos \
+    --filter pandoc-tablenos \
+    --bibliography=$BIBLIOGRAPHY_PATH \
+    --csl=$CSL_PATH \
+    --reference-docx=$DOCX_PATH \
+    --metadata link-citations=true \
+    --output=output/manuscript.docx \
+    $INPUT_PATH
+fi
