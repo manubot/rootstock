@@ -9,7 +9,7 @@ echo "Retrieving and processing reference metadata"
 
 # pandoc settings
 CSL_PATH=references/style.csl
-DOCX_PATH=references/reference-docx.docx
+DOCX_PATH=references/pandoc-reference.docx
 BIBLIOGRAPHY_PATH=references/generated/bibliography.json
 INPUT_PATH=references/generated/all-sections.md
 
@@ -59,7 +59,6 @@ then
     --bibliography=$BIBLIOGRAPHY_PATH \
     --csl=$CSL_PATH \
     --reference-docx=$DOCX_PATH \
-    --metadata link-citations=true \
     --output=output/manuscript.docx \
     $INPUT_PATH
 fi
