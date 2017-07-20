@@ -57,6 +57,7 @@ then
     --filter pandoc-fignos \
     --filter pandoc-tablenos \
     --bibliography=$BIBLIOGRAPHY_PATH \
+    --metadata link-citations=true \
     --csl=$CSL_PATH \
     --reference-docx=$DOCX_PATH \
     --output=output/manuscript.docx \
