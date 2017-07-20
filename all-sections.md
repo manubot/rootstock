@@ -14,7 +14,7 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 
 <small><em>
-This manuscript was automatically generated from [greenelab/manubot-rootstock@8993c17](https://github.com/greenelab/manubot-rootstock/tree/8993c17b80765115c5377da38ed3f9b7c4df6595).
+This manuscript was automatically generated from [greenelab/manubot-rootstock@d08d0bf](https://github.com/greenelab/manubot-rootstock/tree/d08d0bf2f3291bc0809e9fa78062bebe43088868).
 </em></small>
 
 
@@ -67,7 +67,7 @@ We cite the Deep Review like [@tJKvnIaZ] or [@tJKvnIaZ].
 The source repository is [@1B7Y2HVtw].
 
 
-### Equations
+### Equations {.page_break_before}
 
 Numbered equations can be included by using `$$` delimiters with embedded LaTeX math.
 Equations can be labeled with tags like this `{#eq:label}` and referenced in text using `@eq:label`.
