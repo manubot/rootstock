@@ -14,7 +14,7 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 
 <small><em>
-This manuscript was automatically generated from [greenelab/manubot-rootstock@3773330](https://github.com/greenelab/manubot-rootstock/tree/3773330d711fd2187bee89df44eafe6d69aa3015).
+This manuscript was automatically generated from [greenelab/manubot-rootstock@2b1fd89](https://github.com/greenelab/manubot-rootstock/tree/2b1fd89c531cfa0bbedcd5e30b450eb6b9055bd0).
 </em></small>
 
 
