@@ -77,13 +77,21 @@ body {
     margin: 0;
 }
 
+/* 
+ * Page margins when printing
+ * https://github.com/wkhtmltopdf/wkhtmltopdf/issues/2982#issuecomment-308714479
+ */
+@page { 
+    margin-top: 22mm;
+    margin-bottom: 20mm;
+}
 
 /* 
  * Page Breaks
  * https://github.com/wkhtmltopdf/wkhtmltopdf/issues/2982#issuecomment-308714479
  */
 
-@media screen, print {
+@media print {
   /***Always insert a page break before the element***/
   .page_break_before {
       page-break-before: always !important;

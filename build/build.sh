@@ -39,6 +39,9 @@ pandoc --verbose \
 echo "Exporting PDF manuscript"
 wkhtmltopdf \
   --quiet \
+  --print-media-type \
+  --margin-top 22 \
+  --margin-bottom 20 \
   output/index.html \
   output/manuscript.pdf
 
