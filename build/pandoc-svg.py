@@ -13,7 +13,7 @@ import sys
 from pandocfilters import toJSONFilter, Para, Image
 
 fmt_to_option = {
-    "docx": ("--export-eps", "eps")
+    "docx": ("--export-pdf", "pdf")
 }
 
 
