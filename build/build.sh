@@ -52,6 +52,8 @@ then
     --to=docx \
     --filter pandoc-fignos \
     --filter pandoc-tablenos \
+    --filter pandoc-img-glob \
+    --filter build/pandoc-svg.py \
     --bibliography=$BIBLIOGRAPHY_PATH \
     --metadata link-citations=true \
     --csl=$CSL_PATH \

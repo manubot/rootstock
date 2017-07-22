@@ -17,6 +17,8 @@ dependencies:
     - git+https://github.com/greenelab/manubot@b0da17625e1f12091159f15a329391b85c205565
     - pandoc-eqnos==0.16
     - pandoc-fignos==0.20
+    - pandoc-img-glob==0.1.3
+    - panflute==1.10.5
     - pandoc-tablenos==0.16
     - pybase62==0.3.2
     - pysha3==1.0.2
