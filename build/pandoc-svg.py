@@ -10,6 +10,8 @@ import mimetypes
 import subprocess
 import os
 import sys
+import re
+import urllib
 from pandocfilters import toJSONFilter, Para, Image
 
 fmt_to_option = {
@@ -17,7 +19,8 @@ fmt_to_option = {
 }
 
 
-buildir = os.getcwd()
+build_dir = os.getcwd()
+img_dir = "content/images/"
 
 
 def svg_to_any(key, value, fmt, meta):
@@ -31,14 +34,25 @@ def svg_to_any(key, value, fmt, meta):
         mimet, _ = mimetypes.guess_type(src)
         option = fmt_to_option.get(fmt)
         if mimet == 'image/svg+xml' and option:
-            base_name, _ = os.path.splitext(src)
-            eps_name = os.path.join(buildir, base_name + "." + option[1])
-            file_name = os.path.join(buildir, src)
+            web_image = re.compile('^http[s]?://')
+            if web_image.match(src):
+                base_name = os.path.basename(src)
+                base_name, _ = os.path.splitext(base_name)
+                eps_name = os.path.join(build_dir, img_dir, base_name + "." + option[1])
+                file_name = src
+            else:
+                base_name, _ = os.path.splitext(src)
+                eps_name = os.path.join(build_dir, base_name + "." + option[1])
+                file_name = os.path.join(build_dir, src)
             try:
                 mtime = os.path.getmtime(eps_name)
             except OSError:
                 mtime = -1
-            if mtime < os.path.getmtime(src):
+            try:
+                 src_mtime = os.path.getmtime(src)
+            except FileNotFoundError:
+                src_mtime = -1
+            if mtime < src_mtime or web_image.match(src):
                 cmd_line = ['inkscape', option[0], eps_name, file_name]
                 sys.stderr.write("Running %s\n" % " ".join(cmd_line))
                 subprocess.call(cmd_line, stdout=sys.stderr.fileno())
