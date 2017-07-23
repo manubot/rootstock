@@ -77,10 +77,7 @@ body {
     margin: 0;
 }
 
-/* 
- * Page margins when printing
- * https://github.com/wkhtmltopdf/wkhtmltopdf/issues/2982#issuecomment-308714479
- */
+/***Page margins when printing***/
 @page { 
     margin-top: 22mm;
     margin-bottom: 20mm;
