@@ -79,8 +79,10 @@ body {
 
 /***Page margins when printing***/
 @page { 
-    margin-top: 22mm;
-    margin-bottom: 20mm;
+    margin-top: 19mm;
+    margin-bottom: 16mm;
+    margin-left: 0mm;
+    margin-right: 0mm;
 }
 
 /* 

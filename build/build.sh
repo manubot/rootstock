@@ -40,8 +40,10 @@ echo "Exporting PDF manuscript"
 wkhtmltopdf \
   --quiet \
   --print-media-type \
-  --margin-top 22 \
-  --margin-bottom 20 \
+  --margin-top 21 \
+  --margin-bottom 17 \
+  --margin-left 0 \
+  --margin-right 0 \
   output/index.html \
   output/manuscript.pdf
 
