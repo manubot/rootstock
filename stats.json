@@ -4,7 +4,7 @@
     "url": 1,
     "total": 2
   },
-  "date": "July 29, 2017",
+  "date": "July 30, 2017",
   "authors": [
     {
       "github": "dhimmel",
@@ -41,7 +41,7 @@
   ],
   "ci_source": {
     "repo_slug": "greenelab/manubot-rootstock",
-    "commit": "8c5143254acb93b467f2a6ea0455d241bfda8011"
+    "commit": "247fdbe80e4a83c83f70a57ffd0ab01d99d6434c"
   },
   "word_count": 325
 }
