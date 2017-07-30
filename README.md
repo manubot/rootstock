@@ -13,7 +13,7 @@ The most current version of the `master` branch is built by continuous integrati
 To see what's incoming, check the [open pull requests](https://github.com/greenelab/manubot-rootstock/pulls).
 
 Instructions for using Manubot Rootstock for your own manuscript are still evolving.
-The recommneded approach is to clone this repository, as detailed [here](https://github.com/greenelab/manubot-rootstock/issues/6#issuecomment-314541837).
+The recommended approach is to clone this repository, as detailed [here](https://github.com/greenelab/manubot-rootstock/issues/6#issuecomment-314541837).
 
 ## Source
 
