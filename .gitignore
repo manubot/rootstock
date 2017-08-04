@@ -3,6 +3,9 @@ output/
 
 webpage/*.ots
 
+# Manubot cache directory
+ci/cache
+
 # Generated reference files
 references/generated/*
 !references/generated/README.md

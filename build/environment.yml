@@ -13,7 +13,7 @@ dependencies:
   - pip:
     - errorhandler==2.0.1
     - ghp-import==0.5.5
-    - git+https://github.com/dhimmel/manubot@0f51b63ce2f0853c5c24d2b55c2bcb16dc915a89
+    - git+https://github.com/dhimmel/manubot@21bf789294c0e9c9231aef5de73fc0111853b6bf
     - pandoc-eqnos==0.16
     - pandoc-fignos==0.20
     - pandoc-tablenos==0.16
