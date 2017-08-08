@@ -1,30 +1,121 @@
-# Manuscript contribution guidelines
+# Manubot usage & contribution guidelines
 
-## Markdown
+This repository uses the [Manubot](https://github.com/greenelab/manubot) to automatically produce a manuscript from its source.
 
-The paper will be written using markdown. Markdown files use the `.md` extension.
-Check out the [CommonMark Help](http://commonmark.org/help/) page for an introduction to formatting options provided by markdown.
-In addition, to standard markdown features, we support [markdown tables](https://help.github.com/articles/organizing-information-with-tables/ "GitHub Help: Organizing information with tables") and a custom citation syntax.
-Check out [Tables Generator](http://www.tablesgenerator.com/markdown_tables) for creating markdown tables.
+## Manubot Markdown
 
-The custom citation guidelines are as follows:
+Manuscript text should be written in markdown files, which should be located in [`content`](content) with a digit prefix for ordering (e.g. `01.`, `02.`, etc.) and a `.md` extension.
 
-1. Always use a DOI for the version of record if available.
-  Cite DOIs like `[@doi:10.15363/thinklab.4]`.
-2. If the version of record doesn't have a DOI but does have a PubMed ID, cite like `[@pmid:26158728]`.
-3. If the article is an _arXiv_ preprint, cite like `[@arxiv:1508.06576]`.
-4. If and only if the article has none of the above, cite with the URL like `[@url:http://openreview.net/pdf?id=Sk-oDY9ge]`.
+For basic formatting, check out the [CommonMark Help](http://commonmark.org/help/) page for an introduction to the formatting options provided by standard markdown.
+In addition, manubot supports an extended version of markdown, tailored for scholarly writing.
 
-You cite multiple items at once like `[@doi:10.15363/thinklab.4 @pmid:26158728 @arxiv:1508.06576]`.
+### Tables
 
-The system also supports tags, which may be helpful when a single reference is cited many times.
-For example, you can add a reference to the tag `study_x` using the following syntax: `[@tag:study_x]`.
-If you add references that use tags, make sure to add those tags and their corresponding citations to [`references/tags.tsv`](references/tags.tsv).
+Manubot supports [markdown tables](https://help.github.com/articles/organizing-information-with-tables/ "GitHub Help: Organizing information with tables").
 
-If the automatically extracted reference information contains errors, it can be [manually overridden](references/README.md#reference-overrides).
+```md
+| Column 1 | Column 2 | Column 3 |
+|----------|----------|----------|
+| value_a | 1 | 47 |
+| value_b | 2 | 56 |
 
-## Authorship information
+Table: Caption for this example table. {#tbl:example-id}
+```
 
-Authorship information and order is extracted from [`authors.tsv`](../content/authors.tsv).
-To add an author, insert a row into this table.
-We recommend authors add themselves to `authors.tsv` via pull request (when requested by a maintainer), thereby signaling that they've read and approved the manuscript.
+Support for table numbering and citation is provided by [`pandoc-tablenos`](https://github.com/tomduck/pandoc-tablenos).
+Above, `{#tbl:example-id}` sets the table ID, which creates an HTML anchor and allows citing the table like `@tbl:example-id`.
+For easy creation of markdown tables, check out the [Tables Generator](http://www.tablesgenerator.com/markdown_tables) webapp.
+
+### Figures
+
+Figures can be included with the following markdown:
+
+```md
+![Caption for the example figure.](url_or_path_to_figure){#fig:example-id}
+```
+
+Support for figure numbering and citation is provided by [`pandoc-fignos`](https://github.com/tomduck/pandoc-fignos).
+This figure can be cited in the text using `@fig:example-id`.
+In context, a figure citation may look like: `Figure {@fig:example-id}B shows …`.
+
+For images created by the manuscript authors that are hosted elsewhere on GitHub, we recommend using a [versioned](https://help.github.com/articles/getting-permanent-links-to-files/) GitHub URL to embed figures, thereby preserving exact image provenance.
+When embedding SVG images hosted on GitHub, passing the URL through [RawGit](https://rawgit.com/) is necessary.
+An example of a URL that has been passed through RawGit is:
+
+```
+https://cdn.rawgit.com/greenelab/scihub/572d6947cb958e797d1a07fdb273157ad9154273/figure/citescore.svg
+```
+
+Figures placed in the [`content/images`](content/images) directory can be embedded using their relative path.
+For example, we embed an [ORCID](https://orcid.org/) icon inline using:
+
+```md
+![ORCID icon](images/orcid.svg){height="13px"}
+```
+
+The bracketed text following the image declaration is interpreted by Pandoc's [`link_attributes`](http://pandoc.org/MANUAL.html#extension-link_attributes) extension.
+For example, the following will override the figure number to be "S1" and set the image width to 5 inches:
+
+```md
+{#fig:supplement tag="S1" width="5in"}
+```
+
+### Citations
+
+Manubot supports Pandoc [citations](http://pandoc.org/MANUAL.html#citations) via `pandoc-citeproc`.
+However, Manubot performs automated citation processing and metadata retrieval on raw citations.
+Therefore, citations must be of the following form: `@source:identifier`, where `source` is one of the options described below.
+When choosing which source to use for a citation, we recommend the following order:
+
+1. DOI (Digital Object Identifier), cite like `@doi:10.15363/thinklab.4`.
+2. PubMed ID, cite like `@pmid:26158728`.
+3. _arXiv_ ID, cite like `@arxiv:1508.06576v2`.
+4. URL / webpage, cite like `@url:http://openreview.net/pdf?id=Sk-oDY9ge`.
+
+Cite multiple items at once like:
+
+```md
+Here is a sentence with several citations [@doi:10.15363/thinklab.4; @pmid:26158728; @arxiv:1508.06576].
+```
+
+Note that multiple citations must be semicolon separated.
+
+#### Citation tags
+
+The system also supports citation tags, which are recommended for the following applications:
+
+1. A citation's identifier contains forbidden characters, such as `;` or ending with a non-alphanumeric character other than `/`.
+  In these instances, you must use a tag.
+2. A single reference is cited many times.
+  Therefore, it might make sense to define a tag, so if the citation updates (e.g. a newer version becomes available), only a single change is required.
+
+Tags should be defined in [`content/citation-tags.tsv`](content/citation-tags.tsv).
+If `citation-tags.tsv` defines the tag `study-x`, then this study can be cited like `@tag:study-x`.
+
+## Reference metadata
+
+The Manubot workflow requires the bibliographic details for references (the set of all cited works) as CSL (Citation Style Language) Items (also known as citeproc JSON](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
+The Manubot attempts to automatically retrieve metadata and generate valid citeproc JSON for references, which is exported to `output/references.json`.
+However, in some cases the Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
+Errors are most common for `url` references.
+For these references, you can manually specify the correct citeproc in [`content/manual-references.json`](content/manual-references.json), which will override the automatically generated reference data.
+To do so, create a new citeproc record that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
+The identifier can be obtained from the `standard_citation` column of `citations.tsv`, which is located in the `output` branch or in the `output` subdirectory of local builds.
+As an example, `manual-references.json` contains:
+
+```json
+"standard_citation": "url:https://github.com/greenelab/manubot-rootstock"
+```
+
+For guidance on what CSL JSON should be like for different document types, refer to [these examples](https://github.com/aurimasv/zotero-import-export-formats/blob/a51c342e66bebd97b73a7230047b801c8f7bb690/CSL%20JSON.json).
+
+## Manuscript metadata
+
+[`content/metadata.yaml`](content/metadata.yaml) contains manuscript metadata that gets passed through to Pandoc, via a [`yaml_metadata_block`](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block).
+`metadata.yaml` should contain the manuscript `title`, `authors` list, and `keywords`.
+Additional metadata, such as `date`, will automatically be created by the Manubot.
+We recommend authors add themselves to `metadata.yaml` via pull request (when requested by a maintainer), thereby signaling that they've read and approved the manuscript.
+
+## Manubot Feedback
+
+If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`greenelab/manubot`](https://github.com/greenelab/manubot) or [`greenelab/manubot-rootstock`](https://github.com/greenelab/manubot-rootstock).

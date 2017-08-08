@@ -1,14 +1,11 @@
 # Generated manuscript output files
-output/
+output/*
+!output/README.md
 
 webpage/*.ots
 
 # Manubot cache directory
 ci/cache
-
-# Generated reference files
-references/generated/*
-!references/generated/README.md
 
 # Python
 __pycache__/
