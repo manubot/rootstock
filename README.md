@@ -24,14 +24,15 @@ The directories are as follows:
 + [`content`](content) contains the manuscript source, which includes markdown files as well as inputs for citations and references.
 + [`output`](output) contains the outputs (generated files) from the manubot including the resulting manuscripts.
   You should not edit these files manually, because they will get overwritten.
-+ [`webapp`](webapp) is a directory meant to be rendered a webpage for viewing the HTML manuscript.
++ [`webpage`](webpage) is a directory meant to be rendered as a static webpage for viewing the HTML manuscript.
 + [`build`](build) contains commands and tools for building the manuscript.
 + [`ci`](ci) contains files necessary for deployment via continuous integration.
   For the CI configuration, see [`.travis.yml`](.travis.yml).
 
 ## Local execution
 
-You can build the manuscript locally on POSIX systems by running the following commands.
+To run the Manubot locally, install the [conda](https://conda.io) environment as described in [`build`](build).
+Then, you can build the manuscript on POSIX systems by running the following commands.
 
 ```sh
 # Activate the manubot conda environment

@@ -2,7 +2,7 @@
 
 This repository uses the [Manubot](https://github.com/greenelab/manubot) to automatically produce a manuscript from its source.
 
-## Manubot Markdown
+## Manubot markdown
 
 Manuscript text should be written in markdown files, which should be located in [`content`](content) with a digit prefix for ordering (e.g. `01.`, `02.`, etc.) and a `.md` extension.
 
@@ -94,7 +94,7 @@ If `citation-tags.tsv` defines the tag `study-x`, then this study can be cited l
 
 ## Reference metadata
 
-The Manubot workflow requires the bibliographic details for references (the set of all cited works) as CSL (Citation Style Language) Items (also known as citeproc JSON](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
+The Manubot workflow requires the bibliographic details for references (the set of all cited works) as CSL (Citation Style Language) Items (also known as [citeproc JSON](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
 The Manubot attempts to automatically retrieve metadata and generate valid citeproc JSON for references, which is exported to `output/references.json`.
 However, in some cases the Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
 Errors are most common for `url` references.
@@ -114,8 +114,21 @@ For guidance on what CSL JSON should be like for different document types, refer
 [`content/metadata.yaml`](content/metadata.yaml) contains manuscript metadata that gets passed through to Pandoc, via a [`yaml_metadata_block`](http://pandoc.org/MANUAL.html#extension-yaml_metadata_block).
 `metadata.yaml` should contain the manuscript `title`, `authors` list, and `keywords`.
 Additional metadata, such as `date`, will automatically be created by the Manubot.
-We recommend authors add themselves to `metadata.yaml` via pull request (when requested by a maintainer), thereby signaling that they've read and approved the manuscript.
 
-## Manubot Feedback
+We recommend authors add themselves to `metadata.yaml` via pull request (when requested by a maintainer), thereby signaling that they've read and approved the manuscript.
+The following YAML shows the supported key–value pairs for an author:  
+
+```yaml
+github: dhimmel  # strongly suggested
+name: Daniel S. Himmelstein  # mandatory
+initials: DSH  # strongly suggested
+orcid: 0000-0002-3012-7446  # mandatory
+twitter: dhimmel  # optional
+email: daniel.himmelstein@gmail.com  # suggested
+affiliations: Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania  # strongly suggested
+funders: GBMF4552  # optional
+```
+
+## Manubot feedback
 
 If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`greenelab/manubot`](https://github.com/greenelab/manubot) or [`greenelab/manubot-rootstock`](https://github.com/greenelab/manubot-rootstock).
