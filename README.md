@@ -17,7 +17,7 @@ The recommended approach is to clone this repository, as detailed [here](https:/
 
 ## Repository directories & files
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for documentation on how to create or contribute to a manuscript.
+See [`USAGE.md`](USAGE.md) for documentation on how to create or contribute to a manuscript.
 
 The directories are as follows:
 

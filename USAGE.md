@@ -1,4 +1,4 @@
-# Manubot usage & contribution guidelines
+# Manubot usage guidelines
 
 This repository uses the [Manubot](https://github.com/greenelab/manubot) to automatically produce a manuscript from its source.
 
