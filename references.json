@@ -4,12 +4,12 @@
       "date-parts": [
         [
           2017,
-          5,
-          29
+          7,
+          25
         ]
       ],
-      "date-time": "2017-05-29T05:40:23Z",
-      "timestamp": 1496036423758
+      "date-time": "2017-07-25T13:37:39Z",
+      "timestamp": 1500989859998
     },
     "posted": {
       "date-parts": [
@@ -22,12 +22,11 @@
     },
     "group-title": "Bioinformatics",
     "reference-count": 0,
-    "publisher": "Cold Spring Harbor Laboratory Press",
+    "publisher": "Cold Spring Harbor Laboratory",
     "content-domain": {
       "domain": [],
       "crossmark-restriction": false
     },
-    "short-container-title": [],
     "accepted": {
       "date-parts": [
         [
@@ -247,7 +246,7 @@
       }
     ],
     "member": "246",
-    "container-title": null,
+    "container-title": [],
     "original-title": [],
     "deposited": {
       "date-parts": [
@@ -275,25 +274,21 @@
     "references-count": 0,
     "URL": "https://doi.org/10.1101/142760",
     "relation": {},
+    "short_url": "https://doi.org/gbpvh5",
     "id": "tJKvnIaZ"
   },
   {
     "URL": "https://github.com/greenelab/manubot-rootstock",
-    "title": "greenelab/manubot-rootstock GitHub repository",
+    "title": "greenelab/manubot-rootstock",
     "container-title": "GitHub",
-    "issued": {
-      "date-parts": [
-        [
-          2017
-        ]
-      ]
-    },
     "author": [
       {
-        "family": "Himmelstein",
-        "given": "Daniel"
+        "family": "greenelab",
+        "given": ""
       }
     ],
+    "greycite-status": "Scanned",
+    "greycite-scanned": "2017-08-04 21:03:27",
     "type": "webpage",
     "id": "1B7Y2HVtw"
   }
