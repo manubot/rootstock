@@ -1,3 +1,6 @@
 [submodule "ci/opentimestamps-client"]
 	path = ci/opentimestamps-client
 	url = https://github.com/opentimestamps/opentimestamps-client.git
+[submodule "build/assets/pandoc-jats"]
+	path = build/assets/pandoc-jats
+	url = https://github.com/mfenner/pandoc-jats
