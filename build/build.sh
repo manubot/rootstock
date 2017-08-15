@@ -54,6 +54,23 @@ wkhtmltopdf \
   webpage/index.html \
   output/manuscript.pdf
 
+# Create JATS XML output
+# https://github.com/mfenner/pandoc-jats
+echo "Exporting JATS XML manuscript"
+pandoc --verbose \
+  --smart \
+  --from=markdown \
+  --to=build/assets/pandoc-jats/JATS.lua \
+  --filter pandoc-fignos \
+  --filter pandoc-eqnos \
+  --filter pandoc-tablenos \
+  --template=build/assets/pandoc-jats/default.jats \
+  --bibliography=$BIBLIOGRAPHY_PATH \
+  --csl=$CSL_PATH \
+  --metadata link-citations=true \
+  --output=output/manuscript.xml \
+  $INPUT_PATH
+
 # Create DOCX output when user specifies to do so
 if [ "$BUILD_DOCX" = "true" ];
 then
