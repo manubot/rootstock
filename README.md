@@ -15,4 +15,4 @@ This directory contains the following files, which are mostly ignored on the `ma
 ## Source
 
 The manuscripts in this directory were built from
-[`9f4deeb21b6d5f88b27dcf3a57eb6f9e80c58598`](https://github.com/greenelab/manubot-rootstock/commit/9f4deeb21b6d5f88b27dcf3a57eb6f9e80c58598).
+[`795490c79400016d3e6171b8a3b64309d6a1507c`](https://github.com/greenelab/manubot-rootstock/commit/795490c79400016d3e6171b8a3b64309d6a1507c).
