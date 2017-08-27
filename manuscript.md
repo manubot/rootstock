@@ -4,7 +4,7 @@ author-meta:
 - Anthony Gitter
 - Venkat S. Malladi
 - Evan M. Cofer
-date-meta: '2017-08-15'
+date-meta: '2017-08-27'
 keywords:
 - work-in-progress
 - markdown
@@ -15,8 +15,8 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript was automatically generated
-from [greenelab/manubot-rootstock@795490c](https://github.com/greenelab/manubot-rootstock/tree/795490c79400016d3e6171b8a3b64309d6a1507c)
-on August 15, 2017.
+from [greenelab/manubot-rootstock@868da10](https://github.com/greenelab/manubot-rootstock/tree/868da104454e6ac56d2bb2753f3bec932d5f4d09)
+on August 27, 2017.
 </em></small>
 
 ## Authors
