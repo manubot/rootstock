@@ -73,6 +73,7 @@ echo https://github.com/$OWNER/$REPO/settings/keys
 ```
 
 Manually add `deploy.key.pub` (with write access) to GitHub under the repository's deploy key settings (the URL echoed above).
+Give the key a descriptive title, such as "Travis CI Manubot".
 
 For the next step, you need the [Travis command line client](https://github.com/travis-ci/travis.rb) installed.
 This program is a Ruby gem:
@@ -127,7 +128,7 @@ sed --in-place "s/manubot-rootstock/$REPO/g" README.md
 
 ## Finalize
 
-Run `git status` or `git diff` to check that the following files have unstaged changes:
+Run `git status` or `git diff --word-diff` to check that the following files have unstaged changes:
 
 + `README.md`
 + `ci/deploy.key.enc`
