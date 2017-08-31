@@ -4,12 +4,12 @@
       "date-parts": [
         [
           2017,
-          7,
-          25
+          8,
+          11
         ]
       ],
-      "date-time": "2017-07-25T13:37:39Z",
-      "timestamp": 1500989859998
+      "date-time": "2017-08-11T15:31:27Z",
+      "timestamp": 1502465487706
     },
     "posted": {
       "date-parts": [
@@ -248,6 +248,14 @@
     "member": "246",
     "container-title": [],
     "original-title": [],
+    "link": [
+      {
+        "URL": "https://syndication.highwire.org/content/doi/10.1101/142760",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
     "deposited": {
       "date-parts": [
         [
@@ -278,9 +286,14 @@
     "id": "tJKvnIaZ"
   },
   {
-    "URL": "https://github.com/greenelab/manubot-rootstock",
-    "title": "greenelab/manubot-rootstock GitHub repository",
-    "container-title": "GitHub",
+    "type": "report",
+    "id": "15nwuvjrA",
+    "author": [
+      {
+        "family": "Zietz",
+        "given": "Michael"
+      }
+    ],
     "issued": {
       "date-parts": [
         [
@@ -288,13 +301,54 @@
         ]
       ]
     },
+    "abstract": "Report detailing work done in the Greene Lab at the University of Pennsylvania for the Summer of 2017. Sparse matrix implementation of degree-weighted path count (DWPC) over a heterogeneous network of biomedical information. Summer research conducted as part of the Penn Vagelos Scholars Program in Molecular Life Science (MLS).",
+    "DOI": "10.6084/m9.figshare.5346577",
+    "publisher": "Figshare",
+    "title": "Vagelos Report Summer 2017",
+    "URL": "https://doi.org/10.6084/m9.figshare.5346577",
+    "short_url": "https://doi.org/gbr3pf"
+  },
+  {
+    "type": "report",
+    "id": "WiyRG9Qh",
+    "language": "eng",
     "author": [
       {
         "family": "Himmelstein",
-        "given": "Daniel"
+        "given": "Daniel S"
+      },
+      {
+        "family": "Romero",
+        "given": "Ariel R"
+      },
+      {
+        "family": "McLaughlin",
+        "given": "Stephen R"
+      },
+      {
+        "family": "Tzovaras",
+        "given": "Bastian Greshake"
+      },
+      {
+        "family": "Greene",
+        "given": "Casey S"
       }
     ],
-    "type": "webpage",
-    "id": "1B7Y2HVtw"
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          7,
+          20
+        ]
+      ]
+    },
+    "abstract": "The website Sci-Hub provides access to scholarly literature via full text PDF downloads. The site enables users to access articles that would otherwise be paywalled. Since its creation in 2011, Sci-Hub has grown rapidly in popularity. However, until now, the extent of Sci-Hub's coverage was unclear. As of March 2017, we find that Sci-Hub's database contains 68.9% of all 81.6 million scholarly articles, which rises to 85.2% for those published in closed access journals. Furthermore, Sci-Hub contains 77.0% of the 5.2 million articles published by inactive journals. Coverage varies by discipline, with 92.8% coverage of articles in chemistry journals compared to 76.3% for computer science. Coverage also varies by publisher, with the coverage of the largest publisher, Elsevier, at 97.3%. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. Finally, we estimate that over a six-month period in 2015–2016, Sci-Hub provided access for 99.3% of valid incoming requests. Hence, the scope of this resource suggests the subscription publishing model is becoming unsustainable. For the first time, the overwhelming majority of scholarly literature is available gratis to anyone with an Internet connection.",
+    "DOI": "10.7287/peerj.preprints.3100",
+    "publisher": "PeerJ Preprints",
+    "title": "Sci-Hub provides access to nearly all scholarly literature",
+    "URL": "https://doi.org/10.7287/peerj.preprints.3100",
+    "version": "1",
+    "short_url": "https://doi.org/b9s5"
   }
 ]
