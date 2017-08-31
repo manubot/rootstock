@@ -104,6 +104,14 @@ TRAVIS_ENCRYPT_ID=`grep \
 sed --in-place "s/f2f00aaf6402/$TRAVIS_ENCRYPT_ID/g" deploy.sh
 ```
 
+Next, limit [concurrent](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) Travis CI jobs to ensure previous builds deploy before subsequent ones begin:
+
+```sh
+travis settings \
+  --repo=$OWNER/$REPO \
+  maximum_number_of_builds --set 1
+```
+
 The continuous integration configuration is now complete.
 Clean up:
 
