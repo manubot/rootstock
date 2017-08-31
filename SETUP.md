@@ -132,6 +132,9 @@ Now update `README.md` files to reference the new repository:
 # Perform substitutions
 sed --in-place "s/greenelab/$OWNER/g" README.md
 sed --in-place "s/manubot-rootstock/$REPO/g" README.md
+
+# Remove deletable content file
+git rm content/02.delete-me.md
 ```
 
 ## Finalize
