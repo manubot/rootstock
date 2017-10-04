@@ -9,7 +9,6 @@ dependencies:
   - anaconda::pyyaml=3.12
   - anaconda::requests=2.14.2
   - conda-forge::cairo=1.14.6
-  - conda-forge::cairocffi=0.7.2
   - conda-forge::cffi=1.10.0
   - conda-forge::pandoc=1.19.2
   - conda-forge::watchdog=0.8.3
