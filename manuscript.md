@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2017-10-04'
+date-meta: '2017-10-05'
 keywords:
 - markdown
 - publishing
@@ -17,8 +17,8 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript was automatically generated
-from [greenelab/manubot-rootstock@47ee5f0](https://github.com/greenelab/manubot-rootstock/tree/47ee5f082c5c728af70e1350b17ad0c248096db8)
-on October  4, 2017.
+from [greenelab/manubot-rootstock@aba5246](https://github.com/greenelab/manubot-rootstock/tree/aba52468ff16ba0e4c9a6f5c00d02a76f4baef0e)
+on October  5, 2017.
 </em></small>
 
 ## Authors
@@ -26,11 +26,11 @@ on October  4, 2017.
 
 
 + **John Doe**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){height="13px" width="13px"}
     [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){height="13px" width="13px"}
     [johndoe](https://github.com/johndoe)
-    · ![Twitter icon](images/twitter.svg){height="13px"}
+    · ![Twitter icon](images/twitter.svg){height="13px" width="13px"}
     [johndoe](https://twitter.com/johndoe)<br>
   <small>
      Department of Something, University of Whatever
@@ -38,9 +38,9 @@ on October  4, 2017.
   </small>
 
 + **Jane Roe**<br>
-    ![ORCID icon](images/orcid.svg){height="13px"}
+    ![ORCID icon](images/orcid.svg){height="13px" width="13px"}
     [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
-    · ![GitHub icon](images/github.svg){height="13px"}
+    · ![GitHub icon](images/github.svg){height="13px" width="13px"}
     [janeroe](https://github.com/janeroe)<br>
   <small>
      Department of Whatever, University of Something
