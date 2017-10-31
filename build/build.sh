@@ -34,7 +34,6 @@ pandoc --verbose \
   --bibliography=$BIBLIOGRAPHY_PATH \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
-  --smart \
   --mathjax \
   --css=github-pandoc.css \
   --include-in-header=build/assets/analytics.js \
@@ -63,8 +62,7 @@ then
     --bibliography=$BIBLIOGRAPHY_PATH \
     --csl=$CSL_PATH \
     --metadata link-citations=true \
-    --reference-docx=$DOCX_PATH \
-    --smart \
+    --reference-doc=$DOCX_PATH \
     --output=output/manuscript.docx \
     $INPUT_PATH
     rm --recursive images
