@@ -82,4 +82,17 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
     --defaults="$PANDOC_DEFAULTS_DIR/docx.yaml"
 fi
 
+echo "Exporting JATS XML manuscript"
+pandoc --verbose \
+--from=markdown \
+--to=jats \
+--filter=pandoc-fignos \
+--filter=pandoc-eqnos \
+--filter=pandoc-tablenos \
+--bibliography=$BIBLIOGRAPHY_PATH \
+--csl=$CSL_PATH \
+--metadata link-citations=true \
+--output=output/manuscript.xml \
+$INPUT_PATH
+
 echo >&2 "Build complete"
