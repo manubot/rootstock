@@ -140,7 +140,7 @@ git rm content/02.delete-me.md
 
 ## Finalize
 
-Run `git status` or `git diff --word-diff` to check that the following files have unstaged changes:
+Run `git status` or `git diff --color-words` to check that the following files have unstaged changes:
 
 + `README.md`
 + `ci/deploy.key.enc`
