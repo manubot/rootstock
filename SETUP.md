@@ -3,6 +3,7 @@
 The process to create a new Manubot manuscript is a bit challenging, because it requires a few steps that are difficult to automate.
 However, you will only have to perform these steps once for each manuscript.
 These steps should be performed in a terminal, starting in the directory where you want the manuscript folder be created.
+Windows users can use [Git Bash](https://git-for-windows.github.io/) to run the commands.
 
 ## Configuration
 
@@ -72,7 +73,7 @@ ssh-keygen \
 echo https://github.com/$OWNER/$REPO/settings/keys
 ```
 
-Manually add `deploy.key.pub` (with write access) to GitHub under the repository's deploy key settings (the URL echoed above).
+Manually add the text of `deploy.key.pub` (with write access) to GitHub under the repository's deploy key settings (the URL echoed above).
 Give the key a descriptive title, such as "Travis CI Manubot".
 
 For the next step, you need the [Travis command line client](https://github.com/travis-ci/travis.rb) installed.
