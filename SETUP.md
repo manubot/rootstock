@@ -3,12 +3,13 @@
 The process to create a new Manubot manuscript is a bit challenging, because it requires a few steps that are difficult to automate.
 However, you will only have to perform these steps once for each manuscript.
 These steps should be performed in a terminal, starting in the directory where you want the manuscript folder be created.
-Windows users can use [Git Bash](https://git-for-windows.github.io/) to run the commands.
+Setup is supported on Linux and macOS, but [**not on Windows**](https://github.com/greenelab/manubot-rootstock/issues/91).
 
 ## Configuration
 
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
+**Edit the following commands with your manuscript's information:**
 
 ```sh
 # GitHub account (change from greenelab)
@@ -18,6 +19,9 @@ REPO=manubot-rootstock
 ```
 
 ## Create repository
+
+**Execute the remaining commands verbatim.**
+They do not need to be edited (if the setup works as intended).
 
 Next you must clone `greenelab/manubot-rootstock` and configure its branches and remotes:
 
