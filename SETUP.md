@@ -30,11 +30,31 @@ Next you must clone `greenelab/manubot-rootstock` and configure its branches and
 git clone https://github.com/greenelab/manubot-rootstock.git $REPO
 cd $REPO
 
+# Squash all manubot-rootstock commits
+git reset $(\
+  GIT_AUTHOR_NAME="Manubot Rootstock Contributors" \
+  GIT_AUTHOR_EMAIL="" \
+  git commit-tree HEAD^{tree} \
+  -m "Squash all manubot rootstock commits" \
+  -m "From https://github.com/greenelab/manubot-rootstock/tree/`git rev-parse HEAD`" \
+)
+
+# Create remote gh-pages branch
+git checkout --orphan gh-pages
+git rm -r --cached .
+git commit --allow-empty \
+  --message "Blank branch instantiation commit" \
+  --message "[ci skip]"
+
+# Create remote output branch
+git branch output
+git checkout output
+
+# Return to the master branch
+git checkout --force master
+
 # Configure remotes and branches
 git remote add rootstock https://github.com/greenelab/manubot-rootstock.git
-git checkout gh-pages
-git checkout output
-git checkout master
 
 # Option A: Set origin URL using its web address
 git remote set-url origin https://github.com/$OWNER/$REPO.git
