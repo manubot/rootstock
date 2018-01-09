@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2017-12-07'
+date-meta: '2018-01-09'
 keywords:
 - markdown
 - publishing
@@ -18,8 +18,8 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript was automatically generated
-from [greenelab/manubot-rootstock@f165f60](https://github.com/greenelab/manubot-rootstock/tree/f165f609f33b11fdf71a0db6435d4dd159f23973)
-on December  7, 2017.
+from [greenelab/manubot-rootstock@c31c5d0](https://github.com/greenelab/manubot-rootstock/tree/c31c5d073fde6a0c50d459d8846687fdf6ba1ed3)
+on January  9, 2018.
 </em></small>
 
 ## Authors
@@ -44,7 +44,7 @@ on December  7, 2017.
     · ![GitHub icon](images/github.svg){height="13px" width="13px"}
     [janeroe](https://github.com/janeroe)<br>
   <small>
-     Department of Whatever, University of Something
+     Department of Something, University of Whatever; Department of Whatever, University of Something
   </small>
 
 
@@ -65,7 +65,7 @@ See [`USAGE.md`](https://github.com/greenelab/manubot-rootstock/blob/master/USAG
 The Manubot project began with the [Deep Review](https://github.com/greenelab/deep-review), where it was used to compose a highly-collaborative review article [@tJKvnIaZ].
 Other manuscripts that were created with Manubot include:
 
-+ The Sci-Hub Coverage Study ([GitHub](https://github.com/greenelab/scihub-manuscript), [HTML manuscript](https://greenelab.github.io/scihub-manuscript/)) [@WiyRG9Qh]
++ The Sci-Hub Coverage Study ([GitHub](https://github.com/greenelab/scihub-manuscript), [HTML manuscript](https://greenelab.github.io/scihub-manuscript/))
 + Michael Zietz's Report for the Vagelos Scholars Program ([GitHub](https://github.com/zietzm/Vagelos2017), [HTML manuscript](https://zietzm.github.io/Vagelos2017/)) [@15nwuvjrA]
 
 If you notice a problem with Manubot, it's best to submit an upstream fix to the appropriate repository:

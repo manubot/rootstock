@@ -1,5 +1,5 @@
 {
-  "date": "December  7, 2017",
+  "date": "January  9, 2018",
   "authors": [
     {
       "github": "johndoe",
@@ -8,8 +8,13 @@
       "orcid": "XXXX-XXXX-XXXX-XXXX",
       "twitter": "johndoe",
       "email": "john.doe@something.com",
-      "affiliations": "Department of Something, University of Whatever",
-      "funders": "Grant XXXXXXXX"
+      "affiliations": [
+        "Department of Something, University of Whatever"
+      ],
+      "funders": "Grant XXXXXXXX",
+      "affiliation_numbers": [
+        1
+      ]
     },
     {
       "github": "janeroe",
@@ -17,18 +22,35 @@
       "initials": "JR",
       "orcid": "XXXX-XXXX-XXXX-XXXX",
       "email": "jane.roe@whatever.edu",
-      "affiliations": "Department of Whatever, University of Something"
+      "affiliations": [
+        "Department of Something, University of Whatever",
+        "Department of Whatever, University of Something"
+      ],
+      "affiliation_numbers": [
+        1,
+        2
+      ]
+    }
+  ],
+  "affiliations": [
+    {
+      "affiliation": "Department of Something, University of Whatever",
+      "affiliation_number": 1
+    },
+    {
+      "affiliation": "Department of Whatever, University of Something",
+      "affiliation_number": 2
     }
   ],
   "ci_source": {
     "repo_slug": "greenelab/manubot-rootstock",
-    "commit": "f165f609f33b11fdf71a0db6435d4dd159f23973"
+    "commit": "c31c5d073fde6a0c50d459d8846687fdf6ba1ed3"
   },
   "manuscript_stats": {
     "reference_counts": {
-      "doi": 3,
-      "total": 3
+      "doi": 2,
+      "total": 2
     },
-    "word_count": 321
+    "word_count": 323
   }
 }

@@ -4,12 +4,12 @@
       "date-parts": [
         [
           2017,
-          10,
-          19
+          12,
+          29
         ]
       ],
-      "date-time": "2017-10-19T20:42:14Z",
-      "timestamp": 1508445734214
+      "date-time": "2017-12-29T09:02:39Z",
+      "timestamp": 1514538159105
     },
     "posted": {
       "date-parts": [
@@ -51,7 +51,7 @@
       "timestamp": 1496034615000
     },
     "source": "Crossref",
-    "is-referenced-by-count": 1,
+    "is-referenced-by-count": 2,
     "title": "Opportunities And Obstacles For Deep Learning In Biology And Medicine",
     "prefix": "10.1101",
     "author": [
@@ -308,49 +308,5 @@
     "title": "Vagelos Report Summer 2017",
     "URL": "https://doi.org/10.6084/m9.figshare.5346577",
     "short_url": "https://doi.org/gbr3pf"
-  },
-  {
-    "type": "report",
-    "id": "WiyRG9Qh",
-    "language": "eng",
-    "author": [
-      {
-        "family": "Himmelstein",
-        "given": "Daniel S"
-      },
-      {
-        "family": "Romero",
-        "given": "Ariel R"
-      },
-      {
-        "family": "McLaughlin",
-        "given": "Stephen R"
-      },
-      {
-        "family": "Tzovaras",
-        "given": "Bastian Greshake"
-      },
-      {
-        "family": "Greene",
-        "given": "Casey S"
-      }
-    ],
-    "issued": {
-      "date-parts": [
-        [
-          2017,
-          10,
-          12
-        ]
-      ]
-    },
-    "abstract": "The website Sci-Hub provides access to scholarly literature via full text PDF downloads. The site enables users to access articles that would otherwise be paywalled. Since its creation in 2011, Sci-Hub has grown rapidly in popularity. However, until now, the extent of Sci-Hub’s coverage was unclear. As of March 2017, we find that Sci-Hub’s database contains 68.9% of all 81.6 million scholarly articles, which rises to 85.2% for those published in toll access journals. Coverage varies by discipline, with 92.8% coverage of articles in chemistry journals compared to 76.3% for computer science. Coverage also varies by publisher, with the coverage of the largest publisher, Elsevier, at 97.3%. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. We find Sci-Hub preferentially covers popular, paywalled content, containing 96.2% of citations to toll access journals since 2015. For recently requested articles by Unpaywall users, oaDOI provided access to 48.8% whereas Sci-Hub contained 81.5%. Together, oaDOI and Sci-Hub covered 94.1%, demonstrating that gaps in Sci-Hub’s coverage, especially for open access articles, can be filled using licit services. For the first time, nearly all scholarly literature is available gratis to anyone with an Internet connection. Sci-Hub’s scope suggests the subscription publishing model is becoming unsustainable.",
-    "DOI": "10.7287/peerj.preprints.3100",
-    "page": "-",
-    "publisher": "PeerJ Preprints",
-    "title": "Sci-Hub provides access to nearly all scholarly literature",
-    "version": "2",
-    "URL": "https://doi.org/10.7287/peerj.preprints.3100",
-    "short_url": "https://doi.org/b9s5"
   }
 ]
