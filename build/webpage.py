@@ -40,6 +40,14 @@ shutil.copy2(
     dst=commit_directory.joinpath('github-pandoc.css'),
 )
 
+# Create v/freeze to redirect to v/commit
+path = pathlib.Path('build/assets/redirect-template.html')
+redirect_html = path.read_text()
+redirect_html = redirect_html.format(url=f'../{commit}/')
+freeze_directory = pathlib.Path('webpage/v/freeze')
+freeze_directory.mkdir(exist_ok=True)
+freeze_directory.joinpath('index.html').write_text(redirect_html)
+
 # Must populate webpage/v from the gh-pages branch to get history
 # http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
 # https://stackoverflow.com/a/2668947/4651668
