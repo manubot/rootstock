@@ -48,6 +48,12 @@ freeze_directory = pathlib.Path('webpage/v/freeze')
 freeze_directory.mkdir(exist_ok=True)
 freeze_directory.joinpath('index.html').write_text(redirect_html)
 
+# Extract directories with manuscript versions
+versions = {x.name for x in version_directory.iterdir() if x.is_dir()}
+versions -= {'freeze', 'latest'}
+versions = sorted(versions)
+print(versions)
+
 # Must populate webpage/v from the gh-pages branch to get history
 # http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
 # https://stackoverflow.com/a/2668947/4651668
