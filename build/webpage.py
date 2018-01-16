@@ -39,3 +39,9 @@ shutil.copy2(
     src=pathlib.Path('webpage/github-pandoc.css'),
     dst=commit_directory.joinpath('github-pandoc.css'),
 )
+
+# Must populate webpage/v from the gh-pages branch to get history
+# http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
+# https://stackoverflow.com/a/2668947/4651668
+# https://stackoverflow.com/a/16493707/4651668
+# git --work-tree=webpage checkout upstream/gh-pages -- v
