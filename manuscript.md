@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2018-01-19'
+date-meta: '2018-02-01'
 keywords:
 - markdown
 - publishing
@@ -18,8 +18,8 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript was automatically generated
-from [greenelab/manubot-rootstock@59af0a2](https://github.com/greenelab/manubot-rootstock/tree/59af0a2bdc23bbf48fae0acdcb8183888f12880e)
-on January 19, 2018.
+from [greenelab/manubot-rootstock@a535f7b](https://github.com/greenelab/manubot-rootstock/tree/a535f7b872df775b1557f90b01402bbd56d17517)
+on February  1, 2018.
 </em></small>
 
 ## Authors
