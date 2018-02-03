@@ -67,14 +67,29 @@ def configure_directories(args):
 def checkout_existing_versions(args):
     """
     Must populate webpage/v from the gh-pages branch to get history
+
+    References:
     http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
     https://stackoverflow.com/a/2668947/4651668
     https://stackoverflow.com/a/16493707/4651668
+
+    Command modeled after:
     git --work-tree=webpage checkout upstream/gh-pages -- v
     """
     if not args.checkout:
         return
-    subprocess
+    command = [
+        'git',
+        f'--work-tree={args.webpage_directory}',
+        'checkout',
+        args.checkout,
+        '--',
+        'v',
+    ]
+    print('Attempting checkout with the following command:', ' '.join(command), sep='\n')
+    process = subprocess.run(command, stderr=subprocess.PIPE)
+    if process.returncode != 0:
+        print(f'Checkout returned a nonzero exit status. See stderr:\n{process.stderr.decode()}')
 
 
 def create_version(args):
