@@ -1,61 +1,129 @@
+import argparse
 import os
 import pathlib
 import shutil
+import subprocess
 
-commit = os.environ.get('TRAVIS_COMMIT', 'local')
-print(f'TRAVIS_COMMIT={commit}')
 
-# Create webpage/v/commit directory
-version_directory = pathlib.Path('webpage/v')
-version_directory.mkdir(exist_ok=True)
-commit_directory = version_directory.joinpath(commit)
-commit_directory.mkdir(exist_ok=True)
+def parse_arguments():
+    """
+    Read and process command line arguments.
+    """
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        '--checkout',
+        nargs='?', const='gh-pages', default=None,
+        help='branch to checkout /v directory contents from. For example, --checkout=upstream/gh-pages. --checkout is equivalent to --checkout=gh-pages. If --checkout is ommitted, no checkout is performed.',
+    )
+    parser.add_argument(
+        '--version',
+        default=os.environ.get('TRAVIS_COMMIT', 'local'),
+        help="Used to create webpage/v/{version} directory. Generally a commit hash, tag, or 'local'",
+    )
+    args = parser.parse_args()
+    return args
 
-# Symlink webpage/v/latest to point to webpage/v/commit
-latest_directory = version_directory.joinpath('latest')
-if latest_directory.is_symlink():
-    latest_directory.unlink()
-latest_directory.symlink_to(commit, target_is_directory=True)
 
-# Copy content/images to webpage/v/commit/images
-dst = commit_directory.joinpath('images')
-if dst.is_dir():
-    shutil.rmtree(dst)
-shutil.copytree(
-    src=pathlib.Path('content/images'),
-    dst=dst,
-)
+def configure_directories(args):
+    """
+    Add directories to args and create them if neccessary.
+    Note that versions_directory is the parent of version_directory.
+    """
+    args_dict = vars(args)
 
-# Copy output files to to webpage/v/commit/
-output_directory = pathlib.Path('output')
-for name in 'manuscript.html', 'manuscript.pdf':
-    shutil.copy2(
-        src=output_directory.joinpath(name),
-        dst=commit_directory.joinpath(name),
+    # Directory where Manubot outputs reside
+    args_dict['output_directory'] = pathlib.Path('output')
+
+    # Set webpage directory
+    args_dict['webpage_directory'] = pathlib.Path('webpage')
+
+    # Create webpage/v directory (if it doesn't already exist)
+    args_dict['versions_directory'] = args.webpage_directory.joinpath('v')
+    args.versions_directory.mkdir(exist_ok=True)
+
+    # Create empty webpage/v/version directory
+    version_directory = args.versions_directory.joinpath(args.version)
+    if version_directory.is_dir():
+        print(f'{version_directory} exists: replacing it with an empty directory')
+        shutil.rmtree(version_directory)
+    version_directory.mkdir()
+    args_dict['version_directory'] = version_directory
+
+    # Symlink webpage/v/latest to point to webpage/v/commit
+    latest_directory = args.versions_directory.joinpath('latest')
+    if latest_directory.is_symlink():
+        latest_directory.unlink()
+    latest_directory.symlink_to(args.version, target_is_directory=True)
+    args_dict['latest_directory'] = latest_directory
+
+    # Create freeze directory
+    freeze_directory = args.versions_directory.joinpath('freeze')
+    freeze_directory.mkdir(exist_ok=True)
+    args_dict['freeze_directory'] = freeze_directory
+
+    return args
+
+
+def checkout_existing_versions(args):
+    """
+    Must populate webpage/v from the gh-pages branch to get history
+    http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
+    https://stackoverflow.com/a/2668947/4651668
+    https://stackoverflow.com/a/16493707/4651668
+    git --work-tree=webpage checkout upstream/gh-pages -- v
+    """
+    if not args.checkout:
+        return
+    subprocess
+
+
+def create_version(args):
+    """
+    Populate the version directory for a new version.
+    """
+
+    # Copy content/images to webpage/v/commit/images
+    shutil.copytree(
+        src=pathlib.Path('content/images'),
+        dst=args.version_directory.joinpath('images'),
     )
 
-# Copy webpage/github-pandoc.css to to webpage/v/commit/github-pandoc.css
-shutil.copy2(
-    src=pathlib.Path('webpage/github-pandoc.css'),
-    dst=commit_directory.joinpath('github-pandoc.css'),
-)
+    # Copy output files to to webpage/v/version/
+    for name in 'manuscript.html', 'manuscript.pdf':
+        shutil.copy2(
+            src=args.output_directory.joinpath(name),
+            dst=args.version_directory.joinpath(name),
+        )
 
-# Create v/freeze to redirect to v/commit
-path = pathlib.Path('build/assets/redirect-template.html')
-redirect_html = path.read_text()
-redirect_html = redirect_html.format(url=f'../{commit}/')
-freeze_directory = pathlib.Path('webpage/v/freeze')
-freeze_directory.mkdir(exist_ok=True)
-freeze_directory.joinpath('index.html').write_text(redirect_html)
+    # Copy webpage/github-pandoc.css to to webpage/v/version/github-pandoc.css
+    shutil.copy2(
+        src=args.webpage_directory.joinpath('github-pandoc.css'),
+        dst=args.version_directory.joinpath('github-pandoc.css'),
+    )
 
-# Extract directories with manuscript versions
-versions = {x.name for x in version_directory.iterdir() if x.is_dir()}
-versions -= {'freeze', 'latest'}
-versions = sorted(versions)
-print(versions)
+    # Create v/freeze to redirect to v/commit
+    path = pathlib.Path('build/assets/redirect-template.html')
+    redirect_html = path.read_text()
+    redirect_html = redirect_html.format(url=f'../{args.version}/')
+    args.freeze_directory.joinpath('index.html').write_text(redirect_html)
 
-# Must populate webpage/v from the gh-pages branch to get history
-# http://clubmate.fi/git-checkout-file-or-directories-from-another-branch/
-# https://stackoverflow.com/a/2668947/4651668
-# https://stackoverflow.com/a/16493707/4651668
-# git --work-tree=webpage checkout upstream/gh-pages -- v
+
+def get_versions():
+    """
+    Extract versions from the webpage/v directory, which should each contain
+    a manuscript.
+    """
+    versions = {x.name for x in args.versions_directory.iterdir() if x.is_dir()}
+    versions -= {'freeze', 'latest'}
+    versions = sorted(versions)
+    return versions
+
+
+if __name__ == '__main__':
+    args = parse_arguments()
+    configure_directories(args)
+    print(args)
+    checkout_existing_versions(args)
+    create_version(args)
+    versions = get_versions()
+    print(versions)
