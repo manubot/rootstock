@@ -66,6 +66,7 @@ ghp-import \
 
 # Deploy the webpage directory to gh-pages
 ghp-import \
+  --follow-links \
   --push \
   --branch=gh-pages \
   --message="$MESSAGE" \
