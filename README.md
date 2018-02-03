@@ -53,6 +53,9 @@ sh build/build.sh
 # when a change is detected.
 sh build/autobuild.sh
 
+# Configure the webpage directory
+python build/webpage.py
+
 # View the manuscript locally at http://localhost:8000/
 cd webpage
 python -m http.server
