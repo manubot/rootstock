@@ -51,8 +51,10 @@ def configure_directories(args):
 
     # Symlink webpage/v/latest to point to webpage/v/commit
     latest_directory = args.versions_directory.joinpath('latest')
-    if latest_directory.is_symlink():
+    if latest_directory.is_symlink() or latest_directory.is_file():
         latest_directory.unlink()
+    elif latest_directory.is_dir():
+        shutil.rmtree(latest_directory)
     latest_directory.symlink_to(args.version, target_is_directory=True)
     args_dict['latest_directory'] = latest_directory
 
