@@ -93,7 +93,10 @@ def checkout_existing_versions(args):
     ]
     print('Attempting checkout with the following command:', ' '.join(command), sep='\n')
     process = subprocess.run(command, stderr=subprocess.PIPE)
-    if process.returncode != 0:
+    if process.returncode == 0:
+        # Addresses an odd behavior where git checkout stages v/* files that don't actually exist
+        subprocess.run(['git', 'add', 'v'])
+    else:
         print(f'Checkout returned a nonzero exit status. See stderr:\n{process.stderr.decode()}')
 
 
