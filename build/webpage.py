@@ -41,6 +41,9 @@ def configure_directories(args):
     args_dict['versions_directory'] = args.webpage_directory.joinpath('v')
     args.versions_directory.mkdir(exist_ok=True)
 
+    # Checkout existing version directories
+    checkout_existing_versions(args)
+
     # Create empty webpage/v/version directory
     version_directory = args.versions_directory.joinpath(args.version)
     if version_directory.is_dir():
@@ -144,7 +147,6 @@ if __name__ == '__main__':
     args = parse_arguments()
     configure_directories(args)
     print(args)
-    checkout_existing_versions(args)
     create_version(args)
     versions = get_versions()
     print(versions)
