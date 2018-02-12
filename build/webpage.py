@@ -104,10 +104,14 @@ def create_version(args):
     )
 
     # Copy output files to to webpage/v/version/
-    for name in 'manuscript.html', 'manuscript.pdf':
+    renamer = {
+        'manuscript.html': 'index.html',
+        'manuscript.pdf': 'manuscript.pdf',
+    }
+    for src, dst in renamer.items():
         shutil.copy2(
-            src=args.output_directory.joinpath(name),
-            dst=args.version_directory.joinpath(name),
+            src=args.output_directory.joinpath(src),
+            dst=args.version_directory.joinpath(dst),
         )
 
     # Copy webpage/github-pandoc.css to to webpage/v/version/github-pandoc.css
