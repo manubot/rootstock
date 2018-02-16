@@ -12,10 +12,22 @@ This directory contains the following files, which are mostly ignored on the `ma
 + [`github-pandoc.css`](github-pandoc.css) sets the display style for `index.html`.
 + [`manuscript.pdf`](manuscript.pdf) is a PDF manuscript.
 
-The [`v`](v) directory contains directories for each manuscript version.
+The `v` directory contains directories for each manuscript version.
 In general, a version is identified by the commit hash of the source content that created it.
+
+### Timestamps
+
 The `*.ots` files in version directories are OpenTimestamps which can be used to verify manuscript existence at or before a given time.
-[OpenTimestamps](opentimestamps.org) uses the Bitcoin blockchain to attest to file hash existence.
+[OpenTimestamps](https://opentimestamps.org/) uses the Bitcoin blockchain to attest to file hash existence.
+The `deploy.sh` script run during continuous deployment creates the `.ots` files.
+However, these files are initially dependent on calendar services and must be upgraded at a later time by running the following in the `gh-pages` branch:
+
+```sh
+# Requires a local bitcoin node with JSON-RPC configured
+ots upgrade v/*/*.ots
+rm v/*/*.ots.bak
+git add v/*/*.ots
+```
 
 ## Source
 
