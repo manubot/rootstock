@@ -46,13 +46,13 @@
     "repo_slug": "greenelab/manubot-rootstock",
     "repo_owner": "greenelab",
     "repo_name": "manubot-rootstock",
-    "commit": "9438011c1a17a166e5c4e6b8b1dd3391f83fe5c5"
+    "commit": "fffcaf0c65ad836d54abbea5361906da60ff2db0"
   },
   "manuscript_stats": {
     "reference_counts": {
       "doi": 2,
       "total": 2
     },
-    "word_count": 340
+    "word_count": 333
   }
 }
