@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/greenelab/manubot-rootstock/tree/gh-pages) branch hosts the contents of this directory at https://greenelab.github.io/manubot-rootstock/.
-The permalink for this webpage version is https://greenelab.github.io/manubot-rootstock/v/b7a9de896fa6e056a6adf983592166232349cf34/.
+The permalink for this webpage version is https://greenelab.github.io/manubot-rootstock/v/9438011c1a17a166e5c4e6b8b1dd3391f83fe5c5/.
 To redirect to the permalink for the latest manuscript version at anytime, use the link https://greenelab.github.io/manubot-rootstock/v/freeze/.
 
 ## Files
@@ -32,4 +32,4 @@ git add v/*/*.ots
 ## Source
 
 The manuscripts in this directory were built from
-[`b7a9de896fa6e056a6adf983592166232349cf34`](https://github.com/greenelab/manubot-rootstock/commit/b7a9de896fa6e056a6adf983592166232349cf34).
+[`9438011c1a17a166e5c4e6b8b1dd3391f83fe5c5`](https://github.com/greenelab/manubot-rootstock/commit/9438011c1a17a166e5c4e6b8b1dd3391f83fe5c5).
