@@ -3,13 +3,13 @@
     "indexed": {
       "date-parts": [
         [
-          2017,
-          12,
-          29
+          2018,
+          3,
+          8
         ]
       ],
-      "date-time": "2017-12-29T09:02:39Z",
-      "timestamp": 1514538159105
+      "date-time": "2018-03-08T10:02:21Z",
+      "timestamp": 1520503341692
     },
     "posted": {
       "date-parts": [
@@ -30,13 +30,13 @@
     "accepted": {
       "date-parts": [
         [
-          2017,
-          5,
-          28
+          2018,
+          1,
+          19
         ]
       ]
     },
-    "abstract": "<jats:p>Deep learning, which describes a class of machine learning algorithms, has recently showed impressive results across a variety of domains. Biology and medicine are data rich, but the data are complex and often ill-understood. Problems of this nature may be particularly well-suited to deep learning techniques. We examine applications of deep learning to a variety of biomedical problems -- patient classification, fundamental biological processes, and treatment of patients -- to predict whether deep learning will transform these tasks or if the biomedical sphere poses unique challenges. We find that deep learning has yet to revolutionize or definitively resolve any of these problems, but promising advances have been made on the prior state of the art. Even when improvement over a previous baseline has been modest, we have seen signs that deep learning methods may speed or aid human investigation. More work is needed to address concerns related to interpretability and how to best model each problem. Furthermore, the limited amount of labeled data for training presents problems in some domains, as can legal and privacy constraints on work with sensitive health records. Nonetheless, we foresee deep learning powering changes at the bench and bedside with the potential to transform several areas of biology and medicine.</jats:p>",
+    "abstract": "<jats:p>Deep learning, which describes a class of machine learning algorithms, has recently showed impressive results across a variety of domains. Biology and medicine are data rich, but the data are complex and often ill-understood. Problems of this nature may be particularly well-suited to deep learning techniques. We examine applications of deep learning to a variety of biomedical problems - patient classification, fundamental biological processes, and treatment of patients - and discuss whether deep learning will transform these tasks or if the biomedical sphere poses unique challenges. We find that deep learning has yet to revolutionize or definitively resolve any of these problems, but promising advances have been made on the prior state of the art. Even when improvement over a previous baseline has been modest, we have seen signs that deep learning methods may speed or aid human investigation. More work is needed to address concerns related to interpretability and how to best model each problem. Furthermore, the limited amount of labeled data for training presents problems in some domains, as do legal and privacy constraints on work with sensitive health records. Nonetheless, we foresee deep learning powering changes at both bench and bedside with the potential to transform several areas of biology and medicine.</jats:p>",
     "DOI": "10.1101/142760",
     "type": "manuscript",
     "created": {
@@ -51,7 +51,7 @@
       "timestamp": 1496034615000
     },
     "source": "Crossref",
-    "is-referenced-by-count": 2,
+    "is-referenced-by-count": 6,
     "title": "Opportunities And Obstacles For Deep Learning In Biology And Medicine",
     "prefix": "10.1101",
     "author": [
@@ -109,6 +109,20 @@
         "authenticated-orcid": false,
         "given": "Paul-Michael",
         "family": "Agapow",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-0539-630X",
+        "authenticated-orcid": false,
+        "given": "Michael",
+        "family": "Zietz",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0002-4517-1562",
+        "authenticated-orcid": false,
+        "given": "Michael M",
+        "family": "Hoffman",
         "affiliation": []
       },
       {
@@ -182,6 +196,34 @@
         "affiliation": []
       },
       {
+        "ORCID": "http://orcid.org/0000-0002-7762-1089",
+        "authenticated-orcid": false,
+        "given": "Christopher A",
+        "family": "Lavender",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-3247-6487",
+        "authenticated-orcid": false,
+        "given": "Srinivas C",
+        "family": "Turaga",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0001-8655-8109",
+        "authenticated-orcid": false,
+        "given": "Amr M",
+        "family": "Alexandari",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0001-9998-916X",
+        "authenticated-orcid": false,
+        "given": "Zhiyong",
+        "family": "Lu",
+        "affiliation": []
+      },
+      {
         "ORCID": "http://orcid.org/0000-0003-3332-9307",
         "authenticated-orcid": false,
         "given": "David J.",
@@ -231,6 +273,27 @@
         "affiliation": []
       },
       {
+        "ORCID": "http://orcid.org/0000-0002-1400-3398",
+        "authenticated-orcid": false,
+        "given": "Simina M",
+        "family": "Boca",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-2191-0778",
+        "authenticated-orcid": false,
+        "given": "S. Joshua",
+        "family": "Swamidass",
+        "affiliation": []
+      },
+      {
+        "ORCID": "http://orcid.org/0000-0003-1349-4030",
+        "authenticated-orcid": false,
+        "given": "Austin",
+        "family": "Huang",
+        "affiliation": []
+      },
+      {
         "ORCID": "http://orcid.org/0000-0002-5324-9833",
         "authenticated-orcid": false,
         "given": "Anthony",
@@ -259,13 +322,13 @@
     "deposited": {
       "date-parts": [
         [
-          2017,
-          5,
-          29
+          2018,
+          1,
+          20
         ]
       ],
-      "date-time": "2017-05-29T05:10:24Z",
-      "timestamp": 1496034624000
+      "date-time": "2018-01-20T06:11:43Z",
+      "timestamp": 1516428703000
     },
     "score": 1.0,
     "subtitle": [],
