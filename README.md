@@ -4,7 +4,7 @@
 
 [![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://greenelab.github.io/manubot-rootstock/)
 [![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://greenelab.github.io/manubot-rootstock/manuscript.pdf)
-[![Build Status](https://travis-ci.org/greenelab/manubot-rootstock.svg?branch=master)](https://travis-ci.org/greenelab/manubot-rootstock)
+[![Build Status](https://travis-ci.com/greenelab/manubot-rootstock.svg?branch=master)](https://travis-ci.com/greenelab/manubot-rootstock)
 
 ## Manuscript description
 
@@ -69,7 +69,7 @@ sh build/autobuild.sh
 
 ### Continuous Integration
 
-[![Build Status](https://travis-ci.org/greenelab/manubot-rootstock.svg?branch=master)](https://travis-ci.org/greenelab/manubot-rootstock)
+[![Build Status](https://travis-ci.com/greenelab/manubot-rootstock.svg?branch=master)](https://travis-ci.com/greenelab/manubot-rootstock)
 
 Whenever a pull request is opened, Travis CI will test whether the changes break the build process to generate a formatted manuscript.
 The build process aims to detect common errors, such as invalid citations.

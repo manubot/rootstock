@@ -59,7 +59,7 @@ git push --set-upstream origin output
 
 ## Continuous integration
 
-Now you must manually enable Travis CI for the new repository at https://travis-ci.org.
+Now you must manually enable Travis CI for the new repository at https://travis-ci.com.
 Click the `+` sign to "Add New Repository".
 If you don't see your repository listed, push the "Sync account" button.
 Finally, flick the repository's switch to enable CI.
@@ -87,7 +87,7 @@ Give the key a descriptive title, such as "Travis CI Manubot".
 For the next step, you need the [Travis command line client](https://github.com/travis-ci/travis.rb) installed.
 This program is a Ruby gem:
 install it with `gem install travis` (not `apt install travis`, which is a different program).
-After the install, you will need to provide your credentials to login to travis with `travis login --org`.
+After the install, you will need to provide your credentials to login to travis with `travis login`.
 
 ```sh
 travis encrypt-file \
