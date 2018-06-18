@@ -1,15 +1,24 @@
 [
   {
+    "institution": {
+      "name": "bioRxiv",
+      "place": [
+        "-"
+      ],
+      "acronym": [
+        "-"
+      ]
+    },
     "indexed": {
       "date-parts": [
         [
           2018,
-          3,
-          8
+          6,
+          5
         ]
       ],
-      "date-time": "2018-03-08T10:02:21Z",
-      "timestamp": 1520503341692
+      "date-time": "2018-06-05T11:42:38Z",
+      "timestamp": 1528198958401
     },
     "posted": {
       "date-parts": [
@@ -51,7 +60,7 @@
       "timestamp": 1496034615000
     },
     "source": "Crossref",
-    "is-referenced-by-count": 6,
+    "is-referenced-by-count": 7,
     "title": "Opportunities And Obstacles For Deep Learning In Biology And Medicine",
     "prefix": "10.1101",
     "author": [
@@ -60,6 +69,7 @@
         "authenticated-orcid": false,
         "given": "Travers",
         "family": "Ching",
+        "sequence": "first",
         "affiliation": []
       },
       {
@@ -67,6 +77,7 @@
         "authenticated-orcid": false,
         "given": "Daniel S.",
         "family": "Himmelstein",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -74,6 +85,7 @@
         "authenticated-orcid": false,
         "given": "Brett K.",
         "family": "Beaulieu-Jones",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -81,6 +93,7 @@
         "authenticated-orcid": false,
         "given": "Alexandr A.",
         "family": "Kalinin",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -88,6 +101,7 @@
         "authenticated-orcid": false,
         "given": "Brian T.",
         "family": "Do",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -95,6 +109,7 @@
         "authenticated-orcid": false,
         "given": "Gregory P.",
         "family": "Way",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -102,6 +117,7 @@
         "authenticated-orcid": false,
         "given": "Enrico",
         "family": "Ferrero",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -109,6 +125,7 @@
         "authenticated-orcid": false,
         "given": "Paul-Michael",
         "family": "Agapow",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -116,6 +133,7 @@
         "authenticated-orcid": false,
         "given": "Michael",
         "family": "Zietz",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -123,6 +141,7 @@
         "authenticated-orcid": false,
         "given": "Michael M",
         "family": "Hoffman",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -130,6 +149,7 @@
         "authenticated-orcid": false,
         "given": "Wei",
         "family": "Xie",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -137,6 +157,7 @@
         "authenticated-orcid": false,
         "given": "Gail L.",
         "family": "Rosen",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -144,6 +165,7 @@
         "authenticated-orcid": false,
         "given": "Benjamin J.",
         "family": "Lengerich",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -151,6 +173,7 @@
         "authenticated-orcid": false,
         "given": "Johnny",
         "family": "Israeli",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -158,6 +181,7 @@
         "authenticated-orcid": false,
         "given": "Jack",
         "family": "Lanchantin",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -165,6 +189,7 @@
         "authenticated-orcid": false,
         "given": "Stephen",
         "family": "Woloszynek",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -172,6 +197,7 @@
         "authenticated-orcid": false,
         "given": "Anne E.",
         "family": "Carpenter",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -179,6 +205,7 @@
         "authenticated-orcid": false,
         "given": "Avanti",
         "family": "Shrikumar",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -186,6 +213,7 @@
         "authenticated-orcid": false,
         "given": "Jinbo",
         "family": "Xu",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -193,6 +221,7 @@
         "authenticated-orcid": false,
         "given": "Evan M.",
         "family": "Cofer",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -200,6 +229,7 @@
         "authenticated-orcid": false,
         "given": "Christopher A",
         "family": "Lavender",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -207,6 +237,7 @@
         "authenticated-orcid": false,
         "given": "Srinivas C",
         "family": "Turaga",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -214,6 +245,7 @@
         "authenticated-orcid": false,
         "given": "Amr M",
         "family": "Alexandari",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -221,6 +253,7 @@
         "authenticated-orcid": false,
         "given": "Zhiyong",
         "family": "Lu",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -228,6 +261,7 @@
         "authenticated-orcid": false,
         "given": "David J.",
         "family": "Harris",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -235,6 +269,7 @@
         "authenticated-orcid": false,
         "given": "Dave",
         "family": "DeCaprio",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -242,6 +277,7 @@
         "authenticated-orcid": false,
         "given": "Yanjun",
         "family": "Qi",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -249,6 +285,7 @@
         "authenticated-orcid": false,
         "given": "Anshul",
         "family": "Kundaje",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -256,6 +293,7 @@
         "authenticated-orcid": false,
         "given": "Yifan",
         "family": "Peng",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -263,6 +301,7 @@
         "authenticated-orcid": false,
         "given": "Laura K.",
         "family": "Wiley",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -270,6 +309,7 @@
         "authenticated-orcid": false,
         "given": "Marwin H. S.",
         "family": "Segler",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -277,6 +317,7 @@
         "authenticated-orcid": false,
         "given": "Simina M",
         "family": "Boca",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -284,6 +325,7 @@
         "authenticated-orcid": false,
         "given": "S. Joshua",
         "family": "Swamidass",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -291,6 +333,7 @@
         "authenticated-orcid": false,
         "given": "Austin",
         "family": "Huang",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -298,6 +341,7 @@
         "authenticated-orcid": false,
         "given": "Anthony",
         "family": "Gitter",
+        "sequence": "additional",
         "affiliation": []
       },
       {
@@ -305,6 +349,7 @@
         "authenticated-orcid": false,
         "given": "Casey S.",
         "family": "Greene",
+        "sequence": "additional",
         "affiliation": []
       }
     ],
@@ -323,12 +368,12 @@
       "date-parts": [
         [
           2018,
-          1,
-          20
+          5,
+          21
         ]
       ],
-      "date-time": "2018-01-20T06:11:43Z",
-      "timestamp": 1516428703000
+      "date-time": "2018-05-21T16:06:39Z",
+      "timestamp": 1526918799000
     },
     "score": 1.0,
     "subtitle": [],
@@ -344,12 +389,21 @@
     },
     "references-count": 0,
     "URL": "https://doi.org/10.1101/142760",
-    "relation": {},
+    "relation": {
+      "is-preprint-of": [
+        {
+          "id-type": "doi",
+          "id": "10.1098/rsif.2017.0387",
+          "asserted-by": "subject"
+        }
+      ]
+    },
+    "subtype": "preprint",
     "short_url": "https://doi.org/gbpvh5",
     "id": "tJKvnIaZ"
   },
   {
-    "type": "report",
+    "type": "article-journal",
     "id": "15nwuvjrA",
     "author": [
       {
@@ -366,7 +420,6 @@
     },
     "abstract": "Report detailing work done in the Greene Lab at the University of Pennsylvania for the Summer of 2017. Sparse matrix implementation of degree-weighted path count (DWPC) over a heterogeneous network of biomedical information. Summer research conducted as part of the Penn Vagelos Scholars Program in Molecular Life Science (MLS).",
     "DOI": "10.6084/m9.figshare.5346577",
-    "page": "-",
     "publisher": "Figshare",
     "title": "Vagelos Report Summer 2017",
     "URL": "https://doi.org/10.6084/m9.figshare.5346577",
