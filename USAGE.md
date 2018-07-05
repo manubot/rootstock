@@ -161,6 +161,7 @@ For additional examples, check out existing manuscripts that use the Manubot:
 + The Meta Review ([source](https://github.com/greenelab/meta-review), [manuscript](https://greenelab.github.io/meta-review/))
 + The Project Rephetio Manuscript ([source](https://github.com/dhimmel/rephetio-manuscript/), [manuscript](https://dhimmel.github.io/rephetio-manuscript/))
 + A Literature Review for Project Planning by David Slochower ([source](https://github.com/slochower/synthetic-motor-literature), [manuscript](https://slochower.github.io/synthetic-motor-literature/))
++ The TFSEE Manuscript by Venkat Malladi et al. ([source](https://github.com/vsmalladi/tfsee-manuscript), [manuscript](https://vsmalladi.github.io/tfsee-manuscript/))
 + The Manubot 2018 Development Proposal ([source](https://github.com/greenelab/manufund-2018), [manuscript](https://greenelab.github.io/manufund-2018/))
 
 If you are using the Manubot, feel free to submit a pull request to add your manuscript to the list above.
