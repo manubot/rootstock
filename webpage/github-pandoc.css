@@ -448,6 +448,14 @@ textarea {
    ========================================================================== */
 
 /**
+* Specify table caption location and text alignment.
+*/
+caption {
+    caption-side: top;
+    text-align: left;
+}
+
+/**
  * Remove most spacing between table cells.
  */
 
