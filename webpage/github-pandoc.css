@@ -293,11 +293,8 @@ svg:not(:root) {
    Figures
    ========================================================================== */
 
-/**
- * Address margin not present in IE 8/9 and Safari 5.
- */
-
 figure {
+    /* Address margin not present in IE 8/9 and Safari 5. */
     display: block;
     margin: 0;
 }
@@ -308,7 +305,7 @@ figcaption {
     text-align: left;
 }
 
-img {
+figure img {
     display:block;
     margin-left:auto;
     margin-right:auto;
