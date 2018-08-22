@@ -14,7 +14,7 @@ dependencies:
   - conda-forge::watchdog=0.8.3
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/greenelab/manubot@27456594c407f3fed35804db4bcf3b5bba88a716
+    - git+https://github.com/greenelab/manubot@66a6efc6f4b84153a813aa423ec00725ed1417c5
     - opentimestamps-client==0.5.1
     - opentimestamps==0.2.0.1
     - pandoc-eqnos==1.2.0
