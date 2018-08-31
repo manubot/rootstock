@@ -1,383 +1,157 @@
 [
   {
-    "institution": {
-      "name": "bioRxiv",
-      "place": [
-        "-"
-      ],
-      "acronym": [
-        "-"
-      ]
-    },
-    "indexed": {
-      "date-parts": [
-        [
-          2018,
-          6,
-          5
-        ]
-      ],
-      "date-time": "2018-06-05T11:42:38Z",
-      "timestamp": 1528198958401
-    },
-    "posted": {
-      "date-parts": [
-        [
-          2017,
-          5,
-          28
-        ]
-      ]
-    },
-    "group-title": "Bioinformatics",
-    "reference-count": 0,
     "publisher": "Cold Spring Harbor Laboratory",
-    "content-domain": {
-      "domain": [],
-      "crossmark-restriction": false
-    },
-    "accepted": {
-      "date-parts": [
-        [
-          2018,
-          1,
-          19
-        ]
-      ]
-    },
     "abstract": "<jats:p>Deep learning, which describes a class of machine learning algorithms, has recently showed impressive results across a variety of domains. Biology and medicine are data rich, but the data are complex and often ill-understood. Problems of this nature may be particularly well-suited to deep learning techniques. We examine applications of deep learning to a variety of biomedical problems - patient classification, fundamental biological processes, and treatment of patients - and discuss whether deep learning will transform these tasks or if the biomedical sphere poses unique challenges. We find that deep learning has yet to revolutionize or definitively resolve any of these problems, but promising advances have been made on the prior state of the art. Even when improvement over a previous baseline has been modest, we have seen signs that deep learning methods may speed or aid human investigation. More work is needed to address concerns related to interpretability and how to best model each problem. Furthermore, the limited amount of labeled data for training presents problems in some domains, as do legal and privacy constraints on work with sensitive health records. Nonetheless, we foresee deep learning powering changes at both bench and bedside with the potential to transform several areas of biology and medicine.</jats:p>",
     "DOI": "10.1101/142760",
     "type": "manuscript",
-    "created": {
-      "date-parts": [
-        [
-          2017,
-          5,
-          29
-        ]
-      ],
-      "date-time": "2017-05-29T05:10:15Z",
-      "timestamp": 1496034615000
-    },
     "source": "Crossref",
-    "is-referenced-by-count": 7,
     "title": "Opportunities And Obstacles For Deep Learning In Biology And Medicine",
-    "prefix": "10.1101",
     "author": [
       {
-        "ORCID": "http://orcid.org/0000-0002-5577-3516",
-        "authenticated-orcid": false,
         "given": "Travers",
-        "family": "Ching",
-        "sequence": "first",
-        "affiliation": []
+        "family": "Ching"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-3012-7446",
-        "authenticated-orcid": false,
         "given": "Daniel S.",
-        "family": "Himmelstein",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Himmelstein"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-6700-1468",
-        "authenticated-orcid": false,
         "given": "Brett K.",
-        "family": "Beaulieu-Jones",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Beaulieu-Jones"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-4563-3226",
-        "authenticated-orcid": false,
         "given": "Alexandr A.",
-        "family": "Kalinin",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Kalinin"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-4992-2623",
-        "authenticated-orcid": false,
         "given": "Brian T.",
-        "family": "Do",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Do"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-0503-9348",
-        "authenticated-orcid": false,
         "given": "Gregory P.",
-        "family": "Way",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Way"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-8362-100X",
-        "authenticated-orcid": false,
         "given": "Enrico",
-        "family": "Ferrero",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Ferrero"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-1126-1479",
-        "authenticated-orcid": false,
         "given": "Paul-Michael",
-        "family": "Agapow",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Agapow"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-0539-630X",
-        "authenticated-orcid": false,
         "given": "Michael",
-        "family": "Zietz",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Zietz"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-4517-1562",
-        "authenticated-orcid": false,
         "given": "Michael M",
-        "family": "Hoffman",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Hoffman"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-1871-6846",
-        "authenticated-orcid": false,
         "given": "Wei",
-        "family": "Xie",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Xie"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-1763-5750",
-        "authenticated-orcid": false,
         "given": "Gail L.",
-        "family": "Rosen",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Rosen"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-8690-9554",
-        "authenticated-orcid": false,
         "given": "Benjamin J.",
-        "family": "Lengerich",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Lengerich"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-1633-5780",
-        "authenticated-orcid": false,
         "given": "Johnny",
-        "family": "Israeli",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Israeli"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-0811-0944",
-        "authenticated-orcid": false,
         "given": "Jack",
-        "family": "Lanchantin",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Lanchantin"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-0568-298X",
-        "authenticated-orcid": false,
         "given": "Stephen",
-        "family": "Woloszynek",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Woloszynek"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-1555-8261",
-        "authenticated-orcid": false,
         "given": "Anne E.",
-        "family": "Carpenter",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Carpenter"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-6443-4671",
-        "authenticated-orcid": false,
         "given": "Avanti",
-        "family": "Shrikumar",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Shrikumar"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-7111-4839",
-        "authenticated-orcid": false,
         "given": "Jinbo",
-        "family": "Xu",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Xu"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-3877-0433",
-        "authenticated-orcid": false,
         "given": "Evan M.",
-        "family": "Cofer",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Cofer"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-7762-1089",
-        "authenticated-orcid": false,
         "given": "Christopher A",
-        "family": "Lavender",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Lavender"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-3247-6487",
-        "authenticated-orcid": false,
         "given": "Srinivas C",
-        "family": "Turaga",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Turaga"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-8655-8109",
-        "authenticated-orcid": false,
         "given": "Amr M",
-        "family": "Alexandari",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Alexandari"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-9998-916X",
-        "authenticated-orcid": false,
         "given": "Zhiyong",
-        "family": "Lu",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Lu"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-3332-9307",
-        "authenticated-orcid": false,
         "given": "David J.",
-        "family": "Harris",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Harris"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-8931-9461",
-        "authenticated-orcid": false,
         "given": "Dave",
-        "family": "DeCaprio",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "DeCaprio"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-5796-7453",
-        "authenticated-orcid": false,
         "given": "Yanjun",
-        "family": "Qi",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Qi"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-3084-2287",
-        "authenticated-orcid": false,
         "given": "Anshul",
-        "family": "Kundaje",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Kundaje"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-9309-8331",
-        "authenticated-orcid": false,
         "given": "Yifan",
-        "family": "Peng",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Peng"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-6681-9754",
-        "authenticated-orcid": false,
         "given": "Laura K.",
-        "family": "Wiley",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Wiley"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-8008-0546",
-        "authenticated-orcid": false,
         "given": "Marwin H. S.",
-        "family": "Segler",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Segler"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-1400-3398",
-        "authenticated-orcid": false,
         "given": "Simina M",
-        "family": "Boca",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Boca"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-2191-0778",
-        "authenticated-orcid": false,
         "given": "S. Joshua",
-        "family": "Swamidass",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Swamidass"
       },
       {
-        "ORCID": "http://orcid.org/0000-0003-1349-4030",
-        "authenticated-orcid": false,
         "given": "Austin",
-        "family": "Huang",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Huang"
       },
       {
-        "ORCID": "http://orcid.org/0000-0002-5324-9833",
-        "authenticated-orcid": false,
         "given": "Anthony",
-        "family": "Gitter",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Gitter"
       },
       {
-        "ORCID": "http://orcid.org/0000-0001-8713-9213",
-        "authenticated-orcid": false,
         "given": "Casey S.",
-        "family": "Greene",
-        "sequence": "additional",
-        "affiliation": []
+        "family": "Greene"
       }
     ],
-    "member": "246",
-    "container-title": [],
-    "original-title": [],
-    "link": [
-      {
-        "URL": "https://syndication.highwire.org/content/doi/10.1101/142760",
-        "content-type": "unspecified",
-        "content-version": "vor",
-        "intended-application": "similarity-checking"
-      }
-    ],
-    "deposited": {
-      "date-parts": [
-        [
-          2018,
-          5,
-          21
-        ]
-      ],
-      "date-time": "2018-05-21T16:06:39Z",
-      "timestamp": 1526918799000
-    },
-    "score": 1.0,
-    "subtitle": [],
-    "short-title": [],
     "issued": {
       "date-parts": [
         [
@@ -387,24 +161,15 @@
         ]
       ]
     },
-    "references-count": 0,
-    "URL": "https://doi.org/10.1101/142760",
-    "relation": {
-      "is-preprint-of": [
-        {
-          "id-type": "doi",
-          "id": "10.1098/rsif.2017.0387",
-          "asserted-by": "subject"
-        }
-      ]
-    },
-    "subtype": "preprint",
-    "short_url": "https://doi.org/gbpvh5",
+    "URL": "https://doi.org/gbpvh5",
     "id": "tJKvnIaZ"
   },
   {
     "type": "article-journal",
     "id": "15nwuvjrA",
+    "categories": [
+      "Bioinformatics"
+    ],
     "author": [
       {
         "family": "Zietz",
@@ -422,7 +187,6 @@
     "DOI": "10.6084/m9.figshare.5346577",
     "publisher": "Figshare",
     "title": "Vagelos Report Summer 2017",
-    "URL": "https://doi.org/10.6084/m9.figshare.5346577",
-    "short_url": "https://doi.org/gbr3pf"
+    "URL": "https://doi.org/gbr3pf"
   }
 ]
