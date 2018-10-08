@@ -179,7 +179,7 @@ _Manubot Preprint_ (2018) <https://greenelab.github.io/meta-review/>
 
 ## Acknowledgments
 
-We would like to thank the contributors and funders whose support makes this project possible.
+We would like to thank the contributors and funders whose support makes the Manubot project possible.
 Specifically, Manubot development has been financially supported by:
 
 - the **Alfred P. Sloan Foundation** in [Grant G-2018-11163](https://sloan.org/grant-detail/8501) to [**@dhimmel**](https://github.com/dhimmel).
