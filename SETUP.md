@@ -9,7 +9,8 @@ Setup is supported on Linux and macOS, but [**not on Windows**](https://github.c
 
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
-Both variables are case-sensitive in some of the setup steps.
+Make sure that the case of `OWNER` matches how your account name is displayed on GitHub.
+In general, assume that all commands in this setup are case-sensitive.
 **Edit the following commands with your manuscript's information:**
 
 ```sh
