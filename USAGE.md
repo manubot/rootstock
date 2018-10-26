@@ -80,6 +80,8 @@ When choosing which source to use for a citation, we recommend the following ord
 3. PubMed ID, cite like `@pmid:26158728`.
 4. _arXiv_ ID, cite like `@arxiv:1508.06576v2`.
 5. URL / webpage, cite like `@url:http://openreview.net/pdf?id=Sk-oDY9ge`.
+6. For references that do not have any of the persistent identifiers above, use a raw citation like `@raw:old-manuscript`.
+Metadata for raw citations must be provided manually.
 
 Cite multiple items at once like:
 
@@ -109,8 +111,8 @@ The Manubot workflow requires the bibliographic details for references (the set 
 The Manubot attempts to automatically retrieve metadata and generate valid citeproc JSON for references, which is exported to `output/references.json`.
 However, in some cases the Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
 Errors are most common for `url` references.
-For these references, you can manually specify the correct citeproc in [`content/manual-references.json`](content/manual-references.json), which will override the automatically generated reference data.
-To do so, create a new citeproc record that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
+For these references, you can manually specify the correct CSL Data in [`content/manual-references.json`](content/manual-references.json), which will override the automatically generated reference data.
+To do so, create a new CSL JSON record that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
 The identifier can be obtained from the `standard_citation` column of `citations.tsv`, which is located in the `output` branch or in the `output` subdirectory of local builds.
 As an example, `manual-references.json` contains:
 
@@ -118,6 +120,7 @@ As an example, `manual-references.json` contains:
 "standard_citation": "url:https://github.com/greenelab/manubot-rootstock"
 ```
 
+The metadata for `raw` citations must be provided in `manual-references.json` or an error will occur.
 For guidance on what CSL JSON should be like for different document types, refer to [these examples](https://github.com/aurimasv/zotero-import-export-formats/blob/a51c342e66bebd97b73a7230047b801c8f7bb690/CSL%20JSON.json).
 
 ## Manuscript metadata
