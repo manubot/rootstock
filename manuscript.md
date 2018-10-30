@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2018-10-23'
+date-meta: '2018-10-30'
 keywords:
 - markdown
 - publishing
@@ -18,10 +18,10 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/manubot-rootstock/v/dcfe402544f90e0047a247cdd8d01a2bca08df54/))
+([permalink](https://greenelab.github.io/manubot-rootstock/v/6eb463990b5bf24d2fa6a95a4fb59c6650823166/))
 was automatically generated
-from [greenelab/manubot-rootstock@dcfe402](https://github.com/greenelab/manubot-rootstock/tree/dcfe402544f90e0047a247cdd8d01a2bca08df54)
-on October 23, 2018.
+from [greenelab/manubot-rootstock@6eb4639](https://github.com/greenelab/manubot-rootstock/tree/6eb463990b5bf24d2fa6a95a4fb59c6650823166)
+on October 30, 2018.
 </em></small>
 
 ## Authors
@@ -64,10 +64,10 @@ The Manubot is a system for automating scholarly publishing.
 Content is written in [Pandoc Markdown](http://pandoc.org/MANUAL.html#pandocs-markdown) source files.
 See [`USAGE.md`](https://github.com/greenelab/manubot-rootstock/blob/master/USAGE.md) for more information on how to use the Manubot.
 
-The Manubot project began with the [Deep Review](https://github.com/greenelab/deep-review), where it was used to compose a highly-collaborative review article [@tJKvnIaZ].
+The Manubot project began with the [Deep Review](https://github.com/greenelab/deep-review), where it was used to compose a highly-collaborative review article [@PZMP42Ak].
 Other manuscripts that were created with Manubot include:
 
-+ The Sci-Hub Coverage Study ([GitHub](https://github.com/greenelab/scihub-manuscript), [HTML manuscript](https://greenelab.github.io/scihub-manuscript/))
++ The Sci-Hub Coverage Study ([GitHub](https://github.com/greenelab/scihub-manuscript), [HTML manuscript](https://greenelab.github.io/scihub-manuscript/)) [@IhliSZDo]
 + Michael Zietz's Report for the Vagelos Scholars Program ([GitHub](https://github.com/zietzm/Vagelos2017), [HTML manuscript](https://zietzm.github.io/Vagelos2017/)) [@15nwuvjrA]
 
 If you notice a problem with Manubot, it's best to submit an upstream fix to the appropriate repository:
