@@ -112,7 +112,7 @@ The Manubot attempts to automatically retrieve metadata and generate valid citep
 However, in some cases the Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
 Errors are most common for `url` references.
 For these references, you can manually specify the correct CSL Data in [`content/manual-references.json`](content/manual-references.json), which will override the automatically generated reference data.
-To do so, create a new CSL JSON record that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
+To do so, create a new CSL JSON Item that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
 The identifier can be obtained from the `standard_citation` column of `citations.tsv`, which is located in the `output` branch or in the `output` subdirectory of local builds.
 As an example, `manual-references.json` contains:
 
@@ -121,6 +121,17 @@ As an example, `manual-references.json` contains:
 ```
 
 The metadata for `raw` citations must be provided in `manual-references.json` or an error will occur.
+For example, to cite `@raw:private-message` in a manuscript, a corresponding CSL Item in `manual-references.json` is required, such as:
+
+```json
+{
+  "type": "personal_communication",
+  "standard_citation": "raw:private-message",
+  "title": "Personal communication with Doctor X"
+}
+```
+
+All references provided in `manual-references.json` must provide values for the `type` and `standard_citation` fields.
 For guidance on what CSL JSON should be like for different document types, refer to [these examples](https://github.com/aurimasv/zotero-import-export-formats/blob/a51c342e66bebd97b73a7230047b801c8f7bb690/CSL%20JSON.json).
 
 ## Manuscript metadata
