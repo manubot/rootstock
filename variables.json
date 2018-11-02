@@ -1,5 +1,5 @@
 {
-  "date": "October 30, 2018",
+  "date": "November 2, 2018",
   "authors": [
     {
       "github": "johndoe",
@@ -46,7 +46,7 @@
     "repo_slug": "greenelab/manubot-rootstock",
     "repo_owner": "greenelab",
     "repo_name": "manubot-rootstock",
-    "commit": "895924e6a8c693a0ee110ec410b153b7ceb09bc2"
+    "commit": "135f45193f2bd1f6ce2aa95e06973d19073286d5"
   },
   "manuscript_stats": {
     "reference_counts": {
