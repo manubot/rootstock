@@ -43,8 +43,7 @@ pandoc --verbose \
   $INPUT_PATH
 
 # Create PDF output (unless BUILD_DOCX environment variable equals "false")
-if [ "$BUILD_PDF" != "false" ]
-then
+if [ "$BUILD_PDF" != "false" ]; then
   echo "Exporting PDF manuscript"
   ln -s content/images images
   pandoc \
@@ -66,8 +65,7 @@ then
 fi
 
 # Create DOCX output (if BUILD_DOCX environment variable equals "true")
-if [ "$BUILD_DOCX" = "true" ];
-then
+if [ "$BUILD_DOCX" = "true" ]; then
   echo "Exporting Word Docx manuscript"
   pandoc --verbose \
     --from=markdown \
