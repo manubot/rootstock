@@ -45,6 +45,7 @@ pandoc --verbose \
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "$BUILD_PDF" != "false" ]; then
   echo "Exporting PDF manuscript"
+  if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images images
   pandoc \
     --from=markdown \
@@ -61,7 +62,7 @@ if [ "$BUILD_PDF" != "false" ]; then
     --css=webpage/github-pandoc.css \
     --output=output/manuscript.pdf \
     $INPUT_PATH
-  rm -r images
+  rm images
 fi
 
 # Create DOCX output (if BUILD_DOCX environment variable equals "true")
