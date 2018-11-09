@@ -42,7 +42,7 @@ pandoc --verbose \
   --output=output/manuscript.html \
   $INPUT_PATH
 
-# Create PDF output (unless BUILD_DOCX environment variable equals "false")
+# Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "$BUILD_PDF" != "false" ]; then
   echo "Exporting PDF manuscript"
   ln -s content/images images
