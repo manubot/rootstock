@@ -46,7 +46,7 @@ pandoc --verbose \
 if [ "$BUILD_PDF" != "false" ]; then
   echo "Exporting PDF manuscript"
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
-  ln -s content/images images
+  ln -s content/images
   pandoc \
     --from=markdown \
     --to=html5 \
