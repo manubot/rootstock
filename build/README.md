@@ -15,7 +15,7 @@ Please reference [Pull Request #40](https://github.com/greenelab/manubot-rootsto
 
 ## Environment
 
-**Windows not currently supported**
+Note: currently, **Windows is not supported**.
 
 Install or update the [conda](https://conda.io) environment specified in [`environment.yml`](environment.yml) by running:
 
