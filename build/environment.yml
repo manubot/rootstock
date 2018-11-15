@@ -12,7 +12,7 @@ dependencies:
   - conda-forge::pango=1.40.14
   - conda-forge::python=3.6.5
   - conda-forge::pyyaml=3.13
-  - conda-forge::requests=2.19.1
+  - conda-forge::requests=2.20.1
   - conda-forge::watchdog=0.8.3
   - pip:
     - errorhandler==2.0.1
