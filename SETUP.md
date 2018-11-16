@@ -193,7 +193,7 @@ However, if there are conflicts, follow the suggested commands to resolve them.
 
 You can add the changes incrementally using `git add --patch`.
 This is helpful to see each upstream change.
-You may notice changes that effect how items in `content` are processed.
+You may notice changes that affect how items in `content` are processed.
 If so, you should edit and stage `content` files as needed.
 When there are no longer any unstaged changes, then do `git commit`.
 
