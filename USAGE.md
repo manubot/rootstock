@@ -80,7 +80,7 @@ When choosing which source to use for a citation, we recommend the following ord
 3. PubMed ID, cite like `@pmid:26158728`.
 4. _arXiv_ ID, cite like `@arxiv:1508.06576v2`.
 5. ISBN (International Standard Book Number), cite like `@isbn:9781339919881`.
-6. URL / webpage, cite like `@url:http://openreview.net/pdf?id=Sk-oDY9ge`.
+6. URL / webpage, cite like `@url:https://nyti.ms/1QUgAt1`.
 7. For references that do not have any of the persistent identifiers above, use a raw citation like `@raw:old-manuscript`.
 Metadata for raw citations must be provided manually.
 
