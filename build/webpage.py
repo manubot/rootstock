@@ -22,12 +22,13 @@ def parse_arguments():
              "Generally a commit hash, tag, or 'local'. "
              "(default: '%(default)s')"
     )
-    parser.add_argument(
+    cache_group = parser.add_mutually_exclusive_group()
+    cache_group.add_argument(
         '--no-ots-cache',
         action='store_true',
         help="disable the timestamp cache."
     )
-    parser.add_argument(
+    cache_group.add_argument(
         '--ots-cache',
         default=pathlib.Path('ci/cache/ots'),
         type=pathlib.Path,
