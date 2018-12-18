@@ -173,9 +173,11 @@ For additional examples, check out existing manuscripts that use the Manubot (so
 
 + Satoshi Nakamoto's Bitcoin Whitepaper ([source](https://github.com/dhimmel/bitcoin-whitepaper/), [manuscript](https://dhimmel.github.io/bitcoin-whitepaper/), [commentary](https://steemit.com/manubot/@dhimmel/how-i-used-the-manubot-to-reproduce-the-bitcoin-whitepaper))
 + The Sci-Hub Coverage Study ([source](https://github.com/greenelab/scihub-manuscript), [manuscript](https://greenelab.github.io/scihub-manuscript/))
++ The GimmeMotifs manscript on transcription factor motif analysis ([source](https://github.com/simonvh/gimmemotifs-manuscript), [manuscript](https://simonvh.github.io/gimmemotifs-manuscript/manuscript.pdf))
 + A Report for the Vagelos Scholars Program by Michael Zietz ([source](https://github.com/zietzm/Vagelos2017), [manuscript](https://zietzm.github.io/Vagelos2017/))
 + The Deep Review ([source](https://github.com/greenelab/deep-review), [manuscript](https://greenelab.github.io/deep-review/))
 + The Meta Review ([source](https://github.com/greenelab/meta-review), [manuscript](https://greenelab.github.io/meta-review/))
++ A review of Network Methods for Multiomic Data Integration ([source](https://github.com/zietzm/integration-review), [manuscript](https://zietzm.github.io/integration-review/))
 + The Project Rephetio Manuscript ([source](https://github.com/dhimmel/rephetio-manuscript/), [manuscript](https://dhimmel.github.io/rephetio-manuscript/))
 + A Literature Review for Project Planning by David Slochower ([source](https://github.com/slochower/synthetic-motor-literature), [manuscript](https://slochower.github.io/synthetic-motor-literature/))
 + The TFSEE Manuscript by Venkat Malladi et al. ([source](https://github.com/vsmalladi/tfsee-manuscript), [manuscript](https://vsmalladi.github.io/tfsee-manuscript/))
