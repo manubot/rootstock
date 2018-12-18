@@ -81,8 +81,10 @@ When choosing which source to use for a citation, we recommend the following ord
 4. _arXiv_ ID, cite like `@arxiv:1508.06576v2`.
 5. ISBN (International Standard Book Number), cite like `@isbn:9781339919881`.
 6. URL / webpage, cite like `@url:https://nyti.ms/1QUgAt1`.
-7. For references that do not have any of the persistent identifiers above, use a raw citation like `@raw:old-manuscript`.
-Metadata for raw citations must be provided manually.
+7. Wikidata Items, cite like `@wikidata:Q50051684`.
+   Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata as an alternative to using a `raw` citation.
+8. For references that do not have any of the persistent identifiers above, use a raw citation like `@raw:old-manuscript`.
+   Metadata for raw citations must be provided manually.
 
 Cite multiple items at once like:
 
@@ -99,9 +101,9 @@ For example, the following citations all refer to the same study, but will be tr
 The system also supports citation tags, which are recommended for the following applications:
 
 1. A citation's identifier contains forbidden characters, such as `;` or `=`, or ends with a non-alphanumeric character other than `/`.
-  In these instances, you must use a tag.
+   In these instances, you must use a tag.
 2. A single reference is cited many times.
-  Therefore, it might make sense to define a tag, so if the citation updates (e.g. a newer version becomes available), only a single change is required.
+   Therefore, it might make sense to define a tag, so if the citation updates (e.g. a newer version becomes available), only a single change is required.
 
 Tags should be defined in [`content/citation-tags.tsv`](content/citation-tags.tsv).
 If `citation-tags.tsv` defines the tag `study-x`, then this study can be cited like `@tag:study-x`.
