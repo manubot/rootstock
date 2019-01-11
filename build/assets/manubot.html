@@ -1,0 +1,194 @@
+<script>
+    // insert dom node before another node
+    function insertAfter(newNode, referenceNode) {
+        referenceNode.parentNode.insertBefore(
+            newNode,
+            referenceNode.nextSibling
+        );
+    }
+    // wrap dom node in a div and return div
+    function wrapElement(element) {
+        let parent = element.parentNode;
+        let wrapper = document.createElement("div");
+        parent.replaceChild(wrapper, element);
+        wrapper.appendChild(element);
+        return wrapper;
+    }
+    // set placement of tooltip based on position in viewport
+    function setTooltipPlacement() {
+        let link = this;
+        let tooltip = link.nextSibling;
+        let x =
+            (link.getBoundingClientRect().left +
+                link.getBoundingClientRect().right) /
+            2;
+        let y =
+            (link.getBoundingClientRect().top +
+                link.getBoundingClientRect().bottom) /
+            2;
+        let w = tooltip.clientWidth;
+        let h = tooltip.clientHeight;
+
+        if (x + w < window.innerWidth) tooltip.dataset.hplacement = "right";
+        else if (x - w > 0) tooltip.dataset.hplacement = "left";
+        else tooltip.dataset.hplacement = "center";
+        if (y - h < 0) tooltip.dataset.vplacement = "bottom";
+        else tooltip.dataset.vplacement = "top";
+    }
+    // generate tooltips for citation links
+    function generateTooltips() {
+        let citationLinks = document.querySelectorAll("span.citation a");
+        for (let citationLink of citationLinks) {
+            citationLink.className = "citation_link";
+            citationLink.onmouseover = setTooltipPlacement;
+            let refId = citationLink.hash.slice(1);
+            let ref = document.getElementById(refId);
+            if (ref) {
+                let tooltip = ref.cloneNode(true);
+                tooltip.dataset.citationId = tooltip.id;
+                tooltip.className = "citation_tooltip";
+                tooltip.removeAttribute("id");
+                tooltip.hplacement = "right";
+                tooltip.vplacement = "top";
+                insertAfter(tooltip, citationLink);
+            }
+        }
+    }
+    // add horizontal scrolling for tables
+    function scrollTables() {
+        let tables = document.querySelectorAll("table");
+        for (let table of tables)
+            wrapElement(table).className = "table_container";
+    }
+
+    console.time("scroll tables");
+    scrollTables();
+    console.timeEnd("scroll tables");
+
+    console.time("generate tooltips");
+    generateTooltips();
+    console.timeEnd("generate tooltips");
+</script>
+
+<style>
+    /**
+     * Page size and margins when printing.
+     */
+    @page {
+        size: letter;
+        margin-top: 19mm;
+        margin-bottom: 16mm;
+        margin-left: 0mm;
+        margin-right: 0mm;
+    }
+
+    /* 
+     * Page Breaks
+     * https://github.com/wkhtmltopdf/wkhtmltopdf/issues/2982#issuecomment-308714479
+     */
+    @media print {
+        /* Always insert a page break before the element */
+        .page_break_before {
+            page-break-before: always !important;
+        }
+        /* Always insert a page break after the element */
+        .page_break_after {
+            page-break-after: always !important;
+        }
+        /* Avoid page break before the element (if possible) */
+        .page_break_before_avoid {
+            page-break-before: avoid !important;
+        }
+        /* Avoid page break after the element (if possible) */
+        .page_break_after_avoid {
+            page-break-after: avoid !important;
+        }
+        /* Avoid page break inside the element (if possible) */
+        .page_break_inside_avoid {
+            page-break-inside: avoid !important;
+        }
+    }
+
+    /**
+     * Position the Hypothesis adder correctly.
+     */
+    body {
+        position: relative;
+    }
+
+    /**
+     * Styles for tables.
+     */
+    caption {
+        caption-side: top;
+        text-align: left;
+    }
+    /* Prevent tables from overflowing past right border of document body. */
+    .table_container {
+        overflow: scroll hidden;
+    }
+
+    /**
+     * Don't limit max width.
+     */
+    img {
+        max-width: unset;
+    }
+
+    /**
+     * Styles for figures.
+     */
+    figure {
+        display: block;
+    }
+    figcaption {
+        display: block;
+        caption-side: bottom;
+        text-align: left;
+    }
+    figure img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+
+    /**
+     * Styles for citation link tooltips.
+     */
+    .citation {
+        position: relative;
+    }
+    .citation_tooltip {
+        visibility: hidden;
+        position: absolute;
+        min-width: 320px;
+        z-index: 99;
+    }
+    .citation_tooltip[data-hplacement="left"] {
+        right: 0%;
+    }
+    .citation_tooltip[data-hplacement="right"] {
+        left: 0%;
+    }
+    .citation_tooltip[data-hplacement="center"] {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .citation_tooltip[data-vplacement="top"] {
+        bottom: 100%;
+    }
+    .citation_tooltip[data-vplacement="bottom"] {
+        top: 100%;
+    }
+    .citation_tooltip p {
+        background: #fff;
+        padding: 15px;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px #cacaca, 0 0 0 4px #eee;
+    }
+    .citation_link:hover + .citation_tooltip,
+    .citation_tooltip:hover {
+        visibility: visible;
+    }
+</style>
