@@ -43,8 +43,8 @@
     </layout>
   </citation>
   <bibliography hanging-indent="true" second-field-align="margin">
-    <layout>
-      <text variable="citation-number" suffix=". "/>
+    <layout delimiter=" ">
+      <text variable="citation-number" suffix="."/>
       <group>
         <text variable="title" font-weight="bold"/>
       </group>
