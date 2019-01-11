@@ -39,6 +39,7 @@ pandoc --verbose \
   --include-in-header=build/assets/analytics.html \
   --include-after-body=build/assets/anchors.html \
   --include-after-body=build/assets/hypothesis.html \
+  --include-after-body=build/assets/manubot.html \
   --output=output/manuscript.html \
   $INPUT_PATH
 
