@@ -1,4 +1,5 @@
 <script>
+
     // insert dom node before another node
     function insertAfter(newNode, referenceNode) {
         referenceNode.parentNode.insertBefore(
@@ -158,6 +159,7 @@
 
     citationLinks();
     scrollTables();
+
 </script>
 
 <style>
@@ -207,18 +209,6 @@
     }
 
     /**
-     * Styles for tables.
-     */
-    caption {
-        caption-side: top;
-        text-align: left;
-    }
-    /* Prevent tables from overflowing past right border of document body. */
-    .table_container {
-        overflow: scroll hidden;
-    }
-
-    /**
      * Don't limit max width.
      */
     img {
@@ -260,9 +250,44 @@
     }
 
     /**
-     * Wrap lines by word for all elements, except for tables which will excessively wrap to attempt to shrink table
+     * Wrap lines by word for all elements.
      */
-    *:not(table) {
+    * {
         word-break: break-word;
     }
+
+    /**
+     * Styles for tables.
+     */
+    caption {
+        caption-side: top;
+        text-align: left;
+    }
+    @media only screen {
+        /* Don't break table words when on screen (scrollbar will be shown if necessary) */
+        table * {
+            word-break: normal;
+        }
+        /* Show scrollbar on tables if necessary to prevent overflowing past right border of document body. */
+        .table_container {
+            overflow: scroll hidden;
+        }
+    }
+    
+    /**
+     * Override pandoc generated CSS quirks.
+     */
+    .sourceCode {
+        overflow: auto !important;
+    }
+
+    /**
+     * Hide hypothesis annotation toolbar, icons, etc. on print.
+     */
+     @media only print {
+        .annotator-frame {
+            display: none !important;
+        }
+    }
+
 </style>
