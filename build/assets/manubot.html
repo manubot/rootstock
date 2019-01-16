@@ -168,10 +168,10 @@
      */
     @page {
         size: letter;
-        margin-top: 19mm;
-        margin-bottom: 16mm;
-        margin-left: 0mm;
-        margin-right: 0mm;
+        margin-left: 0.75in;
+        margin-top: 0.75in;
+        margin-right: 0.75in;
+        margin-bottom: 0.75in;
     }
 
     /* 
@@ -198,6 +198,15 @@
         /* Avoid page break inside the element (if possible) */
         .page_break_inside_avoid {
             page-break-inside: avoid !important;
+        }
+
+        /* Remove margin, padding, border, etc. when printing; go right up to @page pargins. */
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            max-width: none !important;
         }
     }
 
