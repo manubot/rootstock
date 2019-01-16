@@ -282,10 +282,13 @@
     }
 
     /**
-     * Hide hypothesis annotation toolbar, icons, etc. on print.
+     * Hide hypothesis annotation toolbar, tooltip, etc. on print.
      */
      @media only print {
         .annotator-frame {
+            display: none !important;
+        }
+        hypothesis-adder {
             display: none !important;
         }
     }
