@@ -1,0 +1,166 @@
+<script>
+
+	// insert dom node before another node
+    function insertAfter(newNode, referenceNode) {
+        referenceNode.parentNode.insertBefore(
+            newNode,
+            referenceNode.nextSibling
+        );
+    }
+    // remove all children of an element
+    function removeChildren(element) {
+        while (element.lastChild) {
+            element.lastChild.remove();
+        }
+    }
+    // get position of element relative to viewport
+    function getPositionInView(element) {
+        return {
+            left: element.getBoundingClientRect().left,
+            top: element.getBoundingClientRect().top,
+            right: element.getBoundingClientRect().right,
+            bottom: element.getBoundingClientRect().bottom
+        };
+    }
+    // get position of element relative to page
+    function getPositionInPage(element) {
+        return {
+            left:
+                element.getBoundingClientRect().left -
+                document.body.getBoundingClientRect().left,
+            top:
+                element.getBoundingClientRect().top -
+                document.body.getBoundingClientRect().top,
+            right:
+                element.getBoundingClientRect().right -
+                document.body.getBoundingClientRect().left,
+            bottom:
+                element.getBoundingClientRect().bottom -
+                document.body.getBoundingClientRect().top
+        };
+    }
+    // get width and height of element
+    function getDimensions(element) {
+        return {
+            width:
+                element.getBoundingClientRect().right -
+                element.getBoundingClientRect().left,
+            height:
+                element.getBoundingClientRect().bottom -
+                element.getBoundingClientRect().top
+        };
+    }
+    //get dimensions of viewport
+    function getView() {
+        return {
+            left: 0,
+            top: 0,
+            right: window.innerWidth,
+            bottom: window.innerHeight,
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    }
+    // open tooltip when mouse enters (hovers) a citation link
+    function openTooltip(link) {
+        let citationId = link.hash.slice(1);
+        let citation = document.querySelector("#" + citationId + " > p");
+        if (!citation) return;
+
+        let tooltip = document.getElementById("tooltip");
+        if (!tooltip) {
+            tooltip = document.createElement("div");
+            tooltip.id = "tooltip";
+            tooltip.onmouseleave = function() {
+                closeTooltip();
+            };
+            document.body.appendChild(tooltip);
+        }
+
+        if (tooltip.dataset.id !== citationId) {
+            removeChildren(tooltip);
+            let citationCopy = citation.cloneNode(true);
+            citationCopy.removeAttribute("id");
+            tooltip.appendChild(citationCopy);
+            tooltip.dataset.id = citationId;
+        }
+
+        if (
+            getPositionInView(link).left + getDimensions(tooltip).width <
+            getView().right
+        )
+            tooltip.style.left = getPositionInPage(link).left + "px";
+        else if (
+            getPositionInView(link).right - getDimensions(tooltip).width >
+            getView().left
+        )
+            tooltip.style.left =
+                getPositionInPage(link).right -
+                getDimensions(tooltip).width +
+                "px";
+        else
+            tooltip.style.left =
+                getView().width / 2 -
+                getDimensions(tooltip).width / 2 -
+                document.body.getBoundingClientRect().left +
+                "px";
+
+        if (
+            getPositionInView(link).top - getDimensions(tooltip).height >
+            getView().top
+        )
+            tooltip.style.top =
+                getPositionInPage(link).top -
+                getDimensions(tooltip).height +
+                "px";
+        else if (
+            getPositionInView(link).bottom + getDimensions(tooltip).height <
+            getView().bottom
+        )
+            tooltip.style.top = getPositionInPage(link).bottom + "px";
+        else
+            tooltip.style.top =
+                getView().height / 2 -
+                getDimensions(tooltip).height / 2 -
+                document.body.getBoundingClientRect().top +
+                "px";
+    }
+    // close tooltip when mouse leaves a citation link or tooltip
+    function closeTooltip() {
+        let tooltip = document.getElementById("tooltip");
+        if (tooltip) if (!tooltip.matches(":hover")) tooltip.remove();
+    }
+    // attach open/close tooltip handlers to citation links
+    function citationLinks() {
+        let links = document.querySelectorAll("span.citation a");
+        for (let link of links) {
+            link.onmouseover = function() {
+                openTooltip(link);
+            };
+            link.onmouseleave = function() {
+                closeTooltip();
+            };
+        }
+    }
+
+    citationLinks();
+
+</script>
+
+<style>
+	/**
+      * Styles for citation link tooltips.
+      */
+    #tooltip {
+        position: absolute;
+        max-width: 50%;
+        min-width: 320px;
+        z-index: 99;
+    }
+    #tooltip p {
+        background: #fff;
+        padding: 15px;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px #cacaca, 0 0 0 4px #eee;
+	}
+</style>
