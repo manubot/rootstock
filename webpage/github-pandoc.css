@@ -58,7 +58,7 @@ template {
  */
 
 body {
-  position: relative;
+    position: relative;
 }
 
 /* ==========================================================================
@@ -275,7 +275,7 @@ sup {
 }
 
 sup {
-    top: -0.5em;
+    top: -0.1em;
 }
 
 sub {
@@ -786,7 +786,6 @@ pre tt {
 sup,
 sub,
 a.footnote {
-    font-size: 1.4ex;
     height: 0;
     line-height: 1;
     vertical-align: super;
