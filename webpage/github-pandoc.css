@@ -85,13 +85,26 @@ body {
     margin: 0;
 }
 
-/***Page size and margins when printing***/
+/**
+ * Page size and margins when printing.
+ */
 @page {
-    size: Letter;
-    margin-top: 19mm;
-    margin-bottom: 16mm;
-    margin-left: 0mm;
-    margin-right: 0mm;
+    size: letter;
+    margin-top: 0.75in;
+    margin-bottom: 0.75in;
+    margin-left: 0.75in;
+    margin-right: 0.75in;
+}
+/* Remove margin, padding, border, etc. when printing; go right up to @page pargins. */
+@media print {
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        max-width: none !important;
+    }
 }
 
 /* 
