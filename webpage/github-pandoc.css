@@ -301,6 +301,12 @@ svg:not(:root) {
     }
 }
 
+/**
+ * Override pandoc generated CSS quirks.
+ */
+.sourceCode {
+    overflow: auto !important;
+}
 
 /* ==========================================================================
    Figures
