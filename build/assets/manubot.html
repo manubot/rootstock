@@ -145,6 +145,23 @@
 
     citationLinks();
 
+    // wrap dom node in a div and return div
+    function wrapElement(element) {
+        let parent = element.parentNode;
+        let wrapper = document.createElement("div");
+        parent.replaceChild(wrapper, element);
+        wrapper.appendChild(element);
+        return wrapper;
+    }
+    // add horizontal scrolling for tables
+    function scrollTables() {
+        let tables = document.querySelectorAll("table");
+        for (let table of tables)
+            wrapElement(table).className = "table_container";
+    }
+
+    scrollTables();
+
 </script>
 
 <style>
@@ -163,4 +180,5 @@
         border-radius: 3px;
         box-shadow: 0 0 0 1px #cacaca, 0 0 0 4px #eee;
 	}
+    
 </style>

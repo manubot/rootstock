@@ -465,6 +465,24 @@ caption {
 }
 
 /**
+  * Wrap lines by word for all elements.
+  */
+* {
+    word-break: break-word;
+}
+
+@media only screen {
+    /* Don't break table words when on screen (scrollbar will be shown if necessary) */
+    table * {
+        word-break: normal;
+    }
+    /* Show scrollbar on tables if necessary to prevent overflowing past right border of document body. */
+    .table_container {
+        overflow: scroll hidden;
+    }
+}
+
+/**
  * Remove most spacing between table cells.
  */
 
