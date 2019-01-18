@@ -476,10 +476,6 @@ caption {
     table * {
         word-break: normal;
     }
-    /* Show scrollbar on tables if necessary to prevent overflowing past right border of document body. */
-    .table_container {
-        overflow: scroll hidden;
-    }
 }
 
 /**
