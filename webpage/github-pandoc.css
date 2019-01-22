@@ -95,7 +95,7 @@ body {
     margin-left: 0.75in;
     margin-right: 0.75in;
 }
-/* Remove margin, padding, border, etc. when printing; go right up to @page pargins. */
+/* Remove margin, padding, border, etc. when printing; go right up to @page margins. */
 @media print {
     html,
     body {
