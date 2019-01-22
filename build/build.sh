@@ -60,6 +60,7 @@ if [ "$BUILD_PDF" != "false" ]; then
     --csl=$CSL_PATH \
     --metadata link-citations=true \
     --webtex=https://latex.codecogs.com/svg.latex? \
+    --section-divs \
     --css=webpage/github-pandoc.css \
     --output=output/manuscript.pdf \
     $INPUT_PATH
