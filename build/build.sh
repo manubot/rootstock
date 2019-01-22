@@ -35,6 +35,7 @@ pandoc --verbose \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
   --mathjax \
+  --section-divs \
   --css=github-pandoc.css \
   --include-in-header=build/assets/analytics.html \
   --include-after-body=build/assets/anchors.html \
