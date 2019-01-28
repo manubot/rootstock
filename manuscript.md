@@ -18,9 +18,9 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/manubot-rootstock/v/fa7949f633ee819fd4724fcd1be6433acf2eb824/))
+([permalink](https://greenelab.github.io/manubot-rootstock/v/96b580d853c3407a67f76a480364abe70a45099a/))
 was automatically generated
-from [greenelab/manubot-rootstock@fa7949f](https://github.com/greenelab/manubot-rootstock/tree/fa7949f633ee819fd4724fcd1be6433acf2eb824)
+from [greenelab/manubot-rootstock@96b580d](https://github.com/greenelab/manubot-rootstock/tree/96b580d853c3407a67f76a480364abe70a45099a)
 on January 28, 2019.
 </em></small>
 
