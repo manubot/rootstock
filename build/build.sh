@@ -34,8 +34,8 @@ pandoc --verbose \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
   --mathjax \
-  --include-in-header=build/themes/default.html \
-  --include-in-header=build/plugins/analytics.html \
+  --include-after-body=build/themes/default.html \
+  --include-after-body=build/plugins/analytics.html \
   --include-after-body=build/plugins/anchors.html \
   --include-after-body=build/plugins/hypothesis.html \
   --output=output/manuscript.html \
@@ -58,7 +58,7 @@ if [ "$BUILD_PDF" != "false" ]; then
     --csl=$CSL_PATH \
     --metadata link-citations=true \
     --webtex=https://latex.codecogs.com/svg.latex? \
-    --include-in-header=build/themes/default.html \
+    --include-after-body=build/themes/default.html \
     --output=output/manuscript.pdf \
     $INPUT_PATH
   rm images
