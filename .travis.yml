@@ -11,9 +11,9 @@ before_install:
   - source $HOME/miniconda/etc/profile.d/conda.sh
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
-  - conda info --all
 install:
   - conda env create --quiet --file build/environment.yml
+  - conda list --name manubot
   - conda activate manubot
 script:
   - sh build/build.sh
