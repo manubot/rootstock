@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2019-01-29'
+date-meta: '2019-02-01'
 keywords:
 - markdown
 - publishing
@@ -18,10 +18,10 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript
-([permalink](https://greenelab.github.io/manubot-rootstock/v/ec359f63c7d2b9ec0f2c04fabccd648f0b6a1ab9/))
+([permalink](https://greenelab.github.io/manubot-rootstock/v/658bcd763deae50732867a471d38760a90b13641/))
 was automatically generated
-from [greenelab/manubot-rootstock@ec359f6](https://github.com/greenelab/manubot-rootstock/tree/ec359f63c7d2b9ec0f2c04fabccd648f0b6a1ab9)
-on January 29, 2019.
+from [greenelab/manubot-rootstock@658bcd7](https://github.com/greenelab/manubot-rootstock/tree/658bcd763deae50732867a471d38760a90b13641)
+on February 1, 2019.
 </em></small>
 
 ## Authors
@@ -29,11 +29,11 @@ on January 29, 2019.
 
 
 + **John Doe**<br>
-    ![ORCID icon](images/orcid.svg){height="13px" width="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
-    · ![GitHub icon](images/github.svg){height="13px" width="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [johndoe](https://github.com/johndoe)
-    · ![Twitter icon](images/twitter.svg){height="13px" width="13px"}
+    · ![Twitter icon](images/twitter.svg){.inline_icon}
     [johndoe](https://twitter.com/johndoe)<br>
   <small>
      Department of Something, University of Whatever
@@ -41,9 +41,9 @@ on January 29, 2019.
   </small>
 
 + **Jane Roe**<br>
-    ![ORCID icon](images/orcid.svg){height="13px" width="13px"}
+    ![ORCID icon](images/orcid.svg){.inline_icon}
     [XXXX-XXXX-XXXX-XXXX](https://orcid.org/XXXX-XXXX-XXXX-XXXX)
-    · ![GitHub icon](images/github.svg){height="13px" width="13px"}
+    · ![GitHub icon](images/github.svg){.inline_icon}
     [janeroe](https://github.com/janeroe)<br>
   <small>
      Department of Something, University of Whatever; Department of Whatever, University of Something
