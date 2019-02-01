@@ -29,4 +29,4 @@ dependencies:
     - pysha3==1.0.2
     - python-bitcoinlib==0.9.0
     - requests-cache==0.4.13
-    - weasyprint==44
+    - weasyprint==0.42.3
