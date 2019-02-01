@@ -2,7 +2,7 @@ name: manubot
 channels:
   - conda-forge
 dependencies:
-  - conda-forge::cairo=1.16.0
+  - conda-forge::cairo=1.14.12
   - conda-forge::cairocffi=0.8.0
   - conda-forge::cffi=1.11.5
   - conda-forge::ghp-import=0.5.5
