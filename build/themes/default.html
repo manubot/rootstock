@@ -1,3 +1,4 @@
+<!-- default theme -->
 <style>
 
     /* import google fonts */
@@ -25,6 +26,7 @@
         margin: 20px auto;
         padding: 40px;
         border-radius: 4px;
+        background: #ffffff;
         box-shadow: 0 0 15px #bbbbbb;
     }
 
@@ -269,11 +271,15 @@
     /* mathjax */
     /* -------------------------------------------------- */
 
-    /* all first-generation children of mathjax containers */
+        /* all first-generation children of mathjax containers */
     .math.display > span {
         overflow: auto hidden !important;
         /* turn inline element (no dimensions) into block (allows fixed width and thus scrolling) */
-        display: block !important;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        /* remove mathjax margins */
+        margin: 0 !important;
     }
 
     /* right click menu */
@@ -287,26 +293,51 @@
     /* buttons */
     /* -------------------------------------------------- */
 
-    /* class for styling links/<button>'s/<input>'s like buttons */
+    /* class for styling links like buttons */
     .button {
-        display: inline-block;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
         margin: 5px;
         padding: 10px 20px;
         font-size: 13px;
         font-weight: 600;
         text-transform: uppercase;
+        text-decoration: none;
         letter-spacing: 1px;
         background: none;
         color: #2196f3;
         border: solid 1px #bbbbbb;
         border-radius: 4px;
-        text-decoration: none;
     }
 
     /* buttons when hovered */
-    .button:hover {
+    .button:hover:not([disabled]),
+    .icon_button:hover:not([disabled]) {
         cursor: pointer;
         background: #f0f0f0;
+    }
+
+    /* buttons when disabled */
+    .button[disabled],
+    .icon_button[disabled] {
+        opacity: 0.35;
+        pointer-events: none;
+    }
+
+    /* class for styling buttons containg only single icon (used in plugins) */
+    .icon_button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        background: none;
+        border-radius: 4px;
+        border: none;
+        width: 20px;
+        height: 20px;
     }
 
     /* -------------------------------------------------- */
