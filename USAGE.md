@@ -169,7 +169,7 @@ Note that `affiliations` should be a list to allow for multiple affiliations per
 
 ## Manubot feedback
 
-If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`greenelab/manubot`](https://github.com/greenelab/manubot) or [`greenelab/manubot-rootstock`](https://github.com/greenelab/manubot-rootstock).
+If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`manubot/manubot`](https://github.com/manubot/manubot) or [`greenelab/manubot-rootstock`](https://github.com/greenelab/manubot-rootstock).
 
 ## Examples
 
