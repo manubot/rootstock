@@ -496,4 +496,64 @@
         }
     }
 
+    /* -------------------------------------------------- */
+    /* tooltips plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        #tooltip {
+            position: absolute;
+            width: 50%;
+            min-width: 240px;
+            z-index: 99;
+        }
+        #tooltip_content {
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 4px;
+            border: solid 1px #bbbbbb;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            word-break: all;
+            word-break: break-word;
+        }
+        #tooltip_content > p,
+        #tooltip_content > figure {
+            margin: 0;
+        }
+        #tooltip_content > figure > figcaption {
+            margin: 0;
+            margin-top: 10px;
+        }
+        #tooltip_nav_bar {
+            margin-top: 10px;
+            text-align: center;
+        }
+        #tooltip_nav_bar > .icon_button {
+            color: #000000;
+            position: relative;
+            top: 3px;
+        }
+        #tooltip_nav_bar > .icon_button:first-of-type {
+            margin-right: 5px;
+        }
+        #tooltip_nav_bar > .icon_button:last-of-type {
+            margin-left: 5px;
+        }
+        #tooltip_nav_bar > .icon_button > svg {
+            position: relative;
+        }
+        #tooltip_nav_bar > .icon_button:first-of-type > svg {
+            left: -1px;
+        }
+        #tooltip_nav_bar > .icon_button:last-of-type > svg {
+            left: 1px;
+        }
+    }
+    @media only print {
+        #tooltip {
+            display: none;
+        }
+    }
+
 </style>
