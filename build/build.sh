@@ -40,6 +40,7 @@ pandoc --verbose \
   --include-after-body=build/plugins/accordion.html \
   --include-after-body=build/plugins/tooltips.html \
   --include-after-body=build/plugins/jump-to-first.html \
+  --include-after-body=build/plugins/ref-highlight.html \
   --include-after-body=build/plugins/analytics.html \
   --include-after-body=build/plugins/hypothesis.html \
   --output=output/manuscript.html \

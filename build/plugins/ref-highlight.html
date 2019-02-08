@@ -1,0 +1,172 @@
+<!-- ref highlight plugin -->
+
+<script>
+    ///////////////////////////
+    // DESCRIPTION
+    ///////////////////////////
+
+    // This Manubot plugin makes it such that when a user hovers or focuses a link, other links that have the same target (if there are any) will be highlighted.
+    // It also makes it such that when clicking a link, the target of the link (eg citation, figure, table) is briefly highlighted.
+
+    (function() {
+        ///////////////////////////
+        // OPTIONS
+        ///////////////////////////
+
+        // whether to also highlight links that go to external urls
+        let externalLinks = false;
+        // whether user must click off to unhighlight instead of just un-hovering
+        let clickUnhighlight = false;
+        // whether to also highlight links that are unique
+        let highlightUnique = true;
+
+        ///////////////////////////
+        // SCRIPT
+        ///////////////////////////
+
+        // start script
+        function start() {
+            let links = getLinks();
+            for (let link of links) {
+                // attach hover listener to link
+                link.addEventListener("mouseover", onLinkFocus);
+                link.addEventListener("focus", onLinkFocus);
+                if (!clickUnhighlight) link.addEventListener("mouseout", unhighlight);
+            }
+            // attach click and hash change listeners to page
+            window.addEventListener("mousedown", onClick);
+            window.addEventListener("hashchange", onHashChange);
+
+            // run hash change on page load in case user has navigated directly to hash
+            onHashChange();
+        }
+
+        // when hash (eg manuscript.html#introduction) changes
+        function onHashChange() {
+            let target = getHashTarget();
+            if (target) glowElement(target);
+        }
+
+        // get element that is target of hash
+        function getHashTarget() {
+            let hash = window.location.hash;
+            let id = hash.slice(1);
+            let target = document.querySelector("[id='" + id + "'], [name='" + id + "']");
+            if (!target) return;
+
+            // if figure or table, modify target to get expected element
+            if (hash.indexOf("#fig:") === 0) target = target.parentNode;
+            else if (hash.indexOf("#tbl:") === 0)
+                target = target.nextElementSibling.querySelector("caption");
+
+            return target;
+        }
+
+        // start glow sequence on an element
+        function glowElement(element) {
+            // run at start of glow
+            let glowStart = function() {
+                element.dataset.glow = "true";
+                clearListeners();
+                element.addEventListener("transitionend", glowMid);
+            }
+            // run at middle/peak of glow
+            let glowMid = function() {
+                this.dataset.glow = "false";
+                clearListeners();
+                this.addEventListener("transitionend", glowEnd);
+            };
+            // run at end of glow
+            let glowEnd = function() {
+                this.removeAttribute("data-glow");
+                clearListeners();
+            };
+            // delete any attached glow listeners
+            let clearListeners = function() {
+                this.removeEventListener("transitionend", glowStart);
+                this.removeEventListener("transitionend", glowMid);
+                this.removeEventListener("transitionend", glowEnd);
+            }
+            // start glow
+            glowStart();
+        }
+
+        // when link is focused (tabbed to) or hovered
+        function onLinkFocus() {
+            highlight(this);
+        }
+
+        // when the mouse is clicked anywhere on page
+        function onClick(event) {
+            // if click was not on highlighted/selected link or tooltip, unhighlight all
+            if (
+                !event.target.dataset.selected &&
+                !event.target.dataset.highlighted &&
+                !hasKey(event.path, "id", "tooltip_content")
+            )
+                unhighlightAll();
+        }
+
+        // highlight link and all others with same target
+        function highlight(link) {
+            // force unhighlight all to start fresh
+            unhighlightAll();
+
+            // get links with same target
+            if (!link) return;
+            let sameLinks = getSameLinks(link);
+
+            // if link unique and option is off, exit and don't highlight
+            if (sameLinks.length <= 1 && !highlightUnique) return;
+
+            // highlight all same links, and "select" (special highlight) this one
+            for (let sameLink of sameLinks) {
+                if (sameLink === link) sameLink.setAttribute("data-selected", "true");
+                else sameLink.setAttribute("data-highlighted", "true");
+            }
+        }
+
+        // unhighlight all links
+        function unhighlightAll() {
+            let links = getLinks();
+            for (let link of links) {
+                link.setAttribute("data-selected", "false");
+                link.setAttribute("data-highlighted", "false");
+            }
+        }
+
+        // get links with same target
+        function getSameLinks(link) {
+            let results = [];
+            let links = getLinks();
+            for (let otherLink of links)
+                if (otherLink.getAttribute("href") === link.getAttribute("href"))
+                    results.push(otherLink);
+
+            return results;
+        }
+
+        // get all links of types we wish to handle
+        function getLinks() {
+            let query = "a";
+            if (!externalLinks) query += "[href^='#']";
+            query += ":not(.button):not(.icon_button)"; // exclude buttons
+            return document.querySelectorAll(query);
+        }
+
+        // check if array has key with value
+        function hasKey(array, key, value) {
+            for (let element of array)
+                if (
+                    (value === undefined && element[key] !== undefined) ||
+                    (value !== undefined && element[key] === value)
+                )
+                    return true;
+
+            return false;
+        }
+
+        // start script when document is finished loading
+        window.addEventListener("load", start);
+    })();
+</script>
