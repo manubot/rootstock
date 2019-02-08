@@ -439,4 +439,34 @@
         }
     }
 
+    /* -------------------------------------------------- */
+    /* anchors plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        .anchor {
+            opacity: 0;
+            margin-left: 10px;
+        }
+        *:hover > .anchor,
+        .anchor:hover,
+        .anchor:focus {
+            opacity: 1;
+        }
+        .anchor:hover {
+            cursor: pointer;
+        }
+    }
+    /* always show on devices with no mouse/hover ability */
+    @media (hover: none) {
+        .anchor {
+            opacity: 1;
+        }
+    }
+    @media only print {
+        .anchor {
+            display: none;
+        }
+    }
+
 </style>
