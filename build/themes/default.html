@@ -16,18 +16,23 @@
     }
 
     /* "page" element */
-    body {
-        position: relative;
-        box-sizing: border-box;
-        /* make resemble paper */
-        max-width: 8.5in;
-        font-size: 16px;
-        line-height: 1.5;
-        margin: 20px auto;
-        padding: 40px;
-        border-radius: 4px;
-        background: #ffffff;
-        box-shadow: 0 0 15px #bbbbbb;
+    @media only screen {
+        body {
+            position: relative;
+            box-sizing: border-box;
+            /* make resemble paper */
+            max-width: 8.5in;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 20px auto;
+            padding: 40px;
+            border-radius: 4px;
+            border: solid 1px #bbbbbb;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            word-break: all;
+            word-break: break-word;
+        }
     }
 
     /* when on screen < 8.5in wide */
@@ -38,6 +43,7 @@
             padding: 20px;
             /* remove the "paper" look */
             margin: 0;
+            border: none;
             box-shadow: none;
         }
     }
@@ -154,11 +160,11 @@
 
     /* figure caption */
     figcaption {
-        margin: 10px 20px 0 20px;
+        padding: 10px 20px 0 20px;
     }
 
     /* figure auto-number */
-    figcaption > span:first-child {
+    figcaption > span:first-of-type {
         font-weight: 600;
         margin-right: 5px;
     }
@@ -189,11 +195,11 @@
     /* table caption */
     caption {
         text-align: left;
-        margin: 0 20px 10px 20px;
+        padding: 0 20px 10px 20px;
     }
 
     /* table auto-number */
-    caption > span:first-child {
+    caption > span:first-of-type {
         font-weight: 600;
         margin-right: 5px;
     }
@@ -232,6 +238,7 @@
         background-color: #f0f0f0;
         border: solid 1px #bbbbbb;
         border-radius: 4px;
+        break-inside: avoid;
     }
 
     /* inline code, ie code within normal text */
@@ -265,6 +272,7 @@
         border-left: 4px solid #bbbbbb;
         /* align similarly to other elements */
         padding-left: 16px;
+        break-inside: avoid;
     }
 
     /* -------------------------------------------------- */
@@ -284,9 +292,9 @@
 
     /* right click menu */
     .MathJax_Menu {
-        border: none !important;
         border-radius: 4px !important;
-        box-shadow: 0 0 15px #bbbbbb !important;
+        border: solid 1px #bbbbbb !important;
+        box-shadow: none !important
     }
 
     /* -------------------------------------------------- */
@@ -340,6 +348,11 @@
         height: 20px;
     }
 
+    /* icon button inner svg image */
+    .icon_button > svg {
+        height: 16px;
+    }
+
     /* -------------------------------------------------- */
     /* icons */
     /* -------------------------------------------------- */
@@ -354,57 +367,69 @@
     /* -------------------------------------------------- */
     /* when printing */
     /* -------------------------------------------------- */
-
-    /* paper/page size and margins */
+    
     @page {
-        size: letter;
-        margin-top: 0.75in;
-        margin-bottom: 0.75in;
-        margin-left: 0.75in;
-        margin-right: 0.75in;
+        /* suggested/default margin */
+        margin: 0.5in;
     }
 
     @media print {
+
+        /* scale down font sizes to fit more words on page */
+
         /* page element */
         body {
-            /* remove margin and padding; go right up to page margins */
-            margin: 0;
-            padding: 0;
-            /* remove "paper" effect */
-            box-shadow: none;
-            /* make font size smaller to fit more words on page */
             font-size: 12px;
         }
+
+        /* code text */
+        code,
+        code * {
+            font-size: 11px;
+        }
+
+        /* link buttons */
+        .button {
+            font-size: 10px;
+        }
+
+        /* page element */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* page break control */
 
         /* all h2 headings except the first */
         h2:not(:first-of-type) {
             /* force page break */
-            page-break-before: always !important;
+            break-before: always !important;
         }
 
         /* always insert a page break before the element */
         .page_break_before {
-            page-break-before: always !important;
+            break-before: always !important;
         }
 
         /* always insert a page break after the element */
         .page_break_after {
-            page-break-after: always !important;
+            break-after: always !important;
         }
 
         /* avoid page break before the element */
         .page_break_before_avoid {
-            page-break-before: avoid !important;
+            break-before: avoid !important;
         }
 
         /* avoid page break after the element */
         .page_break_after_avoid {
-            page-break-after: avoid !important;
+            break-after: avoid !important;
         }
 
         /* avoid page break inside the element */
         .page_break_inside_avoid {
-            page-break-inside: avoid !important;
+            break-inside: avoid !important;
         }
     }
 
