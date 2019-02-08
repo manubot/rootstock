@@ -35,8 +35,9 @@ pandoc --verbose \
   --metadata link-citations=true \
   --mathjax \
   --include-after-body=build/themes/default.html \
-  --include-after-body=build/plugins/analytics.html \
+  --include-after-body=build/plugins/table-scroll.html \
   --include-after-body=build/plugins/anchors.html \
+  --include-after-body=build/plugins/analytics.html \
   --include-after-body=build/plugins/hypothesis.html \
   --output=output/manuscript.html \
   $INPUT_PATH

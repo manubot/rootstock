@@ -417,4 +417,26 @@
         overflow: auto !important;
     }
 
+    /* -------------------------------------------------- */
+    /* table scroll plugin */
+    /* -------------------------------------------------- */
+    
+    @media only screen {
+        .table_wrapper {
+            /* show scrollbar on tables if necessary to prevent overflow */
+            overflow: auto hidden;
+        }
+        .table_wrapper table, .table_wrapper table * {
+            /* don't break table words */
+            word-break: normal !important;
+        }
+        /* move margins from table to table_wrapper to allow margin collapsing */
+        .table_wrapper {
+            margin: 20px 0;
+        }
+        .table_wrapper > table {
+            margin: 0;
+        }
+    }
+
 </style>

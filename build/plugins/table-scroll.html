@@ -1,0 +1,35 @@
+<!-- table scroll plugin -->
+
+<script>
+    ///////////////////////////
+    // DESCRIPTION
+    ///////////////////////////
+
+    // This Manubot plugin allows tables that are too wide to fit within the page to have a scrollbar instead of being squashed to fit.
+
+    (function() {
+        ///////////////////////////
+        // SCRIPT
+        ///////////////////////////
+
+        // start script
+        function start() {
+            // wrap each table in a container
+            let tables = document.querySelectorAll("table");
+            for (let table of tables) wrapElement(table).className = "table_wrapper";
+            // table_wrapper CSS class in theme file provides scroll functionality
+        }
+
+        // wrap element in div and return div
+        function wrapElement(element) {
+            let parent = element.parentNode;
+            let wrapper = document.createElement("div");
+            parent.replaceChild(wrapper, element);
+            wrapper.appendChild(element);
+            return wrapper;
+        }
+
+        // start script when document is finished loading
+        window.addEventListener("load", start);
+    })();
+</script>
