@@ -1,2 +1,17 @@
-<!-- Enable Hypothesis annotation. https://web.hypothes.is/ -->
-<script src="https://hypothes.is/embed.js" async></script>
+<!-- hypothesis (annotations) plugin -->
+
+<script>
+    window.hypothesisConfig = function() {
+        return {
+            branding: {
+                accentColor: "#2196f3",
+                appBackgroundColor: "#f8f8f8",
+                ctaBackgroundColor: "#f8f8f8",
+                ctaTextColor: "#000000",
+                selectionFontFamily: "Open Sans, Helvetica, sans serif",
+                annotationFontFamily: "Open Sans, Helvetica, sans serif"
+            }
+        };
+    };
+</script>
+<script src="https://hypothes.is/embed.js"></script>
