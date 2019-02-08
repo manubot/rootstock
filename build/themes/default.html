@@ -469,4 +469,31 @@
         }
     }
 
+    /* -------------------------------------------------- */
+    /* accordion plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        .accordion_arrow {
+            color: #000000;
+            margin-right: 10px;
+        }
+        h2[data-collapsed="true"] > .accordion_arrow > svg {
+            transform: rotate(-90deg);
+        }
+        *:not(h2)[data-collapsed="true"] {
+            display: none;
+        }
+        .accordion_arrow:hover,
+        h2[data-collapsed="true"]:hover,
+        h2[data-collapsed="false"]:hover {
+            cursor: pointer;
+        }
+    }
+    @media only print {
+        .accordion_arrow {
+            display: none;
+        }
+    }
+
 </style>
