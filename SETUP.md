@@ -1,4 +1,4 @@
-# Cloning rootstock to create a new manuscript
+# Cloning the manubot/rootstock repository to create a new manuscript
 
 The process to create a new Manubot manuscript is a bit challenging, because it requires a few steps that are difficult to automate.
 However, you will only have to perform these steps once for each manuscript.
