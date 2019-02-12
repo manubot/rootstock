@@ -16,7 +16,8 @@
         function start() {
             // wrap each table in a container
             let tables = document.querySelectorAll("table");
-            for (let table of tables) wrapElement(table).className = "table_wrapper";
+            for (let table of tables)
+                wrapElement(table).classList.add("table_wrapper");
             // table_wrapper CSS class in theme file provides scroll functionality
         }
 

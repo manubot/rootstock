@@ -13,6 +13,7 @@
         ///////////////////////////
 
         // html svg of arrow icon
+        // modified from: https://fontawesome.com/icons/angle-double-up
         let arrowIcon =
             "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'><path fill='currentColor' d='M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z'></path></svg>";
 
@@ -35,17 +36,19 @@
         // when jump button clicked
         function onButtonClick() {
             let target = getFirstRef(this.dataset.refId);
-            if (!target) return;
+            if (target) goToElement(target, window.innerHeight * 0.5);
+        }
 
-            // expand section if collapsed, scroll to target, remove any
-            expandElement(target);
+        // scroll to and focus element. expand accordion section if collapsed
+        function goToElement(element, offset) {
+            expandElement(element);
             let y =
-                target.getBoundingClientRect().top -
-                document.body.getBoundingClientRect().top -
-                window.innerHeight * 0.5;
+                getPositionInView(element).top -
+                getPositionInView(document.documentElement).top +
+                (offset || 0);
             window.scrollTo(0, y);
             window.dispatchEvent(new Event("scroll")); // trigger any function listening for "onscroll" event
-            target.focus();
+            element.focus();
         }
 
         // add button next to each citation
@@ -62,7 +65,7 @@
 
                 // make jump button
                 let button = document.createElement("button");
-                button.className = "icon_button jump_arrow";
+                button.classList.add("icon_button", "jump_arrow");
                 button.innerHTML = arrowIcon;
                 button.dataset.refId = id;
                 button.dataset.tooltipIgnore = "true"; // ** for use with tooltip plugin
@@ -86,7 +89,7 @@
 
                 // make jump button
                 let button = document.createElement("button");
-                button.className = "icon_button jump_arrow";
+                button.classList.add("icon_button", "jump_arrow");
                 button.innerHTML = arrowIcon;
                 button.dataset.refId = id;
                 button.dataset.tooltipIgnore = "true"; // ** for use with tooltip plugin
@@ -101,7 +104,9 @@
             for (let table of tables) {
                 // get ref id and container element to add button to
                 let id = table.name;
-                let container = table.nextElementSibling.querySelector("caption");
+                let container = table.nextElementSibling.querySelector(
+                    "caption"
+                );
                 let firstRef = getFirstRef(id);
 
                 // if can't find reference, ignore
@@ -109,7 +114,7 @@
 
                 // make jump button
                 let button = document.createElement("button");
-                button.className = "icon_button jump_arrow";
+                button.classList.add("icon_button", "jump_arrow");
                 button.innerHTML = arrowIcon;
                 button.dataset.refId = id;
                 button.dataset.tooltipIgnore = "true"; // ** for use with tooltip plugin
@@ -118,11 +123,34 @@
             }
         }
 
+        // get position of element relative to viewport
+        function getPositionInView(element) {
+            let rect = element.getBoundingClientRect();
+            let style = window.getComputedStyle(element);
+            let margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+            let border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
+            return {
+                left: rect.left + margin.left + border.left,
+                top: rect.top + margin.top + border.top,
+                right: rect.right + margin.right + border.right,
+                bottom: rect.bottom + margin.bottom + border.bottom
+            };
+        }
+
         // ** for use with accordion plugin
         // get closest element before specified element that matches query
         function firstBefore(element, query) {
             while (
-                ((element = element.previousElementSibling || element.parentNode),
+                ((element =
+                    element.previousElementSibling || element.parentNode),
                 element && element !== document.body)
             )
                 if (element.matches(query)) return element;

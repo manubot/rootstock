@@ -13,6 +13,7 @@
         ///////////////////////////
 
         // html svg of arrow icon
+        // modified from: https://fontawesome.com/icons/angle-down
         let arrowIcon =
             "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path fill='currentColor' d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z'></path></svg>";
 
@@ -28,7 +29,7 @@
                 // add arrow button
                 let arrow = document.createElement("button");
                 arrow.innerHTML = arrowIcon;
-                arrow.className = "icon_button accordion_arrow";
+                arrow.classList.add("icon_button", "accordion_arrow");
                 heading.insertBefore(arrow, heading.firstChild);
 
                 // attach click listener to heading and button
@@ -36,11 +37,13 @@
                 arrow.addEventListener("click", onArrowClick);
 
                 // collapse headings by default if on small screen, otherwise expand
-                if (isSmallScreen())
-                    collapseHeading(heading);
-                else
-                    expandHeading(heading);
+                if (isSmallScreen()) collapseHeading(heading);
+                else expandHeading(heading);
             }
+
+            // attach click listener to links
+            let links = getLinks();
+            for (let link of links) link.addEventListener("click", onLinkClick);
 
             // attach hash change listener to page
             window.addEventListener("hashchange", onHashChange);
@@ -51,32 +54,50 @@
             return Math.min(window.innerWidth, window.innerHeight) < 480;
         }
 
+        // when link is clicked
+        function onLinkClick() {
+            let target = getHashTarget(this);
+            if (target) goToElement(target);
+        }
+
         // when hash (eg manuscript.html#introduction) changes
         function onHashChange() {
             let target = getHashTarget();
-            if (!target) return;
+            if (target) goToElement(target);
+        }
 
-            // expand section if collapsed and scroll to target
-            expandElement(target);
-            let y = target.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
+        // scroll to and focus element. expand accordion section if collapsed
+        function goToElement(element, offset) {
+            expandElement(element);
+            let y =
+                getPositionInView(element).top -
+                getPositionInView(document.documentElement).top +
+                (offset || 0);
             window.scrollTo(0, y);
             window.dispatchEvent(new Event("scroll")); // trigger any function listening for "onscroll" event
-            target.focus();
+            element.focus();
         }
 
         // get element that is target of hash
-        function getHashTarget() {
-            let hash = window.location.hash;
+        function getHashTarget(link) {
+            let hash = link ? link.hash : window.location.hash;
             let id = hash.slice(1);
-            let target = document.querySelector("[id='" + id + "'], [name='" + id + "']");
+            let target = document.querySelector(
+                "[id='" + id + "'], [name='" + id + "']"
+            );
             if (!target) return;
 
             // if figure or table, modify target to get expected element
             if (hash.indexOf("#fig:") === 0) target = target.parentNode;
-            if (hash.indexOf("#tbl:") === 0)
-                target = target.nextElementSibling;
+            if (hash.indexOf("#tbl:") === 0) target = target.nextElementSibling;
 
             return target;
+        }
+
+        // get all links of types we wish to handle
+        function getLinks() {
+            let query = "a";
+            return document.querySelectorAll(query);
         }
 
         // when h2 heading itself is clicked
@@ -104,14 +125,16 @@
         function collapseHeading(heading) {
             heading.setAttribute("data-collapsed", "true");
             let children = getChildren(heading);
-            for (let child of children) child.setAttribute("data-collapsed", "true");
+            for (let child of children)
+                child.setAttribute("data-collapsed", "true");
         }
 
         // expand section
         function expandHeading(heading) {
             heading.setAttribute("data-collapsed", "false");
             let children = getChildren(heading);
-            for (let child of children) child.setAttribute("data-collapsed", "false");
+            for (let child of children)
+                child.setAttribute("data-collapsed", "false");
         }
 
         // get list of elements between this h2 and next h2 or h1 ("children")
@@ -129,17 +152,39 @@
             return elements;
         }
 
+        // get position of element relative to viewport
+        function getPositionInView(element) {
+            let rect = element.getBoundingClientRect();
+            let style = window.getComputedStyle(element);
+            let margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+            let border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
+            return {
+                left: rect.left + margin.left + border.left,
+                top: rect.top + margin.top + border.top,
+                right: rect.right + margin.right + border.right,
+                bottom: rect.bottom + margin.bottom + border.bottom
+            };
+        }
+
         // ** for use with accordion plugin
         // get closest element before specified element that matches query
         function firstBefore(element, query) {
             while (
-                ((element = element.previousElementSibling || element.parentNode),
+                ((element =
+                    element.previousElementSibling || element.parentNode),
                 element && element !== document.body)
             )
                 if (element.matches(query)) return element;
         }
 
-        // ** for use with accordion plugin
         // check if element is part of collapsed heading
         function isCollapsed(element) {
             while (element && element !== document.body) {
@@ -149,7 +194,6 @@
             return false;
         }
 
-        // ** for use with accordion plugin
         // expand heading containing element if necesary
         function expandElement(element) {
             if (isCollapsed(element)) {

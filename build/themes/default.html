@@ -420,7 +420,7 @@
     /* -------------------------------------------------- */
     /* table scroll plugin */
     /* -------------------------------------------------- */
-    
+
     @media only screen {
         .table_wrapper {
             /* show scrollbar on tables if necessary to prevent overflow */
@@ -572,7 +572,7 @@
             display: none;
         }
     }
-    
+
     /* -------------------------------------------------- */
     /* ref highlight plugin */
     /* -------------------------------------------------- */
@@ -584,13 +584,19 @@
         [data-selected="true"] {
             background: #ff8a65 !important;
         }
-        [data-glow="true"] {
-            background: #bbdefb;
-            transition: background 0.1s;
+        @keyframes glow_highlight {
+            0% {
+                background: none;
+            }
+            10% {
+                background: #bbdefb;
+            }
+            100% {
+                background: none;
+            }
         }
-        [data-glow="false"] {
-            background: none;
-            transition: background 2s;
+        [data-glow="true"] {
+            animation: glow_highlight 2s;
         }
     }
 

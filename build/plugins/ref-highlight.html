@@ -31,8 +31,11 @@
                 // attach hover listener to link
                 link.addEventListener("mouseover", onLinkFocus);
                 link.addEventListener("focus", onLinkFocus);
-                if (!clickUnhighlight) link.addEventListener("mouseout", unhighlight);
+                if (!clickUnhighlight)
+                    link.addEventListener("mouseout", unhighlightAll);
+                link.addEventListener("click", onLinkClick);
             }
+
             // attach click and hash change listeners to page
             window.addEventListener("mousedown", onClick);
             window.addEventListener("hashchange", onHashChange);
@@ -41,17 +44,25 @@
             onHashChange();
         }
 
+        // when link is clicked
+        function onLinkClick() {
+            let target = getHashTarget(this);
+            if (target) glowElement(target);
+        }
+
         // when hash (eg manuscript.html#introduction) changes
         function onHashChange() {
             let target = getHashTarget();
             if (target) glowElement(target);
         }
 
-        // get element that is target of hash
-        function getHashTarget() {
-            let hash = window.location.hash;
+        // get element that is target of hash. get hash from either provided link or url
+        function getHashTarget(link) {
+            let hash = link ? link.hash : window.location.hash;
             let id = hash.slice(1);
-            let target = document.querySelector("[id='" + id + "'], [name='" + id + "']");
+            let target = document.querySelector(
+                "[id='" + id + "'], [name='" + id + "']"
+            );
             if (!target) return;
 
             // if figure or table, modify target to get expected element
@@ -64,31 +75,16 @@
 
         // start glow sequence on an element
         function glowElement(element) {
-            // run at start of glow
-            let glowStart = function() {
+            let startGlow = function() {
+                onGlowEnd();
                 element.dataset.glow = "true";
-                clearListeners();
-                element.addEventListener("transitionend", glowMid);
-            }
-            // run at middle/peak of glow
-            let glowMid = function() {
-                this.dataset.glow = "false";
-                clearListeners();
-                this.addEventListener("transitionend", glowEnd);
+                element.addEventListener("animationend", onGlowEnd);
             };
-            // run at end of glow
-            let glowEnd = function() {
-                this.removeAttribute("data-glow");
-                clearListeners();
+            let onGlowEnd = function() {
+                element.removeAttribute("data-glow");
+                element.removeEventListener("animationend", onGlowEnd);
             };
-            // delete any attached glow listeners
-            let clearListeners = function() {
-                this.removeEventListener("transitionend", glowStart);
-                this.removeEventListener("transitionend", glowMid);
-                this.removeEventListener("transitionend", glowEnd);
-            }
-            // start glow
-            glowStart();
+            startGlow();
         }
 
         // when link is focused (tabbed to) or hovered
@@ -121,7 +117,8 @@
 
             // highlight all same links, and "select" (special highlight) this one
             for (let sameLink of sameLinks) {
-                if (sameLink === link) sameLink.setAttribute("data-selected", "true");
+                if (sameLink === link)
+                    sameLink.setAttribute("data-selected", "true");
                 else sameLink.setAttribute("data-highlighted", "true");
             }
         }
@@ -140,7 +137,9 @@
             let results = [];
             let links = getLinks();
             for (let otherLink of links)
-                if (otherLink.getAttribute("href") === link.getAttribute("href"))
+                if (
+                    otherLink.getAttribute("href") === link.getAttribute("href")
+                )
                     results.push(otherLink);
 
             return results;

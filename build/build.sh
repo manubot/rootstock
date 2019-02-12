@@ -33,7 +33,6 @@ pandoc --verbose \
   --bibliography=$BIBLIOGRAPHY_PATH \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
-  --mathjax \
   --include-after-body=build/themes/default.html \
   --include-after-body=build/plugins/table-scroll.html \
   --include-after-body=build/plugins/anchors.html \
@@ -41,8 +40,12 @@ pandoc --verbose \
   --include-after-body=build/plugins/tooltips.html \
   --include-after-body=build/plugins/jump-to-first.html \
   --include-after-body=build/plugins/ref-highlight.html \
+  --include-after-body=build/plugins/table-of-contents.html \
+  --include-after-body=build/plugins/annotations.html \
   --include-after-body=build/plugins/analytics.html \
-  --include-after-body=build/plugins/hypothesis.html \
+  --mathjax \
+  --variable math="" \
+  --include-after-body=build/plugins/math.html \
   --output=output/manuscript.html \
   $INPUT_PATH
 

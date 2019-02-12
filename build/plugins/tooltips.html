@@ -22,9 +22,11 @@
         ///////////////////////////
 
         // html svg of left arrow
+        // modified from: https://fontawesome.com/icons/caret-left
         let leftArrowIcon =
             "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 512'><path fill='currentColor' d='M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z'></path></svg>";
 
+        // modified from: https://fontawesome.com/icons/caret-right
         // html svg of right arrow
         let rightArrowIcon =
             "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 512'><path fill='currentColor' d='M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z'></path></svg>";
@@ -79,11 +81,15 @@
             // trigger click of prev/next button
             switch (event.key) {
                 case "ArrowLeft":
-                    let prevButton = document.getElementById("tooltip_prev_button");
+                    let prevButton = document.getElementById(
+                        "tooltip_prev_button"
+                    );
                     if (prevButton) prevButton.click();
                     break;
                 case "ArrowRight":
-                    let nextButton = document.getElementById("tooltip_next_button");
+                    let nextButton = document.getElementById(
+                        "tooltip_next_button"
+                    );
                     if (nextButton) nextButton.click();
                     break;
             }
@@ -109,7 +115,9 @@
             let sameLinks = [];
             let links = getLinks();
             for (let otherLink of links)
-                if (otherLink.getAttribute("href") === link.getAttribute("href"))
+                if (
+                    otherLink.getAttribute("href") === link.getAttribute("href")
+                )
                     sameLinks.push(otherLink);
 
             return {
@@ -176,14 +184,25 @@
             // make copy of source node and put in tooltip
             let sourceCopy = source.cloneNode(true);
             // delete elements marked with tooltip-ignore (eg "jump to first" button)
-            let deleteFromCopy = sourceCopy.querySelectorAll("[data-tooltip-ignore='true']");
+            let deleteFromCopy = sourceCopy.querySelectorAll(
+                "[data-tooltip-ignore='true']"
+            );
             for (let element of deleteFromCopy) element.remove();
             // delete certain element attributes
-            let attributes = ["id", "data-collapsed", "data-selected", "data-highlighted"];
+            let attributes = [
+                "id",
+                "data-collapsed",
+                "data-selected",
+                "data-highlighted",
+                "data-glow"
+            ];
             for (let attribute of attributes) {
                 sourceCopy.removeAttribute(attribute);
-                let elements = sourceCopy.querySelectorAll("[" + attribute + "]");
-                for (let element of elements) element.removeAttribute(attribute);
+                let elements = sourceCopy.querySelectorAll(
+                    "[" + attribute + "]"
+                );
+                for (let element of elements)
+                    element.removeAttribute(attribute);
             }
             // attach source copy to tooltip
             tooltipContent.appendChild(sourceCopy);
@@ -213,8 +232,8 @@
             let nextButton = document.createElement("button");
             prevButton.id = "tooltip_prev_button";
             nextButton.id = "tooltip_next_button";
-            prevButton.className = "icon_button";
-            nextButton.className = "icon_button";
+            prevButton.classList.add("icon_button");
+            nextButton.classList.add("icon_button");
             prevButton.innerHTML = leftArrowIcon;
             nextButton.innerHTML = rightArrowIcon;
             navBar.appendChild(prevButton);
@@ -247,16 +266,19 @@
             if (!sameLinks) sameLinks = getSameLinks(link);
             // wrap index to other side if > total
             let index;
-            if (sameLinks.index + 1 <= sameLinks.total - 1) index = sameLinks.index + 1;
+            if (sameLinks.index + 1 <= sameLinks.total - 1)
+                index = sameLinks.index + 1;
             else index = 0;
             return sameLinks.elements[index];
         }
 
         // get element that is target of hash
-        function getSource() {
-            let hash = window.location.hash;
+        function getSource(link) {
+            let hash = link ? link.hash : window.location.hash;
             let id = hash.slice(1);
-            let target = document.querySelector("[id='" + id + "'], [name='" + id + "']");
+            let target = document.querySelector(
+                "[id='" + id + "'], [name='" + id + "']"
+            );
             if (!target) return;
 
             // if figure or table, modify target to get expected element
@@ -269,14 +291,21 @@
 
         // when prev/next arrow button is clicked
         function onPrevNextClick(link, prevNextLink) {
-            if (!prevNextLink) return;
+            if (link && prevNextLink)
+                goToElement(prevNextLink, -getPositionInView(link).top);
+            console.log(getPositionInView(link).top);
+        }
 
-            // expand section if collapsed and scroll to target
-            expandElement(prevNextLink);
-            let yDiff = getPositionInView(prevNextLink).top - getPositionInView(link).top;
-            window.scrollBy(0, yDiff);
+        // scroll to and focus element. expand accordion section if collapsed
+        function goToElement(element, offset) {
+            expandElement(element);
+            let y =
+                getPositionInView(element).top -
+                getPositionInView(document.documentElement).top +
+                (offset || 0);
+            window.scrollTo(0, y);
             window.dispatchEvent(new Event("scroll")); // trigger any function listening for "onscroll" event
-            prevNextLink.focus();
+            element.focus();
         }
 
         // determine position to place tooltip based on link position in viewport and tooltip size
@@ -299,9 +328,8 @@
             else if (link.right - tooltip.width > page.left)
                 // fit tooltip to left of link
                 left = link.right - tooltip.width;
-            else 
-                // center tooltip in view
-                left = (page.right - page.left) / 2 - tooltip.width / 2;
+            // center tooltip in view
+            else left = (page.right - page.left) / 2 - tooltip.width / 2;
 
             // vertical positioning
             if (top)
@@ -313,9 +341,8 @@
             else if (link.bottom + tooltip.height < page.bottom)
                 // fit tooltip below link
                 top = link.bottom;
-            else
-                // center tooltip in view
-                top = (page.bottom - page.top) / 2 - tooltip.height / 2;
+            // center tooltip in view
+            else top = (page.bottom - page.top) / 2 - tooltip.height / 2;
 
             tooltipElement.style.left = left + "px";
             tooltipElement.style.top = top + "px";
@@ -325,11 +352,21 @@
         function getPositionInView(element) {
             let rect = element.getBoundingClientRect();
             let style = window.getComputedStyle(element);
+            let margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+            let border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
             return {
-                left: rect.left + (parseFloat(style.borderLeftWidth) || 0),
-                top: rect.top + (parseFloat(style.borderLeftWidth) || 0),
-                right: rect.right + (parseFloat(style.borderRightWidth) || 0),
-                bottom: rect.bottom + (parseFloat(style.borderBottomWidth) || 0)
+                left: rect.left + margin.left + border.left,
+                top: rect.top + margin.top + border.top,
+                right: rect.right + margin.right + border.right,
+                bottom: rect.bottom + margin.bottom + border.bottom
             };
         }
 
@@ -370,7 +407,8 @@
         // get closest element before specified element that matches query
         function firstBefore(element, query) {
             while (
-                ((element = element.previousElementSibling || element.parentNode),
+                ((element =
+                    element.previousElementSibling || element.parentNode),
                 element && element !== document.body)
             )
                 if (element.matches(query)) return element;
