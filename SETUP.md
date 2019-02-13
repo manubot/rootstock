@@ -93,6 +93,7 @@ After the install, you will need to provide your credentials to login to travis 
 
 ```sh
 travis encrypt-file \
+  --com \
   --repo=$OWNER/$REPO \
   --force \
   deploy.key > travis-encrypt-file.log
@@ -119,6 +120,7 @@ Next, limit [concurrent](https://blog.travis-ci.com/2014-07-18-per-repository-co
 
 ```sh
 travis settings \
+  --com \
   --repo=$OWNER/$REPO \
   maximum_number_of_builds --set 1
 ```
