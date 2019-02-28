@@ -13,11 +13,7 @@ before_install:
   - conda config
     --set always_yes yes
     --set changeps1 no
-  - conda config
-    --add channels conda-forge
-  - conda install conda=4.6.7  # https://git.io/fhNQE
 install:
-  - conda install gxx_linux-64  # https://git.io/fhNQE
   - conda env create --quiet --file build/environment.yml
   - conda list --name manubot
   - conda activate manubot
