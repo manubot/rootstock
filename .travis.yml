@@ -10,8 +10,12 @@ before_install:
   - bash miniconda.sh -b -p $HOME/miniconda
   - source $HOME/miniconda/etc/profile.d/conda.sh
   - hash -r
-  - conda config --set always_yes yes --set changeps1 no
+  - conda config
+    --set always_yes yes
+    --set changeps1 no
+    --add channels conda-forge
 install:
+  - conda install gxx_linux-64  # https://git.io/fhNQE
   - conda env create --quiet --file build/environment.yml
   - conda list --name manubot
   - conda activate manubot
