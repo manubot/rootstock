@@ -13,6 +13,7 @@ before_install:
   - conda config
     --set always_yes yes
     --set changeps1 no
+  - conda config
     --add channels conda-forge
 install:
   - conda install gxx_linux-64  # https://git.io/fhNQE
