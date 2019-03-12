@@ -41,18 +41,22 @@
         function start() {
             // run through each <img> element
             const imgs = document.querySelectorAll('figure > img');
+            let count = 1;
             for (const img of imgs) {
                 img.classList.add('lightbox_img');
+                img.dataset.number = count;
+                img.dataset.total = imgs.length;
                 img.addEventListener('click', openLightbox);
+                count++;
             }
 
             // attach mouse and key listeners to window
-            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mousemove', onWindowMouseMove);
             window.addEventListener('keyup', onKeyUp);
         }
 
         // when mouse is moved anywhere in window
-        function onMouseMove(event) {
+        function onWindowMouseMove(event) {
             window.mouseX = event.clientX;
             window.mouseY = event.clientY;
         }
@@ -87,8 +91,8 @@
             if (!lightbox)
                 return;
 
-            document.body.appendChild(lightbox);
             blurBody(lightbox);
+            document.body.appendChild(lightbox);
         }
 
         // make lightbox
@@ -96,15 +100,26 @@
             // delete lightbox if it exists, start fresh
             closeLightbox();
 
-            // create dimming screen overlay containing lightbox
+            // create screen overlay containing lightbox
             const overlay = document.createElement('div');
             overlay.id = 'lightbox_overlay';
 
-            // create top container for image
-            const topContainer = document.createElement('div');
-            topContainer.id = 'lightbox_top_container';
-            const lightboxImg = makeLightboxImg(img, topContainer);
-            topContainer.appendChild(lightboxImg);
+            // create image info boxes
+            const numberInfo = document.createElement('div');
+            const zoomInfo = document.createElement('div');
+            numberInfo.id = 'lightbox_number_info';
+            zoomInfo.id = 'lightbox_zoom_info';
+
+            // create container for image
+            const imageContainer = document.createElement('div');
+            imageContainer.id = 'lightbox_image_container';
+            const lightboxImg = makeLightboxImg(
+                img,
+                imageContainer,
+                numberInfo,
+                zoomInfo
+            );
+            imageContainer.appendChild(lightboxImg);
 
             // create bottom container for caption and navigation buttons
             const bottomContainer = document.createElement('div');
@@ -116,31 +131,40 @@
             bottomContainer.appendChild(caption);
             bottomContainer.appendChild(nextButton);
 
-            overlay.appendChild(topContainer);
+            // attach top middle and bottom to overlay
+            overlay.appendChild(numberInfo);
+            overlay.appendChild(zoomInfo);
+            overlay.appendChild(imageContainer);
             overlay.appendChild(bottomContainer);
 
             return overlay;
         }
 
         // make <img> object that is intuitively draggable and zoomable
-        function makeLightboxImg(sourceImg, container) {
+        function makeLightboxImg(
+            sourceImg,
+            container,
+            numberInfoBox,
+            zoomInfoBox
+        ) {
             // create copy of source <img>
             const img = document.createElement('img');
             img.src = sourceImg.src;
             img.id = 'lightbox_img';
 
-            // build sorted list of zoomSteps, always including a 100%
-            const zoomSteps = options.zoomSteps.split(/[^0-9.]/);
-            for (let zoomIndex = 0; zoomIndex < zoomSteps.length; zoomIndex++) {
-                zoomSteps[zoomIndex] = parseFloat(zoomSteps[zoomIndex]);
-                if (!zoomSteps[zoomIndex]) {
-                    zoomSteps.splice(zoomIndex, 1);
-                    zoomIndex--;
-                }
+            // build sorted list of unique zoomSteps, always including a 100%
+            let zoomSteps = [];
+            const optionsZooms = options.zoomSteps.split(/[^0-9.]/);
+            for (const optionZoom of optionsZooms) {
+                const newZoom = parseFloat(optionZoom);
+                if (newZoom && !zoomSteps.includes(newZoom))
+                    zoomSteps.push(newZoom);
             }
             if (!zoomSteps.includes(1))
                 zoomSteps.push(1);
-            zoomSteps.sort();
+            zoomSteps = zoomSteps.sort(function sortNumber(a, b) {
+                return a - b;
+            });
 
             // <img> object property variables
             let zoom = 1;
@@ -151,6 +175,22 @@
             let clickTranslateX = undefined;
             let clickTranslateY = undefined;
 
+            updateNumberInfo();
+
+            // update image numbers displayed in info box
+            function updateNumberInfo() {
+                numberInfoBox.innerHTML =
+                    sourceImg.dataset.number + ' of ' + sourceImg.dataset.total;
+            }
+
+            // update zoom displayed in info box
+            function updateZoomInfo() {
+                let zoomInfo = zoom * 100;
+                if (!Number.isInteger(zoomInfo))
+                    zoomInfo = zoomInfo.toFixed(2);
+                zoomInfoBox.innerHTML = zoomInfo + '%';
+            }
+
             // move to closest zoom step above current zoom
             const zoomIn = function() {
                 for (const zoomStep of zoomSteps) {
@@ -159,7 +199,6 @@
                         break;
                     }
                 }
-
                 updateTransform();
             };
 
@@ -179,8 +218,6 @@
 
             // update display of <img> based on scale/translate properties
             const updateTransform = function() {
-                const scale = zoom;
-
                 // set transform
                 img.style.transform =
                     'translate(' +
@@ -188,7 +225,7 @@
                     'px,' +
                     (translateY || 0) +
                     'px) scale(' +
-                    (scale || 1) +
+                    (zoom || 1) +
                     ')';
 
                 // get new width/height after scale
@@ -206,14 +243,10 @@
                     'px,' +
                     (translateY || 0) +
                     'px) scale(' +
-                    (scale || 1) +
+                    (zoom || 1) +
                     ')';
 
-                // set zoom display value
-                let displayZoom = scale * 100;
-                if (!Number.isInteger(displayZoom))
-                    displayZoom = displayZoom.toFixed(2);
-                container.dataset.zoom = displayZoom + '%';
+                updateZoomInfo();
             };
 
             // fit <img> to container
@@ -224,12 +257,14 @@
                 zoom = 1;
 
                 // widths of <img> and container
-                const imgWidth = img.naturalWidth || 1000;
-                const imgHeight = img.naturalHeight || 1000;
-                const containerWidth =
-                    container.getBoundingClientRect().width || 1000;
-                const containerHeight =
-                    container.getBoundingClientRect().height || 1000;
+                const imgWidth = img.naturalWidth;
+                const imgHeight = img.naturalHeight;
+                const containerWidth = parseFloat(
+                    window.getComputedStyle(container).width
+                );
+                const containerHeight = parseFloat(
+                    window.getComputedStyle(container).height
+                );
 
                 // how much zooming is needed to fit <img> to container
                 const xRatio = imgWidth / containerWidth;
@@ -247,8 +282,8 @@
                 updateTransform();
             };
 
-            // when mouse wheel is rolled anywhere in window
-            const onWheel = function(event) {
+            // when mouse wheel is rolled anywhere in container
+            const onContainerWheel = function(event) {
                 if (!event)
                     return;
 
@@ -290,21 +325,27 @@
                 updateTransform();
             };
 
-            // when mouse button is pressed on container
-            const onMouseDown = function(event) {
+            // when container is clicked
+            function onContainerClick() {
+                // if container itself is target of click, and not other
+                // element above it
                 if (event.target === this)
                     closeLightbox();
+            }
 
+            // when mouse button is pressed on image
+            const onImageMouseDown = function(event) {
                 // store original mouse position relative to image
                 clickMouseX = window.mouseX;
                 clickMouseY = window.mouseY;
                 clickTranslateX = translateX;
                 clickTranslateY = translateY;
+                event.stopPropagation();
                 event.preventDefault();
             };
 
             // when mouse button is released anywhere in window
-            const onMouseUp = function(event) {
+            const onWindowMouseUp = function(event) {
                 // reset original mouse position
                 clickMouseX = undefined;
                 clickMouseY = undefined;
@@ -313,11 +354,11 @@
 
                 // remove global listener if lightbox removed from document
                 if (!document.body.contains(container))
-                    window.removeEventListener('mouseup', onMouseUp);
+                    window.removeEventListener('mouseup', onWindowMouseUp);
             };
 
-            // when mouse is moved anywhere in container
-            const onMouseMove = function(event) {
+            // when mouse is moved anywhere in window
+            const onWindowMouseMove = function(event) {
                 if (
                     clickMouseX === undefined ||
                     clickMouseY === undefined ||
@@ -334,28 +375,26 @@
             };
 
             // when window is resized
-            const onResize = function(event) {
+            const onWindowResize = function(event) {
                 fit();
 
                 // remove global listener if lightbox removed from document
                 if (!document.body.contains(container))
-                    window.removeEventListener('resize', onResize);
+                    window.removeEventListener('resize', onWindowResize);
             };
 
             // attach the necessary event listeners
             img.addEventListener('dblclick', fit);
-            container.addEventListener('mousedown', onMouseDown);
-            window.addEventListener('mouseup', onMouseUp);
-            window.addEventListener('resize', onResize);
-            container.addEventListener('mousemove', onMouseMove);
-            container.addEventListener('wheel', onWheel);
+            img.addEventListener('mousedown', onImageMouseDown);
+            container.addEventListener('wheel', onContainerWheel);
+            container.addEventListener('click', onContainerClick);
+            window.addEventListener('mouseup', onWindowMouseUp);
+            window.addEventListener('mousemove', onWindowMouseMove);
+            window.addEventListener('resize', onWindowResize);
 
-            // wait for lightbox to be attached to document to run fit(), so
-            // it has dimensions of container available
-            new MutationObserver(function() {
-                fit();
-                this.disconnect();
-            }).observe(document.body, {childList: true, subtree: true});
+            // run fit() after lightbox atttached to document and <img> Loaded
+            // so needed container and img dimensions available
+            img.addEventListener('load', fit);
 
             return img;
         }
@@ -369,7 +408,10 @@
                 const captionCopy = makeCopy(captionSource);
                 caption.innerHTML = captionCopy.innerHTML;
             }
-            caption.addEventListener('click', closeLightbox);
+
+            caption.addEventListener('touchstart', function(event) {
+                event.stopPropagation();
+            });
 
             return caption;
         }
@@ -452,6 +494,7 @@
                     break;
             }
 
+
             // wrap index to other side if < 1
             if (index - 1 >= 0)
                 index--;
@@ -470,6 +513,7 @@
                 if (imgs[index] === img)
                     break;
             }
+
 
             // wrap index to other side if > total
             if (index + 1 <= imgs.length - 1)
@@ -493,6 +537,7 @@
             const all = document.querySelectorAll('*');
             for (const element of all)
                 element.tabIndex = -1;
+            document.body.classList.add('body_no_scroll');
         }
 
         // make all elements focusable again
@@ -500,6 +545,7 @@
             const all = document.querySelectorAll('*');
             for (const element of all)
                 element.removeAttribute('tabIndex');
+            document.body.classList.remove('body_no_scroll');
         }
 
         // load options from url parameters
@@ -525,7 +571,7 @@
 
 <template class="icon_caret_left">
     <!-- modified from: https://fontawesome.com/icons/caret-left -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+    <svg width="16" height="16" viewBox="0 0 192 512">
         <path
             fill="currentColor"
             d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"
@@ -537,7 +583,7 @@
 
 <template class="icon_caret_right">
     <!-- modified from: https://fontawesome.com/icons/caret-right -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+    <svg width="16" height="16" viewBox="0 0 192 512">
         <path
             fill="currentColor"
             d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"

@@ -933,7 +933,11 @@
             cursor: pointer;
         }
 
-        /* dimming overlay */
+        .body_no_scroll {
+            overflow: hidden !important;
+        }
+
+        /* screen overlay */
         #lightbox_overlay {
             display: flex;
             flex-direction: column;
@@ -946,38 +950,15 @@
             z-index: 3;
         }
 
-        /* top area containing lightbox image */
-        #lightbox_top_container {
+        /* middle area containing lightbox image */
+        #lightbox_image_container {
             flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             position: relative;
-        }
-
-        /* zoom display box */
-        #lightbox_top_container:before,
-        #lightbox_top_container:after {
-            content: attr(data-zoom);
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-weight: 600;
-        }
-
-        /* zoom display box, text black outline */
-        #lightbox_top_container:before {
-            color: #000000;
-            z-index: 5;
-            text-stroke: 2px #000000;
-            -webkit-text-stroke: 2px #000000;
-        }
-
-        /* zoom display box, text white fill */
-        #lightbox_top_container:after {
-            color: #ffffff;
-            z-index: 6;
+            padding: 20px;
         }
 
         /* bottom area containing caption */
@@ -985,9 +966,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            max-height: 15vh;
+            height: 100px;
             min-height: 100px;
-            z-index: 5;
+            max-height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* image number info text box */
+        #lightbox_number_info {
+            position: absolute;
+            color: #ffffff;
+            font-weight: 600;
+            left: 2px;
+            top: 0;
+            z-index: 4;
+        }
+
+        /* zoom info text box */
+        #lightbox_zoom_info {
+            position: absolute;
+            color: #ffffff;
+            font-weight: 600;
+            right: 2px;
+            top: 0;
+            z-index: 4;
         }
 
         /* copy of image caption */
@@ -1025,11 +1027,6 @@
         #lightbox_caption > span:first-of-type {
             font-weight: bold;
             margin-right: 5px;
-        }
-
-        /* lightbox draggable/zoomable image */
-        #lightbox_img {
-            z-index: 4;
         }
 
         /* lightbox image when hovered */

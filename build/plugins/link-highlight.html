@@ -46,11 +46,11 @@
                 // attach mouse and focus listeners to link
                 link.addEventListener('mouseover', onLinkFocus);
                 link.addEventListener('focus', onLinkFocus);
-                link.addEventListener('mouseleave', unhighlightAll);
+                link.addEventListener('mouseleave', onLinkUnhover);
             }
 
-            // attach mouse and hash change listeners to window
-            window.addEventListener('mousedown', onClick);
+            // attach click and hash change listeners to window
+            window.addEventListener('click', onClick);
             window.addEventListener('touchstart', onClick);
             window.addEventListener('hashchange', onHashChange);
 
@@ -64,10 +64,15 @@
             highlight(this);
         }
 
-        // when the mouse is clicked anywhere in window
-        function onClick(event) {
+        // when link is unhovered
+        function onLinkUnhover() {
             if (options.clickUnhighlight !== 'true')
                 unhighlightAll();
+        }
+
+        // when the mouse is clicked anywhere in window
+        function onClick(event) {
+            unhighlightAll();
         }
 
         // when hash (eg manuscript.html#introduction) changes

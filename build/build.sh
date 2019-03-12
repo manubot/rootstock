@@ -45,12 +45,12 @@ pandoc --verbose \
   --mathjax \
   --variable math="" \
   --include-after-body=build/plugins/math.html \
-  --include-after-body=build/plugins/annotations.html \
+  --include-after-body=build/plugins/hypothesis.html \
   --include-after-body=build/plugins/analytics.html \
   --output=output/manuscript.html \
   $INPUT_PATH
 
-# Create PDF output (unless BUILD_PDF environment variable equals "false")
+  # Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "$BUILD_PDF" != "false" ]; then
   echo "Exporting PDF manuscript"
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
