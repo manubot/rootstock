@@ -18,9 +18,9 @@ title: 'Manubot Rootstock: Manuscript Title'
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/6303fcfbac952c2fab8b6fff2cf82f18949fd9bb/))
+([permalink](https://manubot.github.io/rootstock/v/af1d47a0ec5f33d8fc99deab2ac23b697983b673/))
 was automatically generated
-from [manubot/rootstock@6303fcf](https://github.com/manubot/rootstock/tree/6303fcfbac952c2fab8b6fff2cf82f18949fd9bb)
+from [manubot/rootstock@af1d47a](https://github.com/manubot/rootstock/tree/af1d47a0ec5f33d8fc99deab2ac23b697983b673)
 on March 12, 2019.
 </em></small>
 
