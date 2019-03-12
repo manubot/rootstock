@@ -23,7 +23,7 @@
 <header id="title-block-header">
 <h1 class="title">Manubot Rootstock: Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/6303fcfbac952c2fab8b6fff2cf82f18949fd9bb/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/6303fcfbac952c2fab8b6fff2cf82f18949fd9bb">manubot/rootstock@6303fcf</a> on March 12, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/af1d47a0ec5f33d8fc99deab2ac23b697983b673/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/af1d47a0ec5f33d8fc99deab2ac23b697983b673">manubot/rootstock@af1d47a</a> on March 12, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -598,27 +598,3064 @@ DOI: <a href="https://doi.org/10.7554/elife.32822">10.7554/elife.32822</a> · PM
         /* nudge to make room for equation auto-number */
         margin-right: 40px !important;
     }
+
+    /* -------------------------------------------------- */
+    /* table scroll plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* table wrapper */
+        .table_wrapper {
+            /* show scrollbar on tables if necessary to prevent overflow */
+            overflow: auto;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        /* table within table wrapper */
+        .table_wrapper table,
+        .table_wrapper table * {
+            /* don't break table words */
+            word-break: normal !important;
+        }
+
+        .table_wrapper > table {
+            /* move margins from table to table_wrapper to allow margin collapsing */
+            margin: 0;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* anchors plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* anchor button */
+        .anchor {
+            opacity: 0;
+            margin-left: 5px;
+        }
+
+        /* anchor buttons within <h2>'s */
+        h2 .anchor {
+            margin-left: 10px;
+        }
+
+        /* anchor buttons when hovered/focused and anything containing an anchor button when hovered */
+        *:hover > .anchor,
+        .anchor:hover,
+        .anchor:focus {
+            opacity: 1;
+        }
+
+        /* anchor button when hovered */
+        .anchor:hover {
+            cursor: pointer;
+        }
+    }
+
+    /* always show anchor button on devices with no mouse/hover ability */
+    @media (hover: none) {
+        .anchor {
+            opacity: 1;
+        }
+    }
+
+    /* always hide anchor button on print */
+    @media only print {
+        .anchor {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* accordion plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* accordion arrow button */
+        .accordion_arrow {
+            margin-right: 10px;
+        }
+
+        /* arrow icon when <h2> data-collapsed attribute true */
+        h2[data-collapsed="true"] > .accordion_arrow > svg {
+            transform: rotate(-90deg);
+        }
+
+        /* all elements (except <h2>'s) when data-collapsed attribute true */
+        *:not(h2)[data-collapsed="true"] {
+            display: none;
+        }
+
+        /* accordion arrow button when hovered and <h2>'s when hovered */
+        .accordion_arrow:hover,
+        h2[data-collapsed="true"]:hover,
+        h2[data-collapsed="false"]:hover {
+            cursor: pointer;
+        }
+    }
+
+    /* always hide accordion arrow button on print */
+    @media only print {
+        .accordion_arrow {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* tooltips plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* tooltip container */
+        #tooltip {
+            position: absolute;
+            width: 50%;
+            min-width: 240px;
+            z-index: 1;
+        }
+
+        /* tooltip content */
+        #tooltip_content {
+            margin: 10px 0;
+            padding: 20px;
+            border-radius: 5px;
+            border: solid 1px #bdbdbd;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            background: #ffffff;
+            word-break: all;
+            word-break: break-word;
+        }
+
+        /* tooltip copy of paragraphs and figures */
+        #tooltip_content > p,
+        #tooltip_content > figure {
+            margin: 0;
+        }
+
+        /* tooltip copy of figure captions */
+        #tooltip_content > figure > figcaption {
+            margin: 0;
+            margin-top: 20px;
+            padding: 0;
+        }
+
+        /* navigation bar */
+        #tooltip_nav_bar {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* navigation bar previous/next buton */
+        #tooltip_nav_bar > .icon_button {
+            position: relative;
+            top: 3px;
+        }
+
+        /* navigation bar previous button */
+        #tooltip_nav_bar > .icon_button:first-of-type {
+            margin-right: 5px;
+        }
+
+        /* navigation bar next button */
+        #tooltip_nav_bar > .icon_button:last-of-type {
+            margin-left: 5px;
+        }
+    }
+
+    /* always hide tooltip on print */
+    @media only print {
+        #tooltip {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* jump to first plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* jump button */
+        .jump_arrow {
+            position: relative;
+            top: 0.125em;
+            margin-right: 5px;
+        }
+    }
+
+    /* always hide jump button on print */
+    @media only print {
+        .jump_arrow {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* link highlight plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* anything with data-highlighted attribute true */
+        [data-highlighted="true"] {
+            background: #ffeb3b;
+        }
+
+        /* anything with data-selected attribute true */
+        [data-selected="true"] {
+            background: #ff8a65 !important;
+        }
+
+        /* animation definition for glow */
+        @keyframes highlight_glow {
+            0% {
+                background: none;
+            }
+            10% {
+                background: #bbdefb;
+            }
+            100% {
+                background: none;
+            }
+        }
+
+        /* anything with data-glow attribute true */
+        [data-glow="true"] {
+            animation: highlight_glow 2s;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* table of contents plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* toc panel when open */
+        #toc_panel {
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 260px;
+            max-width: 480px;
+            /* keep panel edge consistent distance away from "page" edge */
+            width: calc(((100vw - 8.5in) / 2) - 30px - 40px);
+            bottom: 0;
+            background: #ffffff;
+            border-right: solid 1px #bdbdbd;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            z-index: 2;
+        }
+
+        /* toc panel when closed */
+        #toc_panel[data-open="false"] {
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            border-bottom: solid 1px #bdbdbd;
+        }
+
+        /* toc panel header */
+        #toc_panel > h3 {
+            box-sizing: border-box;
+            height: 60px;
+            margin: 0;
+            padding: 20px;
+            border-bottom: solid 1px #bdbdbd;
+        }
+
+        /* toc panel when hovered */
+        #toc_panel > h3:hover {
+            cursor: pointer;
+        }
+
+        /* toc open/close header button */
+        #toc_button {
+            margin-right: 20px;
+            vertical-align: top;
+        }
+
+        /* toc header text */
+        #toc_header_text {
+            vertical-align: top;
+            font-weight: 600;
+            position: relative;
+            top: -4px;
+        }
+
+        /* hide toc list and header text when closed */
+        #toc_panel[data-open="false"] #toc_header_text,
+        #toc_panel[data-open="false"] > #toc_list {
+            display: none;
+        }
+
+        /* toc list of entries */
+        #toc_list {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 20px;
+            position: absolute;
+            top: calc(60px + 1px);
+            bottom: 0;
+            overflow: auto;
+        }
+
+        /* toc entry, link to section in document */
+        .toc_link {
+            display: block;
+            padding: 5px;
+            position: relative;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* toc entry when hovered or when "viewed" */
+        .toc_link:hover,
+        .toc_link[data-viewing="true"] {
+            background: #f5f5f5;
+        }
+
+        /* toc entry, level 1 indentation */
+        .toc_link[data-level="1"] {
+            margin-left: 0;
+        }
+
+        /* toc entry, level 2 indentation */
+        .toc_link[data-level="2"] {
+            margin-left: 20px;
+        }
+
+        /* toc entry, level 3 indentation */
+        .toc_link[data-level="3"] {
+            margin-left: 40px;
+        }
+
+        /* toc entry, level 4 indentation */
+        .toc_link[data-level="4"] {
+            margin-left: 60px;
+        }
+
+        /* toc entry bullets */
+        #toc_panel[data-bullets="true"] .toc_link[data-level]:before {
+            position: absolute;
+            left: -15px;
+            top: -1px;
+            font-size: 1.5em;
+        }
+
+        /* toc entry, level 2 bullet */
+        #toc_panel[data-bullets="true"] .toc_link[data-level="2"]:before {
+            content: "\2022";
+        }
+
+        /* toc entry, level 3 bullet */
+        #toc_panel[data-bullets="true"] .toc_link[data-level="3"]:before {
+            content: "\25AB";
+        }
+
+        /* toc entry, level 4 bullet */
+        #toc_panel[data-bullets="true"] .toc_link[data-level="4"]:before {
+            content: "-";
+        }
+    }
+
+    /* when on screen < 8.5in wide */
+    @media only screen and (max-width: 8.5in) {
+        /* push <body> ("page") element down to make room for toc icon */
+        .toc_body_nudge {
+            padding-top: 60px;
+        }
+
+        /* toc icon when panel closed and not hovered */
+        #toc_panel[data-open="false"]:not(:hover) {
+            background: rgba(255, 255, 255, 0.75);
+        }
+    }
+
+    /* always hide toc panel on print */
+    @media only print {
+        #toc_panel {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* lightbox plugin */
+    /* -------------------------------------------------- */
+
+    @media only screen {
+        /* regular <img> in document when hovered */
+        .lightbox_img:hover {
+            cursor: pointer;
+        }
+
+        .body_no_scroll {
+            overflow: hidden !important;
+        }
+
+        /* screen overlay */
+        #lightbox_overlay {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 3;
+        }
+
+        /* middle area containing lightbox image */
+        #lightbox_image_container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* bottom area containing caption */
+        #lightbox_bottom_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            min-height: 100px;
+            max-height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* image number info text box */
+        #lightbox_number_info {
+            position: absolute;
+            color: #ffffff;
+            font-weight: 600;
+            left: 2px;
+            top: 0;
+            z-index: 4;
+        }
+
+        /* zoom info text box */
+        #lightbox_zoom_info {
+            position: absolute;
+            color: #ffffff;
+            font-weight: 600;
+            right: 2px;
+            top: 0;
+            z-index: 4;
+        }
+
+        /* copy of image caption */
+        #lightbox_caption {
+            box-sizing: border-box;
+            display: inline-block;
+            width: 100%;
+            max-height: 100%;
+            padding: 10px 0;
+            text-align: center;
+            overflow-y: auto;
+            color: #ffffff;
+        }
+
+        /* navigation previous/next button */
+        .lightbox_button {
+            width: 100px;
+            height: 100%;
+            min-width: 100px;
+            min-height: 100%;
+            color: #ffffff;
+        }
+
+        /* navigation previous/next button when hovered */
+        .lightbox_button:hover {
+            background: none !important;
+        }
+
+        /* navigation button icon */
+        .lightbox_button > svg {
+            height: 25px;
+        }
+
+        /* figure auto-number */
+        #lightbox_caption > span:first-of-type {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* lightbox image when hovered */
+        #lightbox_img:hover {
+            cursor: grab;
+        }
+
+        /* lightbox image when grabbed */
+        #lightbox_img:active {
+            cursor: grabbing;
+        }
+    }
+
+    /* when on screen < 480px wide */
+    @media only screen and (max-width: 480px) {
+        /* make navigation buttons skinnier on small screens to make more room for caption text */
+        .lightbox_button {
+            width: 50px;
+            min-width: 50px;
+        }
+    }
+
+    /* always hide lightbox on print */
+    @media only print {
+        #lightbox_overlay {
+            display: none;
+        }
+    }
+
+    /* -------------------------------------------------- */
+    /* hypothesis (annotations) plugin */
+    /* -------------------------------------------------- */
+
+    /* side panel */
+    .annotator-frame {
+        width: 280px !important;
+        z-index: 0 !important;
+    }
+
+    /* match highlight color to rest of theme */
+    .annotator-highlights-always-on .annotator-hl {
+        background-color: #ffeb3b !important;
+    }
+
+    /* match focused color to rest of theme */
+    .annotator-hl.annotator-hl-focused {
+        background-color: #ff8a65 !important;
+    }
+
+    /* match bucket bar color to rest of theme */
+    .annotator-bucket-bar {
+        background: #f5f5f5 !important;
+    }
+
+    /* always hide toolbar and tooltip on print */
+    @media only print {
+        .annotator-frame {
+            display: none !important;
+        }
+
+        hypothesis-adder {
+            display: none !important;
+        }
+    }
 </style>
-<!-- Insert Analytics Script Below -->
-<script>
-</script>
-<!-- End Analytics Script -->
-<script>
-// AnchorJS minified version below.
-// Source https://github.com/bryanbraun/anchorjs/blob/064abdd0987f305933ec4982af6d0c1cf2fd0814/anchor.js
+<!-- table scroll plugin -->
 
-/**
- * AnchorJS - v4.0.0 - 2017-06-02
- * https://github.com/bryanbraun/anchorjs
- * Copyright (c) 2017 Bryan Braun; Licensed MIT
- */
-!function(A,e){"use strict";"function"==typeof define&&define.amd?define([],e):"object"==typeof module&&module.exports?module.exports=e():(A.AnchorJS=e(),A.anchors=new A.AnchorJS)}(this,function(){"use strict";function A(A){function e(A){A.icon=A.hasOwnProperty("icon")?A.icon:"",A.visible=A.hasOwnProperty("visible")?A.visible:"hover",A.placement=A.hasOwnProperty("placement")?A.placement:"right",A.class=A.hasOwnProperty("class")?A.class:"",A.truncate=A.hasOwnProperty("truncate")?Math.floor(A.truncate):64}function t(A){var e;if("string"==typeof A||A instanceof String)e=[].slice.call(document.querySelectorAll(A));else{if(!(Array.isArray(A)||A instanceof NodeList))throw new Error("The selector provided to AnchorJS was invalid.");e=[].slice.call(A)}return e}function n(){if(null===document.head.querySelector("style.anchorjs")){var A,e=document.createElement("style");e.className="anchorjs",e.appendChild(document.createTextNode("")),void 0===(A=document.head.querySelector('[rel="stylesheet"], style'))?document.head.appendChild(e):document.head.insertBefore(e,A),e.sheet.insertRule(" .anchorjs-link {   opacity: 0;   text-decoration: none;   -webkit-font-smoothing: antialiased;   -moz-osx-font-smoothing: grayscale; }",e.sheet.cssRules.length),e.sheet.insertRule(" *:hover > .anchorjs-link, .anchorjs-link:focus  {   opacity: 1; }",e.sheet.cssRules.length),e.sheet.insertRule(" [data-anchorjs-icon]::after {   content: attr(data-anchorjs-icon); }",e.sheet.cssRules.length),e.sheet.insertRule(' @font-face {   font-family: "anchorjs-icons";   src: url(data:n/a;base64,AAEAAAALAIAAAwAwT1MvMg8yG2cAAAE4AAAAYGNtYXDp3gC3AAABpAAAAExnYXNwAAAAEAAAA9wAAAAIZ2x5ZlQCcfwAAAH4AAABCGhlYWQHFvHyAAAAvAAAADZoaGVhBnACFwAAAPQAAAAkaG10eASAADEAAAGYAAAADGxvY2EACACEAAAB8AAAAAhtYXhwAAYAVwAAARgAAAAgbmFtZQGOH9cAAAMAAAAAunBvc3QAAwAAAAADvAAAACAAAQAAAAEAAHzE2p9fDzz1AAkEAAAAAADRecUWAAAAANQA6R8AAAAAAoACwAAAAAgAAgAAAAAAAAABAAADwP/AAAACgAAA/9MCrQABAAAAAAAAAAAAAAAAAAAAAwABAAAAAwBVAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAMCQAGQAAUAAAKZAswAAACPApkCzAAAAesAMwEJAAAAAAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAQAAg//0DwP/AAEADwABAAAAAAQAAAAAAAAAAAAAAIAAAAAAAAAIAAAACgAAxAAAAAwAAAAMAAAAcAAEAAwAAABwAAwABAAAAHAAEADAAAAAIAAgAAgAAACDpy//9//8AAAAg6cv//f///+EWNwADAAEAAAAAAAAAAAAAAAAACACEAAEAAAAAAAAAAAAAAAAxAAACAAQARAKAAsAAKwBUAAABIiYnJjQ3NzY2MzIWFxYUBwcGIicmNDc3NjQnJiYjIgYHBwYUFxYUBwYGIwciJicmNDc3NjIXFhQHBwYUFxYWMzI2Nzc2NCcmNDc2MhcWFAcHBgYjARQGDAUtLXoWOR8fORYtLTgKGwoKCjgaGg0gEhIgDXoaGgkJBQwHdR85Fi0tOAobCgoKOBoaDSASEiANehoaCQkKGwotLXoWOR8BMwUFLYEuehYXFxYugC44CQkKGwo4GkoaDQ0NDXoaShoKGwoFBe8XFi6ALjgJCQobCjgaShoNDQ0NehpKGgobCgoKLYEuehYXAAAADACWAAEAAAAAAAEACAAAAAEAAAAAAAIAAwAIAAEAAAAAAAMACAAAAAEAAAAAAAQACAAAAAEAAAAAAAUAAQALAAEAAAAAAAYACAAAAAMAAQQJAAEAEAAMAAMAAQQJAAIABgAcAAMAAQQJAAMAEAAMAAMAAQQJAAQAEAAMAAMAAQQJAAUAAgAiAAMAAQQJAAYAEAAMYW5jaG9yanM0MDBAAGEAbgBjAGgAbwByAGoAcwA0ADAAMABAAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAH//wAP) format("truetype"); }',e.sheet.cssRules.length)}}this.options=A||{},this.elements=[],e(this.options),this.isTouchDevice=function(){return!!("ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch)},this.add=function(A){var i,o,s,c,r,a,h,l,u,d,f,g,p=[];if(e(this.options),"touch"===(g=this.options.visible)&&(g=this.isTouchDevice()?"always":"hover"),A||(A="h2, h3, h4, h5, h6"),0===(i=t(A)).length)return this;for(n(),o=document.querySelectorAll("[id]"),s=[].map.call(o,function(A){return A.id}),r=0;r<i.length;r++)if(this.hasAnchorJSLink(i[r]))p.push(r);else{if(i[r].hasAttribute("id"))c=i[r].getAttribute("id");else if(i[r].hasAttribute("data-anchor-id"))c=i[r].getAttribute("data-anchor-id");else{u=l=this.urlify(i[r].textContent),h=0;do{void 0!==a&&(u=l+"-"+h),a=s.indexOf(u),h+=1}while(-1!==a);a=void 0,s.push(u),i[r].setAttribute("id",u),c=u}d=c.replace(/-/g," "),(f=document.createElement("a")).className="anchorjs-link "+this.options.class,f.href="#"+c,f.setAttribute("aria-label","Anchor link for: "+d),f.setAttribute("data-anchorjs-icon",this.options.icon),"always"===g&&(f.style.opacity="1"),""===this.options.icon&&(f.style.font="1em/1 anchorjs-icons","left"===this.options.placement&&(f.style.lineHeight="inherit")),"left"===this.options.placement?(f.style.position="absolute",f.style.marginLeft="-1em",f.style.paddingRight="0.5em",i[r].insertBefore(f,i[r].firstChild)):(f.style.paddingLeft="0.375em",i[r].appendChild(f))}for(r=0;r<p.length;r++)i.splice(p[r]-r,1);return this.elements=this.elements.concat(i),this},this.remove=function(A){for(var e,n,i=t(A),o=0;o<i.length;o++)(n=i[o].querySelector(".anchorjs-link"))&&(-1!==(e=this.elements.indexOf(i[o]))&&this.elements.splice(e,1),i[o].removeChild(n));return this},this.removeAll=function(){this.remove(this.elements)},this.urlify=function(A){var t=/[& +$,:;=?@"#{}|^~[`%!'<>\]\.\/\(\)\*\\]/g;return this.options.truncate||e(this.options),A.trim().replace(/\'/gi,"").replace(t,"-").replace(/-{2,}/g,"-").substring(0,this.options.truncate).replace(/^-+|-+$/gm,"").toLowerCase()},this.hasAnchorJSLink=function(A){var e=A.firstChild&&(" "+A.firstChild.className+" ").indexOf(" anchorjs-link ")>-1,t=A.lastChild&&(" "+A.lastChild.className+" ").indexOf(" anchorjs-link ")>-1;return e||t||!1}}return A});
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
 
-// Enable links for selected headers
-var anchors = new AnchorJS();
-anchors.add("h2, h3, h4")
+        // This Manubot plugin allows tables that are too wide to fit within
+        // the page to have a scrollbar instead of being squashed to fit.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'tableScroll';
+
+        // default plugin options
+        const options = {
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // wrap each table in a container
+            const tables = document.querySelectorAll('table');
+            for (const table of tables)
+                wrapElement(table).classList.add('table_wrapper');
+            // table_wrapper CSS class in theme file provides scroll
+            // functionality
+        }
+
+        // wrap element in div and return div
+        function wrapElement(element) {
+            const parent = element.parentNode;
+            const wrapper = document.createElement('div');
+            parent.replaceChild(wrapper, element);
+            wrapper.appendChild(element);
+            return wrapper;
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
 </script>
-<!-- Enable Hypothesis annotation. https://web.hypothes.is/ -->
-<script src="https://hypothes.is/embed.js" async></script>
+<!-- anchors plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin adds an anchor next to each of a certain type
+        // of element that provides a human-readable url to that specific
+        // item/position in the document (eg "manuscript.html#abstract"). It
+        // also makes it such that scrolling out of view of a target removes
+        // its identifier from the url.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'anchors';
+
+        // default plugin options
+        const options = {
+            // which types of elements to add anchors next to, in
+            // "document.querySelector" format
+            typesQuery: 'h1, h2, h3, figure, table',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // add anchor to each element of specified types
+            const elements = document.querySelectorAll(options.typesQuery);
+            for (const element of elements)
+                addAnchor(element);
+
+            // attach scroll listener to window
+            window.addEventListener('scroll', onScroll);
+        }
+
+        // when window is scrolled
+        function onScroll() {
+            // if url has hash and user has scrolled out of view of hash
+            // target, remove hash from url
+            const target = getHashTarget();
+            if (target) {
+                if (
+                    target.getBoundingClientRect().top > window.innerHeight ||
+                    target.getBoundingClientRect().bottom < 0
+                )
+                    history.pushState(null, null, ' ');
+            }
+        }
+
+        // add anchor to element
+        function addAnchor(element) {
+            let withId; // element with unique id
+            let addTo; // element to add anchor button to
+
+            // if figure or table, modify withId and addTo to get expected
+            // elements
+            if (element.tagName.toLowerCase() === 'figure') {
+                withId = element.querySelector('img');
+                addTo = element.querySelector('figcaption');
+            } else if (element.tagName.toLowerCase() === 'table') {
+                withId =
+                    element.previousElementSibling ||
+                    element.parentNode.previousElementSibling;
+                addTo = element.querySelector('caption');
+            }
+
+            withId = withId || element;
+            addTo = addTo || element;
+            const id = withId.id || withId.name || null;
+
+            // do not add anchor if element doesn't have assigned id.
+            // id is generated by pandoc and is assumed to be unique and
+            // human-readable
+            if (!id)
+                return;
+
+            // create anchor button
+            const anchor = document.createElement('a');
+            anchor.innerHTML = document.querySelector('.icon_link').innerHTML;
+            anchor.title = 'Link to this part of the document';
+            anchor.classList.add('icon_button', 'anchor');
+            anchor.dataset.ignore = 'true';
+            anchor.href = '#' + id;
+            addTo.appendChild(anchor);
+        }
+
+        // get element that is target of link or url hash
+        function getHashTarget() {
+            const hash = window.location.hash;
+            const id = hash.slice(1);
+            let target = document.querySelector(
+                '[id="' + id + '"], [name="' + id + '"]'
+            );
+            if (!target)
+                return;
+
+            // if figure or table, modify target to get expected element
+            if (hash.indexOf('#fig:') === 0)
+                target = target.parentNode;
+            if (hash.indexOf('#tbl:') === 0)
+                target = target.nextElementSibling;
+
+            return target;
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- link icon -->
+
+<template class="icon_link">
+    <!-- modified from: https://fontawesome.com/icons/link -->
+    <svg width="16" height="16" viewBox="0 0 512 512">
+        <path
+            fill="currentColor"
+            d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"
+        ></path>
+    </svg>
+</template>
+<!-- accordion plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin allows sections of content under <h2> headings
+        // to be collapsible.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'accordion';
+
+        // default plugin options
+        const options = {
+            // whether to always start expanded ('false'), always start
+            // collapsed ('true'), or start collapsed when screen small ('auto')
+            startCollapsed: 'auto',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // run through each <h2> heading
+            const headings = document.querySelectorAll('h2');
+            for (const heading of headings) {
+                addArrow(heading);
+
+                // start expanded/collapsed based on option
+                if (
+                    options.startCollapsed === 'true' ||
+                    (options.startCollapsed === 'auto' && isSmallScreen())
+                )
+                    collapseHeading(heading);
+                else
+                    expandHeading(heading);
+            }
+
+            // attach hash change listener to window
+            window.addEventListener('hashchange', onHashChange);
+        }
+
+        // when hash (eg manuscript.html#introduction) changes
+        function onHashChange() {
+            const target = getHashTarget();
+            if (target)
+                goToElement(target);
+        }
+
+        // add arrow to heading
+        function addArrow(heading) {
+            // add arrow button
+            const arrow = document.createElement('button');
+            arrow.innerHTML = document.querySelector(
+                '.icon_angle_down'
+            ).innerHTML;
+            arrow.classList.add('icon_button', 'accordion_arrow');
+            heading.insertBefore(arrow, heading.firstChild);
+
+            // attach click listener to heading and button
+            heading.addEventListener('click', onHeadingClick);
+            arrow.addEventListener('click', onArrowClick);
+        }
+
+        // determine if on mobile-like device with small screen
+        function isSmallScreen() {
+            return Math.min(window.innerWidth, window.innerHeight) < 480;
+        }
+
+        // scroll to and focus element
+        function goToElement(element, offset) {
+            // expand accordion section if collapsed
+            expandElement(element);
+            const y =
+                getRectInView(element).top -
+                getRectInView(document.documentElement).top -
+                (offset || 0);
+            // trigger any function listening for "onscroll" event
+            window.dispatchEvent(new Event('scroll'));
+            window.scrollTo(0, y);
+            element.focus();
+        }
+
+        // get element that is target of hash
+        function getHashTarget(link) {
+            const hash = link ? link.hash : window.location.hash;
+            const id = hash.slice(1);
+            let target = document.querySelector(
+                '[id="' + id + '"], [name="' + id + '"]'
+            );
+            if (!target)
+                return;
+
+            // if figure or table, modify target to get expected element
+            if (hash.indexOf('#fig:') === 0)
+                target = target.parentNode;
+            if (hash.indexOf('#tbl:') === 0)
+                target = target.nextElementSibling;
+
+            return target;
+        }
+
+        // when <h2> heading is clicked
+        function onHeadingClick(event) {
+            // only collapse if <h2> itself is target of click (eg, user did
+            // not click on anchor within <h2>)
+            if (event.target === this)
+                toggleCollapse(this);
+        }
+
+        // when arrow button is clicked
+        function onArrowClick() {
+            toggleCollapse(this.parentNode);
+        }
+
+        // collapse section if expanded, expand if collapsed
+        function toggleCollapse(heading) {
+            if (heading.dataset.collapsed === 'false')
+                collapseHeading(heading);
+            else
+                expandHeading(heading);
+        }
+
+        // elements to exclude from collapse, such as table of contents panel,
+        // hypothesis panel, etc
+        const exclude = '#toc_panel, div.annotator-frame, #lightbox_overlay';
+
+        // collapse section
+        function collapseHeading(heading) {
+            heading.setAttribute('data-collapsed', 'true');
+            const children = getChildren(heading);
+            for (const child of children)
+                child.setAttribute('data-collapsed', 'true');
+        }
+
+        // expand section
+        function expandHeading(heading) {
+            heading.setAttribute('data-collapsed', 'false');
+            const children = getChildren(heading);
+            for (const child of children)
+                child.setAttribute('data-collapsed', 'false');
+        }
+
+        // get list of elements between this <h2> and next <h2> or <h1>
+        // ("children" of the <h2> section)
+        function getChildren(heading) {
+            return nextUntil(heading, 'h2, h1', exclude);
+        }
+
+        // get position/dimensions of element or viewport
+        function getRectInView(element) {
+            let rect = {};
+            rect.left = 0;
+            rect.top = 0;
+            rect.right = window.innerWidth;
+            rect.bottom = window.innerHeight;
+            let style = {};
+
+            if (element instanceof HTMLElement) {
+                rect = element.getBoundingClientRect();
+                style = window.getComputedStyle(element);
+            }
+
+            const margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+
+            const border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
+
+            const newRect = {};
+            newRect.left = rect.left + margin.left + border.left;
+            newRect.top = rect.top + margin.top + border.top;
+            newRect.right = rect.right + margin.right + border.right;
+            newRect.bottom = rect.bottom + margin.bottom + border.bottom;
+            newRect.width = newRect.right - newRect.left;
+            newRect.height = newRect.bottom - newRect.top;
+
+            return newRect;
+        }
+
+        // get list of elements after a start element up to element matching
+        // query
+        function nextUntil(element, query, exclude) {
+            const elements = [];
+            while (element = element.nextElementSibling, element) {
+                if (element.matches(query))
+                    break;
+                if (!element.matches(exclude))
+                    elements.push(element);
+            }
+            return elements;
+        }
+
+        // get closest element before specified element that matches query
+        function firstBefore(element, query) {
+            while (
+                element &&
+                element !== document.body &&
+                !element.matches(query)
+            )
+                element = element.previousElementSibling || element.parentNode;
+
+            return element;
+        }
+
+        // check if element is part of collapsed heading
+        function isCollapsed(element) {
+            while (element && element !== document.body) {
+                if (element.dataset.collapsed === 'true')
+                    return true;
+                element = element.parentNode;
+            }
+            return false;
+        }
+
+        // expand heading containing element if necesary
+        function expandElement(element) {
+            if (isCollapsed(element)) {
+                const heading = firstBefore(element, 'h2');
+                if (heading)
+                    heading.click();
+            }
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- angle down icon -->
+
+<template class="icon_angle_down">
+    <!-- modified from: https://fontawesome.com/icons/angle-down -->
+    <svg width="16" height="16" viewBox="0 0 448 512">
+        <path
+            fill="currentColor"
+            d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+        ></path>
+    </svg>
+</template>
+<!-- tooltips plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin makes it such that when the user hovers or
+        // focuses a link to a citation or figure, a tooltip appears with a
+        // preview of the reference content, along with arrows to navigate
+        // between instances of the same reference in the document.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'tooltips';
+
+        // default plugin options
+        const options = {
+            // whether user must click off to close tooltip instead of just
+            // un-hovering
+            clickClose: 'false',
+            // whether to keep tooltip horizontal position when clicking
+            // prev/next buttons
+            keepHorizontal: 'true',
+            // delay (in ms) between opening and closing tooltip
+            delay: '100',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            const links = getLinks();
+            for (const link of links) {
+                // attach hover and focus listeners to link
+                link.addEventListener('mouseover', onLinkHover);
+                link.addEventListener('mouseleave', onLinkUnhover);
+                link.addEventListener('focus', onLinkFocus);
+                link.addEventListener('touchend', onLinkTouch);
+            }
+
+            // attach mouse, key, and resize listeners to window
+            window.addEventListener('mousedown', onClick);
+            window.addEventListener('touchstart', onClick);
+            window.addEventListener('keyup', onKeyUp);
+            window.addEventListener('resize', onResize);
+        }
+
+        // when link is hovered
+        function onLinkHover() {
+            // function to open tooltip
+            const delayOpenTooltip = function() {
+                openTooltip(this);
+            }.bind(this);
+
+            // run open function after delay
+            this.openTooltipTimer = window.setTimeout(
+                delayOpenTooltip,
+                options.delay
+            );
+        }
+
+        // when mouse leaves link
+        function onLinkUnhover() {
+            // cancel opening tooltip
+            window.clearTimeout(this.openTooltipTimer);
+
+            // don't close on unhover if option specifies
+            if (options.clickClose === 'true')
+                return;
+
+            // function to close tooltip
+            const delayCloseTooltip = function() {
+                // if tooltip open and if mouse isn't over tooltip, close
+                const tooltip = document.getElementById('tooltip');
+                if (tooltip && !tooltip.matches(':hover'))
+                    closeTooltip();
+            };
+
+            // run close function after delay
+            this.closeTooltipTimer = window.setTimeout(
+                delayCloseTooltip,
+                options.delay
+            );
+        }
+
+        // when link is focused (tabbed to)
+        function onLinkFocus(event) {
+            // if focus change happened due to prev/next nav button click,
+            // pass that info along to openTooltip()
+            if (
+                event &&
+                event.relatedTarget &&
+                event.relatedTarget.matches('#tooltip_nav_bar > .icon_button')
+            )
+                openTooltip(this, true);
+            else
+                openTooltip(this);
+        }
+
+        // when link is touched on touch screen
+        function onLinkTouch(event) {
+            // attempt to force hover state on first tap always, and trigger
+            // regular link click (and navigation) on second tap
+            if (event.target === document.activeElement)
+                event.target.click();
+            else
+                event.target.focus();
+            if (event.cancelable)
+                event.preventDefault();
+            event.stopPropagation();
+            return false;
+        }
+
+        // when mouse is clicked anywhere in window
+        function onClick(event) {
+            closeTooltip();
+        }
+
+        // when key pressed
+        function onKeyUp(event) {
+            if (!event || !event.key)
+                return;
+
+            // trigger click of prev/next button
+            switch (event.key) {
+            case 'ArrowLeft':
+                const prevButton = document.getElementById(
+                    'tooltip_prev_button'
+                );
+                if (prevButton)
+                    prevButton.click();
+                break;
+            case 'ArrowRight':
+                const nextButton = document.getElementById(
+                    'tooltip_next_button'
+                );
+                if (nextButton)
+                    nextButton.click();
+                break;
+            }
+        }
+
+        // when window is resized or zoomed
+        function onResize() {
+            closeTooltip();
+        }
+
+        // get all links of types we wish to handle
+        function getLinks() {
+            const queries = [];
+            // exclude buttons, anchor links, toc links, etc
+            const exclude =
+                ':not(.button):not(.icon_button):not(.anchor):not(.toc_link)';
+            queries.push('a[href^="#ref-"]' + exclude); // citation links
+            queries.push('a[href^="#fig:"]' + exclude); // figure links
+            const query = queries.join(', ');
+            return document.querySelectorAll(query);
+        }
+
+        // get links with same target, get index of link in set, get total
+        // same links
+        function getSameLinks(link) {
+            const sameLinks = [];
+            const links = getLinks();
+            for (const otherLink of links) {
+                if (
+                    otherLink.getAttribute('href') === link.getAttribute('href')
+                )
+                    sameLinks.push(otherLink);
+            }
+
+            return {
+                elements: sameLinks,
+                index: sameLinks.indexOf(link),
+                total: sameLinks.length
+            };
+        }
+
+        // open tooltip
+        function openTooltip(link, prevNextButtonClick) {
+            let prevX;
+            // if setting is on, tooltip opened because of prev/next buttons,
+            // and already-open tooltip can be found, store original x
+            // position of tooltip
+            const prevTooltip = document.getElementById('tooltip');
+            if (
+                options.keepHorizontal === 'true' &&
+                prevNextButtonClick &&
+                prevTooltip
+            )
+                prevX = getRectInPage(prevTooltip).left;
+
+            // make tooltip element
+            const tooltip = makeTooltip(link);
+
+            // if source couldn't be found and tooltip not made, exit
+            if (!tooltip)
+                return;
+
+            // make navbar elements
+            const navBar = makeNavBar(link);
+            if (navBar)
+                tooltip.firstElementChild.appendChild(navBar);
+
+            // attach tooltip to page
+            document.body.appendChild(tooltip);
+
+            // position tooltip
+            const position = function() {
+                if (prevX)
+                    positionTooltip(link, prevX);
+                else
+                    positionTooltip(link);
+            };
+            position();
+
+            // if tooltip contains images, position again after they've loaded
+            const imgs = tooltip.querySelectorAll('img');
+            for (const img of imgs)
+                img.addEventListener('load', position);
+        }
+
+        // close (delete) tooltip
+        function closeTooltip() {
+            const tooltip = document.getElementById('tooltip');
+            if (tooltip)
+                tooltip.remove();
+        }
+
+        // make tooltip
+        function makeTooltip(link) {
+            // delete tooltip if it exists, start fresh
+            closeTooltip();
+
+            // get target element that link points to
+            const source = getSource(link);
+
+            // if source can't be found, exit
+            if (!source)
+                return;
+
+            // create new tooltip
+            const tooltip = document.createElement('div');
+            tooltip.id = 'tooltip';
+            const tooltipContent = document.createElement('div');
+            tooltipContent.id = 'tooltip_content';
+            tooltip.appendChild(tooltipContent);
+
+            // make copy of source node and put in tooltip
+            const sourceCopy = makeCopy(source);
+            tooltipContent.appendChild(sourceCopy);
+
+            // attach mouse event listeners
+            tooltip.addEventListener('click', onTooltipClick);
+            tooltip.addEventListener('mousedown', onTooltipClick);
+            tooltip.addEventListener('touchstart', onTooltipClick);
+            tooltip.addEventListener('mouseleave', onTooltipUnhover);
+
+            // (for interaction with lightbox plugin)
+            // transfer click on tooltip copied img to original img
+            const sourceImg = source.querySelector('img');
+            const sourceCopyImg = sourceCopy.querySelector('img');
+            if (sourceImg && sourceCopyImg) {
+                const clickImg = function() {
+                    sourceImg.click();
+                    closeTooltip();
+                };
+                sourceCopyImg.addEventListener('click', clickImg);
+            }
+
+            return tooltip;
+        }
+
+        // make carbon copy of html dom element
+        function makeCopy(source) {
+            const sourceCopy = source.cloneNode(true);
+
+            // delete elements marked with ignore (eg anchor and jump buttons)
+            const deleteFromCopy = sourceCopy.querySelectorAll(
+                '[data-ignore="true"]'
+            );
+            for (const element of deleteFromCopy)
+                element.remove();
+
+            // delete certain element attributes
+            const attributes = [
+                'id',
+                'data-collapsed',
+                'data-selected',
+                'data-highlighted',
+                'data-glow'
+            ];
+            for (const attribute of attributes) {
+                sourceCopy.removeAttribute(attribute);
+                const elements = sourceCopy.querySelectorAll(
+                    '[' + attribute + ']'
+                );
+                for (const element of elements)
+                    element.removeAttribute(attribute);
+            }
+
+            return sourceCopy;
+        }
+
+        // when tooltip is clicked
+        function onTooltipClick(event) {
+            // when user clicks on tooltip, stop click from transferring
+            // outside of tooltip (eg, click off to close tooltip, or eg click
+            // off to unhighlight same refs)
+            event.stopPropagation();
+        }
+
+        // when tooltip is unhovered
+        function onTooltipUnhover(event) {
+            if (options.clickClose !== 'true')
+                closeTooltip();
+        }
+
+        // make nav bar to go betwen prev/next instances of same reference
+        function makeNavBar(link) {
+            // find other links to the same source
+            const sameLinks = getSameLinks(link);
+
+            // don't show nav bar when singular reference
+            if (sameLinks.total <= 1)
+                return;
+
+            // find prev/next links with same target
+            const prevLink = getPrevLink(link, sameLinks);
+            const nextLink = getNextLink(link, sameLinks);
+
+            // create nav bar
+            const navBar = document.createElement('div');
+            navBar.id = 'tooltip_nav_bar';
+            const text = sameLinks.index + 1 + ' of ' + sameLinks.total;
+
+            // create nav bar prev/next buttons
+            const prevButton = document.createElement('button');
+            const nextButton = document.createElement('button');
+            prevButton.id = 'tooltip_prev_button';
+            nextButton.id = 'tooltip_next_button';
+            prevButton.title =
+                'Jump to the previous occurence of this item in the document [←]';
+            nextButton.title =
+                'Jump to the next occurence of this item in the document [→]';
+            prevButton.classList.add('icon_button');
+            nextButton.classList.add('icon_button');
+            prevButton.innerHTML = document.querySelector(
+                '.icon_caret_left'
+            ).innerHTML;
+            nextButton.innerHTML = document.querySelector(
+                '.icon_caret_right'
+            ).innerHTML;
+            navBar.appendChild(prevButton);
+            navBar.appendChild(document.createTextNode(text));
+            navBar.appendChild(nextButton);
+
+            // attach click listeners to buttons
+            prevButton.addEventListener('click', function() {
+                onPrevNextClick(link, prevLink);
+            });
+            nextButton.addEventListener('click', function() {
+                onPrevNextClick(link, nextLink);
+            });
+
+            return navBar;
+        }
+
+        // get previous link with same target
+        function getPrevLink(link, sameLinks) {
+            if (!sameLinks)
+                sameLinks = getSameLinks(link);
+            // wrap index to other side if < 1
+            let index;
+            if (sameLinks.index - 1 >= 0)
+                index = sameLinks.index - 1;
+            else
+                index = sameLinks.total - 1;
+            return sameLinks.elements[index];
+        }
+
+        // get next link with same target
+        function getNextLink(link, sameLinks) {
+            if (!sameLinks)
+                sameLinks = getSameLinks(link);
+            // wrap index to other side if > total
+            let index;
+            if (sameLinks.index + 1 <= sameLinks.total - 1)
+                index = sameLinks.index + 1;
+            else
+                index = 0;
+            return sameLinks.elements[index];
+        }
+
+        // get element that is target of link or url hash
+        function getSource(link) {
+            const hash = link ? link.hash : window.location.hash;
+            const id = hash.slice(1);
+            let target = document.querySelector(
+                '[id="' + id + '"], [name="' + id + '"]'
+            );
+            if (!target)
+                return;
+
+            // if figure or table, modify target to get expected element
+            if (hash.indexOf('#ref-') === 0)
+                target = target.querySelector('p');
+            else if (hash.indexOf('#fig:') === 0)
+                target = target.parentNode;
+            else if (hash.indexOf('#tbl:') === 0)
+                return;
+
+            return target;
+        }
+
+        // when prev/next arrow button is clicked
+        function onPrevNextClick(link, prevNextLink) {
+            if (link && prevNextLink)
+                goToElement(prevNextLink, getRectInView(link).top);
+        }
+
+        // scroll to and focus element
+        function goToElement(element, offset) {
+            // expand accordion section if collapsed
+            expandElement(element);
+            const y =
+                getRectInView(element).top -
+                getRectInView(document.documentElement).top -
+                (offset || 0);
+            // trigger any function listening for "onscroll" event
+            window.dispatchEvent(new Event('scroll'));
+            window.scrollTo(0, y);
+            element.focus();
+        }
+
+        // determine position to place tooltip based on link position in
+        // viewport and tooltip size
+        function positionTooltip(link, left, top) {
+            const tooltipElement = document.getElementById('tooltip');
+            if (!tooltipElement)
+                return;
+
+            // get convenient vars for position/dimensions of
+            // link/tooltip/page/view
+            link = getRectInPage(link);
+            const tooltip = getRectInPage(tooltipElement);
+            const view = getRectInPage();
+
+            // horizontal positioning
+            if (left)
+                // use explicit value
+                left = left;
+            else if (link.left + tooltip.width < view.right)
+                // fit tooltip to right of link
+                left = link.left;
+            else if (link.right - tooltip.width > view.left)
+                // fit tooltip to left of link
+                left = link.right - tooltip.width;
+            // center tooltip in view
+            else
+                left = (view.right - view.left) / 2 - tooltip.width / 2;
+
+            // vertical positioning
+            if (top)
+                // use explicit value
+                top = top;
+            else if (link.top - tooltip.height > view.top)
+                // fit tooltip above link
+                top = link.top - tooltip.height;
+            else if (link.bottom + tooltip.height < view.bottom)
+                // fit tooltip below link
+                top = link.bottom;
+            else {
+                // center tooltip in view
+                top = view.top + view.height / 2 - tooltip.height / 2;
+                // nudge off of link to left/right if possible
+                if (link.right + tooltip.width < view.right)
+                    left = link.right;
+                else if (link.left - tooltip.width > view.left)
+                    left = link.left - tooltip.width;
+            }
+
+            tooltipElement.style.left = left + 'px';
+            tooltipElement.style.top = top + 'px';
+        }
+
+        // get position/dimensions of element or viewport
+        function getRectInView(element) {
+            let rect = {};
+            rect.left = 0;
+            rect.top = 0;
+            rect.right = window.innerWidth;
+            rect.bottom = window.innerHeight;
+            let style = {};
+
+            if (element instanceof HTMLElement) {
+                rect = element.getBoundingClientRect();
+                style = window.getComputedStyle(element);
+            }
+
+            const margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+
+            const border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
+
+            const newRect = {};
+            newRect.left = rect.left + margin.left + border.left;
+            newRect.top = rect.top + margin.top + border.top;
+            newRect.right = rect.right + margin.right + border.right;
+            newRect.bottom = rect.bottom + margin.bottom + border.bottom;
+            newRect.width = newRect.right - newRect.left;
+            newRect.height = newRect.bottom - newRect.top;
+
+            return newRect;
+        }
+
+        // get position of element relative to page
+        function getRectInPage(element) {
+            const rect = getRectInView(element);
+            const body = getRectInView(document.body);
+
+            const newRect = {};
+            newRect.left = rect.left - body.left;
+            newRect.top = rect.top - body.top;
+            newRect.right = rect.right - body.left;
+            newRect.bottom = rect.bottom - body.top;
+            newRect.width = rect.width;
+            newRect.height = rect.height;
+
+            return newRect;
+        }
+
+        // (for interaction with accordion plugin)
+        // get closest element before specified element that matches query
+        function firstBefore(element, query) {
+            while (
+                element &&
+                element !== document.body &&
+                !element.matches(query)
+            )
+                element = element.previousElementSibling || element.parentNode;
+
+            return element;
+        }
+
+        // (for interaction with accordion plugin)
+        // check if element is part of collapsed heading
+        function isCollapsed(element) {
+            while (element && element !== document.body) {
+                if (element.dataset.collapsed === 'true')
+                    return true;
+                element = element.parentNode;
+            }
+            return false;
+        }
+
+        // (for interaction with accordion plugin)
+        // expand heading containing element if necesary
+        function expandElement(element) {
+            if (isCollapsed(element)) {
+                const heading = firstBefore(element, 'h2');
+                if (heading)
+                    heading.click();
+            }
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- caret left icon -->
+
+<template class="icon_caret_left">
+    <!-- modified from: https://fontawesome.com/icons/caret-left -->
+    <svg width="16" height="16" viewBox="0 0 192 512">
+        <path
+            fill="currentColor"
+            d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"
+        ></path>
+    </svg>
+</template>
+
+<!-- caret right icon -->
+
+<template class="icon_caret_right">
+    <!-- modified from: https://fontawesome.com/icons/caret-right -->
+    <svg width="16" height="16" viewBox="0 0 192 512">
+        <path
+            fill="currentColor"
+            d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
+        ></path>
+    </svg>
+</template>
+<!-- jump to first plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin adds a button next to each reference entry,
+        // figure, and table that jumps the page to the first occurrence of a
+        // link to that item in the manuscript.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'jumpToFirst';
+
+        // default plugin options
+        const options = {
+            // whether to add buttons next to reference entries
+            references: 'true',
+            // whether to add buttons next to figures
+            figures: 'true',
+            // whether to add buttons next to tables
+            tables: 'true',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            if (options.references !== 'false')
+                makeReferenceButtons();
+            if (options.figures !== 'false')
+                makeFigureButtons();
+            if (options.tables !== 'false')
+                makeTableButtons();
+        }
+
+        // when jump button clicked
+        function onButtonClick() {
+            const first = getFirstOccurrence(this.dataset.id);
+            if (!first)
+                return;
+
+            // update url hash so navigating "back" in history will return
+            // user to jump button
+            window.location.hash = this.dataset.id;
+            // scroll to link
+            window.setTimeout(function() {
+                goToElement(first, window.innerHeight * 0.5);
+            }, 0);
+        }
+
+        // get first occurence of link to item in document
+        function getFirstOccurrence(id) {
+            let query = 'a';
+            query += '[href="#' + id + '"]';
+            // exclude buttons, anchor links, toc links, etc
+            query +=
+                ':not(.button):not(.icon_button):not(.anchor):not(.toc_link)';
+            return document.querySelector(query);
+        }
+
+        // add button next to each reference entry
+        function makeReferenceButtons() {
+            const references = document.querySelectorAll('div[id^="ref-"]');
+            for (const reference of references) {
+                // get reference id and element to add button to
+                const id = reference.id;
+                const container = reference.firstElementChild;
+                const first = getFirstOccurrence(id);
+
+                // if can't find link to reference, ignore
+                if (!first)
+                    continue;
+
+                // make jump button
+                let button = document.createElement('button');
+                button.classList.add('icon_button', 'jump_arrow');
+                button.title =
+                    'Jump to the first occurence of this reference in the document';
+                button.innerHTML = document.querySelector(
+                    '.icon_angle_double_up'
+                ).innerHTML;
+                button.dataset.id = id;
+                button.dataset.ignore = 'true';
+                container.innerHTML = button.outerHTML + container.innerHTML;
+                button = container.firstElementChild;
+                button.addEventListener('click', onButtonClick);
+            }
+        }
+
+        // add button next to each figure
+        function makeFigureButtons() {
+            const figures = document.querySelectorAll('img[id^="fig:"]');
+            for (const figure of figures) {
+                // get figure id and element to add button to
+                const id = figure.id;
+                const container = figure.nextElementSibling;
+                const first = getFirstOccurrence(id);
+
+                // if can't find link to figure, ignore
+                if (!first)
+                    continue;
+
+                // make jump button
+                const button = document.createElement('button');
+                button.classList.add('icon_button', 'jump_arrow');
+                button.title =
+                    'Jump to the first occurence of this figure in the document';
+                button.innerHTML = document.querySelector(
+                    '.icon_angle_double_up'
+                ).innerHTML;
+                button.dataset.id = id;
+                button.dataset.ignore = 'true';
+                container.insertBefore(button, container.firstElementChild);
+                button.addEventListener('click', onButtonClick);
+            }
+        }
+
+        // add button next to each figure
+        function makeTableButtons() {
+            const tables = document.querySelectorAll('a[name^="tbl:"]');
+            for (const table of tables) {
+                // get ref id and element to add button to
+                const id = table.name;
+                const container = table.nextElementSibling.querySelector(
+                    'caption'
+                );
+                const first = getFirstOccurrence(id);
+
+                // if can't find link to table, ignore
+                if (!first)
+                    continue;
+
+                // make jump button
+                const button = document.createElement('button');
+                button.classList.add('icon_button', 'jump_arrow');
+                button.title =
+                    'Jump to the first occurence of this table in the document';
+                button.innerHTML = document.querySelector(
+                    '.icon_angle_double_up'
+                ).innerHTML;
+                button.dataset.id = id;
+                button.dataset.ignore = 'true';
+                container.insertBefore(button, container.firstElementChild);
+                button.addEventListener('click', onButtonClick);
+            }
+        }
+
+        // scroll to and focus element
+        function goToElement(element, offset) {
+            // expand accordion section if collapsed
+            expandElement(element);
+            const y =
+                getRectInView(element).top -
+                getRectInView(document.documentElement).top -
+                (offset || 0);
+            // trigger any function listening for "onscroll" event
+            window.dispatchEvent(new Event('scroll'));
+            window.scrollTo(0, y);
+            element.focus();
+        }
+
+        // get position/dimensions of element or viewport
+        function getRectInView(element) {
+            let rect = {};
+            rect.left = 0;
+            rect.top = 0;
+            rect.right = window.innerWidth;
+            rect.bottom = window.innerHeight;
+            let style = {};
+
+            if (element instanceof HTMLElement) {
+                rect = element.getBoundingClientRect();
+                style = window.getComputedStyle(element);
+            }
+
+            const margin = {};
+            margin.left = parseFloat(style.marginLeftWidth) || 0;
+            margin.top = parseFloat(style.marginTopWidth) || 0;
+            margin.right = parseFloat(style.marginRightWidth) || 0;
+            margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+
+            const border = {};
+            border.left = parseFloat(style.borderLeftWidth) || 0;
+            border.top = parseFloat(style.borderTopWidth) || 0;
+            border.right = parseFloat(style.borderRightWidth) || 0;
+            border.bottom = parseFloat(style.borderBottomWidth) || 0;
+
+            const newRect = {};
+            newRect.left = rect.left + margin.left + border.left;
+            newRect.top = rect.top + margin.top + border.top;
+            newRect.right = rect.right + margin.right + border.right;
+            newRect.bottom = rect.bottom + margin.bottom + border.bottom;
+            newRect.width = newRect.right - newRect.left;
+            newRect.height = newRect.bottom - newRect.top;
+
+            return newRect;
+        }
+
+        // get closest element before specified element that matches query
+        function firstBefore(element, query) {
+            while (
+                element &&
+                element !== document.body &&
+                !element.matches(query)
+            )
+                element = element.previousElementSibling || element.parentNode;
+
+            return element;
+        }
+
+        // check if element is part of collapsed heading
+        function isCollapsed(element) {
+            while (element && element !== document.body) {
+                if (element.dataset.collapsed === 'true')
+                    return true;
+                element = element.parentNode;
+            }
+            return false;
+        }
+
+        // (for interaction with accordion plugin)
+        // expand heading containing element if necesary
+        function expandElement(element) {
+            if (isCollapsed(element)) {
+                const heading = firstBefore(element, 'h2');
+                if (heading)
+                    heading.click();
+            }
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- angle double up icon -->
+
+<template class="icon_angle_double_up">
+    <!-- modified from: https://fontawesome.com/icons/angle-double-up -->
+    <svg width="16" height="16" viewBox="0 0 320 512">
+        <path
+            fill="currentColor"
+            d="M177 255.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 351.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 425.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1zm-34-192L7 199.7c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l96.4-96.4 96.4 96.4c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9l-136-136c-9.2-9.4-24.4-9.4-33.8 0z"
+        ></path>
+    </svg>
+</template>
+<!-- link highlight plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin makes it such that when a user hovers or
+        // focuses a link, other links that have the same target will be
+        // highlighted. It also makes it such that when clicking a link, the
+        // target of the link (eg reference, figure, table) is briefly
+        // highlighted.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'linkHighlight';
+
+        // default plugin options
+        const options = {
+            // whether to also highlight links that go to external urls
+            externalLinks: 'false',
+            // whether user must click off to unhighlight instead of just
+            // un-hovering
+            clickUnhighlight: 'false',
+            // whether to also highlight links that are unique
+            highlightUnique: 'false',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            const links = getLinks();
+            for (const link of links) {
+                // attach mouse and focus listeners to link
+                link.addEventListener('mouseover', onLinkFocus);
+                link.addEventListener('focus', onLinkFocus);
+                link.addEventListener('mouseleave', onLinkUnhover);
+            }
+
+            // attach click and hash change listeners to window
+            window.addEventListener('click', onClick);
+            window.addEventListener('touchstart', onClick);
+            window.addEventListener('hashchange', onHashChange);
+
+            // run hash change on window load in case user has navigated
+            // directly to hash
+            onHashChange();
+        }
+
+        // when link is focused (tabbed to) or hovered
+        function onLinkFocus() {
+            highlight(this);
+        }
+
+        // when link is unhovered
+        function onLinkUnhover() {
+            if (options.clickUnhighlight !== 'true')
+                unhighlightAll();
+        }
+
+        // when the mouse is clicked anywhere in window
+        function onClick(event) {
+            unhighlightAll();
+        }
+
+        // when hash (eg manuscript.html#introduction) changes
+        function onHashChange() {
+            const target = getHashTarget();
+            if (target)
+                glowElement(target);
+        }
+
+        // get element that is target of link or url hash
+        function getHashTarget(link) {
+            const hash = link ? link.hash : window.location.hash;
+            const id = hash.slice(1);
+            let target = document.querySelector(
+                '[id="' + id + '"], [name="' + id + '"]'
+            );
+            if (!target)
+                return;
+
+            // if figure or table, modify target to get expected element
+            if (hash.indexOf('#fig:') === 0)
+                target = target.parentNode;
+            else if (hash.indexOf('#tbl:') === 0)
+                target = target.nextElementSibling.querySelector('caption');
+
+            return target;
+        }
+
+        // start glow sequence on an element
+        function glowElement(element) {
+            const startGlow = function() {
+                onGlowEnd();
+                element.dataset.glow = 'true';
+                element.addEventListener('animationend', onGlowEnd);
+            };
+            const onGlowEnd = function() {
+                element.removeAttribute('data-glow');
+                element.removeEventListener('animationend', onGlowEnd);
+            };
+            startGlow();
+        }
+
+        // highlight link and all others with same target
+        function highlight(link) {
+            // force unhighlight all to start fresh
+            unhighlightAll();
+
+            // get links with same target
+            if (!link)
+                return;
+            const sameLinks = getSameLinks(link);
+
+            // if link unique and option is off, exit and don't highlight
+            if (sameLinks.length <= 1 && options.highlightUnique !== 'true')
+                return;
+
+            // highlight all same links, and "select" (special highlight) this
+            // one
+            for (const sameLink of sameLinks) {
+                if (sameLink === link)
+                    sameLink.setAttribute('data-selected', 'true');
+                else
+                    sameLink.setAttribute('data-highlighted', 'true');
+            }
+        }
+
+        // unhighlight all links
+        function unhighlightAll() {
+            const links = getLinks();
+            for (const link of links) {
+                link.setAttribute('data-selected', 'false');
+                link.setAttribute('data-highlighted', 'false');
+            }
+        }
+
+        // get links with same target
+        function getSameLinks(link) {
+            const results = [];
+            const links = getLinks();
+            for (const otherLink of links) {
+                if (
+                    otherLink.getAttribute('href') === link.getAttribute('href')
+                )
+                    results.push(otherLink);
+            }
+            return results;
+        }
+
+        // get all links of types we wish to handle
+        function getLinks() {
+            let query = 'a';
+            if (options.externalLinks !== 'true')
+                query += '[href^="#"]';
+            // exclude buttons, anchor links, toc links, etc
+            query +=
+                ':not(.button):not(.icon_button):not(.anchor):not(.toc_link)';
+            return document.querySelectorAll(query);
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+<!-- table of contents plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin provides a "table of contents" (toc) panel on
+        // the side of the document that allows the user to conveniently
+        // navigate between sections of the document.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'tableOfContents';
+
+        // default plugin options
+        const options = {
+            // which types of elements to add links for, in
+            // "document.querySelector" format
+            typesQuery: 'h1, h2, h3',
+            // if list item is more than this many characters, text will be
+            // truncated
+            charLimit: '50',
+            // whether or not to show bullets next to each toc item
+            bullets: 'false',
+            // whether to always start closed ('false'), always start opened
+            // ('true'), or start open when screen wide enough to fit panel
+            // ('auto')
+            startOpen: 'false',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // make toc panel and populate with entries (links to document
+            // sections)
+            const panel = makePanel();
+            if (!panel)
+                return;
+            makeEntries(panel);
+            document.body.insertBefore(panel, document.body.firstChild);
+
+            // start panel open/closed based on option
+            if (
+                options.startOpen === 'true' ||
+                (options.startOpen === 'auto' && isSmallScreen())
+            )
+                openPanel();
+            else
+                closePanel();
+
+            // attach scroll and hash change listeners to window
+            window.addEventListener('scroll', onScroll);
+            window.addEventListener('hashchange', onScroll);
+            onScroll();
+
+            // add class to push document body down out of way of toc button
+            document.body.classList.add('toc_body_nudge');
+        }
+
+        // determine if on mobile-like device with small screen
+        function isSmallScreen() {
+            const page = window.getComputedStyle(document.body);
+            const width =
+                parseInt(page.width) || parseInt(page.maxWidth) || 816;
+            return window.innerWidth < width + 320;
+        }
+
+        // when window is scrolled or hash changed
+        function onScroll() {
+            highlightViewed();
+        }
+
+        // find entry of currently viewed document section in toc and highlight
+        function highlightViewed() {
+            const firstId = getFirstInView(options.typesQuery);
+
+            // get toc entries (links), unhighlight all, then highlight viewed
+            const list = document.getElementById('toc_list');
+            if (!firstId || !list)
+                return;
+            const links = list.querySelectorAll('a');
+            for (const link of links)
+                link.dataset.viewing = 'false';
+            const link = list.querySelector('a[href="#' + firstId + '"]');
+            if (!link)
+                return;
+            link.dataset.viewing = 'true';
+        }
+
+        // get first or previous toc listed element in top half of view
+        function getFirstInView(query) {
+            // get all elements matching query and with id
+            const elements = document.querySelectorAll(query);
+            const elementsWithIds = [];
+            for (const element of elements) {
+                if (element.id)
+                    elementsWithIds.push(element);
+            }
+
+            // get first or previous element in top half of view
+            for (let i = 0; i < elementsWithIds.length; i++) {
+                const element = elementsWithIds[i];
+                const prevElement = elementsWithIds[Math.max(0, i - 1)];
+                if (element.getBoundingClientRect().top >= 0) {
+                    if (
+                        element.getBoundingClientRect().top <
+                        window.innerHeight / 2
+                    )
+                        return element.id;
+                    else
+                        return prevElement.id;
+                }
+            }
+        }
+
+        // make panel
+        function makePanel() {
+            // create panel
+            const panel = document.createElement('div');
+            panel.id = 'toc_panel';
+            if (options.bullets === 'true')
+                panel.dataset.bullets = 'true';
+
+            // create header
+            const header = document.createElement('h3');
+
+            // create toc button
+            const button = document.createElement('button');
+            button.id = 'toc_button';
+            button.innerHTML = document.querySelector(
+                '.icon_th_list'
+            ).innerHTML;
+            button.classList.add('icon_button');
+
+            // create header text
+            const text = document.createElement('span');
+            text.innerHTML = 'Table of Contents';
+            text.id = 'toc_header_text';
+
+            // create container for toc list
+            const list = document.createElement('div');
+            list.id = 'toc_list';
+
+            // attach click listeners to header and button
+            header.addEventListener('click', onHeaderClick);
+            button.addEventListener('click', onButtonClick);
+
+            // attach elements
+            header.appendChild(button);
+            header.appendChild(text);
+            panel.appendChild(header);
+            panel.appendChild(list);
+
+            return panel;
+        }
+
+        // create toc entries (links) to each element of the specified types
+        function makeEntries(panel) {
+            const elements = document.querySelectorAll(options.typesQuery);
+            for (const element of elements) {
+                // do not add link if element doesn't have assigned id
+                if (!element.id)
+                    continue;
+
+                // create link/list item
+                const link = document.createElement('a');
+                link.classList.add('toc_link');
+                switch (element.tagName.toLowerCase()) {
+                case 'h1':
+                    link.dataset.level = '1';
+                    break;
+                case 'h2':
+                    link.dataset.level = '2';
+                    break;
+                case 'h3':
+                    link.dataset.level = '3';
+                    break;
+                case 'h4':
+                    link.dataset.level = '4';
+                    break;
+                }
+                link.title = element.innerText;
+                let text = element.innerText;
+                if (text.length > options.charLimit)
+                    text = text.slice(0, options.charLimit) + '...';
+                link.innerHTML = text;
+                link.href = '#' + element.id;
+                link.addEventListener('click', onLinkClick);
+
+                // attach link
+                panel.querySelector('#toc_list').appendChild(link);
+            }
+        }
+
+        // when link is clicked
+        function onLinkClick() {
+            if (isSmallScreen())
+                closePanel();
+        }
+
+        // when header itself is clicked
+        function onHeaderClick(event) {
+            togglePanel();
+        }
+
+        // when button is clicked
+        function onButtonClick(event) {
+            togglePanel();
+            // stop header underneath button from also being clicked
+            event.stopPropagation();
+        }
+
+        // open panel if closed, close if opened
+        function togglePanel() {
+            const panel = document.getElementById('toc_panel');
+            if (!panel)
+                return;
+
+            if (panel.dataset.open === 'true')
+                closePanel();
+            else
+                openPanel();
+        }
+
+        // open panel
+        function openPanel() {
+            const panel = document.getElementById('toc_panel');
+            if (panel)
+                panel.dataset.open = 'true';
+        }
+
+        // close panel
+        function closePanel() {
+            const panel = document.getElementById('toc_panel');
+            if (panel)
+                panel.dataset.open = 'false';
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- th list icon -->
+
+<template class="icon_th_list">
+    <!-- modified from: https://fontawesome.com/icons/th-list -->
+    <svg width="16" height="16" viewBox="0 0 512 512" tabindex="-1">
+        <path
+            fill="currentColor"
+            d="M96 96c0 26.51-21.49 48-48 48S0 122.51 0 96s21.49-48 48-48 48 21.49 48 48zM48 208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm96-236h352c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+            tabindex="-1"
+        ></path>
+    </svg>
+</template>
+<!-- lightbox plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin makes it such that when a user clicks on an
+        // image, the image fills the screen and the user can pan/drag/zoom
+        // the image and navigate between other images in the document.
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'lightbox';
+
+        // default plugin options
+        const options = {
+            // list of possible zoom/scale factors
+            zoomSteps:
+                '0.1, 0.25, 0.333333, 0.5, 0.666666, 0.75, 1,' +
+                '1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8',
+            // whether to fit image to view ('fit'), display at 100% and shrink
+            // if necessary ('shrink'), or always display at 100% ('100')
+            defaultZoom: 'shrink',
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // run through each <img> element
+            const imgs = document.querySelectorAll('figure > img');
+            let count = 1;
+            for (const img of imgs) {
+                img.classList.add('lightbox_img');
+                img.dataset.number = count;
+                img.dataset.total = imgs.length;
+                img.addEventListener('click', openLightbox);
+                count++;
+            }
+
+            // attach mouse and key listeners to window
+            window.addEventListener('mousemove', onWindowMouseMove);
+            window.addEventListener('keyup', onKeyUp);
+        }
+
+        // when mouse is moved anywhere in window
+        function onWindowMouseMove(event) {
+            window.mouseX = event.clientX;
+            window.mouseY = event.clientY;
+        }
+
+        // when key pressed
+        function onKeyUp(event) {
+            if (!event || !event.key)
+                return;
+
+            // trigger click of prev/next button
+            switch (event.key) {
+            case 'ArrowLeft':
+                const prevButton = document.getElementById(
+                    'lightbox_prev_button'
+                );
+                if (prevButton)
+                    prevButton.click();
+                break;
+            case 'ArrowRight':
+                const nextButton = document.getElementById(
+                    'lightbox_next_button'
+                );
+                if (nextButton)
+                    nextButton.click();
+                break;
+            }
+        }
+
+        // open lightbox
+        function openLightbox() {
+            const lightbox = makeLightbox(this);
+            if (!lightbox)
+                return;
+
+            blurBody(lightbox);
+            document.body.appendChild(lightbox);
+        }
+
+        // make lightbox
+        function makeLightbox(img) {
+            // delete lightbox if it exists, start fresh
+            closeLightbox();
+
+            // create screen overlay containing lightbox
+            const overlay = document.createElement('div');
+            overlay.id = 'lightbox_overlay';
+
+            // create image info boxes
+            const numberInfo = document.createElement('div');
+            const zoomInfo = document.createElement('div');
+            numberInfo.id = 'lightbox_number_info';
+            zoomInfo.id = 'lightbox_zoom_info';
+
+            // create container for image
+            const imageContainer = document.createElement('div');
+            imageContainer.id = 'lightbox_image_container';
+            const lightboxImg = makeLightboxImg(
+                img,
+                imageContainer,
+                numberInfo,
+                zoomInfo
+            );
+            imageContainer.appendChild(lightboxImg);
+
+            // create bottom container for caption and navigation buttons
+            const bottomContainer = document.createElement('div');
+            bottomContainer.id = 'lightbox_bottom_container';
+            const caption = makeCaption(img);
+            const prevButton = makePrevButton(img);
+            const nextButton = makeNextButton(img);
+            bottomContainer.appendChild(prevButton);
+            bottomContainer.appendChild(caption);
+            bottomContainer.appendChild(nextButton);
+
+            // attach top middle and bottom to overlay
+            overlay.appendChild(numberInfo);
+            overlay.appendChild(zoomInfo);
+            overlay.appendChild(imageContainer);
+            overlay.appendChild(bottomContainer);
+
+            return overlay;
+        }
+
+        // make <img> object that is intuitively draggable and zoomable
+        function makeLightboxImg(
+            sourceImg,
+            container,
+            numberInfoBox,
+            zoomInfoBox
+        ) {
+            // create copy of source <img>
+            const img = document.createElement('img');
+            img.src = sourceImg.src;
+            img.id = 'lightbox_img';
+
+            // build sorted list of unique zoomSteps, always including a 100%
+            let zoomSteps = [];
+            const optionsZooms = options.zoomSteps.split(/[^0-9.]/);
+            for (const optionZoom of optionsZooms) {
+                const newZoom = parseFloat(optionZoom);
+                if (newZoom && !zoomSteps.includes(newZoom))
+                    zoomSteps.push(newZoom);
+            }
+            if (!zoomSteps.includes(1))
+                zoomSteps.push(1);
+            zoomSteps = zoomSteps.sort(function sortNumber(a, b) {
+                return a - b;
+            });
+
+            // <img> object property variables
+            let zoom = 1;
+            let translateX = 0;
+            let translateY = 0;
+            let clickMouseX = undefined;
+            let clickMouseY = undefined;
+            let clickTranslateX = undefined;
+            let clickTranslateY = undefined;
+
+            updateNumberInfo();
+
+            // update image numbers displayed in info box
+            function updateNumberInfo() {
+                numberInfoBox.innerHTML =
+                    sourceImg.dataset.number + ' of ' + sourceImg.dataset.total;
+            }
+
+            // update zoom displayed in info box
+            function updateZoomInfo() {
+                let zoomInfo = zoom * 100;
+                if (!Number.isInteger(zoomInfo))
+                    zoomInfo = zoomInfo.toFixed(2);
+                zoomInfoBox.innerHTML = zoomInfo + '%';
+            }
+
+            // move to closest zoom step above current zoom
+            const zoomIn = function() {
+                for (const zoomStep of zoomSteps) {
+                    if (zoomStep > zoom) {
+                        zoom = zoomStep;
+                        break;
+                    }
+                }
+                updateTransform();
+            };
+
+            // move to closest zoom step above current zoom
+            const zoomOut = function() {
+                zoomSteps.reverse();
+                for (const zoomStep of zoomSteps) {
+                    if (zoomStep < zoom) {
+                        zoom = zoomStep;
+                        break;
+                    }
+                }
+                zoomSteps.reverse();
+
+                updateTransform();
+            };
+
+            // update display of <img> based on scale/translate properties
+            const updateTransform = function() {
+                // set transform
+                img.style.transform =
+                    'translate(' +
+                    (translateX || 0) +
+                    'px,' +
+                    (translateY || 0) +
+                    'px) scale(' +
+                    (zoom || 1) +
+                    ')';
+
+                // get new width/height after scale
+                const rect = img.getBoundingClientRect();
+                // limit translate
+                translateX = Math.max(translateX, -rect.width / 2);
+                translateX = Math.min(translateX, rect.width / 2);
+                translateY = Math.max(translateY, -rect.height / 2);
+                translateY = Math.min(translateY, rect.height / 2);
+
+                // set transform
+                img.style.transform =
+                    'translate(' +
+                    (translateX || 0) +
+                    'px,' +
+                    (translateY || 0) +
+                    'px) scale(' +
+                    (zoom || 1) +
+                    ')';
+
+                updateZoomInfo();
+            };
+
+            // fit <img> to container
+            const fit = function() {
+                // no x/y offset, 100% zoom by default
+                translateX = 0;
+                translateY = 0;
+                zoom = 1;
+
+                // widths of <img> and container
+                const imgWidth = img.naturalWidth;
+                const imgHeight = img.naturalHeight;
+                const containerWidth = parseFloat(
+                    window.getComputedStyle(container).width
+                );
+                const containerHeight = parseFloat(
+                    window.getComputedStyle(container).height
+                );
+
+                // how much zooming is needed to fit <img> to container
+                const xRatio = imgWidth / containerWidth;
+                const yRatio = imgHeight / containerHeight;
+                const maxRatio = Math.max(xRatio, yRatio);
+                const newZoom = 1 / maxRatio;
+
+                // fit <img> to container according to option
+                if (options.defaultZoom === 'shrink') {
+                    if (maxRatio > 1)
+                        zoom = newZoom;
+                } else if (options.defaultZoom === 'fit')
+                    zoom = newZoom;
+
+                updateTransform();
+            };
+
+            // when mouse wheel is rolled anywhere in container
+            const onContainerWheel = function(event) {
+                if (!event)
+                    return;
+
+                // let ctrl + mouse wheel to zoom behave as normal
+                if (event.ctrlKey)
+                    return;
+
+                // prevent normal scroll behavior
+                event.preventDefault();
+                event.stopPropagation();
+
+                // point around which to scale img
+                const originX = window.mouseX;
+                const originY = window.mouseY;
+
+                // get point on image under origin
+                const oldRect = img.getBoundingClientRect();
+                const oldPercentX = (originX - oldRect.left) / oldRect.width;
+                const oldPercentY = (originY - oldRect.top) / oldRect.height;
+
+                // increment/decrement zoom
+                if (event.deltaY < 0)
+                    zoomIn();
+                if (event.deltaY > 0)
+                    zoomOut();
+
+                // get offset between previous image point and origin
+                const newRect = img.getBoundingClientRect();
+                const offsetX =
+                    originX - (newRect.left + newRect.width * oldPercentX);
+                const offsetY =
+                    originY - (newRect.top + newRect.height * oldPercentY);
+
+                // translate image to keep image point under origin
+                translateX += offsetX;
+                translateY += offsetY;
+
+                // perform translate
+                updateTransform();
+            };
+
+            // when container is clicked
+            function onContainerClick() {
+                // if container itself is target of click, and not other
+                // element above it
+                if (event.target === this)
+                    closeLightbox();
+            }
+
+            // when mouse button is pressed on image
+            const onImageMouseDown = function(event) {
+                // store original mouse position relative to image
+                clickMouseX = window.mouseX;
+                clickMouseY = window.mouseY;
+                clickTranslateX = translateX;
+                clickTranslateY = translateY;
+                event.stopPropagation();
+                event.preventDefault();
+            };
+
+            // when mouse button is released anywhere in window
+            const onWindowMouseUp = function(event) {
+                // reset original mouse position
+                clickMouseX = undefined;
+                clickMouseY = undefined;
+                clickTranslateX = undefined;
+                clickTranslateY = undefined;
+
+                // remove global listener if lightbox removed from document
+                if (!document.body.contains(container))
+                    window.removeEventListener('mouseup', onWindowMouseUp);
+            };
+
+            // when mouse is moved anywhere in window
+            const onWindowMouseMove = function(event) {
+                if (
+                    clickMouseX === undefined ||
+                    clickMouseY === undefined ||
+                    clickTranslateX === undefined ||
+                    clickTranslateY === undefined
+                )
+                    return;
+
+                // offset image based on original and current mouse position
+                translateX = clickTranslateX + window.mouseX - clickMouseX;
+                translateY = clickTranslateY + window.mouseY - clickMouseY;
+                updateTransform();
+                event.preventDefault();
+            };
+
+            // when window is resized
+            const onWindowResize = function(event) {
+                fit();
+
+                // remove global listener if lightbox removed from document
+                if (!document.body.contains(container))
+                    window.removeEventListener('resize', onWindowResize);
+            };
+
+            // attach the necessary event listeners
+            img.addEventListener('dblclick', fit);
+            img.addEventListener('mousedown', onImageMouseDown);
+            container.addEventListener('wheel', onContainerWheel);
+            container.addEventListener('click', onContainerClick);
+            window.addEventListener('mouseup', onWindowMouseUp);
+            window.addEventListener('mousemove', onWindowMouseMove);
+            window.addEventListener('resize', onWindowResize);
+
+            // run fit() after lightbox atttached to document and <img> Loaded
+            // so needed container and img dimensions available
+            img.addEventListener('load', fit);
+
+            return img;
+        }
+
+        // make caption
+        function makeCaption(img) {
+            const caption = document.createElement('div');
+            caption.id = 'lightbox_caption';
+            const captionSource = img.nextElementSibling;
+            if (captionSource.tagName.toLowerCase() === 'figcaption') {
+                const captionCopy = makeCopy(captionSource);
+                caption.innerHTML = captionCopy.innerHTML;
+            }
+
+            caption.addEventListener('touchstart', function(event) {
+                event.stopPropagation();
+            });
+
+            return caption;
+        }
+
+        // make carbon copy of html dom element
+        function makeCopy(source) {
+            const sourceCopy = source.cloneNode(true);
+
+            // delete elements marked with ignore (eg anchor and jump buttons)
+            const deleteFromCopy = sourceCopy.querySelectorAll(
+                '[data-ignore="true"]'
+            );
+            for (const element of deleteFromCopy)
+                element.remove();
+
+            // delete certain element attributes
+            const attributes = [
+                'id',
+                'data-collapsed',
+                'data-selected',
+                'data-highlighted',
+                'data-glow'
+            ];
+            for (const attribute of attributes) {
+                sourceCopy.removeAttribute(attribute);
+                const elements = sourceCopy.querySelectorAll(
+                    '[' + attribute + ']'
+                );
+                for (const element of elements)
+                    element.removeAttribute(attribute);
+            }
+
+            return sourceCopy;
+        }
+
+        // make button to jump to previous image in document
+        function makePrevButton(img) {
+            const prevButton = document.createElement('button');
+            prevButton.id = 'lightbox_prev_button';
+            prevButton.title = 'Jump to the previous image in the document [←]';
+            prevButton.classList.add('icon_button', 'lightbox_button');
+            prevButton.innerHTML = document.querySelector(
+                '.icon_caret_left'
+            ).innerHTML;
+
+            // attach click listeners to button
+            prevButton.addEventListener('click', function() {
+                getPrevImg(img).click();
+            });
+
+            return prevButton;
+        }
+
+        // make button to jump to next image in document
+        function makeNextButton(img) {
+            const nextButton = document.createElement('button');
+            nextButton.id = 'lightbox_next_button';
+            nextButton.title = 'Jump to the next image in the document [→]';
+            nextButton.classList.add('icon_button', 'lightbox_button');
+            nextButton.innerHTML = document.querySelector(
+                '.icon_caret_right'
+            ).innerHTML;
+
+            // attach click listeners to button
+            nextButton.addEventListener('click', function() {
+                getNextImg(img).click();
+            });
+
+            return nextButton;
+        }
+
+        // get previous image in document
+        function getPrevImg(img) {
+            const imgs = document.querySelectorAll('.lightbox_img');
+
+            // find index of provided img
+            let index;
+            for (index = 0; index < imgs.length; index++) {
+                if (imgs[index] === img)
+                    break;
+            }
+
+
+            // wrap index to other side if < 1
+            if (index - 1 >= 0)
+                index--;
+            else
+                index = imgs.length - 1;
+            return imgs[index];
+        }
+
+        // get next image in document
+        function getNextImg(img) {
+            const imgs = document.querySelectorAll('.lightbox_img');
+
+            // find index of provided img
+            let index;
+            for (index = 0; index < imgs.length; index++) {
+                if (imgs[index] === img)
+                    break;
+            }
+
+
+            // wrap index to other side if > total
+            if (index + 1 <= imgs.length - 1)
+                index++;
+            else
+                index = 0;
+            return imgs[index];
+        }
+
+        // close lightbox
+        function closeLightbox() {
+            focusBody();
+
+            const lightbox = document.getElementById('lightbox_overlay');
+            if (lightbox)
+                lightbox.remove();
+        }
+
+        // make all elements behind lightbox non-focusable
+        function blurBody(overlay) {
+            const all = document.querySelectorAll('*');
+            for (const element of all)
+                element.tabIndex = -1;
+            document.body.classList.add('body_no_scroll');
+        }
+
+        // make all elements focusable again
+        function focusBody() {
+            const all = document.querySelectorAll('*');
+            for (const element of all)
+                element.removeAttribute('tabIndex');
+            document.body.classList.remove('body_no_scroll');
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
+
+<!-- caret left icon -->
+
+<template class="icon_caret_left">
+    <!-- modified from: https://fontawesome.com/icons/caret-left -->
+    <svg width="16" height="16" viewBox="0 0 192 512">
+        <path
+            fill="currentColor"
+            d="M192 127.338v257.324c0 17.818-21.543 26.741-34.142 14.142L29.196 270.142c-7.81-7.81-7.81-20.474 0-28.284l128.662-128.662c12.599-12.6 34.142-3.676 34.142 14.142z"
+        ></path>
+    </svg>
+</template>
+
+<!-- caret right icon -->
+
+<template class="icon_caret_right">
+    <!-- modified from: https://fontawesome.com/icons/caret-right -->
+    <svg width="16" height="16" viewBox="0 0 192 512">
+        <path
+            fill="currentColor"
+            d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
+        ></path>
+    </svg>
+</template>
+<!-- math plugin configuration -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        "CommonHTML": { linebreaks: { automatic: true } },
+        "HTML-CSS": { linebreaks: { automatic: true } },
+        "SVG": { linebreaks: { automatic: true } }
+    });
+</script>
+
+<!-- math plugin -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'>
+    // /////////////////////////
+    // DESCRIPTION
+    // /////////////////////////
+
+    // This third-party plugin 'MathJax' allows the proper rendering of
+    // math/equations written in LaTeX.
+
+    // https://www.mathjax.org/
+</script>
+<!-- annotations plugin configuration -->
+
+<script>
+    window.hypothesisConfig = function() {
+        return {
+            branding: {
+                accentColor: '#2196f3',
+                appBackgroundColor: '#f8f8f8',
+                ctaBackgroundColor: '#f8f8f8',
+                ctaTextColor: '#000000',
+                selectionFontFamily: 'Open Sans, Helvetica, sans serif',
+                annotationFontFamily: 'Open Sans, Helvetica, sans serif'
+            }
+        };
+    };
+</script>
+
+<!-- annotations plugin -->
+
+<script src='https://hypothes.is/embed.js'>
+    // /////////////////////////
+    // DESCRIPTION
+    // /////////////////////////
+
+    // This third-party plugin 'Hypothesis' allows public annotation of the
+    // manuscript.
+
+    // https://web.hypothes.is/
+</script>
+<!-- analytics plugin -->
+
+<!-- copy and paste code from Google Analytics or similar service here -->
 </body>
 </html>
