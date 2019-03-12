@@ -310,8 +310,20 @@
     /* highlight colors */
     /* -------------------------------------------------- */
 
+    .white {
+        background: #ffffff;
+    }
     .lightgrey {
         background: #eeeeee;
+    }
+    .grey {
+        background: #757575;
+    }
+    .darkgrey {
+        background: #424242;
+    }
+    .black {
+        background: #000000;
     }
     .lightred {
         background: #ffcdd2;
@@ -327,9 +339,6 @@
     }
     .lightpurple {
         background: #f3e5f5;
-    }
-    .grey {
-        background: #757575;
     }
     .red {
         background: #f44336;
@@ -349,6 +358,7 @@
     .purple {
         background: #9c27b0;
     }
+    .white,
     .lightgrey,
     .lightred,
     .lightyellow,
@@ -357,6 +367,7 @@
     .lightpurple,
     .orange,
     .yellow,
+    .white a,
     .lightgrey a,
     .lightred a,
     .lightyellow a,
@@ -368,10 +379,15 @@
         color: #000000;
     }
     .grey,
+    .darkgrey,
+    .black,
     .red,
     .green,
     .blue,
     .purple,
+    .grey a,
+    .darkgrey a,
+    .black a,
     .red a,
     .green a,
     .blue a,
@@ -929,7 +945,7 @@
 
     @media only screen {
         /* regular <img> in document when hovered */
-        .lightbox_img:hover {
+        .lightbox_document_img:hover {
             cursor: pointer;
         }
 
