@@ -223,5 +223,193 @@
     "PMCID": "PMC5832410",
     "PMID": "29424689",
     "id": "IhliSZDo"
+  },
+  {
+    "type": "book",
+    "title": "Open access",
+    "collection-title": "MIT Press essential knowledge series",
+    "publisher": "MIT Press",
+    "publisher-place": "Cambridge, Mass",
+    "number-of-pages": "242",
+    "source": "Library of Congress ISBN",
+    "event-place": "Cambridge, Mass",
+    "ISBN": "9780262517638",
+    "call-number": "Z286.O63 S83 2012",
+    "note": "OCLC: ocn754518563",
+    "author": [
+      {
+        "family": "Suber",
+        "given": "Peter"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2012"
+        ]
+      ]
+    },
+    "id": "zBPP9YKu"
+  },
+  {
+    "source": "PubMed",
+    "accessed": {
+      "date-parts": [
+        [
+          2019,
+          3,
+          13
+        ]
+      ]
+    },
+    "id": "PyydLU5l",
+    "title": "Reproducibility of computational workflows is automated using continuous analysis",
+    "author": [
+      {
+        "family": "Beaulieu-Jones",
+        "given": "Brett K"
+      },
+      {
+        "family": "Greene",
+        "given": "Casey S"
+      }
+    ],
+    "container-title-short": "Nat Biotechnol",
+    "container-title": "Nature biotechnology",
+    "ISSN": "1087-0156",
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          4
+        ]
+      ]
+    },
+    "page": "342-346",
+    "volume": "35",
+    "issue": "4",
+    "PMID": "28288103",
+    "PMCID": "PMC6103790",
+    "DOI": "10.1038/nbt.3780",
+    "type": "article-journal",
+    "URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6103790/"
+  },
+  {
+    "title": "Bitcoin for the biological literature.",
+    "volume": "566",
+    "issue": "7742",
+    "page": "141-142",
+    "container-title": "Nature",
+    "container-title-short": "Nature",
+    "ISSN": "1476-4687",
+    "issued": {
+      "date-parts": [
+        [
+          2019,
+          2
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Douglas",
+        "family": "Heaven"
+      }
+    ],
+    "PMID": "30718888",
+    "DOI": "10.1038/d41586-019-00447-9",
+    "URL": "https://www.ncbi.nlm.nih.gov/pubmed/30718888",
+    "type": "article-journal",
+    "id": "7XVI5bB4"
+  },
+  {
+    "type": "webpage",
+    "URL": "https://github.com/manubot/rootstock",
+    "title": "manubot/rootstock GitHub repository",
+    "container-title": "GitHub",
+    "issued": {
+      "date-parts": [
+        [
+          2019
+        ]
+      ]
+    },
+    "author": [
+      {
+        "given": "Daniel",
+        "family": "Himmelstein"
+      }
+    ],
+    "id": "OvL2rC9o"
+  },
+  {
+    "type": "webpage",
+    "title": "Open collaborative writing with Manubot",
+    "URL": "https://greenelab.github.io/meta-review/",
+    "language": "en-US",
+    "author": [
+      {
+        "family": "Himmelstein",
+        "given": "Daniel S."
+      },
+      {
+        "family": "Slochower",
+        "given": "David R."
+      },
+      {
+        "family": "Malladi",
+        "given": "Venkat S."
+      },
+      {
+        "family": "Greene",
+        "given": "Casey S."
+      },
+      {
+        "family": "Gitter",
+        "given": "Anthony"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2019",
+          3,
+          8
+        ]
+      ]
+    },
+    "accessed": {
+      "date-parts": [
+        [
+          "2019",
+          3,
+          13
+        ]
+      ]
+    },
+    "id": "6acIRW4q"
+  },
+  {
+    "type": "article",
+    "title": "Plan S: Accelerating the transition to full and immediate Open Access to scientific publications",
+    "source": "Wikidata",
+    "shortTitle": "Plan S",
+    "author": [
+      {
+        "family": "S",
+        "given": "cOAlition"
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          "2018",
+          9,
+          4
+        ]
+      ]
+    },
+    "URL": "https://www.wikidata.org/wiki/Q56458321",
+    "id": "QhC8yJ7V"
   }
 ]
