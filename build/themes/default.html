@@ -310,20 +310,8 @@
     /* highlight colors */
     /* -------------------------------------------------- */
 
-    .white {
-        background: #ffffff;
-    }
     .lightgrey {
         background: #eeeeee;
-    }
-    .grey {
-        background: #757575;
-    }
-    .darkgrey {
-        background: #424242;
-    }
-    .black {
-        background: #000000;
     }
     .lightred {
         background: #ffcdd2;
@@ -339,6 +327,9 @@
     }
     .lightpurple {
         background: #f3e5f5;
+    }
+    .grey {
+        background: #757575;
     }
     .red {
         background: #f44336;
@@ -358,7 +349,6 @@
     .purple {
         background: #9c27b0;
     }
-    .white,
     .lightgrey,
     .lightred,
     .lightyellow,
@@ -367,7 +357,6 @@
     .lightpurple,
     .orange,
     .yellow,
-    .white a,
     .lightgrey a,
     .lightred a,
     .lightyellow a,
@@ -379,15 +368,10 @@
         color: #000000;
     }
     .grey,
-    .darkgrey,
-    .black,
     .red,
     .green,
     .blue,
     .purple,
-    .grey a,
-    .darkgrey a,
-    .black a,
     .red a,
     .green a,
     .blue a,
@@ -671,14 +655,14 @@
         /* tooltip container */
         #tooltip {
             position: absolute;
-            width: 50%;
             min-width: 240px;
+            max-width: 65%;
             z-index: 1;
         }
 
         /* tooltip content */
         #tooltip_content {
-            margin: 10px 0;
+            margin-bottom: 5px;
             padding: 20px;
             border-radius: 5px;
             border: solid 1px #bdbdbd;
@@ -692,12 +676,18 @@
         #tooltip_content > p,
         #tooltip_content > figure {
             margin: 0;
+            max-height: 320px;
+            overflow-y: auto;
+        }
+
+        /* tooltip copy of <img> */
+        #tooltip_content > figure > img {
+            max-height: 260px;
         }
 
         /* tooltip copy of figure captions */
         #tooltip_content > figure > figcaption {
             margin: 0;
-            margin-top: 20px;
             padding: 0;
         }
 
