@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-03-13" />
+  <meta name="dcterms.date" content="2019-03-14" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -86,7 +86,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/b422130eb46ea5d188779910772192730d79b172/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/b422130eb46ea5d188779910772192730d79b172">manubot/rootstock@b422130</a> on March 13, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/40a6de3fb844e822e0d1da8fc510b6a02f84bccc/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/40a6de3fb844e822e0d1da8fc510b6a02f84bccc">manubot/rootstock@40a6de3</a> on March 14, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -337,7 +337,7 @@ DOI: <a href="https://doi.org/10.1098/rsif.2017.0387">10.1098/rsif.2017.0387</a>
 <div id="ref-6acIRW4q">
 <p>8. <strong>Open collaborative writing with Manubot</strong><br />
 Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, Anthony Gitter<br />
-(2019-03-08) <a href="https://greenelab.github.io/meta-review/">https://greenelab.github.io/meta-review/</a></p>
+(2019-03-14) <a href="https://greenelab.github.io/meta-review/">https://greenelab.github.io/meta-review/</a></p>
 </div>
 </div>
 <!-- default theme -->
@@ -447,6 +447,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     /* links */
     a {
         color: #2196f3;
+        word-break: break-all;
     }
 
     /* superscripts and subscripts */
@@ -826,7 +827,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     @media print {
         @page {
             /* suggested printing margin */
-            margin: 0.75in;
+            margin: 1in;
         }
 
         /* document and "page" elements */
@@ -1052,12 +1053,13 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             position: absolute;
             width: 50%;
             min-width: 240px;
+            max-width: 75%;
             z-index: 1;
         }
 
         /* tooltip content */
         #tooltip_content {
-            margin: 10px 0;
+            margin-bottom: 5px;
             padding: 20px;
             border-radius: 5px;
             border: solid 1px #bdbdbd;
@@ -1071,13 +1073,13 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
         #tooltip_content > p,
         #tooltip_content > figure {
             margin: 0;
+            max-height: 320px;
+            overflow-y: auto;
         }
 
-        /* tooltip copy of figure captions */
-        #tooltip_content > figure > figcaption {
-            margin: 0;
-            margin-top: 20px;
-            padding: 0;
+        /* tooltip copy of <img> */
+        #tooltip_content > figure > img {
+            max-height: 260px;
         }
 
         /* navigation bar */
@@ -1324,7 +1326,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
     @media only screen {
         /* regular <img> in document when hovered */
-        .lightbox_img:hover {
+        .lightbox_document_img:hover {
             cursor: pointer;
         }
 
@@ -1870,8 +1872,8 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             let rect = {};
             rect.left = 0;
             rect.top = 0;
-            rect.right = window.innerWidth;
-            rect.bottom = window.innerHeight;
+            rect.right = document.documentElement.clientWidth;
+            rect.bottom = document.documentElement.clientHeight;
             let style = {};
 
             if (element instanceof HTMLElement) {
@@ -2001,8 +2003,8 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             // whether user must click off to close tooltip instead of just
             // un-hovering
             clickClose: 'false',
-            // whether to keep tooltip horizontal position when clicking
-            // prev/next buttons
+            // whether to keep tooltip horizontal position when moving between
+            // prev/next occurrences
             keepHorizontal: 'true',
             // delay (in ms) between opening and closing tooltip
             delay: '100',
@@ -2075,16 +2077,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
         // when link is focused (tabbed to)
         function onLinkFocus(event) {
-            // if focus change happened due to prev/next nav button click,
-            // pass that info along to openTooltip()
-            if (
-                event &&
-                event.relatedTarget &&
-                event.relatedTarget.matches('#tooltip_nav_bar > .icon_button')
-            )
-                openTooltip(this, true);
-            else
-                openTooltip(this);
+            openTooltip(this);
         }
 
         // when link is touched on touch screen
@@ -2167,17 +2160,12 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
         }
 
         // open tooltip
-        function openTooltip(link, prevNextButtonClick) {
+        function openTooltip(link) {
+            // if setting is on and already-open tooltip can be found, store
+            // original x position of tooltip
             let prevX;
-            // if setting is on, tooltip opened because of prev/next buttons,
-            // and already-open tooltip can be found, store original x
-            // position of tooltip
             const prevTooltip = document.getElementById('tooltip');
-            if (
-                options.keepHorizontal === 'true' &&
-                prevNextButtonClick &&
-                prevTooltip
-            )
+            if (options.keepHorizontal === 'true' && prevTooltip)
                 prevX = getRectInPage(prevTooltip).left;
 
             // make tooltip element
@@ -2197,10 +2185,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
             // position tooltip
             const position = function() {
-                if (prevX)
-                    positionTooltip(link, prevX);
-                else
-                    positionTooltip(link);
+                positionTooltip(link, prevX);
             };
             position();
 
@@ -2302,8 +2287,18 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
         // when tooltip is unhovered
         function onTooltipUnhover(event) {
-            if (options.clickClose !== 'true')
-                closeTooltip();
+            if (options.clickClose === 'true')
+                return;
+
+            // make sure new mouse/touch/focus no longer over tooltip or any
+            // element within it
+            const tooltip = document.getElementById('tooltip');
+            if (!tooltip)
+                return;
+            if (this.contains(event.relatedTarget))
+                return;
+
+            closeTooltip();
         }
 
         // make nav bar to go betwen prev/next instances of same reference
@@ -2479,8 +2474,8 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             let rect = {};
             rect.left = 0;
             rect.top = 0;
-            rect.right = window.innerWidth;
-            rect.bottom = window.innerHeight;
+            rect.right = document.documentElement.clientWidth;
+            rect.bottom = document.documentElement.clientHeight;
             let style = {};
 
             if (element instanceof HTMLElement) {
@@ -2782,8 +2777,8 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             let rect = {};
             rect.left = 0;
             rect.top = 0;
-            rect.right = window.innerWidth;
-            rect.bottom = window.innerHeight;
+            rect.right = document.documentElement.clientWidth;
+            rect.bottom = document.documentElement.clientHeight;
             let style = {};
 
             if (element instanceof HTMLElement) {
@@ -2905,7 +2900,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             // un-hovering
             clickUnhighlight: 'false',
             // whether to also highlight links that are unique
-            highlightUnique: 'false',
+            highlightUnique: 'true',
             // whether plugin is on or not
             enabled: 'true'
         };
@@ -3131,7 +3126,9 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             else
                 closePanel();
 
-            // attach scroll and hash change listeners to window
+            // attach click, scroll, and hash change listeners to window
+            window.addEventListener('click', onClick);
+            window.addEventListener('touchstart', onClick);
             window.addEventListener('scroll', onScroll);
             window.addEventListener('hashchange', onScroll);
             onScroll();
@@ -3146,6 +3143,11 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             const width =
                 parseInt(page.width) || parseInt(page.maxWidth) || 816;
             return window.innerWidth < width + 320;
+        }
+
+        // when mouse is clicked anywhere in window
+        function onClick() {
+            closePanel();
         }
 
         // when window is scrolled or hash changed
@@ -3224,7 +3226,8 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             const list = document.createElement('div');
             list.id = 'toc_list';
 
-            // attach click listeners to header and button
+            // attach click listeners
+            panel.addEventListener('click', onPanelClick);
             header.addEventListener('click', onHeaderClick);
             button.addEventListener('click', onButtonClick);
 
@@ -3275,10 +3278,10 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             }
         }
 
-        // when link is clicked
-        function onLinkClick() {
-            if (isSmallScreen())
-                closePanel();
+        // when panel is clicked
+        function onPanelClick(event) {
+            // stop click from propagating to window/document and closing panel
+            event.stopPropagation();
         }
 
         // when header itself is clicked
@@ -3291,6 +3294,12 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             togglePanel();
             // stop header underneath button from also being clicked
             event.stopPropagation();
+        }
+
+        // when link is clicked
+        function onLinkClick() {
+            if (isSmallScreen())
+                closePanel();
         }
 
         // open panel if closed, close if opened
@@ -3377,7 +3386,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
                 '1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8',
             // whether to fit image to view ('fit'), display at 100% and shrink
             // if necessary ('shrink'), or always display at 100% ('100')
-            defaultZoom: 'shrink',
+            defaultZoom: 'fit',
             // whether plugin is on or not
             enabled: 'true'
         };
@@ -3395,7 +3404,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             const imgs = document.querySelectorAll('figure > img');
             let count = 1;
             for (const img of imgs) {
-                img.classList.add('lightbox_img');
+                img.classList.add('lightbox_document_img');
                 img.dataset.number = count;
                 img.dataset.total = imgs.length;
                 img.addEventListener('click', openLightbox);
@@ -3500,8 +3509,20 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             zoomInfoBox
         ) {
             // create copy of source <img>
-            const img = document.createElement('img');
-            img.src = sourceImg.src;
+            const img = sourceImg.cloneNode(true);
+            img.classList.remove('lightbox_document_img');
+            img.removeAttribute('id');
+            img.removeAttribute('width');
+            img.removeAttribute('height');
+            img.style.position = 'unset';
+            img.style.margin = '0';
+            img.style.padding = '0';
+            img.style.width = '';
+            img.style.height = '';
+            img.style.minWidth = '';
+            img.style.minHeight = '';
+            img.style.maxWidth = '';
+            img.style.maxHeight = '';
             img.id = 'lightbox_img';
 
             // build sorted list of unique zoomSteps, always including a 100%
@@ -3837,7 +3858,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
         // get previous image in document
         function getPrevImg(img) {
-            const imgs = document.querySelectorAll('.lightbox_img');
+            const imgs = document.querySelectorAll('.lightbox_document_img');
 
             // find index of provided img
             let index;
@@ -3857,7 +3878,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
         // get next image in document
         function getNextImg(img) {
-            const imgs = document.querySelectorAll('.lightbox_img');
+            const imgs = document.querySelectorAll('.lightbox_document_img');
 
             // find index of provided img
             let index;
