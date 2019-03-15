@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-03-14" />
+  <meta name="dcterms.date" content="2019-03-15" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -86,7 +86,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/40a6de3fb844e822e0d1da8fc510b6a02f84bccc/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/40a6de3fb844e822e0d1da8fc510b6a02f84bccc">manubot/rootstock@40a6de3</a> on March 14, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/723319f07d44198ee9baad2fff518fe533c03c3a/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/723319f07d44198ee9baad2fff518fe533c03c3a">manubot/rootstock@723319f</a> on March 15, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -827,7 +827,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     @media print {
         @page {
             /* suggested printing margin */
-            margin: 1in;
+            margin: 0.75in;
         }
 
         /* document and "page" elements */
@@ -3142,7 +3142,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             const page = window.getComputedStyle(document.body);
             const width =
                 parseInt(page.width) || parseInt(page.maxWidth) || 816;
-            return window.innerWidth < width + 320;
+            return width + 320 < window.innerWidth;
         }
 
         // when mouse is clicked anywhere in window
