@@ -21,18 +21,26 @@ INPUT_PATH=output/manuscript.md
 # Make output directory
 mkdir -p output
 
-# Create HTML output
-# http://pandoc.org/MANUAL.html
-echo "Exporting HTML manuscript"
+# Create JSON output of Pandoc's Abstract Syntax Tree
+echo "Exporting Pandoc JSON manuscript"
 pandoc --verbose \
   --from=markdown \
-  --to=html5 \
+  --to=json \
   --filter=pandoc-fignos \
   --filter=pandoc-eqnos \
   --filter=pandoc-tablenos \
   --bibliography=$BIBLIOGRAPHY_PATH \
   --csl=$CSL_PATH \
   --metadata link-citations=true \
+  $INPUT_PATH \
+  | python -m json.tool >| output/manuscript.json  # Prettify JSON
+
+# Create HTML output
+# http://pandoc.org/MANUAL.html
+echo "Exporting HTML manuscript"
+pandoc --verbose \
+  --from=json \
+  --to=html5 \
   --include-after-body=build/themes/default.html \
   --include-after-body=build/plugins/table-scroll.html \
   --include-after-body=build/plugins/anchors.html \
@@ -48,7 +56,7 @@ pandoc --verbose \
   --include-after-body=build/plugins/hypothesis.html \
   --include-after-body=build/plugins/analytics.html \
   --output=output/manuscript.html \
-  $INPUT_PATH
+  output/manuscript.json
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "$BUILD_PDF" != "false" ]; then
@@ -56,20 +64,14 @@ if [ "$BUILD_PDF" != "false" ]; then
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
   pandoc \
-    --from=markdown \
+    --from=json \
     --to=html5 \
     --pdf-engine=weasyprint \
     --pdf-engine-opt=--presentational-hints \
-    --filter=pandoc-fignos \
-    --filter=pandoc-eqnos \
-    --filter=pandoc-tablenos \
-    --bibliography=$BIBLIOGRAPHY_PATH \
-    --csl=$CSL_PATH \
-    --metadata link-citations=true \
     --webtex=https://latex.codecogs.com/svg.latex? \
     --include-after-body=build/themes/default.html \
     --output=output/manuscript.pdf \
-    $INPUT_PATH
+    output/manuscript.json
   rm images
 fi
 
@@ -77,18 +79,12 @@ fi
 if [ "$BUILD_DOCX" = "true" ]; then
   echo "Exporting Word Docx manuscript"
   pandoc --verbose \
-    --from=markdown \
+    --from=json \
     --to=docx \
-    --filter=pandoc-fignos \
-    --filter=pandoc-eqnos \
-    --filter=pandoc-tablenos \
-    --bibliography=$BIBLIOGRAPHY_PATH \
-    --csl=$CSL_PATH \
-    --metadata link-citations=true \
     --reference-doc=build/themes/default.docx \
     --resource-path=.:content \
     --output=output/manuscript.docx \
-    $INPUT_PATH
+    output/manuscript.json
 fi
 
 echo "Build complete"
