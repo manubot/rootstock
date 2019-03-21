@@ -26,12 +26,13 @@ echo "Exporting Pandoc JSON manuscript"
 pandoc --verbose \
   --from=markdown \
   --to=json \
+  --metadata bibliography=$BIBLIOGRAPHY_PATH \
+  --metadata csl=$CSL_PATH \
+  --metadata link-citations=true \
   --filter=pandoc-fignos \
   --filter=pandoc-eqnos \
   --filter=pandoc-tablenos \
-  --bibliography=$BIBLIOGRAPHY_PATH \
-  --csl=$CSL_PATH \
-  --metadata link-citations=true \
+  --filter=pandoc-citeproc \
   $INPUT_PATH \
   | python -m json.tool >| output/manuscript.json  # Prettify JSON
 
