@@ -1,5 +1,5 @@
 {
-  "date": "March 20, 2019",
+  "date": "March 22, 2019",
   "authors": [
     {
       "github": "johndoe",
@@ -46,7 +46,7 @@
     "repo_slug": "manubot/rootstock",
     "repo_owner": "manubot",
     "repo_name": "rootstock",
-    "commit": "4d27314fb32191bd2a23ea1494ebafd70eabb787"
+    "commit": "fea9eb80af4ca9d5a116f6c28a6b740272e3c0b9"
   },
   "manuscript_stats": {
     "reference_counts": {
