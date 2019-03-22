@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-03-20" />
+  <meta name="dcterms.date" content="2019-03-22" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -86,7 +86,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/4d27314fb32191bd2a23ea1494ebafd70eabb787/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/4d27314fb32191bd2a23ea1494ebafd70eabb787">manubot/rootstock@4d27314</a> on March 20, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/fea9eb80af4ca9d5a116f6c28a6b740272e3c0b9/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/fea9eb80af4ca9d5a116f6c28a6b740272e3c0b9">manubot/rootstock@fea9eb8</a> on March 22, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -3092,10 +3092,10 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             charLimit: '50',
             // whether or not to show bullets next to each toc item
             bullets: 'false',
-            // whether to always start closed ('false'), always start opened
-            // ('true'), or start open when screen wide enough to fit panel
+            // whether default behavior is to be closed ('false'), open
+            // ('true'), or only open when screen wide enough to fit panel
             // ('auto')
-            startOpen: 'false',
+            open: 'false',
             // whether plugin is on or not
             enabled: 'true'
         };
@@ -3117,14 +3117,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             makeEntries(panel);
             document.body.insertBefore(panel, document.body.firstChild);
 
-            // start panel open/closed based on option
-            if (
-                options.startOpen === 'true' ||
-                (options.startOpen === 'auto' && isSmallScreen())
-            )
-                openPanel();
-            else
-                closePanel();
+            openOrClosePanel();
 
             // attach click, scroll, and hash change listeners to window
             window.addEventListener('click', onClick);
@@ -3137,17 +3130,33 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             document.body.classList.add('toc_body_nudge');
         }
 
-        // determine if on mobile-like device with small screen
+        // determine if screen wide enough to fit toc panel
         function isSmallScreen() {
-            const page = window.getComputedStyle(document.body);
-            const width =
-                parseInt(page.width) || parseInt(page.maxWidth) || 816;
-            return width + 320 < window.innerWidth;
+            // in default theme:
+            // 816px = 8.5in = width of "page" (<body>) element
+            // 260px = min width of toc panel (*2 for both sides of <body>)
+            return window.innerWidth < 816 + 260 * 2;
+        }
+
+        // open/close panel based on option and screen size
+        function openOrClosePanel() {
+            if (
+                options.open === 'true' ||
+                (options.open === 'auto' && !isSmallScreen())
+            )
+                openPanel();
+            else
+                closePanel();
         }
 
         // when mouse is clicked anywhere in window
         function onClick() {
-            closePanel();
+            const panel = document.getElementById('toc_panel');
+            if (!panel)
+                return;
+
+            if (panel.dataset.open === 'true')
+                openOrClosePanel();
         }
 
         // when window is scrolled or hash changed
@@ -3181,6 +3190,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
                 if (element.id)
                     elementsWithIds.push(element);
             }
+
 
             // get first or previous element in top half of view
             for (let i = 0; i < elementsWithIds.length; i++) {
@@ -3298,8 +3308,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
         // when link is clicked
         function onLinkClick() {
-            if (isSmallScreen())
-                closePanel();
+            openOrClosePanel();
         }
 
         // open panel if closed, close if opened
