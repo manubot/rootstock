@@ -221,7 +221,7 @@
         border: solid 1px #bdbdbd;
         padding: 10px;
         /* squash table if too wide for page by forcing line breaks */
-        word-break: all;
+        word-break: break-all;
         word-break: break-word;
     }
 
@@ -492,7 +492,7 @@
 
         /* "page" element */
         body {
-            font-size: 11pt;
+            font-size: 11pt !important;
             line-height: 1.35;
         }
 
@@ -520,6 +520,11 @@
         /* heading 3 */
         h3 {
             font-size: 1.10em;
+        }
+
+        /* figures and tables */
+        figure, table {
+            font-size: 0.85em;
         }
 
         /* table cells */
