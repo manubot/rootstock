@@ -485,7 +485,7 @@
     @media print {
         @page {
             /* suggested printing margin */
-            margin: 0.75in;
+            margin: 0.5in;
         }
 
         /* document and "page" elements */
@@ -494,6 +494,75 @@
             padding: 0;
             width: 100%;
             height: 100%;
+        }
+
+        /* "page" element */
+        body {
+            font-size: 11pt;
+            line-height: 1.35;
+        }
+
+        /* all headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 15px 0;
+        }
+
+        /* heading 1 */
+        h1 {
+            font-size: 1.75em;
+        }
+
+        /* heading 2 */
+        h2 {
+            font-size: 1.25em;
+            margin-top: 0;
+        }
+
+        /* heading 3 */
+        h3 {
+            font-size: 1.10em;
+        }
+
+        /* paragraphs, horizontal dividers, figures, tables, code */
+        p,
+        hr,
+        figure,
+        table,
+        pre {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        /* table cells */
+        th,
+        td {
+            padding: 5px;
+        }
+
+        /* shrink button icons */
+        button > svg,
+        a > svg {
+            transform: scale(0.85);
+        }
+
+        /* shrink font awesome icons */
+        i.fas,
+        i.fab,
+        i.far,
+        i.fal {
+            transform: scale(0.85);
+        }
+
+        /* decrease banner margins */
+        .banner {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
         }
 
         /* class for centering an element vertically on its own page */
@@ -506,11 +575,6 @@
             vertical-align: middle;
             break-before: page;
             break-after: page;
-        }
-
-        /* <h2> heading */
-        h2 {
-            margin-top: 0;
         }
 
         /* always insert a page break before the element */
