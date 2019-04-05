@@ -229,13 +229,13 @@
     "title": "Open access",
     "collection-title": "MIT Press essential knowledge series",
     "publisher": "MIT Press",
-    "publisher-place": "Cambridge, Mass.",
+    "publisher-place": "Cambridge, Mass",
     "number-of-pages": "242",
-    "source": "Gemeinsamer Bibliotheksverbund ISBN",
-    "event-place": "Cambridge, Mass.",
+    "source": "Library of Congress ISBN",
+    "event-place": "Cambridge, Mass",
     "ISBN": "9780262517638",
-    "note": "OCLC: 808665987",
-    "language": "eng",
+    "call-number": "Z286.O63 S83 2012",
+    "note": "OCLC: ocn754518563",
     "author": [
       {
         "family": "Suber",
@@ -361,6 +361,14 @@
         "given": "Venkat S."
       },
       {
+        "family": "Hu",
+        "given": "Dongbo"
+      },
+      {
+        "family": "Rubinetti",
+        "given": "Vincent"
+      },
+      {
         "family": "Greene",
         "given": "Casey S."
       },
@@ -373,8 +381,8 @@
       "date-parts": [
         [
           "2019",
-          3,
-          20
+          4,
+          3
         ]
       ]
     },
@@ -382,8 +390,8 @@
       "date-parts": [
         [
           "2019",
-          3,
-          22
+          4,
+          5
         ]
       ]
     },
