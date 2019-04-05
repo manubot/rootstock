@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-03-22" />
+  <meta name="dcterms.date" content="2019-04-05" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -86,7 +86,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/fea9eb80af4ca9d5a116f6c28a6b740272e3c0b9/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/fea9eb80af4ca9d5a116f6c28a6b740272e3c0b9">manubot/rootstock@fea9eb8</a> on March 22, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/3c37239ba6e4796adc62c4e2fd6bee769547ce3a/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/3c37239ba6e4796adc62c4e2fd6bee769547ce3a">manubot/rootstock@3c37239</a> on April 5, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -336,8 +336,8 @@ DOI: <a href="https://doi.org/10.1098/rsif.2017.0387">10.1098/rsif.2017.0387</a>
 </div>
 <div id="ref-6acIRW4q">
 <p>8. <strong>Open collaborative writing with Manubot</strong><br />
-Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, Anthony Gitter<br />
-(2019-03-20) <a href="https://greenelab.github.io/meta-review/">https://greenelab.github.io/meta-review/</a></p>
+Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Dongbo Hu, Vincent Rubinetti, Casey S. Greene, Anthony Gitter<br />
+(2019-04-03) <a href="https://greenelab.github.io/meta-review/">https://greenelab.github.io/meta-review/</a></p>
 </div>
 </div>
 <!-- default theme -->
@@ -377,8 +377,6 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             border: solid 1px #bdbdbd;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
             background: #ffffff;
-            word-break: all;
-            word-break: break-word;
         }
     }
 
@@ -413,8 +411,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
 
     /* biggest heading */
     h1 {
-        margin-top: 40px;
-        margin-bottom: 30px;
+        margin: 40px 0;
         text-align: center;
     }
 
@@ -437,7 +434,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     /* manuscript title caption text (ie "automatically generated on") */
     header + p {
         text-align: center;
-        margin-top: 0;
+        margin-top: 10px;
     }
 
     /* -------------------------------------------------- */
@@ -447,7 +444,6 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     /* links */
     a {
         color: #2196f3;
-        word-break: break-all;
     }
 
     /* superscripts and subscripts */
@@ -567,9 +563,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
         border: solid 1px #bdbdbd;
         padding: 10px;
         /* squash table if too wide for page by forcing line breaks */
-        /* put line break break anywhere in text */
         word-break: break-all;
-        /* put line break between words. if not supported by browser, will fall back to break-all */
         word-break: break-word;
     }
 
@@ -827,7 +821,7 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
     @media print {
         @page {
             /* suggested printing margin */
-            margin: 0.75in;
+            margin: 0.5in;
         }
 
         /* document and "page" elements */
@@ -836,6 +830,70 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             padding: 0;
             width: 100%;
             height: 100%;
+        }
+
+        /* "page" element */
+        body {
+            font-size: 11pt !important;
+            line-height: 1.35;
+        }
+
+        /* all headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 15px 0;
+        }
+
+        /* heading 1 */
+        h1 {
+            font-size: 1.75em;
+        }
+
+        /* heading 2 */
+        h2 {
+            font-size: 1.25em;
+            margin-top: 0;
+        }
+
+        /* heading 3 */
+        h3 {
+            font-size: 1.10em;
+        }
+
+        /* figures and tables */
+        figure, table {
+            font-size: 0.85em;
+        }
+
+        /* table cells */
+        th,
+        td {
+            padding: 5px;
+        }
+
+        /* shrink button icons */
+        button > svg,
+        a > svg {
+            transform: scale(0.85);
+        }
+
+        /* shrink font awesome icons */
+        i.fas,
+        i.fab,
+        i.far,
+        i.fal {
+            transform: scale(0.85);
+        }
+
+        /* decrease banner margins */
+        .banner {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
         }
 
         /* class for centering an element vertically on its own page */
@@ -848,11 +906,6 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             vertical-align: middle;
             break-before: page;
             break-after: page;
-        }
-
-        /* <h2> heading */
-        h2 {
-            margin-top: 0;
         }
 
         /* always insert a page break before the element */
@@ -1065,8 +1118,6 @@ Daniel S. Himmelstein, David R. Slochower, Venkat S. Malladi, Casey S. Greene, A
             border: solid 1px #bdbdbd;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
             background: #ffffff;
-            word-break: all;
-            word-break: break-word;
         }
 
         /* tooltip copy of paragraphs and figures */
