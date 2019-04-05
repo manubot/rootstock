@@ -398,7 +398,7 @@
 
                 // remove global listener if lightbox removed from document
                 if (!document.body.contains(container))
-                    window.removeEventListener('mouseup', onWindowMouseMove);
+                    window.removeEventListener('mousemove', onWindowMouseMove);
             };
 
             // when window is resized
