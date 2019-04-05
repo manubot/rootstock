@@ -316,11 +316,11 @@
                 event.stopPropagation();
 
                 // point around which to scale img
-                const conRect = container.getBoundingClientRect();
-                const conX = (conRect.left + conRect.right) / 2;
-                const conY = (conRect.top + conRect.bottom) / 2;
-                const originX = options.centerZoom === 'true' ? conX : mouseX;
-                const originY = options.centerZoom === 'true' ? conY : mouseY;
+                const viewRect = container.getBoundingClientRect();
+                const viewX = (viewRect.left + viewRect.right) / 2;
+                const viewY = (viewRect.top + viewRect.bottom) / 2;
+                const originX = options.centerZoom === 'true' ? viewX : mouseX;
+                const originY = options.centerZoom === 'true' ? viewY : mouseY;
 
                 // get point on image under origin
                 const oldRect = img.getBoundingClientRect();
@@ -350,7 +350,6 @@
 
             // when container is clicked
             function onContainerClick(event) {
-                console.log(event)
                 // if container itself is target of click, and not other
                 // element above it
                 if (event.target === this)
