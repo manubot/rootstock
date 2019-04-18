@@ -111,7 +111,12 @@ def checkout_existing_versions(args):
         # Addresses an odd behavior where git checkout stages v/* files that don't actually exist
         subprocess.run(['git', 'add', 'v'])
     else:
-        print(f'Checkout returned a nonzero exit status. See stderr:\n{process.stderr.decode()}')
+        print(
+            f'Checkout returned a nonzero exit status. See stderr:\n'
+            f'{process.stderr.decode()}\n'
+            f'Manubot note: if there are no preexisting webpage versions (like for a newly created manuscript), '
+            f'the checkout error above is expected and can be safely ignored.'
+        )
 
 
 def create_version(args):
