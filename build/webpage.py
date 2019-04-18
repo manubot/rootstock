@@ -113,7 +113,7 @@ def checkout_existing_versions(args):
     else:
         print(
             f'Checkout returned a nonzero exit status. See stderr:\n'
-            f'{process.stderr.decode()}\n'
+            f'{process.stderr.decode().rstrip()}\n'
             f'Manubot note: if there are no preexisting webpage versions (like for a newly created manuscript), '
             f'the checkout error above is expected and can be safely ignored.'
         )
