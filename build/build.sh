@@ -80,7 +80,7 @@ fi
 if [ "$BUILD_PDF" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
   echo "Exporting PDF manuscript using Docker + Athena"
   if [ -d output/images ]; then rm -rf output/images; fi  # if images is a directory, remove it
-  cp -r -L content/images output/
+  cp -R -L content/images output/
   docker run \
     --rm \
     --volume `pwd`/output:/converted/ \
