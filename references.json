@@ -225,17 +225,18 @@
     "id": "IhliSZDo"
   },
   {
+    "id": "zBPP9YKu",
     "type": "book",
     "title": "Open access",
     "collection-title": "MIT Press essential knowledge series",
     "publisher": "MIT Press",
-    "publisher-place": "Cambridge, Mass",
+    "publisher-place": "Cambridge, Mass.",
     "number-of-pages": "242",
-    "source": "Library of Congress ISBN",
-    "event-place": "Cambridge, Mass",
+    "source": "Gemeinsamer Bibliotheksverbund ISBN",
+    "event-place": "Cambridge, Mass.",
     "ISBN": "9780262517638",
-    "call-number": "Z286.O63 S83 2012",
-    "note": "OCLC: ocn754518563",
+    "note": "OCLC: 808665987",
+    "language": "eng",
     "author": [
       {
         "family": "Suber",
@@ -248,8 +249,7 @@
           "2012"
         ]
       ]
-    },
-    "id": "zBPP9YKu"
+    }
   },
   {
     "source": "PubMed",
@@ -343,6 +343,7 @@
     "id": "OvL2rC9o"
   },
   {
+    "id": "6acIRW4q",
     "type": "webpage",
     "title": "Open collaborative writing with Manubot",
     "URL": "https://greenelab.github.io/meta-review/",
@@ -391,13 +392,13 @@
         [
           "2019",
           5,
-          1
+          13
         ]
       ]
-    },
-    "id": "6acIRW4q"
+    }
   },
   {
+    "id": "QhC8yJ7V",
     "type": "article",
     "title": "Plan S: Accelerating the transition to full and immediate Open Access to scientific publications",
     "source": "Wikidata",
@@ -417,7 +418,6 @@
         ]
       ]
     },
-    "URL": "https://www.wikidata.org/wiki/Q56458321",
-    "id": "QhC8yJ7V"
+    "URL": "https://www.wikidata.org/wiki/Q56458321"
   }
 ]
