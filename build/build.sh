@@ -82,10 +82,10 @@ if [ "$BUILD_PDF" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
   if [ -d output/images ]; then rm -rf output/images; fi  # if images is a directory, remove it
   cp -R -L content/images output/
   docker run \
-    --shm-size="2g" \
     --rm \
-    --volume `pwd`/output:/converted/ \
-    --security-opt seccomp:unconfined \
+    --shm-size=1g \
+    --volume=`pwd`/output:/converted/ \
+    --security-opt=seccomp:unconfined \
     arachnysdocker/athenapdf:2.16.0 \
     athenapdf \
     --delay=2000 \
