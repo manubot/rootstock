@@ -230,13 +230,13 @@
     "title": "Open access",
     "collection-title": "MIT Press essential knowledge series",
     "publisher": "MIT Press",
-    "publisher-place": "Cambridge, Mass.",
+    "publisher-place": "Cambridge, Mass",
     "number-of-pages": "242",
-    "source": "Gemeinsamer Bibliotheksverbund ISBN",
-    "event-place": "Cambridge, Mass.",
+    "source": "Library of Congress ISBN",
+    "event-place": "Cambridge, Mass",
     "ISBN": "9780262517638",
-    "note": "OCLC: 808665987",
-    "language": "eng",
+    "call-number": "Z286.O63 S83 2012",
+    "note": "OCLC: ocn754518563",
     "author": [
       {
         "family": "Suber",
@@ -392,7 +392,7 @@
         [
           "2019",
           5,
-          14
+          17
         ]
       ]
     }
