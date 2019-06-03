@@ -11,6 +11,7 @@ dependencies:
   - conda-forge::pandas=0.24.2
   - conda-forge::pandoc=2.7.2
   - conda-forge::pango=1.40.14
+  - conda-forge::pip=19.1
   - conda-forge::psutil=5.6.2
   - conda-forge::python=3.7.3
   - conda-forge::pyyaml=5.1
