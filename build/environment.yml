@@ -6,20 +6,20 @@ dependencies:
   - cairocffi=0.8.0
   - cffi=1.12.3
   - ghp-import=0.5.5
-  - jinja2=2.10.1
+  - jinja2=2.10
   - jsonschema=3.0.1
   - pandas=0.24.2
   - pandoc=2.7.2
   - pango=1.40.14
   - pip=19.1
   - psutil=5.6.2
-  - python=3.7.3
+  - python=3.6.7
   - pyyaml=5.1
   - requests=2.22.0
   - watchdog=0.8.3
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@f22099943c36d207ba0e3f1ff1fbf5eb46be534f
+    - git+https://github.com/manubot/manubot@2a99f4af4a352d2e082988d364e01e2e2809a87b
     - jsonref==0.2
     - opentimestamps-client==0.6.0
     - opentimestamps==0.3.0
