@@ -116,16 +116,16 @@ If `citation-tags.tsv` defines the tag `study-x`, then this study can be cited l
 ## Reference metadata
 
 The Manubot workflow requires the bibliographic details for references (the set of all cited works) as CSL (Citation Style Language) Items (also known as [citeproc JSON](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
-The Manubot attempts to automatically retrieve metadata and generate valid citeproc JSON for references, which is exported to `output/references.json`.
-However, in some cases the Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
+Manubot attempts to automatically retrieve metadata and generate valid CSL JSON for references, which is exported to `output/references.json`.
+However, in some cases Manubot fails to retrieve metadata or generates incorrect or incomplete citeproc metadata.
 Errors are most common for `url` references.
-For these references, you can manually specify the correct CSL Data in [`content/manual-references.json`](content/manual-references.json), which will override the automatically generated reference data.
-To do so, create a new CSL JSON Item that contains the field `"standard_citation"` with the appropriate reference identifier as its value.
-The identifier can be obtained from the `standard_citation` column of `citations.tsv`, which is located in the `output` branch or in the `output` subdirectory of local builds.
+For these references, you can manually specify the correct CSL Data in [`content/manual-references.json`](content/manual-references.json), which will be used instead of automatically generated reference data.
+To do so, create a new CSL JSON Item that contains the field `"id"` with the appropriate reference identifier as its value.
+The identifier can be obtained from the `standard_id` column of `citations.tsv`, which is located in the `output` branch or in the `output` subdirectory of local builds.
 As an example, `manual-references.json` contains:
 
 ```json
-"standard_citation": "url:https://github.com/greenelab/manubot-rootstock"
+"id": "url:https://github.com/manubot/rootstock",
 ```
 
 The metadata for `raw` citations must be provided in `manual-references.json` or an error will occur.
@@ -133,13 +133,13 @@ For example, to cite `@raw:private-message` in a manuscript, a corresponding CSL
 
 ```json
 {
+  "id": "raw:private-message",
   "type": "personal_communication",
-  "standard_citation": "raw:private-message",
   "title": "Personal communication with Doctor X"
 }
 ```
 
-All references provided in `manual-references.json` must provide values for the `type` and `standard_citation` fields.
+All references provided in `manual-references.json` must provide values for the `id` and `type` fields.
 For guidance on what CSL JSON should be like for different document types, refer to [these examples](https://github.com/aurimasv/zotero-import-export-formats/blob/a51c342e66bebd97b73a7230047b801c8f7bb690/CSL%20JSON.json).
 
 ## Manuscript metadata
