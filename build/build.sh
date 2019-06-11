@@ -56,7 +56,7 @@ pandoc --verbose \
 DOCKER_EXISTS="$(command -v docker || true)"
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
-if [ "${BUILD_PDF:-true}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
+if [ "$(BUILD_PDF:-true)" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   echo "Exporting PDF manuscript using WeasyPrint"
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
@@ -79,7 +79,7 @@ if [ "${BUILD_PDF:-true}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
 fi
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
-if [ "${BUILD_PDF:-true}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
+if [ "$(BUILD_PDF:-true)" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
   echo "Exporting PDF manuscript using Docker + Athena"
   if [ -d output/images ]; then rm -rf output/images; fi  # if images is a directory, remove it
   cp -R -L content/images output/
@@ -96,7 +96,7 @@ if [ "${BUILD_PDF:-true}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
 fi
 
 # Create DOCX output (if BUILD_DOCX environment variable equals "true")
-if [ "${BUILD_PDF:-false}" = "true" ]; then
+if [ "$(BUILD_PDF:-false)" = "true" ]; then
   echo "Exporting Word Docx manuscript"
   pandoc --verbose \
     --from=markdown \
