@@ -43,7 +43,7 @@ python build/webpage.py \
 
 # Generate OpenTimestamps
 ots stamp webpage/v/$TRAVIS_COMMIT/index.html
-if [ "$(BUILD_PDF:-true)" != "false" ]; then
+if [ "${BUILD_PDF:-true}" != "false" ]; then
   ots stamp webpage/v/$TRAVIS_COMMIT/manuscript.pdf
 fi
 
