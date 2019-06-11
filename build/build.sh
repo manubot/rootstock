@@ -12,7 +12,7 @@ export TZ=Etc/UTC
 export LC_ALL=en_US.UTF-8
 
 # Generate reference information
-echo "Retrieving and processing reference metadata"
+>&2 echo "Retrieving and processing reference metadata"
 manubot process \
   --content-directory=content \
   --output-directory=output \
@@ -29,7 +29,7 @@ mkdir -p output
 
 # Create HTML output
 # http://pandoc.org/MANUAL.html
-echo "Exporting HTML manuscript"
+>&2 echo "Exporting HTML manuscript"
 pandoc --verbose \
   --from=markdown \
   --to=html5 \
@@ -61,7 +61,7 @@ DOCKER_EXISTS="$(command -v docker || true)"
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "${BUILD_PDF:-true}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
-  echo "Exporting PDF manuscript using WeasyPrint"
+  >&2 echo "Exporting PDF manuscript using WeasyPrint"
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
   pandoc \
@@ -84,7 +84,7 @@ fi
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
 if [ "${BUILD_PDF:-true}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
-  echo "Exporting PDF manuscript using Docker + Athena"
+  >&2 echo "Exporting PDF manuscript using Docker + Athena"
   if [ -d output/images ]; then rm -rf output/images; fi  # if images is a directory, remove it
   cp -R -L content/images output/
   docker run \
@@ -101,7 +101,7 @@ fi
 
 # Create DOCX output (if BUILD_DOCX environment variable equals "true")
 if [ "${BUILD_PDF:-false}" = "true" ]; then
-  echo "Exporting Word Docx manuscript"
+  >&2 echo "Exporting Word Docx manuscript"
   pandoc --verbose \
     --from=markdown \
     --to=docx \
@@ -117,4 +117,4 @@ if [ "${BUILD_PDF:-false}" = "true" ]; then
     $INPUT_PATH
 fi
 
-echo "Build complete"
+>&2 echo "Build complete"
