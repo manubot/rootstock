@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+## build.sh: compile manuscript outputs from content using Manubot and Pandoc
+
 set -o errexit \
     -o nounset \
     -o xtrace
@@ -86,7 +90,7 @@ if [ "$(BUILD_PDF:-true)" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
   docker run \
     --rm \
     --shm-size=1g \
-    --volume=`pwd`/output:/converted/ \
+    --volume="$(pwd)/output:/converted/" \
     --security-opt=seccomp:unconfined \
     arachnysdocker/athenapdf:2.16.0 \
     athenapdf \

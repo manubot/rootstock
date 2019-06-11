@@ -1,11 +1,15 @@
+#!/usr/bin/env bash
+
+## deploy.sh: run during a Travis CI build to deploy manuscript outputs to the output and gh-pages branches on GitHub.
+
 # Set options for extra caution & debugging
 set -o errexit \
     -o nounset \
     -o xtrace
 
 # Add commit hash to the README
-export OWNER_NAME=${dirname $TRAVIS_REPO_SLUG}
-export REPO_NAME=${basename $TRAVIS_REPO_SLUG}
+export OWNER_NAME=$(dirname $TRAVIS_REPO_SLUG)
+export REPO_NAME=$(basename $TRAVIS_REPO_SLUG)
 envsubst < webpage/README.md > webpage/README-complete.md
 mv webpage/README-complete.md webpage/README.md
 
