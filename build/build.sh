@@ -36,8 +36,8 @@ pandoc --verbose \
   --filter=pandoc-fignos \
   --filter=pandoc-eqnos \
   --filter=pandoc-tablenos \
-  --bibliography=$BIBLIOGRAPHY_PATH \
-  --csl=$CSL_PATH \
+  --bibliography="$BIBLIOGRAPHY_PATH" \
+  --csl="$CSL_PATH" \
   --metadata link-citations=true \
   --include-after-body=build/themes/default.html \
   --include-after-body=build/plugins/table-scroll.html \
@@ -54,7 +54,7 @@ pandoc --verbose \
   --include-after-body=build/plugins/hypothesis.html \
   --include-after-body=build/plugins/analytics.html \
   --output=output/manuscript.html \
-  $INPUT_PATH
+  "$INPUT_PATH"
 
 # Return null if docker command is missing, otherwise return path to docker
 DOCKER_EXISTS="$(command -v docker || true)"
@@ -72,13 +72,13 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
     --filter=pandoc-fignos \
     --filter=pandoc-eqnos \
     --filter=pandoc-tablenos \
-    --bibliography=$BIBLIOGRAPHY_PATH \
-    --csl=$CSL_PATH \
+    --bibliography="$BIBLIOGRAPHY_PATH" \
+    --csl="$CSL_PATH" \
     --metadata link-citations=true \
     --webtex=https://latex.codecogs.com/svg.latex? \
     --include-after-body=build/themes/default.html \
     --output=output/manuscript.pdf \
-    $INPUT_PATH
+    "$INPUT_PATH"
   rm images
 fi
 
@@ -108,13 +108,13 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
     --filter=pandoc-fignos \
     --filter=pandoc-eqnos \
     --filter=pandoc-tablenos \
-    --bibliography=$BIBLIOGRAPHY_PATH \
-    --csl=$CSL_PATH \
+    --bibliography="$BIBLIOGRAPHY_PATH" \
+    --csl="$CSL_PATH" \
     --metadata link-citations=true \
     --reference-doc=build/themes/default.docx \
     --resource-path=.:content \
     --output=output/manuscript.docx \
-    $INPUT_PATH
+    "$INPUT_PATH"
 fi
 
 echo >&2 "Build complete"

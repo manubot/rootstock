@@ -8,8 +8,9 @@ set -o errexit \
     -o pipefail
 
 # Add commit hash to the README
-export OWNER_NAME=$(dirname $TRAVIS_REPO_SLUG)
-export REPO_NAME=$(basename $TRAVIS_REPO_SLUG)
+OWNER_NAME="$(dirname "$TRAVIS_REPO_SLUG")"
+REPO_NAME="$(basename "$TRAVIS_REPO_SLUG")"
+export OWNER_NAME REPO_NAME
 envsubst < webpage/README.md > webpage/README-complete.md
 mv webpage/README-complete.md webpage/README.md
 
@@ -17,8 +18,8 @@ mv webpage/README-complete.md webpage/README.md
 git config --global push.default simple
 git config --global user.email "$(git log --max-count=1 --format='%ae')"
 git config --global user.name "$(git log --max-count=1 --format='%an')"
-git checkout $TRAVIS_BRANCH
-git remote set-url origin git@github.com:$TRAVIS_REPO_SLUG.git
+git checkout "$TRAVIS_BRANCH"
+git remote set-url origin "git@github.com:$TRAVIS_REPO_SLUG.git"
 
 # Decrypt and add SSH key
 openssl aes-256-cbc \
@@ -26,7 +27,7 @@ openssl aes-256-cbc \
   -iv $encrypted_9befd6eddffe_iv \
   -in ci/deploy.key.enc \
   -out ci/deploy.key -d
-eval $(ssh-agent -s)
+eval "$(ssh-agent -s)"
 chmod 600 ci/deploy.key
 ssh-add ci/deploy.key
 
@@ -39,12 +40,12 @@ git fetch origin gh-pages:gh-pages output:output
 python build/webpage.py \
   --no-ots-cache \
   --checkout=gh-pages \
-  --version=$TRAVIS_COMMIT
+  --version="$TRAVIS_COMMIT"
 
 # Generate OpenTimestamps
-ots stamp webpage/v/$TRAVIS_COMMIT/index.html
-if [ "${BUILD_PDF:-true}" != "false" ]; then
-  ots stamp webpage/v/$TRAVIS_COMMIT/manuscript.pdf
+ots stamp "webpage/v/$TRAVIS_COMMIT/index.html"
+if [ "${BUILD_PDF:-}" != "false" ]; then
+  ots stamp "webpage/v/$TRAVIS_COMMIT/manuscript.pdf"
 fi
 
 # Commit message
