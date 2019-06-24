@@ -4,7 +4,7 @@
 
 set -o errexit \
     -o nounset \
-    -o xtrace
+    -o pipefail
 
 # Set timezone used by Python for setting the manuscript's date
 export TZ=Etc/UTC

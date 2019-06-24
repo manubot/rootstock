@@ -5,7 +5,7 @@
 # Set options for extra caution & debugging
 set -o errexit \
     -o nounset \
-    -o xtrace
+    -o pipefail
 
 # Add commit hash to the README
 export OWNER_NAME=$(dirname $TRAVIS_REPO_SLUG)
