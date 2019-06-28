@@ -17,8 +17,7 @@ Please reference [Pull Request #40](https://github.com/manubot/rootstock/pull/40
 
 Note: currently, **Windows is not supported**.
 
-Install or update the [conda](https://conda.io) environment specified in [`environment.yml`](environment.yml) by running
-the following commands from this directory:
+Install or update the [conda](https://conda.io) environment specified in [`environment.yml`](environment.yml) by running the following commands from this directory:
 
 ```sh
 # If the manubot environment already exists, remove it first
@@ -41,7 +40,7 @@ If Docker is available, `build.sh` uses the [Athena](https://www.athenapdf.com/)
 Otherwise, `build.sh` uses [WeasyPrint](https://weasyprint.org/) to build the PDF.
 It is common for WeasyPrint to generate many warnings and errors that can be safely ignored.
 Examples are shown below:
-```sh
+```
 WARNING: Ignored `pointer-events: none` at 3:16, unknown property.
 WARNING: Ignored `font-display:auto` at 1:53114, descriptor not supported.
 ERROR: Failed to load font at "https://use.fontawesome.com/releases/v5.7.2/webfonts/fa-brands-400.eot#iefix"

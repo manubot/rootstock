@@ -58,7 +58,9 @@ bash build/build.sh
 # Configure the webpage directory
 python build/webpage.py
 
-# View the manuscript webpage/index.html locally at http://localhost:8000/
+# You can now open the manuscript webpage/index.html in a web browser.
+# Alternatively, open a local webserver at http://localhost:8000/ with the
+# following commands.
 cd webpage
 python -m http.server
 ```
