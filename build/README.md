@@ -37,9 +37,10 @@ The latest `manubot` release on PyPI may not be compatible with the latest versi
 
 ## Building PDFs
 
-If Docker is available, `build.sh` uses [Athena](https://www.athenapdf.com/) [Docker image](https://hub.docker.com/r/arachnysdocker/athenapdf) to build the PDF.
+If Docker is available, `build.sh` uses the [Athena](https://www.athenapdf.com/) [Docker image](https://hub.docker.com/r/arachnysdocker/athenapdf) to build the PDF.
 Otherwise, `build.sh` uses [WeasyPrint](https://weasyprint.org/) to build the PDF.
-It is common for WeasyPrint to generate many warnings and errors, as shown below, that can be safely ignored:
+It is common for WeasyPrint to generate many warnings and errors that can be safely ignored.
+Examples are shown below:
 ```sh
 WARNING: Ignored `pointer-events: none` at 3:16, unknown property.
 WARNING: Ignored `font-display:auto` at 1:53114, descriptor not supported.

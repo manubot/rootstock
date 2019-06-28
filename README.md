@@ -40,7 +40,7 @@ The directories are as follows:
 
 ### Local execution
 
-The easiest way to use Manubot is to use [continuous integration](#continuous-integration) to rebuild the manuscript when the content changes.
+The easiest way to run Manubot is to use [continuous integration](#continuous-integration) to rebuild the manuscript when the content changes.
 If you want to build a Manubot manuscript locally, install the [conda](https://conda.io) environment as described in [`build`](build).
 Then, you can build the manuscript on POSIX systems by running the following commands from this root directory.
 
@@ -58,7 +58,7 @@ bash build/build.sh
 # Configure the webpage directory
 python build/webpage.py
 
-# View the manuscript locally at http://localhost:8000/
+# View the manuscript webpage/index.html locally at http://localhost:8000/
 cd webpage
 python -m http.server
 ```
