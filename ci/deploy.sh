@@ -25,7 +25,7 @@ git remote set-url origin "git@github.com:$TRAVIS_REPO_SLUG.git"
 eval "$(ssh-agent -s)"
 if [ -v MANUBOT_SSH_PRIVATE_KEY ]; then
   set +o xtrace  # TODO: better way of temporarily disabling xtrace
-  ssh-add - <<< "$MANUBOT_SSH_PRIVATE_KEY"
+  echo -e $MANUBOT_SSH_PRIVATE_KEY | ssh-add -
 else
 openssl aes-256-cbc \
   -K $encrypted_9befd6eddffe_key \
