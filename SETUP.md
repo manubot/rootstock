@@ -71,12 +71,13 @@ Finally, flick the repository's switch to enable CI.
 Generate a deploy key so Travis CI can write to the repository.
 
 ```sh
+# IMPORTANT: change working directory to /ci
 cd ci
+
+# Generate deploy.key.pub (public) and deploy.key (private)
 ssh-keygen \
-  -t rsa \
-  -b 4096 \
+  -t rsa -b 4096 -N "" \
   -C "deploy@travis-ci.com" \
-  -N "" \
   -f deploy.key
 
 # For convenience, print the URL to add the public key to GitHub
@@ -86,19 +87,27 @@ echo "https://github.com/$OWNER/$REPO/settings/keys/new"
 echo "https://travis-ci.com/$OWNER/$REPO/settings"
 ```
 
-Manually add the text content of `deploy.key.pub` to GitHub under the repository's deploy key settings (the URL echoed above).
-Give the key a descriptive title, such as "Manubot Travis Deploy Key" and enable the "Allow write access" checkbox.
+#### Add the public key to GitHub
 
-Next, you must add the private key to Travis CI Settings page under "Environment Variables".
-For the variable "Name", enter `MANUBOT_SSH_PRIVATE_KEY`.
-Next we encode the text in `deploy.key` to remove newlines, which is neccessary to allow it to be enterred into the "Value" field of the Travis CI settings.
-Run any one of the following commands that works on your system and copy the output into the Travis "Value" field:
+Go to the GitHub settings URL echoed above in a browser, and click "Add deploy key".
+For "Title", add a description like "Manubot Travis Deploy Key".
+Copy and paste the contents of the `deploy.key.pub` text file into the "Key" text box.
+Check the "Allow write access" box below.
+Finally, click "Add key".
+
+#### Add the private key to Travis CI
+
+Next, go to the Travis CI repository settings page (URL echoed above).
+Add a new record in the "Environment Variables" section.
+For "NAME", enter `MANUBOT_SSH_PRIVATE_KEY`.
+Next we will encode the text in `deploy.key` to remove newlines, which is required for entry into the Travis settings.
+Run any of the following commands (whichever works), and copy/paste the output into "VALUE":
 
 ```shell
 # For systems with Python (2 or 3) installed
 python -c "import base64; print(base64.standard_b64encode(open('deploy.key', 'rb').read()).decode())"
 
-# For Linux or Windows systems with GNU coreutils base64 command
+# For Windows or Linux systems that have the GNU coreutils base64 command
 base64 --wrap=1000000 deploy.key
 
 # For macOS systems
@@ -110,15 +119,16 @@ Make sure "Display value in build logs" remains toggled off (the default).
 While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
 This ensures previous Manubot builds deploy before subsequent ones begin.
 
+### CI clean up
+
 The continuous integration configuration is now complete.
 Clean up:
 
 ```sh
 # Optionally remove untracked files
 rm deploy.key
-rm travis-encrypt-file.log
 
-# CRITICAL: navigate back to the repository's root directory
+# IMPORTANT: return to the repository's root directory
 cd ..
 ```
 
@@ -166,7 +176,7 @@ First, checkout a new branch to use as the pull request head branch:
 
 ```sh
 # This command names the branch using the current date, i.e. rootstock-2018-11-16
-git checkout -b rootstock-`date '+%Y-%m-%d'`
+git checkout -b rootstock-$(date '+%Y-%m-%d')
 ```
 
 Second, pull the new commits from rootstock, but do not automerge:
