@@ -79,29 +79,36 @@ ssh-keygen \
   -t rsa -b 4096 -N "" \
   -C "deploy@travis-ci.com" \
   -f deploy.key
-
-# For convenience, print the URL to add the public key to GitHub
-echo "https://github.com/$OWNER/$REPO/settings/keys/new"
-
-# For convenience, print the URL to add the private key to Travis CI
-echo "https://travis-ci.com/$OWNER/$REPO/settings"
 ```
 
 #### Add the public key to GitHub
 
+```sh
+# Print the URL for adding the public key to GitHub
+echo "https://github.com/$OWNER/$REPO/settings/keys/new"
+
+# Print the public key for copy-pasting to GitHub
+cat deploy.key.pub
+```
+
 Go to the GitHub settings URL echoed above in a browser, and click "Add deploy key".
 For "Title", add a description like "Manubot Travis Deploy Key".
-Copy and paste the contents of the `deploy.key.pub` text file into the "Key" text box.
+Copy-paste the contents of the `deploy.key.pub` text file (printed above) into the "Key" text box.
 Check the "Allow write access" box below.
 Finally, click "Add key".
 
 #### Add the private key to Travis CI
 
+```sh
+# Print the URL for adding the private key to Travis CI
+echo "https://travis-ci.com/$OWNER/$REPO/settings"
+```
+
 Next, go to the Travis CI repository settings page (URL echoed above).
 Add a new record in the "Environment Variables" section.
 For "NAME", enter `MANUBOT_SSH_PRIVATE_KEY`.
 Next we will encode the text in `deploy.key` to remove newlines, which is required for entry into the Travis settings.
-Run any of the following commands (whichever works), and copy/paste the output into "VALUE":
+Run any of the following commands (whichever works), and copy-paste the output into "VALUE":
 
 ```shell
 # For systems with Python (2 or 3) installed
