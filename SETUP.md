@@ -75,7 +75,7 @@ cd ci
 ssh-keygen \
   -t rsa \
   -b 4096 \
-  -C "travis@travis-ci.com" \
+  -C "deploy@travis-ci.com" \
   -N "" \
   -f deploy.key
 
@@ -91,7 +91,20 @@ Give the key a descriptive title, such as "Manubot Travis Deploy Key" and enable
 
 Next, you must add the private key to Travis CI Settings page under "Environment Variables".
 For the variable "Name", enter `MANUBOT_SSH_PRIVATE_KEY`.
-For the variable "Value", add the text content of `deploy.key` surrounded in single quotes (i.e. `'`)
+Next we encode the text in `deploy.key` to remove newlines, which is neccessary to allow it to be enterred into the "Value" field of the Travis CI settings.
+Run any one of the following commands that works on your system and copy the output into the Travis "Value" field:
+
+```shell
+# For systems with Python (2 or 3) installed
+python -c "import base64; print(base64.standard_b64encode(open('deploy.key', 'rb').read()).decode())"
+
+# For Linux or Windows systems with GNU coreutils base64 command
+base64 --wrap=1000000 deploy.key
+
+# For macOS systems
+base64 --break=1000000 deploy.key
+```
+
 Make sure "Display value in build logs" remains toggled off (the default).
 
 While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
