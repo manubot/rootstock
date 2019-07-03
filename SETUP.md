@@ -79,6 +79,10 @@ ssh-keygen \
   -t rsa -b 4096 -N "" \
   -C "deploy@travis-ci.com" \
   -f deploy.key
+
+# Encode deploy.key to remove newlines, writing encoded text to deploy.key.txt.
+# This is required for entry into the Travis settings.
+openssl base64 -A -in deploy.key > deploy.key.txt
 ```
 
 #### Add the public key to GitHub
@@ -93,7 +97,7 @@ cat deploy.key.pub
 
 Go to the GitHub settings URL echoed above in a browser, and click "Add deploy key".
 For "Title", add a description like "Manubot Travis Deploy Key".
-Copy-paste the contents of the `deploy.key.pub` text file (printed above) into the "Key" text box.
+Copy-paste the contents of the `deploy.key.pub` text file (printed above by `cat`) into the "Key" text box.
 Check the "Allow write access" box below.
 Finally, click "Add key".
 
@@ -107,23 +111,8 @@ echo "https://travis-ci.com/$OWNER/$REPO/settings"
 Next, go to the Travis CI repository settings page (URL echoed above).
 Add a new record in the "Environment Variables" section.
 For "NAME", enter `MANUBOT_SSH_PRIVATE_KEY`.
-Next we will encode the text in `deploy.key` to remove newlines, which is required for entry into the Travis settings.
-Run any of the following commands (whichever works), and copy-paste the output into "VALUE":
-
-```shell
-# For systems with Python (2 or 3) installed
-python -c "import base64; print(base64.standard_b64encode(open('deploy.key', 'rb').read()).decode())"
-
-# For Windows or Linux systems that have the GNU coreutils base64 command
-base64 --wrap=1000000 deploy.key
-
-# For macOS systems
-base64 --break=1000000 deploy.key
-
-# For systes with openssl
-openssl base64 -A -in=deploy.key
-```
-
+Next, copy-paste the content of `deploy.key.txt` into "VALUE"
+(including any trailing `=` characters if present).
 Make sure "Display value in build logs" remains toggled off (the default).
 
 While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
