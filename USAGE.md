@@ -192,7 +192,7 @@ If you experience any issues with the Manubot or would like to contribute to its
 
 ## Examples
 
-For additional examples, check out existing manuscripts that use the Manubot (some of which are still in progress):
+For additional examples, check out existing manuscripts that use Manubot in the [Manubot catalog](https://manubot.org/catalog/) or the list below:
 
 + Satoshi Nakamoto's Bitcoin Whitepaper ([source](https://github.com/dhimmel/bitcoin-whitepaper/), [manuscript](https://dhimmel.github.io/bitcoin-whitepaper/), [commentary](https://steemit.com/manubot/@dhimmel/how-i-used-the-manubot-to-reproduce-the-bitcoin-whitepaper))
 + The Sci-Hub Coverage Study ([source](https://github.com/greenelab/scihub-manuscript), [manuscript](https://greenelab.github.io/scihub-manuscript/))
@@ -210,6 +210,7 @@ For additional examples, check out existing manuscripts that use the Manubot (so
 + The TPOT-DS Manuscript (includes Hypothesis annotations, [source](https://github.com/trang1618/tpot-ds-ms), [manuscript](https://trang1618.github.io/tpot-ds-ms/))
 + The Manubot 2018 Development Proposal ([source](https://github.com/greenelab/manufund-2018), [manuscript](https://greenelab.github.io/manufund-2018/))
 
+Some of these examples are still in progress.
 If you are using the Manubot, feel free to submit a pull request to add your manuscript to the list above.
 
 ## Citing Manubot
