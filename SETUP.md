@@ -71,7 +71,7 @@ Finally, flick the repository's switch to enable CI.
 Generate a deploy key so Travis CI can write to the repository.
 
 ```sh
-# IMPORTANT: change working directory to /ci
+# IMPORTANT: change working directory to ci
 cd ci
 
 # Generate deploy.key.pub (public) and deploy.key (private)
@@ -119,6 +119,9 @@ base64 --wrap=1000000 deploy.key
 
 # For macOS systems
 base64 --break=1000000 deploy.key
+
+# For systes with openssl
+openssl base64 -A -in=deploy.key
 ```
 
 Make sure "Display value in build logs" remains toggled off (the default).
