@@ -149,9 +149,6 @@ git rm content/02.delete-me.md
 Run `git status` or `git diff --color-words` to check that the following files have unstaged changes:
 
 + `README.md`
-+ `ci/deploy.key.enc`
-+ `ci/deploy.key.pub`
-+ `ci/deploy.sh`
 
 If the changes look okay, commit and push:
 
