@@ -125,7 +125,7 @@ Clean up:
 
 ```sh
 # Optionally remove untracked files
-rm deploy.key
+rm deploy.key*
 
 # IMPORTANT: return to the repository's root directory
 cd ..
