@@ -186,6 +186,16 @@ funders: GBMF4552  # optional
 
 Note that `affiliations` should be a list to allow for multiple affiliations per author.
 
+## Custom formatting
+
+Modifying the manuscript formatting requires modifying the CSS in the file [`build/themes/default.html`](build/themes/default.html).
+Common formatting changes, such as [font size](https://github.com/manubot/rootstock/issues/239) and [double spacing](https://github.com/manubot/rootstock/issues/244), can be found by searching the [Rootstock issues](https://github.com/manubot/rootstock/issues).
+Open a [new issue](https://github.com/manubot/rootstock/issues/new) if you have a new formatting question.
+
+Changing the citation style or which interactive HTML plugins are loaded requires editing the build script [`build/build.sh`](build/build.sh).
+The citation style is determined by the Citation Style Language file specified by `CSL_PATH`.
+It can be changed to use other existing styles as [described here](https://github.com/manubot/rootstock/issues/242#issuecomment-507688339).
+
 ## Manubot feedback
 
 If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`manubot/manubot`](https://github.com/manubot/manubot) or [`manubot/rootstock`](https://github.com/manubot/rootstock).
