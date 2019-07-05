@@ -1,6 +1,8 @@
 # Manubot usage guidelines
 
 This repository uses [Manubot](https://manubot.org) to automatically produce a manuscript from the source in the [`content`](content) directory.
+Check out the [Manubot catalog](https://manubot.org/catalog/) for examples of what is possible when writing with Manubot.
+Try editing the [demo manuscript](https://github.com/manubot/try-manubot) to quickly test Manubot formatting and citations.
 
 ## Manubot markdown
 
@@ -199,29 +201,6 @@ It can be changed to use other existing styles as [described here](https://githu
 ## Manubot feedback
 
 If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`manubot/manubot`](https://github.com/manubot/manubot) or [`manubot/rootstock`](https://github.com/manubot/rootstock).
-
-## Examples
-
-For additional examples, check out existing manuscripts that use Manubot in the [Manubot catalog](https://manubot.org/catalog/) or the list below:
-
-+ Satoshi Nakamoto's Bitcoin Whitepaper ([source](https://github.com/dhimmel/bitcoin-whitepaper/), [manuscript](https://dhimmel.github.io/bitcoin-whitepaper/), [commentary](https://steemit.com/manubot/@dhimmel/how-i-used-the-manubot-to-reproduce-the-bitcoin-whitepaper))
-+ The Sci-Hub Coverage Study ([source](https://github.com/greenelab/scihub-manuscript), [manuscript](https://greenelab.github.io/scihub-manuscript/))
-+ The GimmeMotifs manscript on transcription factor motif analysis ([source](https://github.com/simonvh/gimmemotifs-manuscript), [manuscript](https://simonvh.github.io/gimmemotifs-manuscript/manuscript.pdf))
-+ A Report for the Vagelos Scholars Program by Michael Zietz ([source](https://github.com/zietzm/Vagelos2017), [manuscript](https://zietzm.github.io/Vagelos2017/))
-+ The Deep Review ([source](https://github.com/greenelab/deep-review), [manuscript](https://greenelab.github.io/deep-review/))
-+ Ten Quick Tips for Deep Learning ([source](https://github.com/Benjamin-Lee/deep-rules), [manuscript](https://benjamin-lee.github.io/deep-rules/))
-+ The Meta Review ([source](https://github.com/greenelab/meta-review), [manuscript](https://greenelab.github.io/meta-review/))
-+ A review of Network Methods for Multiomic Data Integration ([source](https://github.com/zietzm/integration-review), [manuscript](https://zietzm.github.io/integration-review/))
-+ The Project Rephetio Manuscript ([source](https://github.com/dhimmel/rephetio-manuscript/), [manuscript](https://dhimmel.github.io/rephetio-manuscript/))
-+ A Literature Review for Project Planning by David Slochower ([source](https://github.com/slochower/synthetic-motor-literature), [manuscript](https://slochower.github.io/synthetic-motor-literature/))
-+ The TFSEE Manuscript by Venkat Malladi et al. ([source](https://github.com/vsmalladi/tfsee-manuscript), [manuscript](https://vsmalladi.github.io/tfsee-manuscript/))
-+ Creating a Global Emissions Timeseries dataset by Robert Gieseke et al. ([source](https://github.com/openclimatedata/global-emissions), [manuscript](https://openclimatedata.github.io/global-emissions/))
-+ The yt 3.0 methods paper ([source](https://github.com/yt-project/yt-3.0-paper), [manuscript](https://yt-project.github.io/yt-3.0-paper/))
-+ The TPOT-DS Manuscript (includes Hypothesis annotations, [source](https://github.com/trang1618/tpot-ds-ms), [manuscript](https://trang1618.github.io/tpot-ds-ms/))
-+ The Manubot 2018 Development Proposal ([source](https://github.com/greenelab/manufund-2018), [manuscript](https://greenelab.github.io/manufund-2018/))
-
-Some of these examples are still in progress.
-If you are using the Manubot, feel free to submit a pull request to add your manuscript to the list above.
 
 ## Citing Manubot
 
