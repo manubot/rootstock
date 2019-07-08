@@ -106,13 +106,16 @@ Finally, click "Add key".
 ```sh
 # Print the URL for adding the private key to Travis CI
 echo "https://travis-ci.com/$OWNER/$REPO/settings"
+
+# Print the encoded private key for copy-pasting to Travis CI
+cat deploy.key.txt && echo
 ```
 
 Next, go to the Travis CI repository settings page (URL echoed above).
 Add a new record in the "Environment Variables" section.
 For "NAME", enter `MANUBOT_SSH_PRIVATE_KEY`.
 Next, copy-paste the content of `deploy.key.txt` into "VALUE"
-(including any trailing `=` characters if present).
+(printed above by `cat`, including any trailing `=` characters if present).
 Make sure "Display value in build logs" remains toggled off (the default).
 
 While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
