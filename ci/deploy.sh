@@ -23,8 +23,8 @@ git remote set-url origin "git@github.com:$TRAVIS_REPO_SLUG.git"
 
 # Decrypt and add SSH key
 eval "$(ssh-agent -s)"
-[[ "$SHELLOPTS" =~ xtrace ]] && XTRACE_ON=1 && echo "xtrace disabled for private key operations"
-set +o xtrace
+[[ "$SHELLOPTS" =~ xtrace ]] && XTRACE_ON=1
+[[ "${XTRACE_ON:-}" ]] && set +o xtrace && echo "xtrace disabled for private key operations"
 if [ -v MANUBOT_SSH_PRIVATE_KEY ]; then
   base64 --decode <<< "$MANUBOT_SSH_PRIVATE_KEY" | ssh-add -
 else
@@ -38,7 +38,7 @@ openssl aes-256-cbc \
 chmod 600 ci/deploy.key
 ssh-add ci/deploy.key
 fi
-[[ "$XTRACE_ON" ]] && set -o xtrace && echo "xtrace reenabled"
+[[ "${XTRACE_ON:-}" ]] && set -o xtrace && echo "xtrace reenabled"
 
 # Fetch and create gh-pages and output branches
 # Travis does a shallow and single branch git clone
