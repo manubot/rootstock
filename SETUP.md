@@ -2,8 +2,9 @@
 
 The process to create a new Manubot manuscript is a bit challenging, because it requires a few steps that are difficult to automate.
 However, you will only have to perform these steps once for each manuscript.
-These steps should be performed in a terminal, starting in the directory where you want the manuscript folder be created.
-Setup is supported on Linux and macOS, but [**not on Windows**](https://github.com/manubot/rootstock/issues/91).
+These steps should be performed in a command-line shell (terminal), starting in the directory where you want the manuscript folder be created.
+Setup is supported on Linux, macOS, and Windows.
+Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
 ## Configuration
 
@@ -48,7 +49,7 @@ git remote set-url origin https://github.com/$OWNER/$REPO.git
 git remote set-url origin git@github.com:$OWNER/$REPO.git
 ```
 
-Next, you must manually create an empty GitHub repository at https://github.com/new.
+Next, you must manually create an empty GitHub repository at <https://github.com/new>.
 Make sure to use the same "Owner" and "Repository name" specified above.
 Do not initialize the repository, other than optionally adding a Description.
 Next, push your cloned manuscript:
@@ -61,7 +62,7 @@ git push --set-upstream origin output
 
 ## Continuous integration
 
-Now you must manually enable Travis CI for the new repository at https://travis-ci.com.
+Now you must manually enable Travis CI for the new repository at <https://travis-ci.com>.
 Click the `+` sign to "Add New Repository".
 If you don't see your repository listed, push the "Sync account" button.
 Finally, flick the repository's switch to enable CI.
