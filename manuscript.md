@@ -18,9 +18,9 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/8bbd978e8a7f3671f06f655b39f0fc2af5c7eba7/))
+([permalink](https://manubot.github.io/rootstock/v/2a5e425650947020d2d4b49447e3f3d9718dee40/))
 was automatically generated
-from [manubot/rootstock@8bbd978](https://github.com/manubot/rootstock/tree/8bbd978e8a7f3671f06f655b39f0fc2af5c7eba7)
+from [manubot/rootstock@2a5e425](https://github.com/manubot/rootstock/tree/2a5e425650947020d2d4b49447e3f3d9718dee40)
 on July 9, 2019.
 </em></small>
 
