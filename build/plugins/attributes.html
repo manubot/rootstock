@@ -50,7 +50,12 @@
 
                 // loop through attribute/value pairs
                 let match;
-                while(match = text.match(regex2) || text.match(regex1), match) {
+                let count = 0;
+                while(
+                    match = text.match(regex2) || text.match(regex1),
+                    count++,
+                    match && count < 100
+                ) {
                     // get attribute and value from regex capture groups
                     let attribute = match[1];
                     let value = match[2];
