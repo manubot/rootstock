@@ -40,7 +40,6 @@ pandoc --verbose \
   --csl="$CSL_PATH" \
   --metadata link-citations=true \
   --include-after-body=build/themes/default.html \
-  --include-after-body=build/plugins/table-scroll.html \
   --include-after-body=build/plugins/anchors.html \
   --include-after-body=build/plugins/accordion.html \
   --include-after-body=build/plugins/tooltips.html \
@@ -48,7 +47,7 @@ pandoc --verbose \
   --include-after-body=build/plugins/link-highlight.html \
   --include-after-body=build/plugins/table-of-contents.html \
   --include-after-body=build/plugins/lightbox.html \
-  # --include-after-body=build/plugins/attributes.html \
+  --include-after-body=build/plugins/attributes.html \
   --mathjax \
   --variable math="" \
   --include-after-body=build/plugins/math.html \
