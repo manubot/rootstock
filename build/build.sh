@@ -94,7 +94,7 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
     --security-opt=seccomp:unconfined \
     arachnysdocker/athenapdf:2.16.0 \
     athenapdf \
-    --delay=2000 \
+    --delay=5000 \
     manuscript.html manuscript.pdf
   rm -rf output/images
 fi
