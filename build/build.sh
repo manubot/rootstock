@@ -60,6 +60,7 @@ pandoc --verbose \
 DOCKER_EXISTS="$(command -v docker || true)"
 
 # Create PDF output (unless BUILD_PDF environment variable equals "false")
+# If Docker is not available, use WeasyPrint to create PDF
 if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   echo >&2 "Exporting PDF manuscript using WeasyPrint"
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
@@ -82,9 +83,12 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   rm images
 fi
 
-# Create PDF output (unless BUILD_PDF environment variable equals "false")
+# If Docker is available, use athenapdf to create PDF
 if [ "${BUILD_PDF:-}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
   echo >&2 "Exporting PDF manuscript using Docker + Athena"
+  if [ "${CI:-}" = "true" ]; then
+    echo >&2 "Continuous integration build detected. Setting athenapdf --delay=${MANUBOT_ATHENAPDF_DELAY:=5000}"
+  fi
   if [ -d output/images ]; then rm -rf output/images; fi  # if images is a directory, remove it
   cp -R -L content/images output/
   docker run \
@@ -94,7 +98,7 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -n "$DOCKER_EXISTS" ]; then
     --security-opt=seccomp:unconfined \
     arachnysdocker/athenapdf:2.16.0 \
     athenapdf \
-    --delay=5000 \
+    --delay=${MANUBOT_ATHENAPDF_DELAY:-1100} \
     manuscript.html manuscript.pdf
   rm -rf output/images
 fi
