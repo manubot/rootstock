@@ -124,4 +124,35 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
     "$INPUT_PATH"
 fi
 
+# Create LaTeX output (if BUILD_LATEX environment variable equals "true")
+if [ "$BUILD_LATEX" = "true" ];
+then
+  echo >&2 "Exporting LaTeX manuscript"
+  pandoc \
+    --from=markdown \
+    --to=latex \
+    --standalone \
+    --wrap=preserve \
+    --filter=pandoc-fignos \
+    --filter=pandoc-eqnos \
+    --filter=pandoc-tablenos \
+    --bibliography=$BIBLIOGRAPHY_PATH \
+    --csl=$CSL_PATH \
+    --metadata link-citations=true \
+    --number-sections \
+    --resource-path=.:content \
+    --output=output/latex/manuscript.tex \
+    $INPUT_PATH
+  echo >&2 "Exporting PDF from LaTeX manuscript"
+  if [ -L output/latex/images ]; then rm output/latex/images; fi  # if output/latex/images is a symlink, remove it
+  ln -s ../../content/images output/latex/images
+  docker run \
+    --rm --interactive --tty \
+    --volume "$(pwd)":/home \
+    --workdir /home/output/latex \
+    dockershelf/latex:full \
+    xelatex -interaction=nonstopmode manuscript.tex
+  rm images
+fi
+
 echo >&2 "Build complete"
