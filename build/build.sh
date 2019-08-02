@@ -23,6 +23,7 @@ manubot process \
 CSL_PATH=build/assets/style.csl
 BIBLIOGRAPHY_PATH=output/references.json
 INPUT_PATH=output/manuscript.md
+THEME_HTML_PATH="${THEME_HTML_PATH:-build/themes/default.html}"
 
 # Make output directory
 mkdir -p output
@@ -39,7 +40,7 @@ pandoc --verbose \
   --bibliography="$BIBLIOGRAPHY_PATH" \
   --csl="$CSL_PATH" \
   --metadata link-citations=true \
-  --include-after-body=build/themes/default.html \
+  --include-after-body="$THEME_HTML_PATH" \
   --include-after-body=build/plugins/table-scroll.html \
   --include-after-body=build/plugins/anchors.html \
   --include-after-body=build/plugins/accordion.html \
@@ -76,7 +77,7 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
     --csl="$CSL_PATH" \
     --metadata link-citations=true \
     --webtex=https://latex.codecogs.com/svg.latex? \
-    --include-after-body=build/themes/default.html \
+    --include-after-body="$THEME_HTML_PATH" \
     --output=output/manuscript.pdf \
     "$INPUT_PATH"
   rm images
