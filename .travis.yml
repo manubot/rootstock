@@ -7,7 +7,7 @@ branches:
   only:
     - master
 install:
-  - bash ci/install.sh
+  - source ci/install.sh
   - conda activate manubot
 script:
   - bash build/build.sh
