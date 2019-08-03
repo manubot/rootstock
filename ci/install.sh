@@ -4,7 +4,7 @@
 
 # Set options for extra caution & debugging
 set -o errexit \
-    -o nounset \
+#    -o nounset \
     -o pipefail
 
 wget https://repo.continuum.io/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh \
