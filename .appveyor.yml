@@ -1,8 +1,8 @@
 # See https://www.appveyor.com/docs/getting-started-with-appveyor-for-linux/
 skip_branch_with_pr: true
 
-# AppVeyor will run on the output branch commits until the commit message
-# contains [ci skip]
+# AppVeyor will run on the output branch commits unless the first line of the
+# commit message contains '[ci skip]'
 # Enable 'Do not build on "Push" events' in the AppVeyor project settings
 # to only build commits from pull requests
 branches:
