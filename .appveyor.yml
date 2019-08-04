@@ -18,8 +18,7 @@ services:
   - docker
 
 install:
-  - bash ci/install.sh
-  - conda activate manubot
+  - source ci/install.sh
     
 test_script:
   - bash build/build.sh

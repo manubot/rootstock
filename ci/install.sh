@@ -4,7 +4,6 @@
 
 # Set options for extra caution & debugging
 set -o errexit \
-#    -o nounset \
     -o pipefail
 
 wget https://repo.continuum.io/miniconda/Miniconda3-4.6.14-Linux-x86_64.sh \
@@ -17,3 +16,4 @@ conda config \
   --set changeps1 no
 conda env create --quiet --file build/environment.yml
 conda list --name manubot
+conda activate manubot

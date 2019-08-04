@@ -8,7 +8,6 @@ branches:
     - master
 install:
   - source ci/install.sh
-  - conda activate manubot
 script:
   - bash build/build.sh
 cache:
