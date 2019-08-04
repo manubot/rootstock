@@ -9,6 +9,10 @@ branches:
   only:
     - master
 
+only_commits:
+  files:
+    - content/
+
 image: ubuntu
 services:
   - docker
