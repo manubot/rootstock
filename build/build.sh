@@ -125,9 +125,10 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
 fi
 
 # Create LaTeX output (if BUILD_LATEX environment variable equals "true")
-if [ "$BUILD_LATEX" = "true" ];
+if [ "${BUILD_LATEX:-}" = "true" ];
 then
   echo >&2 "Exporting LaTeX manuscript"
+  mkdir -p output/latex
   pandoc \
     --from=markdown \
     --to=latex \
