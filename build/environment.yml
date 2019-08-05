@@ -9,7 +9,7 @@ dependencies:
   - jinja2=2.10
   - jsonschema=3.0.1
   - pandas=0.24.2
-  - pandoc=2.7.2
+  - pandoc=2.7.3
   - pango=1.40.14
   - pip=19.1
   - psutil=5.6.2

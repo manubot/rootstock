@@ -124,4 +124,87 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
     "$INPUT_PATH"
 fi
 
+# Create LaTeX output (if BUILD_LATEX environment variable equals "true")
+if [ "${BUILD_LATEX:-}" = "true" ];
+then
+  echo >&2 "Exporting LaTeX manuscript"
+  mkdir -p output/latex
+  cd output/latex
+  pandoc \
+    --from=markdown \
+    --to=latex \
+    --standalone \
+    --wrap=preserve \
+    --filter=pandoc-fignos \
+    --filter=pandoc-eqnos \
+    --filter=pandoc-tablenos \
+    --bibliography=../../$BIBLIOGRAPHY_PATH \
+    --csl=../../$CSL_PATH \
+    --metadata link-citations=true \
+    --number-sections \
+    --metadata=documentclass:ws-procs11x85 \
+    --resource-path=.:../../content \
+    --extract-media=images \
+    --output=manuscript.tex \
+    ../../$INPUT_PATH
+  echo >&2 "Exporting PDF from LaTeX manuscript"
+  #if [ -L output/latex/images ]; then rm output/latex/images; fi  # if output/latex/images is a symlink, remove it
+  #ln -s ../../content/images output/latex/images
+  docker run \
+    --rm --interactive --tty \
+    --user "$(id -u):$(id -g)" \
+    --volume "$(pwd)":/home \
+    --workdir /home/ \
+    dockershelf/latex:full \
+    xelatex  manuscript.tex
+  rm images
+fi
+
+
+CSL_PATH=build/assets/style.csl
+BIBLIOGRAPHY_PATH=output/references.json
+INPUT_PATH=output/manuscript.md
+
+# sudo apt install librsvg2-bin
+# https://anaconda.org/conda-forge/librsvg
+# texlive-xelatex texlive-full
+
+pandoc \
+  --verbose \
+  --from=markdown \
+  --wrap=preserve \
+  --filter=pandoc-eqnos \
+  --filter=pandoc-tablenos \
+  --filter=pandoc-fignos \
+  --number-sections \
+  --metadata=documentclass:ws-procs11x85 \
+  --bibliography=../../$BIBLIOGRAPHY_PATH \
+  --csl=../../$CSL_PATH \
+  --metadata link-citations=true \
+  --resource-path=.:../../content \
+  --pdf-engine=xelatex \
+  --output=manuscript-pandoc-latex.pdf \
+  ../../$INPUT_PATH
+
+# https://github.com/jgm/pandoc/issues/4721
+  --pdf-engine-opt=-output-directory=output/latex \
+  --metadata=documentclass:ws-procs11x85 \
+
+
 echo >&2 "Build complete"
+
+  docker run \
+    --rm --interactive --tty \
+    --volume "$(pwd)":/home \
+    --workdir /home/output/latex \
+    dockershelf/latex:full \
+    pandoc --version
+  
+docker run \
+  --rm \
+  --volume "$(pwd):/data" \
+  --user "$(id -u):$(id -g)" \
+  --entrypoint which \
+  pandoc/latex:2.7.3 \
+  pandoc
+
