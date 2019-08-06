@@ -19,6 +19,7 @@ services:
 
 install:
   - source ci/install.sh
+  - env
     
 test_script:
   - bash build/build.sh
