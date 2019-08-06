@@ -24,7 +24,8 @@ install:
     
 test_script:
   - bash build/build.sh
-  - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${APPVEYOR_REPO_COMMIT:0:7}.pdf
+  - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
+  - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}.pdf
   - cp output/manuscript.pdf $MANUSCRIPT_FILENAME
   - appveyor PushArtifact $MANUSCRIPT_FILENAME
 
@@ -34,8 +35,8 @@ cache:
   - ci/cache
 
 on_success:
-  - echo "Artifacts available from https://ci.appveyor.com/project/$APPVEYOR_REPO_NAME/builds/$APPVEYOR_BUILD_ID/artifacts"
-  - echo "Updated PDF available from https://ci.appveyor.com/api/buildjobs/$APPVEYOR_JOB_ID/artifacts/$MANUSCRIPT_FILENAME"
+  - echo "Artifacts available from $APPVEYOR_URL/project/$APPVEYOR_ACCOUNT_NAME/$APPVEYOR_PROJECT_SLUG/builds/$APPVEYOR_BUILD_ID/artifacts"
+  - echo "Updated PDF available from $APPVEYOR_URL/api/buildjobs/$APPVEYOR_JOB_ID/artifacts/$MANUSCRIPT_FILENAME"
 
 # The following lines can be safely deleted, which will disable AppVeyorBot
 # notifications in GitHub pull requests
