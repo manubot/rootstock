@@ -9,9 +9,13 @@ branches:
   only:
     - master
 
+# Only run AppVeyor on commits that modify at least one of the following files
+# Delete these lines to run AppVeyor on all master branch commits
 only_commits:
   files:
     - .appveyor.yml
+    - build/
+    - ci/install.sh
     - content/
 
 image: ubuntu
