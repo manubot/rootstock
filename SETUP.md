@@ -202,8 +202,8 @@ Once the pull request is ready to merge, use GitHub's "Create a merge commit" op
 You can optionally enable AppVeyor continuous integration to view pull request builds.
 Unlike Travis CI, AppVeyor supports storing manuscripts generated during pull request builds as artifacts.
 These can be previewed to facilitate pull request review and ensure formatting and reference changes render as expected.
-When a pull request build runs successfully, the AppVeyorBot will post a notification in the pull request linking to the versioned manuscript PDF.
+When a pull request build runs successfully, **@AppVeyorBot** will comment on the pull request with a download link to the manuscript PDF.
 
 To enable AppVeyor, follow steps 1 and 2 of the [AppVeyor welcome](https://www.appveyor.com/docs/) to sign in to AppVeyor and add your manuscript repository as an AppVeyor project.
 The repository already contains an `.appveyor.yml` build configuration file, so no other setup is required.
-AppVeyor is configured to only run when the files in the `content` directory are modified.
+AppVeyor only runs when it detects changes that are likely to effect the manuscript.
