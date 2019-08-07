@@ -25,6 +25,7 @@ install:
 test_script:
   - bash build/build.sh
   - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
+  - appveyor AddMessage "commit $TRIGGERING_COMMIT"
   - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}.pdf
   - cp output/manuscript.pdf $MANUSCRIPT_FILENAME
   - appveyor PushArtifact $MANUSCRIPT_FILENAME
@@ -45,5 +46,6 @@ on_success:
 # for available variables
 notifications:
   - provider: GitHubPullRequest
-    template: "{{#passed}}:white_check_mark:{{/passed}}{{#failed}}:x:{{/failed}} [Build {{&projectName}} {{buildVersion}} {{status}}]({{buildUrl}}) (commit {{commitUrl}} by @{{&commitAuthorUsername}})
+    template: "{{#passed}}:white_check_mark:{{/passed}}{{#failed}}:x:{{/failed}} [Build {{&projectName}} {{buildVersion}} {{status}}]({{buildUrl}})
+      {{#jobs}}{{#messages}} ({{message}} by @{{&commitAuthorUsername}}) {{/messages}}{{/jobs}}
       {{#jobs}}{{#artifacts}}<br>Generated [{{fileName}}]({{permalink}}) for review{{/artifacts}}{{/jobs}}"

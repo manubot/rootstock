@@ -206,4 +206,4 @@ When a pull request build runs successfully, **@AppVeyorBot** will comment on th
 
 To enable AppVeyor, follow steps 1 and 2 of the [AppVeyor welcome](https://www.appveyor.com/docs/) to sign in to AppVeyor and add your manuscript repository as an AppVeyor project.
 The repository already contains an `.appveyor.yml` build configuration file, so no other setup is required.
-AppVeyor only runs when it detects changes that are likely to effect the manuscript.
+AppVeyor only runs when it detects changes that are likely to affect the manuscript.
