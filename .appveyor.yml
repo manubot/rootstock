@@ -51,9 +51,9 @@ on_success:
 # for available variables
 notifications:
   - provider: GitHubPullRequest
-    template: "{{#passed}}AppVeyor [build {{buildVersion}}]({{buildUrl}})
-      {{#jobs}}{{#messages}} for {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} is now complete.
-      The rendered manuscript from this build is temporarily available for download at
-      {{#jobs}}{{#artifacts}} [`{{fileName}}`]({{permalink}}){{/artifacts}}{{/jobs}}.{{/passed}}
-      {{#failed}}AppVeyor [build {{buildVersion}}]({{buildUrl}})
-      {{#jobs}}{{#messages}} for {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} failed.{{/failed}}"
+    template: "AppVeyor [build {{buildVersion}}]({{buildUrl}})
+      {{#jobs}}{{#messages}} for {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}}
+      {{#passed}} is now complete.{{/passed}}
+      {{#failed}} failed.{{/failed}}
+      {{#jobs}}{{#artifacts}} The rendered manuscript from this build is temporarily available for download at
+      [`{{fileName}}`]({{permalink}}){{/artifacts}}{{/jobs}}."
