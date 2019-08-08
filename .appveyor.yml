@@ -23,6 +23,7 @@ services:
   - docker
 
 install:
+  - exit 1
   # Create the message with the triggering commit before install so it is
   # available if the build fails
   - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
