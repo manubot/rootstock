@@ -23,12 +23,14 @@ services:
   - docker
 
 install:
+  # Create the message with the triggering commit before install so it is
+  # available if the build fails
+  - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
+  - appveyor AddMessage "commit $TRIGGERING_COMMIT"
   - source ci/install.sh
     
 test_script:
   - bash build/build.sh
-  - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
-  - appveyor AddMessage "commit $TRIGGERING_COMMIT"
   - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}.pdf
   - cp output/manuscript.pdf $MANUSCRIPT_FILENAME
   - appveyor PushArtifact $MANUSCRIPT_FILENAME
@@ -49,9 +51,9 @@ on_success:
 # for available variables
 notifications:
   - provider: GitHubPullRequest
-    template: "{{#passed}}AppVeyor build {{buildVersion}} for
-      {{#jobs}}{{#messages}} {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} is now complete.
+    template: "{{#passed}}AppVeyor [build {{buildVersion}}]({{buildUrl}})
+      {{#jobs}}{{#messages}} for {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} is now complete.
       The rendered manuscript from this build is temporarily available for download at
       {{#jobs}}{{#artifacts}} [`{{fileName}}`]({{permalink}}){{/artifacts}}{{/jobs}}.{{/passed}}
-      {{#failed}}AppVeyor build {{buildVersion}} for
-      {{#jobs}}{{#messages}} {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} failed.{{/failed}}"
+      {{#failed}}AppVeyor [build {{buildVersion}}]({{buildUrl}})
+      {{#jobs}}{{#messages}} for {{message}} by @{{&commitAuthorUsername}} {{/messages}}{{/jobs}} failed.{{/failed}}"
