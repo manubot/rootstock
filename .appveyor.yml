@@ -34,8 +34,6 @@ test_script:
   - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}.pdf
   - cp output/manuscript.pdf $MANUSCRIPT_FILENAME
   - appveyor PushArtifact $MANUSCRIPT_FILENAME
-  - cp output/manuscript.pdf duplicate-$MANUSCRIPT_FILENAME
-  - appveyor PushArtifact duplicate-$MANUSCRIPT_FILENAME
 
 build: off
 
@@ -58,4 +56,4 @@ notifications:
       {{#passed}} is now complete.{{/passed}}
       {{#failed}} failed.{{/failed}}
       {{#jobs}}{{#artifacts}} The rendered manuscript from this build is temporarily available for download at
-      [`{{fileName}}`]({{permalink}}){{/artifacts}}{{/jobs}}."
+      [`{{fileName}}`]({{permalink}}).{{/artifacts}}{{/jobs}}"
