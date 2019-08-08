@@ -23,7 +23,6 @@ services:
   - docker
 
 install:
-  - exit 1
   - source ci/install.sh
     
 test_script:
