@@ -23,7 +23,6 @@ services:
   - docker
 
 install:
-  - exit 1
   # Create the message with the triggering commit before install so it is
   # available if the build fails
   - TRIGGERING_COMMIT=${APPVEYOR_PULL_REQUEST_HEAD_COMMIT:-APPVEYOR_REPO_COMMIT}
@@ -35,6 +34,7 @@ test_script:
   - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}.pdf
   - cp output/manuscript.pdf $MANUSCRIPT_FILENAME
   - appveyor PushArtifact $MANUSCRIPT_FILENAME
+  - exit 1
 
 build: off
 
