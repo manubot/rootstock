@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-08-09" />
+  <meta name="dcterms.date" content="2019-08-30" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -16,9 +16,9 @@
       div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <style>
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -28,14 +28,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -44,9 +46,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -86,11 +88,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/bc094bd3d6cec6935298b4acf50e45ad55bf45c8/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/bc094bd3d6cec6935298b4acf50e45ad55bf45c8">manubot/rootstock@bc094bd</a> on August 9, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/6a3ac958e01a43a4a2a5f228ae1d0c63d52595b2/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/6a3ac958e01a43a4a2a5f228ae1d0c63d52595b2">manubot/rootstock@6a3ac95</a> on August 30, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
-<li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" alt="Twitter icon" class="inline_icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
-<li><p><strong>Jane Roe</strong><br> <img src="images/orcid.svg" alt="ORCID icon" class="inline_icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" alt="GitHub icon" class="inline_icon" /> <a href="https://github.com/janeroe">janeroe</a><br> <small> Department of Something, University of Whatever; Department of Whatever, University of Something </small></p></li>
+<li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
+<li><p><strong>Jane Roe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/janeroe">janeroe</a><br> <small> Department of Something, University of Whatever; Department of Whatever, University of Something </small></p></li>
 </ul>
 <h2 id="abstract" class="page_break_before">Abstract</h2>
 <p>This manuscript is a template (aka “rootstock”) for <a href="https://manubot.org/" title="Manubot">Manubot</a>, a tool for writing scholarly manuscripts. Use this template as a starting point for your manuscript.</p>
@@ -178,28 +180,28 @@ And that has made all the difference.</p>
 </blockquote>
 <p>Code <code>in the middle</code> of normal text, aka <code>inline code</code>.</p>
 <p>Code block with Python syntax highlighting:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="im">from</span> manubot.cite.doi <span class="im">import</span> expand_short_doi</a>
-<a class="sourceLine" id="cb1-2" title="2"></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="kw">def</span> test_expand_short_doi():</a>
-<a class="sourceLine" id="cb1-4" title="4">    doi <span class="op">=</span> expand_short_doi(<span class="st">&quot;10/c3bp&quot;</span>)</a>
-<a class="sourceLine" id="cb1-5" title="5">    <span class="co"># a string too long to fit within page:</span></a>
-<a class="sourceLine" id="cb1-6" title="6">    <span class="cf">assert</span> doi <span class="op">==</span> <span class="st">&quot;10.25313/2524-2695-2018-3-vliyanie-enhansera-copia-i-insulyatora-gypsy-na-sintez-ernk-modifikatsii-hromatina-i-svyazyvanie-insulyatornyh-belkov-vtransfetsirovannyh-geneticheskih-konstruktsiyah&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> manubot.cite.doi <span class="im">import</span> expand_short_doi</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">def</span> test_expand_short_doi():</span>
+<span id="cb1-4"><a href="#cb1-4"></a>    doi <span class="op">=</span> expand_short_doi(<span class="st">&quot;10/c3bp&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="co"># a string too long to fit within page:</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    <span class="cf">assert</span> doi <span class="op">==</span> <span class="st">&quot;10.25313/2524-2695-2018-3-vliyanie-enhansera-copia-i-insulyatora-gypsy-na-sintez-ernk-modifikatsii-hromatina-i-svyazyvanie-insulyatornyh-belkov-vtransfetsirovannyh-geneticheskih-konstruktsiyah&quot;</span></span></code></pre></div>
 <p>Code block with no syntax highlighting:</p>
 <pre><code>Exporting HTML manuscript
 Exporting DOCX manuscript
 Exporting PDF manuscript</code></pre>
 <h2 id="figures">Figures</h2>
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" alt="Figure 1: A square image at actual size and with a bottom caption. Loaded from the latest version of image on GitHub." id="fig:square-image" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong> Loaded from the latest version of image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" id="fig:square-image" alt="" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong> Loaded from the latest version of image on GitHub.</figcaption>
 </figure>
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" alt="Figure 2: An image too wide to fit within page at full size. Loaded from a specific (hashed) version of the image on GitHub." id="fig:wide-image" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" id="fig:wide-image" alt="" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" alt="Figure 3: A tall image with a specified height. Loaded from a specific (hashed) version of the image on GitHub." id="fig:tall-image" style="height:3in" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" id="fig:tall-image" style="height:3in" alt="" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
 <figure>
-<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" alt="Figure 4: A vector .svg image loaded from GitHub. The parameter sanitize=true is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image." id="fig:vector-image" class="white" style="height:2.5in" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong> The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
+<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" id="fig:vector-image" class="white" style="height:2.5in" alt="" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong> The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
 </figure>
 <h2 id="tables">Tables</h2>
 <a name="tbl:bowling-scores"></a>
@@ -331,7 +333,7 @@ Daniel S. Himmelstein, Vincent Rubinetti, David R. Slochower, Dongbo Hu, Venkat 
 <div id="ref-PZMP42Ak">
 <p>7. <strong>Opportunities and obstacles for deep learning in biology and medicine</strong><br />
 Travers Ching, Daniel S. Himmelstein, Brett K. Beaulieu-Jones, Alexandr A. Kalinin, Brian T. Do, Gregory P. Way, Enrico Ferrero, Paul-Michael Agapow, Michael Zietz, Michael M. Hoffman, … Casey S. Greene<br />
-<em>Journal of The Royal Society Interface</em> (2018-04) <a href="https://doi.org/gddkhn">https://doi.org/gddkhn</a><br />
+<em>Journal of The Royal Society Interface</em> (2018-04-04) <a href="https://doi.org/gddkhn">https://doi.org/gddkhn</a><br />
 DOI: <a href="https://doi.org/10.1098/rsif.2017.0387">10.1098/rsif.2017.0387</a> · PMID: <a href="https://www.ncbi.nlm.nih.gov/pubmed/29618526">29618526</a> · PMCID: <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5938574">PMC5938574</a></p>
 </div>
 <div id="ref-YuJbg3zO">
