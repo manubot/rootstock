@@ -45,21 +45,17 @@ fi
 git remote set-branches --add origin gh-pages output
 git fetch origin gh-pages:gh-pages output:output
 
-# Configure versioned webpage
-python build/webpage.py \
+# Configure versioned webpage and timestamp
+manubot webpage \
+  --timestamp \
   --no-ots-cache \
   --checkout=gh-pages \
   --version="$TRAVIS_COMMIT"
 
-# Generate OpenTimestamps
-ots stamp "webpage/v/$TRAVIS_COMMIT/index.html"
-if [ "${BUILD_PDF:-}" != "false" ]; then
-  ots stamp "webpage/v/$TRAVIS_COMMIT/manuscript.pdf"
-fi
-
 # Commit message
 MESSAGE="\
-$(git log --max-count=1 --format='%s') [ci skip]
+$(git log --max-count=1 --format='%s')
+[ci skip]
 
 This build is based on
 https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT.
