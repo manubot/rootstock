@@ -54,8 +54,7 @@ manubot webpage \
 
 # Commit message
 MESSAGE="\
-$(git log --max-count=1 --format='%s')
-[ci skip]
+$(git log --max-count=1 --format='%s') [ci skip]
 
 This build is based on
 https://github.com/$TRAVIS_REPO_SLUG/commit/$TRAVIS_COMMIT.
