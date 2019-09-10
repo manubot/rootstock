@@ -8,7 +8,7 @@
 
         // This Manubot plugin allows arbitrary HTML attributes to be attached
         // to (almost) any element. Place an HTML comment inside or next to the
-        // desired element in the format <!-- attribute="value" -->
+        // desired element in the format <!-- $attribute="value" -->
 
         // /////////////////////////
         // OPTIONS
@@ -48,17 +48,12 @@
         function addAttributes(element, text) {
             // regex's for finding attribute/value pairs in the format of
             // attribute="value" or attribute='value
-            const regex2 = /([a-zA-Z\-]+)?=\"(.+?)\"/;
-            const regex1 = /([a-zA-Z\-]+)?=\'(.+?)\'/;
+            const regex2 = /\$([a-zA-Z\-]+)?=\"(.+?)\"/;
+            const regex1 = /\$([a-zA-Z\-]+)?=\'(.+?)\'/;
 
             // loop through attribute/value pairs
             let match;
-            let count = 0;
-            while(
-                match = text.match(regex2) || text.match(regex1),
-                count++,
-                match && count < 100
-            ) {
+            while(match = text.match(regex2) || text.match(regex1)) {
                 // get attribute and value from regex capture groups
                 let attribute = match[1];
                 let value = match[2];
