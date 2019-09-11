@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2019-09-06'
+date-meta: '2019-09-11'
 keywords:
 - markdown
 - publishing
@@ -18,10 +18,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/631b8a2d9efe8fc8c7b0fe8bf7d4cfe5239bcfb0/))
+([permalink](https://manubot.github.io/rootstock/v/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251/))
 was automatically generated
-from [manubot/rootstock@631b8a2](https://github.com/manubot/rootstock/tree/631b8a2d9efe8fc8c7b0fe8bf7d4cfe5239bcfb0)
-on September 6, 2019.
+from [manubot/rootstock@0dc5ea8](https://github.com/manubot/rootstock/tree/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251)
+on September 11, 2019.
 </em></small>
 
 ## Authors
@@ -252,13 +252,22 @@ White background specified to serve as a backdrop for transparent sections of th
 Table: A table with a top caption and specified relative column widths.
 {#tbl:bowling-scores}
 
-|         | Digits 1-33                        | Digits 34-66                      | Digits 67-99                      | Ref.                        |
-|:--------|:-----------------------------------|:----------------------------------|:----------------------------------|:----------------------------|
-| pi | 3.14159265358979323846264338327950 | 288419716939937510582097494459230 | 781640628620899862803482534211706 | [`piday.org`](https://www.piday.org/million/) |
-| e  | 2.71828182845904523536028747135266 | 249775724709369995957496696762772 | 407663035354759457138217852516642 | [`nasa.gov`](https://apod.nasa.gov/htmltest/gifcity/e.2mil) |
+|         | Digits 1-33                        | Digits 34-66                      | Digits 67-99                      | Ref.                                                        |
+|:--------|:-----------------------------------|:----------------------------------|:----------------------------------|:------------------------------------------------------------|
+| pi      | 3.14159265358979323846264338327950 | 288419716939937510582097494459230 | 781640628620899862803482534211706 | [`piday.org`](https://www.piday.org/million/)               |
+| e       | 2.71828182845904523536028747135266 | 249775724709369995957496696762772 | 407663035354759457138217852516642 | [`nasa.gov`](https://apod.nasa.gov/htmltest/gifcity/e.2mil) |
 
 Table: A table too wide to fit within page.
 {#tbl:constant-digits}
+
+|          | **Colors** <!-- $colspan="2" --> |                      |
+|:--------:|:--------------------------------:|:--------------------:|
+| **Size** | **Text Color**                   | **Background Color** |
+| big      | blue                             | orange               |
+| small    | black                            | white                |
+
+Table: A table with merged cells using the `attributes` plugin.
+{#tbl: merged-cells}
 
 ## Equations
 
@@ -276,6 +285,25 @@ $$x = a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s 
 _Journals are not likely to support them, and they may not display correctly when converted to other formats such as `.docx`._
 
 [Link styled as a button](https://manubot.org "Manubot Homepage"){.button}
+
+Adding arbitrary HTML attributes to an element using Pandoc's attribute syntax:
+
+::: {#some_id_1 .some_class style="background: #ad1457; color: white; margin-left: 40px;" title="a paragraph of text" data-color="white" disabled="true"}
+Manubot Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot.
+Manubot Manubot.
+Manubot.
+:::
+
+Adding arbitrary HTML attributes to an element with the Manubot `attributes` plugin (more flexible than Pandoc's method in terms of which elements you can add attributes to):
+
+Manubot Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot.
+Manubot Manubot.
+Manubot.
+<!-- $id="element_id" class="some_class" $style="color: #ad1457; margin-left: 40px;" $disabled="true" $title="a paragraph of text" $data-color="red" -->
 
 Available background colors for text, images, code, banners, etc:  
 
