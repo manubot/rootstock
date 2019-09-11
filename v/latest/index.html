@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-09-06" />
+  <meta name="dcterms.date" content="2019-09-11" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -88,7 +88,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/631b8a2d9efe8fc8c7b0fe8bf7d4cfe5239bcfb0/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/631b8a2d9efe8fc8c7b0fe8bf7d4cfe5239bcfb0">manubot/rootstock@631b8a2</a> on September 6, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251">manubot/rootstock@0dc5ea8</a> on September 11, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -245,11 +245,11 @@ Exporting PDF manuscript</code></pre>
 <table>
 <caption><span>Table 2:</span> A table too wide to fit within page. </caption>
 <colgroup>
-<col style="width: 6%" />
-<col style="width: 25%" />
-<col style="width: 24%" />
-<col style="width: 24%" />
+<col style="width: 5%" />
 <col style="width: 20%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 34%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -277,6 +277,33 @@ Exporting PDF manuscript</code></pre>
 </tr>
 </tbody>
 </table>
+<table>
+<caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin. </caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;"><strong>Colors</strong> <!-- $colspan="2" --></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Size</strong></td>
+<td style="text-align: center;"><strong>Text Color</strong></td>
+<td style="text-align: center;"><strong>Background Color</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">big</td>
+<td style="text-align: center;">blue</td>
+<td style="text-align: center;">orange</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">small</td>
+<td style="text-align: center;">black</td>
+<td style="text-align: center;">white</td>
+</tr>
+</tbody>
+</table>
 <h2 id="equations">Equations</h2>
 <p>A LaTeX equation:</p>
 <p><span id="eq:regular-equation" style="display: inline-block; position: relative; width: 100%"><span class="math display">\[\int_0^\infty e^{-x^2} dx=\frac{\sqrt{\pi}}{2}\]</span><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(1)</span></span> </p>
@@ -285,6 +312,12 @@ Exporting PDF manuscript</code></pre>
 <h2 id="special">Special</h2>
 <p><i class="fas fa-exclamation-triangle"></i> <span class="semibold">WARNING</span> <em>The following features are only supported and intended for <code>.html</code> and <code>.pdf</code> exports.</em> <em>Journals are not likely to support them, and they may not display correctly when converted to other formats such as <code>.docx</code>.</em></p>
 <p><a href="https://manubot.org" class="button" title="Manubot Homepage">Link styled as a button</a></p>
+<p>Adding arbitrary HTML attributes to an element using Pandoc’s attribute syntax:</p>
+<div id="some_id_1" class="some_class" style="background: #ad1457; color: white; margin-left: 40px;" title="a paragraph of text" data-color="white" disabled="true">
+<p>Manubot Manubot Manubot Manubot Manubot. Manubot Manubot Manubot Manubot. Manubot Manubot Manubot. Manubot Manubot. Manubot.</p>
+</div>
+<p>Adding arbitrary HTML attributes to an element with the Manubot <code>attributes</code> plugin (more flexible than Pandoc’s method in terms of which elements you can add attributes to):</p>
+<p>Manubot Manubot Manubot Manubot Manubot. Manubot Manubot Manubot Manubot. Manubot Manubot Manubot. Manubot Manubot. Manubot. <!-- $id="element_id" class="some_class" $style="color: #ad1457; margin-left: 40px;" $disabled="true" $title="a paragraph of text" $data-color="red" --></p>
 <p>Available background colors for text, images, code, banners, etc:</p>
 <p><code class="white">white</code> <code class="lightgrey">lightgrey</code> <code class="grey">grey</code> <code class="darkgrey">darkgrey</code> <code class="black">black</code> <code class="lightred">lightred</code> <code class="lightyellow">lightyellow</code> <code class="lightgreen">lightgreen</code> <code class="lightblue">lightblue</code> <code class="lightpurple">lightpurple</code> <code class="red">red</code> <code class="orange">orange</code> <code class="yellow">yellow</code> <code class="green">green</code> <code class="blue">blue</code> <code class="purple">purple</code></p>
 <p>Using the <a href="https://fontawesome.com/">Font Awesome</a> icon set:</p>
@@ -4058,6 +4091,136 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
         ></path>
     </svg>
 </template>
+<!-- attributes plugin -->
+
+<script>
+    (function() {
+        // /////////////////////////
+        // DESCRIPTION
+        // /////////////////////////
+
+        // This Manubot plugin allows arbitrary HTML attributes to be attached
+        // to (almost) any element. Place an HTML comment inside or next to the
+        // desired element in the format <!-- $attribute="value" -->
+
+        // /////////////////////////
+        // OPTIONS
+        // /////////////////////////
+
+        // plugin name prefix for url parameters
+        const pluginName = 'attributes';
+
+        // default plugin options
+        const options = {
+            // whether plugin is on or not
+            enabled: 'true'
+        };
+
+        // change options above, or override with url parameter, eg:
+        // 'manuscript.html?pluginName-enabled=false'
+
+        // /////////////////////////
+        // SCRIPT
+        // /////////////////////////
+
+        // start script
+        function start() {
+            // get list of comments in document
+            const comments = findComments();
+
+            for(const comment of comments)
+                if (comment.parentElement)
+                    addAttributes(
+                        comment.parentElement,
+                        comment.nodeValue.trim()
+                    );
+        }
+
+        // add html attributes to specified element based on string of 
+        // html attributes and values
+        function addAttributes(element, text) {
+            // regex's for finding attribute/value pairs in the format of
+            // attribute="value" or attribute='value
+            const regex2 = /\$([a-zA-Z\-]+)?=\"(.+?)\"/;
+            const regex1 = /\$([a-zA-Z\-]+)?=\'(.+?)\'/;
+
+            // loop through attribute/value pairs
+            let match;
+            while(match = text.match(regex2) || text.match(regex1)) {
+                // get attribute and value from regex capture groups
+                let attribute = match[1];
+                let value = match[2];
+
+                // remove from string
+                text = text.substring(match.index + match[0].length);
+
+                if (!attribute || !value)
+                    break;
+
+                // set attribute of parent element
+                try {
+                    element.setAttribute(attribute, value);
+                } catch(error) {
+                    console.log(error);
+                }
+
+                // special case for colspan
+                if (attribute === 'colspan')
+                    removeTableCells(element, value);
+            }
+        }
+
+        // get list of comment elements in document
+        function findComments() {
+            const comments = [];
+
+            // iterate over comment nodes in document
+            function acceptNode(node) {
+                return NodeFilter.FILTER_ACCEPT;
+            }
+            const iterator = document.createNodeIterator(
+                document.body,
+                NodeFilter.SHOW_COMMENT,
+                acceptNode
+            );
+            let node;
+            while(node = iterator.nextNode())
+                comments.push(node);
+
+            return comments;
+        }
+
+        // remove certain number of cells after specified cell
+        function removeTableCells(cell, number) {
+            number = parseInt(number);
+            if (!number)
+                return;
+
+            // remove elements
+            for(; number > 1; number--) {
+                if (cell.nextElementSibling)
+                    cell.nextElementSibling.remove();
+            }
+        }
+
+        // load options from url parameters
+        function loadOptions() {
+            const url = window.location.search;
+            const params = new URLSearchParams(url);
+            for (const optionName of Object.keys(options)) {
+                const paramName = pluginName + '-' + optionName;
+                const param = params.get(paramName);
+                if (param !== '' && param !== null)
+                    options[optionName] = param;
+            }
+        }
+        loadOptions();
+
+        // start script when document is finished loading
+        if (options.enabled === 'true')
+            window.addEventListener('load', start);
+    })();
+</script>
 <!-- math plugin configuration -->
 
 <script type="text/x-mathjax-config">
