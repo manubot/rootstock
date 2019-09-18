@@ -2,7 +2,7 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2019-09-11'
+date-meta: '2019-09-18'
 keywords:
 - markdown
 - publishing
@@ -18,10 +18,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251/))
+([permalink](https://manubot.github.io/rootstock/v/9811137f4f6bf95f4e2f686a040a740cd78670f0/))
 was automatically generated
-from [manubot/rootstock@0dc5ea8](https://github.com/manubot/rootstock/tree/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251)
-on September 11, 2019.
+from [manubot/rootstock@9811137](https://github.com/manubot/rootstock/tree/9811137f4f6bf95f4e2f686a040a740cd78670f0)
+on September 18, 2019.
 </em></small>
 
 ## Authors
