@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/manubot/rootstock/tree/gh-pages) branch hosts the contents of this directory at https://manubot.github.io/rootstock/.
-The permalink for this webpage version is https://manubot.github.io/rootstock/v/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251/.
+The permalink for this webpage version is https://manubot.github.io/rootstock/v/9811137f4f6bf95f4e2f686a040a740cd78670f0/.
 To redirect to the permalink for the latest manuscript version at anytime, use the link https://manubot.github.io/rootstock/v/freeze/.
 
 ## Files
@@ -19,10 +19,10 @@ In general, a version is identified by the commit hash of the source content tha
 
 The `*.ots` files in version directories are OpenTimestamps which can be used to verify manuscript existence at or before a given time.
 [OpenTimestamps](https://opentimestamps.org/) uses the Bitcoin blockchain to attest to file hash existence.
-The `deploy.sh` script run during continuous deployment creates the `.ots` files.
+The `deploy.sh` script run during continuous deployment creates the `.ots` files through its `manubot webpage` call.
 There is a delay before timestamps get confirmed by a Bitcoin block.
 Therefore, `.ots` files are initially incomplete and should be upgraded at a later time, so that they no longer rely on the availability of a calendar server to verify.
-`webpage.py`, which is run during continuous deployment, identifies files matched by `webpage/v/**/*.ots` and attempts to upgrade them.
+The `manubot webpage` call during continuous deployment identifies files matched by `webpage/v/**/*.ots` and attempts to upgrade them.
 You can also manually upgrade timestamps, by running the following in the `gh-pages` branch:
 
 ```sh
@@ -36,4 +36,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251`](https://github.com/manubot/rootstock/commit/0dc5ea8c4530e8c1c0a56ac4ede48ac835c01251).
+[`9811137f4f6bf95f4e2f686a040a740cd78670f0`](https://github.com/manubot/rootstock/commit/9811137f4f6bf95f4e2f686a040a740cd78670f0).
