@@ -1,5 +1,5 @@
 {
-  "date": "September 18, 2019",
+  "date": "October 11, 2019",
   "authors": [
     {
       "github": "johndoe",
@@ -47,11 +47,11 @@
     "repo_slug": "manubot/rootstock",
     "repo_owner": "manubot",
     "repo_name": "rootstock",
-    "commit": "9811137f4f6bf95f4e2f686a040a740cd78670f0",
-    "triggering_commit": "9811137f4f6bf95f4e2f686a040a740cd78670f0",
-    "build_url": "https://travis-ci.com/manubot/rootstock/builds/128189052",
-    "job_url": "https://travis-ci.com/manubot/rootstock/jobs/236839258",
-    "manuscript_url": "https://manubot.github.io/rootstock/v/9811137f4f6bf95f4e2f686a040a740cd78670f0/"
+    "commit": "6859ada7a28a72cd0ed728e085955f23fadc2b9a",
+    "triggering_commit": "6859ada7a28a72cd0ed728e085955f23fadc2b9a",
+    "build_url": "https://travis-ci.com/manubot/rootstock/builds/131569546",
+    "job_url": "https://travis-ci.com/manubot/rootstock/jobs/244832656",
+    "manuscript_url": "https://manubot.github.io/rootstock/v/6859ada7a28a72cd0ed728e085955f23fadc2b9a/"
   },
   "manuscript_stats": {
     "reference_counts": {
