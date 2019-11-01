@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2019-10-11" />
+  <meta name="dcterms.date" content="2019-11-01" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -83,12 +83,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+  
+  <!-- pandoc-eqnos: equation style -->
+  <style>
+    .eqnos { display: inline-block; position: relative; width: 100%; }
+    .eqnos br { display: none; }
+    .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
+  </style>
 </head>
 <body>
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/6859ada7a28a72cd0ed728e085955f23fadc2b9a/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/6859ada7a28a72cd0ed728e085955f23fadc2b9a">manubot/rootstock@6859ada</a> on October 11, 2019. </em></small></p>
+<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/7cf9071212ce33116ad09cf2237a370b180a3c35/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/7cf9071212ce33116ad09cf2237a370b180a3c35">manubot/rootstock@7cf9071</a> on November 1, 2019. </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
 <li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
@@ -192,20 +199,28 @@ And that has made all the difference.</p>
 Exporting DOCX manuscript
 Exporting PDF manuscript</code></pre>
 <h2 id="figures">Figures</h2>
+<div id="fig:square-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" id="fig:square-image" alt="" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong> Loaded from the latest version of image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" alt="" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong> Loaded from the latest version of image on GitHub.</figcaption>
 </figure>
+</div>
+<div id="fig:wide-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" id="fig:wide-image" alt="" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" alt="" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
+</div>
+<div id="fig:tall-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" id="fig:tall-image" style="height:3in" alt="" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" style="height:3in" alt="" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
+</div>
+<div id="fig:vector-image" class="fignos">
 <figure>
-<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" id="fig:vector-image" class="white" style="height:2.5in" alt="" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong> The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
+<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" class="white" style="height:2.5in" alt="" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong> The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
 </figure>
+</div>
 <h2 id="tables">Tables</h2>
-<a name="tbl:bowling-scores"></a>
+<div id="tbl:bowling-scores" class="tablenos">
 <table>
 <caption><span>Table 1:</span> A table with a top caption and specified relative column widths. </caption>
 <thead>
@@ -241,7 +256,8 @@ Exporting PDF manuscript</code></pre>
 </tr>
 </tbody>
 </table>
-<a name="tbl:constant-digits"></a>
+</div>
+<div id="tbl:constant-digits" class="tablenos">
 <table>
 <caption><span>Table 2:</span> A table too wide to fit within page. </caption>
 <colgroup>
@@ -277,6 +293,8 @@ Exporting PDF manuscript</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="tbl:47d9fbb3-140f-4a24-8f38-5ec9e196c168" class="tablenos">
 <table>
 <caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin. </caption>
 <thead>
@@ -304,11 +322,12 @@ Exporting PDF manuscript</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="equations">Equations</h2>
 <p>A LaTeX equation:</p>
-<p><span id="eq:regular-equation" style="display: inline-block; position: relative; width: 100%"><span class="math display">\[\int_0^\infty e^{-x^2} dx=\frac{\sqrt{\pi}}{2}\]</span><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(1)</span></span> </p>
+<p><span id="eq:regular-equation" class="eqnos"><span class="math display">\[\int_0^\infty e^{-x^2} dx=\frac{\sqrt{\pi}}{2}\]</span><span class="eqnos-number">(1)</span></span> </p>
 <p>An equation too long to fit within page:</p>
-<p><span id="eq:long-equation" style="display: inline-block; position: relative; width: 100%"><span class="math display">\[x = a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9\]</span><span style="position: absolute; right: 0em; top: 50%; line-height:0; text-align: right">(2)</span></span> </p>
+<p><span id="eq:long-equation" class="eqnos"><span class="math display">\[x = a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9\]</span><span class="eqnos-number">(2)</span></span> </p>
 <h2 id="special">Special</h2>
 <p><i class="fas fa-exclamation-triangle"></i> <span class="semibold">WARNING</span> <em>The following features are only supported and intended for <code>.html</code> and <code>.pdf</code> exports.</em> <em>Journals are not likely to support them, and they may not display correctly when converted to other formats such as <code>.docx</code>.</em></p>
 <p><a href="https://manubot.org" class="button" title="Manubot Homepage">Link styled as a button</a></p>
