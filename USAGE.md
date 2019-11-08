@@ -198,12 +198,12 @@ such as when a manuscript is shared on social media or added to the [Manubot cat
 Specify a thumbnail in any of the following ways:
 
 1. placing an image named `thumbnail.png` anywhere in the manuscript repository (for example, in the root directory).
-2. setting `thumbnail` in `metadata.yaml` to a repository-relative path where the image file is located.
+2. setting `thumbnail` in `metadata.yaml` to a path, relative to the repository root, where the image file is located.
     Example:
     ```yaml
     thumbnail: build/assets/thumbnail-1000x1000.png
     ```
-3. setting `thumbnail` in `metadata.yaml` to a URL where the image is located.
+3. setting `thumbnail` in `metadata.yaml` to an absolute URL where the image is located.
     Example:
     ```yaml
     thumbnail: https://github.com/greenelab/meta-review/raw/master/thumbnail.png
