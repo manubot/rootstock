@@ -391,8 +391,10 @@
   },
   {
     "id": "1GGGHdsew",
-    "type": "webpage",
+    "type": "report",
     "title": "Open collaborative writing with Manubot",
+    "publisher": "Manubot",
+    "source": "greenelab.github.io",
     "URL": "https://greenelab.github.io/meta-review/",
     "language": "en-US",
     "author": [
@@ -429,7 +431,7 @@
       "date-parts": [
         [
           "2019",
-          9,
+          11,
           20
         ]
       ]
