@@ -1,68 +1,88 @@
 {
-  "date": "November 1, 2019",
-  "authors": [
-    {
-      "github": "johndoe",
-      "name": "John Doe",
-      "initials": "JD",
-      "orcid": "XXXX-XXXX-XXXX-XXXX",
-      "twitter": "johndoe",
-      "email": "john.doe@something.com",
-      "affiliations": [
-        "Department of Something, University of Whatever"
-      ],
-      "funders": "Grant XXXXXXXX",
-      "affiliation_numbers": [
-        1
-      ]
-    },
-    {
-      "github": "janeroe",
-      "name": "Jane Roe",
-      "initials": "JR",
-      "orcid": "XXXX-XXXX-XXXX-XXXX",
-      "email": "jane.roe@whatever.edu",
-      "affiliations": [
-        "Department of Something, University of Whatever",
-        "Department of Whatever, University of Something"
-      ],
-      "affiliation_numbers": [
-        1,
-        2
-      ]
-    }
-  ],
-  "affiliations": [
-    {
-      "affiliation": "Department of Something, University of Whatever",
-      "affiliation_number": 1
-    },
-    {
-      "affiliation": "Department of Whatever, University of Something",
-      "affiliation_number": 2
-    }
-  ],
-  "ci_source": {
-    "provider": "travis",
-    "repo_slug": "manubot/rootstock",
-    "repo_owner": "manubot",
-    "repo_name": "rootstock",
-    "commit": "7cf9071212ce33116ad09cf2237a370b180a3c35",
-    "triggering_commit": "7cf9071212ce33116ad09cf2237a370b180a3c35",
-    "build_url": "https://travis-ci.com/manubot/rootstock/builds/134602372",
-    "job_url": "https://travis-ci.com/manubot/rootstock/jobs/251925838",
-    "manuscript_url": "https://manubot.github.io/rootstock/v/7cf9071212ce33116ad09cf2237a370b180a3c35/"
+  "pandoc": {
+    "title": "Manuscript Title",
+    "keywords": [
+      "markdown",
+      "publishing",
+      "manubot"
+    ],
+    "lang": "en-US",
+    "date-meta": "2019-11-20",
+    "author-meta": [
+      "John Doe",
+      "Jane Roe"
+    ],
+    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/master/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta name=\"dc.title\" content=\"Manuscript Title\" />\n<meta name=\"citation_title\" content=\"Manuscript Title\" />\n<meta property=\"og:title\" content=\"Manuscript Title\" />\n<meta property=\"twitter:title\" content=\"Manuscript Title\" />\n<meta name=\"dc.date\" content=\"2019-11-20\" />\n<meta name=\"citation_publication_date\" content=\"2019-11-20\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"John Doe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<meta name=\"twitter:creator\" content=\"@johndoe\" />\n<meta name=\"citation_author\" content=\"Jane Roe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_institution\" content=\"Department of Whatever, University of Something\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<link rel=\"canonical\" href=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"og:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"twitter:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_pdf_url\" content=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->"
   },
-  "manuscript_stats": {
-    "reference_counts": {
-      "doi": 3,
-      "isbn": 1,
-      "pmcid": 1,
-      "pmid": 1,
-      "url": 1,
-      "wikidata": 1,
-      "total": 8
+  "manubot": {
+    "date": "November 20, 2019",
+    "authors": [
+      {
+        "github": "johndoe",
+        "name": "John Doe",
+        "initials": "JD",
+        "orcid": "XXXX-XXXX-XXXX-XXXX",
+        "twitter": "johndoe",
+        "email": "john.doe@something.com",
+        "affiliations": [
+          "Department of Something, University of Whatever"
+        ],
+        "funders": "Grant XXXXXXXX",
+        "affiliation_numbers": [
+          1
+        ]
+      },
+      {
+        "github": "janeroe",
+        "name": "Jane Roe",
+        "initials": "JR",
+        "orcid": "XXXX-XXXX-XXXX-XXXX",
+        "email": "jane.roe@whatever.edu",
+        "affiliations": [
+          "Department of Something, University of Whatever",
+          "Department of Whatever, University of Something"
+        ],
+        "affiliation_numbers": [
+          1,
+          2
+        ]
+      }
+    ],
+    "affiliations": [
+      {
+        "affiliation": "Department of Something, University of Whatever",
+        "affiliation_number": 1
+      },
+      {
+        "affiliation": "Department of Whatever, University of Something",
+        "affiliation_number": 2
+      }
+    ],
+    "ci_source": {
+      "provider": "travis",
+      "repo_slug": "manubot/rootstock",
+      "repo_owner": "manubot",
+      "repo_name": "rootstock",
+      "commit": "f1bf210b115607b1887c0dcfaed11cbe81543967",
+      "triggering_commit": "f1bf210b115607b1887c0dcfaed11cbe81543967",
+      "build_url": "https://travis-ci.com/manubot/rootstock/builds/137413771",
+      "job_url": "https://travis-ci.com/manubot/rootstock/jobs/258652896"
     },
-    "word_count": 1363
+    "html_url": "https://manubot.github.io/rootstock/",
+    "pdf_url": "https://manubot.github.io/rootstock/manuscript.pdf",
+    "html_url_versioned": "https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/",
+    "pdf_url_versioned": "https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/manuscript.pdf",
+    "manuscript_stats": {
+      "reference_counts": {
+        "doi": 3,
+        "isbn": 1,
+        "pmcid": 1,
+        "pmid": 1,
+        "url": 1,
+        "wikidata": 1,
+        "total": 8
+      },
+      "word_count": 1370
+    }
   }
 }

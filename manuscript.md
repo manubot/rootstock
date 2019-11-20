@@ -2,7 +2,86 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2019-11-01'
+date-meta: '2019-11-20'
+header-includes: '<!--
+
+  Manubot generated metadata rendered from header-includes-template.html.
+
+  Suggest improvements at https://github.com/manubot/manubot/blob/master/manubot/process/header-includes-template.html
+
+  -->
+
+  <meta name="dc.format" content="text/html" />
+
+  <meta name="dc.title" content="Manuscript Title" />
+
+  <meta name="citation_title" content="Manuscript Title" />
+
+  <meta property="og:title" content="Manuscript Title" />
+
+  <meta property="twitter:title" content="Manuscript Title" />
+
+  <meta name="dc.date" content="2019-11-20" />
+
+  <meta name="citation_publication_date" content="2019-11-20" />
+
+  <meta name="dc.language" content="en-US" />
+
+  <meta name="citation_language" content="en-US" />
+
+  <meta name="dc.relation.ispartof" content="Manubot" />
+
+  <meta name="dc.publisher" content="Manubot" />
+
+  <meta name="citation_journal_title" content="Manubot" />
+
+  <meta name="citation_technical_report_institution" content="Manubot" />
+
+  <meta name="citation_author" content="John Doe" />
+
+  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
+
+  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+
+  <meta name="twitter:creator" content="@johndoe" />
+
+  <meta name="citation_author" content="Jane Roe" />
+
+  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
+
+  <meta name="citation_author_institution" content="Department of Whatever, University of Something" />
+
+  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+
+  <link rel="canonical" href="https://manubot.github.io/rootstock/" />
+
+  <meta property="og:url" content="https://manubot.github.io/rootstock/" />
+
+  <meta property="twitter:url" content="https://manubot.github.io/rootstock/" />
+
+  <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
+
+  <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
+
+  <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
+
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/" />
+
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/" />
+
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/manuscript.pdf" />
+
+  <meta property="og:type" content="article" />
+
+  <meta property="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
+
+  <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
+
+  <meta name="theme-color" content="#ad1457" />
+
+  <!-- end Manubot generated metadata -->'
 keywords:
 - markdown
 - publishing
@@ -18,10 +97,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/7cf9071212ce33116ad09cf2237a370b180a3c35/))
+([permalink](https://manubot.github.io/rootstock/v/f1bf210b115607b1887c0dcfaed11cbe81543967/))
 was automatically generated
-from [manubot/rootstock@7cf9071](https://github.com/manubot/rootstock/tree/7cf9071212ce33116ad09cf2237a370b180a3c35)
-on November 1, 2019.
+from [manubot/rootstock@f1bf210](https://github.com/manubot/rootstock/tree/f1bf210b115607b1887c0dcfaed11cbe81543967)
+on .
 </em></small>
 
 ## Authors
