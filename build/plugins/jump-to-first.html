@@ -102,7 +102,7 @@
 
         // add button next to each figure
         function makeFigureButtons() {
-            const figures = document.querySelectorAll('*[id^="fig:"]');
+            const figures = document.querySelectorAll('[id^="fig:"]');
             for (const figure of figures) {
                 // get figure id and element to add button to
                 const id = figure.id;
@@ -130,7 +130,7 @@
 
         // add button next to each figure
         function makeTableButtons() {
-            const tables = document.querySelectorAll('*[id^="tbl:"]');
+            const tables = document.querySelectorAll('[id^="tbl:"]');
             for (const table of tables) {
                 // get ref id and element to add button to
                 const id = table.id;
