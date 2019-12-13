@@ -105,9 +105,9 @@
 
             // if figure or table, modify target to get expected element
             if (id.indexOf('fig:') === 0)
-                target = target.firstElementChild;
+                target = target.querySelector('figure');
             if (id.indexOf('tbl:') === 0)
-                target = target.firstElementChild;
+                target = target.querySelector('table');
 
             return target;
         }
