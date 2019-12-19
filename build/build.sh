@@ -27,8 +27,7 @@ mkdir -p output
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
   --defaults=build/pandoc-defaults/common.yaml \
-  --to=html5 \
-  --output=output/manuscript.html
+  --defaults=build/pandoc-defaults/html.yaml
 
 # Return null if docker command is missing, otherwise return path to docker
 DOCKER_EXISTS="$(command -v docker || true)"
@@ -41,11 +40,8 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   ln -s content/images
   pandoc \
     --defaults=build/pandoc-defaults/common.yaml \
-    --to=html5 \
-    --pdf-engine=weasyprint \
-    --pdf-engine-opt=--presentational-hints \
-    --webtex='https://latex.codecogs.com/svg.latex?' \
-    --output=output/manuscript.pdf
+    --defaults=build/pandoc-defaults/html.yaml \
+    --defaults=build/pandoc-defaults/pdf-weasyprint.yaml
   rm images
 fi
 
@@ -78,9 +74,7 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
   echo >&2 "Exporting Word Docx manuscript"
   pandoc --verbose \
     --defaults=build/pandoc-defaults/common.yaml \
-    --to=docx \
-    --resource-path=.:content \
-    --output=output/manuscript.docx
+    --defaults=build/pandoc-defaults/docx.yaml
 fi
 
 echo >&2 "Build complete"
