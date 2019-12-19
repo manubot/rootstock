@@ -23,7 +23,7 @@ manubot process \
 mkdir -p output
 
 # Create HTML output
-# http://pandoc.org/MANUAL.html
+# https://pandoc.org/MANUAL.html
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
   --defaults=build/pandoc-defaults/common.yaml \
