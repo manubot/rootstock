@@ -26,7 +26,7 @@ mkdir -p output
 # http://pandoc.org/MANUAL.html
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
-  --defaults=build/pandoc-defaults.yaml \
+  --defaults=build/pandoc-defaults/common.yaml \
   --to=html5 \
   --output=output/manuscript.html
 
@@ -40,7 +40,7 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
   pandoc \
-    --defaults=build/pandoc-defaults.yaml \
+    --defaults=build/pandoc-defaults/common.yaml \
     --to=html5 \
     --pdf-engine=weasyprint \
     --pdf-engine-opt=--presentational-hints \
@@ -77,7 +77,7 @@ fi
 if [ "${BUILD_DOCX:-}" = "true" ]; then
   echo >&2 "Exporting Word Docx manuscript"
   pandoc --verbose \
-    --defaults=build/pandoc-defaults.yaml \
+    --defaults=build/pandoc-defaults/common.yaml \
     --to=docx \
     --resource-path=.:content \
     --output=output/manuscript.docx
