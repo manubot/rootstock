@@ -1,0 +1,33 @@
+# https://pandoc.org/MANUAL.html#default-files
+# combination of several defaults files https://github.com/jgm/pandoc/issues/5988
+# better "Defaults file" documentation https://github.com/jgm/pandoc/issues/5990
+from: markdown
+input-file: output/manuscript.md
+filters:
+- pandoc-fignos
+- pandoc-eqnos
+- pandoc-tablenos
+- pandoc-citeproc
+reference-doc: build/themes/default.docx
+wrap: preserve
+metadata:
+  bibliography: output/references.json
+  csl: build/assets/style.csl
+  link-citations: true
+include-after-body:
+- build/themes/default.html
+- build/plugins/anchors.html
+- build/plugins/accordion.html
+- build/plugins/tooltips.html
+- build/plugins/jump-to-first.html
+- build/plugins/link-highlight.html
+- build/plugins/table-of-contents.html
+- build/plugins/lightbox.html
+- build/plugins/attributes.html
+- build/plugins/math.html
+- build/plugins/hypothesis.html
+- build/plugins/analytics.html
+html-math-method:
+  method: mathjax
+variables:
+  math: ''
