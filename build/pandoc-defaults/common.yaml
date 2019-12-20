@@ -1,6 +1,4 @@
-# https://pandoc.org/MANUAL.html#default-files
-# combination of several defaults files https://github.com/jgm/pandoc/issues/5988
-# better "Defaults file" documentation https://github.com/jgm/pandoc/issues/5990
+# Pandoc --defaults shared between Manubot output formats.
 from: markdown
 input-file: output/manuscript.md
 filters:

@@ -1,3 +1,5 @@
+# Pandoc --defaults for HTML output.
+# Load on top of common defaults.
 to: html5
 output-file: output/manuscript.html
 include-after-body:
