@@ -19,6 +19,10 @@ manubot process \
   --cache-directory=ci/cache \
   --log-level=INFO
 
+# Pandoc's configuration is specified via files of option defaults
+# located in the PANDOC_DEFAULTS_DIR directory.
+PANDOC_DEFAULTS_DIR="${PANDOC_DEFAULTS_DIR:-build/pandoc-defaults}"
+
 # Make output directory
 mkdir -p output
 
@@ -26,8 +30,8 @@ mkdir -p output
 # https://pandoc.org/MANUAL.html
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
-  --defaults=build/pandoc-defaults/common.yaml \
-  --defaults=build/pandoc-defaults/html.yaml
+  --defaults="$PANDOC_DEFAULTS_DIR/common.yaml" \
+  --defaults="$PANDOC_DEFAULTS_DIR/html.yaml"
 
 # Return null if docker command is missing, otherwise return path to docker
 DOCKER_EXISTS="$(command -v docker || true)"
@@ -39,9 +43,9 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
   pandoc \
-    --defaults=build/pandoc-defaults/common.yaml \
-    --defaults=build/pandoc-defaults/html.yaml \
-    --defaults=build/pandoc-defaults/pdf-weasyprint.yaml
+    --defaults="$PANDOC_DEFAULTS_DIR/common.yaml" \
+    --defaults="$PANDOC_DEFAULTS_DIR/html.yaml" \
+    --defaults="$PANDOC_DEFAULTS_DIR/pdf-weasyprint.yaml"
   rm images
 fi
 
@@ -73,8 +77,8 @@ fi
 if [ "${BUILD_DOCX:-}" = "true" ]; then
   echo >&2 "Exporting Word Docx manuscript"
   pandoc --verbose \
-    --defaults=build/pandoc-defaults/common.yaml \
-    --defaults=build/pandoc-defaults/docx.yaml
+    --defaults="$PANDOC_DEFAULTS_DIR/common.yaml" \
+    --defaults="$PANDOC_DEFAULTS_DIR/docx.yaml"
 fi
 
 echo >&2 "Build complete"
