@@ -10,75 +10,74 @@
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style>
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -113,12 +112,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <meta property="twitter:url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" /> <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/b5c196fb9010777ac0b57772eaa52a4addd2e496/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/b5c196fb9010777ac0b57772eaa52a4addd2e496/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/b5c196fb9010777ac0b57772eaa52a4addd2e496/manuscript.pdf" />
+  <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" /> <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
+  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
+  <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
   <meta name="theme-color" content="#ad1457" />
   <!-- end Manubot generated metadata -->
   
@@ -133,15 +134,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header">
 <h1 class="title">Manuscript Title</h1>
 </header>
-<p><small><em> This manuscript (<a href="https://manubot.github.io/rootstock/v/b5c196fb9010777ac0b57772eaa52a4addd2e496/">permalink</a>) was automatically generated from <a href="https://github.com/manubot/rootstock/tree/b5c196fb9010777ac0b57772eaa52a4addd2e496">manubot/rootstock@b5c196f</a> on January 4, 2020. </em></small></p>
+<p><small><em>
+This manuscript
+(<a href="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/">permalink</a>)
+was automatically generated
+from <a href="https://github.com/manubot/rootstock/tree/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386">manubot/rootstock@06fb01d</a>
+on January 4, 2020.
+</em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
-<li><p><strong>John Doe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/johndoe">johndoe</a> · <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" /> <a href="https://twitter.com/johndoe">johndoe</a><br> <small> Department of Something, University of Whatever · Funded by Grant XXXXXXXX </small></p></li>
-<li><p><strong>Jane Roe</strong><br> <img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" /> <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a> · <img src="images/github.svg" class="inline_icon" alt="GitHub icon" /> <a href="https://github.com/janeroe">janeroe</a><br> <small> Department of Something, University of Whatever; Department of Whatever, University of Something </small></p></li>
+<li><p><strong>John Doe</strong><br>
+<img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" />
+<a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a>
+· <img src="images/github.svg" class="inline_icon" alt="GitHub icon" />
+<a href="https://github.com/johndoe">johndoe</a>
+· <img src="images/twitter.svg" class="inline_icon" alt="Twitter icon" />
+<a href="https://twitter.com/johndoe">johndoe</a><br>
+<small>
+Department of Something, University of Whatever
+· Funded by Grant XXXXXXXX
+</small></p></li>
+<li><p><strong>Jane Roe</strong><br>
+<img src="images/orcid.svg" class="inline_icon" alt="ORCID icon" />
+<a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX">XXXX-XXXX-XXXX-XXXX</a>
+· <img src="images/github.svg" class="inline_icon" alt="GitHub icon" />
+<a href="https://github.com/janeroe">janeroe</a><br>
+<small>
+Department of Something, University of Whatever; Department of Whatever, University of Something
+</small></p></li>
 </ul>
-<h2 id="abstract" class="page_break_before">Abstract</h2>
-<p>This manuscript is a template (aka “rootstock”) for <a href="https://manubot.org/" title="Manubot">Manubot</a>, a tool for writing scholarly manuscripts. Use this template as a starting point for your manuscript.</p>
-<p>The rest of this document is a full list of formatting elements/features supported by Manubot. Compare the input (<code>.md</code> files in the <code>/content</code> directory) to the output you see below.</p>
+<h2 class="page_break_before" id="abstract" class="page_break_before">Abstract</h2>
+<p>This manuscript is a template (aka “rootstock”) for <a href="https://manubot.org/" title="Manubot">Manubot</a>, a tool for writing scholarly manuscripts.
+Use this template as a starting point for your manuscript.</p>
+<p>The rest of this document is a full list of formatting elements/features supported by Manubot.
+Compare the input (<code>.md</code> files in the <code>/content</code> directory) to the output you see below.</p>
 <h2 id="basic-formatting">Basic formatting</h2>
 <p><strong>Bold</strong> <strong>text</strong></p>
 <p><span class="semibold">Semi-bold text</span></p>
@@ -174,7 +200,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>subscript<sub>2n+1</sub></p>
 <p><a href="https://www.google.com/search?q=superscript+generator">unicode superscripts</a>⁰¹²³⁴⁵⁶⁷⁸⁹</p>
 <p><a href="https://www.google.com/search?q=superscript+generator">unicode subscripts</a>₀₁₂₃₄₅₆₇₈₉</p>
-<p>A long paragraph of text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>A long paragraph of text.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 <p>Putting each sentence on its own line has numerous benefits with regard to <a href="https://asciidoctor.org/docs/asciidoc-recommended-practices/#one-sentence-per-line">editing</a> and <a href="https://rhodesmill.org/brandon/2012/one-sentence-per-line/">version control</a>.</p>
 <p>Line break without starting a new paragraph by putting<br />
 two spaces at end of line.</p>
@@ -184,7 +214,7 @@ two spaces at end of line.</p>
 <h2 id="heading-2">Heading 2</h2>
 <h3 id="heading-3">Heading 3</h3>
 <h4 id="heading-4">Heading 4</h4>
-<h3 id="a-heading-centered-on-its-own-printed-page" class="center page_center">A heading centered on its own printed page</h3>
+<h3 class="center page_center" id="a-heading-centered-on-its-own-printed-page" class="center page_center">A heading centered on its own printed page</h3>
 <!-- an arbitrary comment. visible in input, but not visible in output. -->
 <p>Horizontal rule:</p>
 <hr />
@@ -205,7 +235,8 @@ two spaces at end of line.</p>
 <p>Citation by ISBN <span class="citation" data-cites="zBPP9YKu">[<a href="#ref-zBPP9YKu" role="doc-biblioref">5</a>]</span>.</p>
 <p>Citation by URL <span class="citation" data-cites="1GGGHdsew">[<a href="#ref-1GGGHdsew" role="doc-biblioref">6</a>]</span>.</p>
 <p>Citation by tag <span class="citation" data-cites="PZMP42Ak">[<a href="#ref-PZMP42Ak" role="doc-biblioref">7</a>]</span>.</p>
-<p>Multiple citations can be put inside the same set of brackets <span class="citation" data-cites="IhliSZDo PZMP42Ak zBPP9YKu">[<a href="#ref-IhliSZDo" role="doc-biblioref">1</a>,<a href="#ref-zBPP9YKu" role="doc-biblioref">5</a>,<a href="#ref-PZMP42Ak" role="doc-biblioref">7</a>]</span>. Manubot plugins provide easier, more convenient visualization of and navigation between citations <span class="citation" data-cites="YuJbg3zO 7XVI5bB4 PyydLU5l PZMP42Ak">[<a href="#ref-PyydLU5l" role="doc-biblioref">2</a>,<a href="#ref-7XVI5bB4" role="doc-biblioref">3</a>,<a href="#ref-PZMP42Ak" role="doc-biblioref">7</a>,<a href="#ref-YuJbg3zO" role="doc-biblioref">8</a>]</span>.</p>
+<p>Multiple citations can be put inside the same set of brackets <span class="citation" data-cites="IhliSZDo PZMP42Ak zBPP9YKu">[<a href="#ref-IhliSZDo" role="doc-biblioref">1</a>,<a href="#ref-zBPP9YKu" role="doc-biblioref">5</a>,<a href="#ref-PZMP42Ak" role="doc-biblioref">7</a>]</span>.
+Manubot plugins provide easier, more convenient visualization of and navigation between citations <span class="citation" data-cites="YuJbg3zO 7XVI5bB4 PyydLU5l PZMP42Ak">[<a href="#ref-PyydLU5l" role="doc-biblioref">2</a>,<a href="#ref-7XVI5bB4" role="doc-biblioref">3</a>,<a href="#ref-PZMP42Ak" role="doc-biblioref">7</a>,<a href="#ref-YuJbg3zO" role="doc-biblioref">8</a>]</span>.</p>
 <h2 id="referencing-figures-tables-equations">Referencing figures, tables, equations</h2>
 <p>Figure <a href="#fig:square-image">1</a></p>
 <p>Figure <a href="#fig:wide-image">2</a></p>
@@ -239,28 +270,34 @@ Exporting PDF manuscript</code></pre>
 <h2 id="figures">Figures</h2>
 <div id="fig:square-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" alt="" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong> Loaded from the latest version of image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/square.png" alt="" /><figcaption><span>Figure 1:</span> <strong>A square image at actual size and with a bottom caption.</strong>
+Loaded from the latest version of image on GitHub.</figcaption>
 </figure>
 </div>
 <div id="fig:wide-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" alt="" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/wide.png" alt="" /><figcaption><span>Figure 2:</span> <strong>An image too wide to fit within page at full size.</strong>
+Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
 </div>
 <div id="fig:tall-image" class="fignos">
 <figure>
-<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" style="height:3in" alt="" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong> Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
+<img src="https://github.com/manubot/resources/raw/15493970f8882fce22bef829619d3fb37a613ba5/test/tall.png" style="height:3in" alt="" /><figcaption><span>Figure 3:</span> <strong>A tall image with a specified height.</strong>
+Loaded from a specific (hashed) version of the image on GitHub.</figcaption>
 </figure>
 </div>
 <div id="fig:vector-image" class="fignos">
 <figure>
-<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" class="white" style="height:2.5in" alt="" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong> The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs. White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
+<img src="https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true" class="white" style="height:2.5in" alt="" /><figcaption><span>Figure 4:</span> <strong>A vector <code>.svg</code> image loaded from GitHub.</strong>
+The parameter <code>sanitize=true</code> is necessary to properly load SVGs hosted via GitHub URLs.
+White background specified to serve as a backdrop for transparent sections of the image.</figcaption>
 </figure>
 </div>
 <h2 id="tables">Tables</h2>
 <div id="tbl:bowling-scores" class="tablenos">
 <table>
-<caption><span>Table 1:</span> A table with a top caption and specified relative column widths. </caption>
+<caption><span>Table 1:</span> A table with a top caption and specified relative column widths.
+</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;"><em>Bowling Scores</em></th>
@@ -297,7 +334,8 @@ Exporting PDF manuscript</code></pre>
 </div>
 <div id="tbl:constant-digits" class="tablenos">
 <table>
-<caption><span>Table 2:</span> A table too wide to fit within page. </caption>
+<caption><span>Table 2:</span> A table too wide to fit within page.
+</caption>
 <colgroup>
 <col style="width: 5%" />
 <col style="width: 20%" />
@@ -332,9 +370,10 @@ Exporting PDF manuscript</code></pre>
 </tbody>
 </table>
 </div>
-<div id="tbl:77a3bade-275a-463d-9045-92c953fdfeef" class="tablenos">
+<div id="tbl:6e9ed728-b2f0-4b77-916e-fd40a594c90e" class="tablenos">
 <table>
-<caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin. </caption>
+<caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin.
+</caption>
 <thead>
 <tr class="header">
 <th style="text-align: center;"></th>
@@ -367,26 +406,54 @@ Exporting PDF manuscript</code></pre>
 <p>An equation too long to fit within page:</p>
 <p><span id="eq:long-equation" class="eqnos"><span class="math display">\[x = a + b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9\]</span><span class="eqnos-number">(2)</span></span> </p>
 <h2 id="special">Special</h2>
-<p><i class="fas fa-exclamation-triangle"></i> <span class="semibold">WARNING</span> <em>The following features are only supported and intended for <code>.html</code> and <code>.pdf</code> exports.</em> <em>Journals are not likely to support them, and they may not display correctly when converted to other formats such as <code>.docx</code>.</em></p>
+<p><i class="fas fa-exclamation-triangle"></i> <span class="semibold">WARNING</span> <em>The following features are only supported and intended for <code>.html</code> and <code>.pdf</code> exports.</em>
+<em>Journals are not likely to support them, and they may not display correctly when converted to other formats such as <code>.docx</code>.</em></p>
 <p><a href="https://manubot.org" class="button" title="Manubot Homepage">Link styled as a button</a></p>
 <p>Adding arbitrary HTML attributes to an element using Pandoc’s attribute syntax:</p>
 <div id="some_id_1" class="some_class" style="background: #ad1457; color: white; margin-left: 40px;" title="a paragraph of text" data-color="white" disabled="true">
-<p>Manubot Manubot Manubot Manubot Manubot. Manubot Manubot Manubot Manubot. Manubot Manubot Manubot. Manubot Manubot. Manubot.</p>
+<p>Manubot Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot.
+Manubot Manubot.
+Manubot.</p>
 </div>
 <p>Adding arbitrary HTML attributes to an element with the Manubot <code>attributes</code> plugin (more flexible than Pandoc’s method in terms of which elements you can add attributes to):</p>
-<p>Manubot Manubot Manubot Manubot Manubot. Manubot Manubot Manubot Manubot. Manubot Manubot Manubot. Manubot Manubot. Manubot. <!-- $id="element_id" class="some_class" $style="color: #ad1457; margin-left: 40px;" $disabled="true" $title="a paragraph of text" $data-color="red" --></p>
+<p>Manubot Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot Manubot.
+Manubot Manubot Manubot.
+Manubot Manubot.
+Manubot.
+<!-- $id="element_id" class="some_class" $style="color: #ad1457; margin-left: 40px;" $disabled="true" $title="a paragraph of text" $data-color="red" --></p>
 <p>Available background colors for text, images, code, banners, etc:</p>
-<p><code class="white">white</code> <code class="lightgrey">lightgrey</code> <code class="grey">grey</code> <code class="darkgrey">darkgrey</code> <code class="black">black</code> <code class="lightred">lightred</code> <code class="lightyellow">lightyellow</code> <code class="lightgreen">lightgreen</code> <code class="lightblue">lightblue</code> <code class="lightpurple">lightpurple</code> <code class="red">red</code> <code class="orange">orange</code> <code class="yellow">yellow</code> <code class="green">green</code> <code class="blue">blue</code> <code class="purple">purple</code></p>
+<p><code class="white">white</code>
+<code class="lightgrey">lightgrey</code>
+<code class="grey">grey</code>
+<code class="darkgrey">darkgrey</code>
+<code class="black">black</code>
+<code class="lightred">lightred</code>
+<code class="lightyellow">lightyellow</code>
+<code class="lightgreen">lightgreen</code>
+<code class="lightblue">lightblue</code>
+<code class="lightpurple">lightpurple</code>
+<code class="red">red</code>
+<code class="orange">orange</code>
+<code class="yellow">yellow</code>
+<code class="green">green</code>
+<code class="blue">blue</code>
+<code class="purple">purple</code></p>
 <p>Using the <a href="https://fontawesome.com/">Font Awesome</a> icon set:</p>
 <!-- include the Font Awesome library, per: https://fontawesome.com/start -->
 <p><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"></p>
 <p><i class="fas fa-check"></i> <i class="fas fa-question"></i> <i class="fas fa-star"></i> <i class="fas fa-bell"></i> <i class="fas fa-times-circle"></i> <i class="fas fa-ellipsis-h"></i></p>
-<p><span class="banner lightgrey"><i class="fas fa-scroll fa-lg"></i> <strong>Light Grey Banner</strong><br> useful for <em>general information</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
-<p><span class="banner lightblue"><i class="fas fa-info-circle fa-lg"></i> <strong>Blue Banner</strong><br> useful for <em>important information</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
-<p><span class="banner lightred"><i class="fas fa-ban fa-lg"></i> <strong>Light Red Banner</strong><br> useful for <em>warnings</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
-<h2 id="references" class="page_break_before">References</h2>
+<p><span class="banner lightgrey"><i class="fas fa-scroll fa-lg"></i> <strong>Light Grey Banner</strong><br>
+useful for <em>general information</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
+<p><span class="banner lightblue"><i class="fas fa-info-circle fa-lg"></i> <strong>Blue Banner</strong><br>
+useful for <em>important information</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
+<p><span class="banner lightred"><i class="fas fa-ban fa-lg"></i> <strong>Light Red Banner</strong><br>
+useful for <em>warnings</em> - <a href="https://manubot.org/">manubot.org</a></span></p>
+<h2 class="page_break_before" id="references" class="page_break_before">References</h2>
 <!-- Explicitly insert bibliography here -->
-<div id="refs" role="doc-bibliography">
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
 <div id="ref-IhliSZDo">
 <p>1. <strong>Sci-Hub provides access to nearly all scholarly literature</strong><br />
 Daniel S Himmelstein, Ariel Rodriguez Romero, Jacob G Levernier, Thomas Anthony Munro, Stephen Reid McLaughlin, Bastian Greshake Tzovaras, Casey S Greene<br />
