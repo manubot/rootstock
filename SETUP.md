@@ -182,8 +182,8 @@ git checkout -b rootstock-$(date '+%Y-%m-%d')
 Second, pull the new commits from rootstock, but do not automerge:
 
 ```shell
-# add rootstock remote, if it doesn't exist
-git config remote.rootstock.url >&- || git remote add rootstock https://github.com/manubot/rootstock.git
+# if rootstock remote is not set, add it
+git config remote.rootstock.url || git remote add rootstock https://github.com/manubot/rootstock.git
 
 # pull the new commits from rootstock
 git pull --no-ff --no-commit rootstock master
