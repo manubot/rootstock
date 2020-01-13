@@ -9,7 +9,5 @@ filters:
 - pandoc-citeproc
 wrap: preserve
 metadata:
-  bibliography:
-  - content/manual-references.json
   csl: build/assets/style.csl
   link-citations: true
