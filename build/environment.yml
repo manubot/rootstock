@@ -19,7 +19,7 @@ dependencies:
   - watchdog=0.9.0
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/dhimmel/manubot@d056f81d0c07276c13dded417b236f31214b6722
+    - git+https://github.com/dhimmel/manubot@bc7d280c3f4e42ea117932ca35decc036acfcf64
     - jsonref==0.2
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
