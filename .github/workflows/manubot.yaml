@@ -21,6 +21,8 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
       - name: Build Manuscript
+        env:
+          GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash --login {0}
         run: bash build/build.sh
       - name: Upload Artifacts
