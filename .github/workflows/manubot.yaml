@@ -22,3 +22,11 @@ jobs:
         with:
           name: manuscript.pdf
           path: output
+      - name: Deploy
+        if: (
+          github.ref == 'refs/heads/master' &&
+          github.event_name == 'push' &&
+          job.status == 'success')
+        env:
+          MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
+        run: bash ci/deploy.sh
