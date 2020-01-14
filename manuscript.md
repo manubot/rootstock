@@ -67,11 +67,11 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/52211e13d0424c0f408e447b81d2c63c4eb5fc52/" />
 
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/52211e13d0424c0f408e447b81d2c63c4eb5fc52/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/52211e13d0424c0f408e447b81d2c63c4eb5fc52/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
@@ -103,9 +103,9 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/))
+([permalink](https://manubot.github.io/rootstock/v/52211e13d0424c0f408e447b81d2c63c4eb5fc52/))
 was automatically generated
-from [manubot/rootstock@6636b91](https://github.com/manubot/rootstock/tree/6636b912c6b41593acd2041d34cd4158c1b317fb)
+from [manubot/rootstock@52211e1](https://github.com/manubot/rootstock/tree/52211e13d0424c0f408e447b81d2c63c4eb5fc52)
 on January 14, 2020.
 </em></small>
 
