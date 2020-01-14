@@ -2,7 +2,9 @@
 author-meta:
 - John Doe
 - Jane Roe
-date-meta: '2020-01-04'
+bibliography:
+- content/manual-references.json
+date-meta: '2020-01-14'
 header-includes: '<!--
 
   Manubot generated metadata rendered from header-includes-template.html.
@@ -21,9 +23,9 @@ header-includes: '<!--
 
   <meta property="twitter:title" content="Manuscript Title" />
 
-  <meta name="dc.date" content="2020-01-04" />
+  <meta name="dc.date" content="2020-01-14" />
 
-  <meta name="citation_publication_date" content="2020-01-04" />
+  <meta name="citation_publication_date" content="2020-01-14" />
 
   <meta name="dc.language" content="en-US" />
 
@@ -65,11 +67,11 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/" />
 
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
@@ -87,6 +89,10 @@ keywords:
 - publishing
 - manubot
 lang: en-US
+manubot-clear-requests-cache: false
+manubot-output-bibliography: output/references.json
+manubot-output-citekeys: output/citations.tsv
+manubot-requests-cache-path: ci/cache/requests-cache
 title: Manuscript Title
 ...
 
@@ -97,10 +103,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386/))
+([permalink](https://manubot.github.io/rootstock/v/6636b912c6b41593acd2041d34cd4158c1b317fb/))
 was automatically generated
-from [manubot/rootstock@06fb01d](https://github.com/manubot/rootstock/tree/06fb01d0c8e5c1ca7632cd17c27d3fddd0691386)
-on January 4, 2020.
+from [manubot/rootstock@6636b91](https://github.com/manubot/rootstock/tree/6636b912c6b41593acd2041d34cd4158c1b317fb)
+on January 14, 2020.
 </em></small>
 
 ## Authors
@@ -169,9 +175,9 @@ Combined *italics and __bold__*
 - List item
 - List item
 
-superscript<sup>2</sup>
+subscript: H~2~O is a liquid
 
-subscript<sub>2n+1</sub>
+superscript: 2^10^ is 1024.
 
 [unicode superscripts](https://www.google.com/search?q=superscript+generator)⁰¹²³⁴⁵⁶⁷⁸⁹
 
@@ -182,7 +188,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 
 Putting each sentence on its own line has numerous benefits with regard to [editing](https://asciidoctor.org/docs/asciidoc-recommended-practices/#one-sentence-per-line) and [version control](https://rhodesmill.org/brandon/2012/one-sentence-per-line/).
 
@@ -231,22 +236,26 @@ Bare URL link: <https://manubot.org>
 
 ## Citations
 
-Citation by DOI [@IhliSZDo].
+Citation by DOI [@doi:10.7554/eLife.32822].
 
-Citation by PubMed Central ID [@PyydLU5l].
+Citation by PubMed Central ID [@pmcid:PMC6103790].
 
-Citation by PubMed ID [@7XVI5bB4].
+Citation by PubMed ID [@pmid:30718888].
 
-Citation by Wikidata ID [@QhC8yJ7V].
+Citation by Wikidata ID [@wikidata:Q56458321].
 
-Citation by ISBN [@zBPP9YKu].
+Citation by ISBN [@isbn:9780262517638].
 
-Citation by URL [@1GGGHdsew].
+Citation by URL [@url:https://greenelab.github.io/meta-review/].
 
-Citation by tag [@PZMP42Ak].
+Citation by tag [@tag:deep-review].
 
-Multiple citations can be put inside the same set of brackets [@IhliSZDo; @PZMP42Ak; @zBPP9YKu].
-Manubot plugins provide easier, more convenient visualization of and navigation between citations [@YuJbg3zO; @7XVI5bB4; @PyydLU5l; @PZMP42Ak].
+Multiple citations can be put inside the same set of brackets [@doi:10.7554/eLife.32822; @tag:deep-review; @isbn:9780262517638].
+Manubot plugins provide easier, more convenient visualization of and navigation between citations [@doi:10.1371/journal.pcbi.1007128; @pmid:30718888; @pmcid:PMC6103790; @tag:deep-review].
+
+Citation tags (i.e. aliases) can be defined in their own paragraphs using Markdown's reference link syntax:
+
+[@tag:deep-review]: doi:10.1098/rsif.2017.0387
 
 ## Referencing figures, tables, equations
 
@@ -268,13 +277,11 @@ Equation @eq:long-equation
 
 > Quoted text
 
-
 > Quoted block of text
 >
 > Two roads diverged in a wood, and I—  
 > I took the one less traveled by,  
 > And that has made all the difference.
-
 
 Code `in the middle` of normal text, aka `inline code`.
 
@@ -430,3 +437,5 @@ useful for *warnings* - [manubot.org](https://manubot.org/)
 
 <!-- Explicitly insert bibliography here -->
 <div id="refs"></div>
+
+
