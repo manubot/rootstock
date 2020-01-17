@@ -7,8 +7,8 @@ on:
     branches:
       - master
 jobs:
-  build:
-    name: Build Manuscript
+  manubot:
+    name: Manubot
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -30,7 +30,7 @@ jobs:
         with:
           name: output
           path: output
-      - name: Deploy
+      - name: Deploy Manuscript
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         env:
           MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}

@@ -75,8 +75,8 @@ Manubot supports the following services:
 
 GitHub Actions is the default service for new manucripts since it's easiest to setup.
 We recommend using either GitHub Actions or Travis CI, but not both to avoid deploying manuscripts multiple times.
-AppVeyor can be used in addition to GitHub Actions or Travis CI to comment on pull request with download links to renderred PDFs.
-GitHub Actions do upload renderred manuscripts as artifacts, but do not leave pull request comments.
+AppVeyor can be used in addition to GitHub Actions or Travis CI to comment on pull request with download links to rendered PDFs.
+GitHub Actions do upload rendered manuscripts as artifacts, but do not leave pull request comments.
 
 ### Deploy key
 
@@ -116,7 +116,7 @@ Finally, click "Add key".
 # Print the URL for adding the private key to GitHub
 echo "https://github.com/$OWNER/$REPO/settings/secrets"
 
-# Print the encoded private key for copy-pasting to Travis CI
+# Print the encoded private key for copy-pasting to GitHub
 cat ci/deploy.key.txt && echo
 ```
 
