@@ -22,6 +22,9 @@ jobs:
           miniconda-version: 'latest'
       - name: Build Manuscript
         env:
+          BUILD_HTML: true
+          BUILD_PDF: true
+          BUILD_DOCX: false
           GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash --login {0}
         run: bash build/build.sh

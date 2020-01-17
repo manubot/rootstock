@@ -1,5 +1,9 @@
 dist: trusty
 sudo: false
+env:
+  - BUILD_HTML=true
+  - BUILD_PDF=true
+  - BUILD_DOCX=false
 language: generic
 services:
   - docker
@@ -15,8 +19,8 @@ cache:
     - ci/cache
 deploy:
   provider: script
-  script: bash -o xtrace ci/deploy.sh
+  script: bash ci/deploy.sh
   skip_cleanup: true
   on:
     branch: master
-    condition: $TRAVIS_EVENT_TYPE = "push"
+    condition: $TRAVIS_EVENT_TYPE = "push" && -v MANUBOT_SSH_PRIVATE_KEY
