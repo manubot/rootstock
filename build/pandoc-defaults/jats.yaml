@@ -1,0 +1,7 @@
+# Pandoc --defaults for JATS XML output.
+# Load on top of common defaults.
+to: jats
+output-file: output/manuscript.xml
+resource-path:
+ - '.'
+ - content
