@@ -31,6 +31,7 @@ jobs:
           name: output
           path: output
       - name: Deploy Manuscript
+        if: github.env.MANUBOT_SSH_PRIVATE_KEY
         # if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         env:
           MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
@@ -43,3 +44,16 @@ jobs:
             echo >&2 "Skipping deployment because the MANUBOT_SSH_PRIVATE_KEY environment variable is not set.
             Instructions at https://github.com/manubot/rootstock/blob/master/SETUP.md#deploy-key"
           fi
+      - name: do this
+        if: github.env.DOTHIS
+        env:
+          DOTHIS: yesss
+        run: echo "do this"
+      - name: do this not
+        if: github.env.DOTHIS
+        env:
+          DOTHIS:
+        run: echo "do this"
+      - name: do this not
+        if: github.env.DOTHIS
+        run: echo "do this"
