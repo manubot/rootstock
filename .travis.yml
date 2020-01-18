@@ -1,9 +1,5 @@
 dist: trusty
 sudo: false
-env:
-  - BUILD_HTML=true
-  - BUILD_PDF=true
-  - BUILD_DOCX=false
 language: generic
 services:
   - docker
