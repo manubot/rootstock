@@ -37,7 +37,7 @@ jobs:
           BUILD_WEB_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks
         shell: bash --login {0}        
         run: |
-          if [ -v MANUBOT_SSH_PRIVATE_KEY ]; then
+          if [ -n MANUBOT_SSH_PRIVATE_KEY ]; then
             bash ci/deploy.sh
           else
             echo >&2 "Skipping deployment because the MANUBOT_SSH_PRIVATE_KEY environment variable is not set.
