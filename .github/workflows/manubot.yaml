@@ -6,6 +6,9 @@ on:
   pull_request:
     branches:
       - master
+env:
+  GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
+  TRIGGERING_SHA_8: ${${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}::7}
 jobs:
   manubot:
     name: Manubot
@@ -24,14 +27,12 @@ jobs:
           auto-activate-base: false
           miniconda-version: 'latest'
       - name: Build Manuscript
-        env:
-          GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
         shell: bash --login {0}
         run: bash build/build.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: output
+          name: output-${{ env.TRIGGERING_SHA_8 }}
           path: output
       - name: Deploy Manuscript
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
