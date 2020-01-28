@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
-      TRIGGERING_SHA_7: ${${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}::7}
+      TRIGGERING_SHA: ${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
+      TRIGGERING_SHA_7: ${TRIGGERING_SHA::7}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
