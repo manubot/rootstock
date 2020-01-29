@@ -19,7 +19,6 @@ jobs:
           TRIGGERING_SHA_7=${TRIGGERING_SHA::7}
           echo "::set-env name=TRIGGERING_SHA_7::$TRIGGERING_SHA_7"
           echo "TRIGGERING_SHA: $TRIGGERING_SHA"
-          echo "TRIGGERING_SHA_7: $TRIGGERING_SHA_7"
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
@@ -38,7 +37,7 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
-          name: output-${{ env.TRIGGERING_SHA_7 }}
+          name: manuscript-${{ github.run_id }}-${{ env.TRIGGERING_SHA_7 }}
           path: output
       - name: Deploy Manuscript
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
