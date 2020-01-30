@@ -13,7 +13,7 @@
   * [Finalize](#finalize)
 - [Merging upstream rootstock changes](#merging-upstream-rootstock-changes)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+_Table of contents generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
 
 # Cloning the manubot/rootstock repository to create a new manuscript
 
