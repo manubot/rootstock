@@ -27,17 +27,20 @@ git config --global user.email "$(git log --max-count=1 --format='%ae')"
 git config --global user.name "$(git log --max-count=1 --format='%an')"
 git checkout "$BRANCH"
 
-if [ -v SECRET_GITHUB_TOKEN ] && [ "$SECRET_GITHUB_TOKEN" != "" ]; then
-  echo >&2 "[INFO] Detected SECRET_GITHUB_TOKEN. Will deploy via HTTPS."
-  USE_GITHUB_TOKEN=true
-  git remote set-url origin "https://$SECRET_GITHUB_TOKEN@github.com/$REPO_SLUG.git"
+# Configure deployment credentials
+MANUBOT_DEPLOY_VIA_SSH=true
+git remote set-url origin "git@github.com:$REPO_SLUG.git"
+if [ -v MANUBOT_SSH_PRIVATE_KEY ] && [ "$MANUBOT_SSH_PRIVATE_KEY" != "" ]; then
+  echo >&2 "[INFO] Detected MANUBOT_SSH_PRIVATE_KEY. Will deploy via SSH."
+elif [ -v MANUBOT_ACCESS_TOKEN ] && [ "$MANUBOT_ACCESS_TOKEN" != "" ]; then
+  echo >&2 "[INFO] Detected MANUBOT_ACCESS_TOKEN. Will deploy via HTTPS."
+  MANUBOT_DEPLOY_VIA_SSH=false
+  git remote set-url origin "https://$MANUBOT_ACCESS_TOKEN@github.com/$REPO_SLUG.git"
 else
-  echo >&2 "[INFO] Missing SECRET_GITHUB_TOKEN. Will deploy via SSH."
-  USE_GITHUB_TOKEN=false
-  git remote set-url origin "git@github.com:$REPO_SLUG.git"
+  echo >&2 "[INFO] Missing MANUBOT_SSH_PRIVATE_KEY and MANUBOT_ACCESS_TOKEN. Will deploy via SSH."
 fi
 
-if [ $USE_GITHUB_TOKEN = false ]; then
+if [ $MANUBOT_DEPLOY_VIA_SSH = "true" ]; then
 # Decrypt and add SSH key
 eval "$(ssh-agent -s)"
 (
@@ -46,7 +49,7 @@ if [ -v MANUBOT_SSH_PRIVATE_KEY ]; then
   base64 --decode <<< "$MANUBOT_SSH_PRIVATE_KEY" | ssh-add -
 else
 echo >&2 "DeprecationWarning: Loading deploy.key from an encrypted file.
-In the future, using the MANUBOT_SSH_PRIVATE_KEY environment variable may be required."
+In the future, using the MANUBOT_ACCESS_TOKEN or MANUBOT_SSH_PRIVATE_KEY environment variable may be required."
 openssl aes-256-cbc \
   -K $encrypted_9befd6eddffe_key \
   -iv $encrypted_9befd6eddffe_iv \
@@ -98,3 +101,8 @@ ghp-import \
   --branch=gh-pages \
   --message="$MESSAGE" \
   webpage
+
+if [ $MANUBOT_DEPLOY_VIA_SSH = "true" ]; then
+  # Workaround https://github.com/travis-ci/travis-ci/issues/8082
+  ssh-agent -k
+fi

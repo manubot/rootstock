@@ -114,7 +114,7 @@ git rm ci/install.sh
 ### Deploy key
 
 Deployment on Travis CI requires a SSH Deploy Key.
-Previousely, GitHub Actions also required an SSH Deploy Key, but now GitHub supports using `secrets.GITHUB_TOKEN`.
+Previously, GitHub Actions also required an SSH Deploy Key, but now GitHub supports using `secrets.GITHUB_TOKEN`.
 Therefore, users following the default configuration of deploying only via GitHub Actions can skip these steps.
 Otherwise, generate a deploy key so CI can write to the repository.
 
