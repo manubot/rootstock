@@ -95,7 +95,7 @@ Manubot supports the following CI services:
 
 Notes on table fields:
 
-- **Default**: Whether the following SETUP instructions enable the service by default.
+- **Default**: Whether the following uncollapsed setup instructions enable the service by default.
 - **Artifacts**: Manuscript outputs that are saved alongside the CI build logs.
   Both GitHub Actions and AppVeyor upload the rendered manuscript as an artifact for pull request builds.
   However, only AppVeyor comments on pull requests with a download link to the artifacts ([example](https://github.com/manubot/rootstock/pull/262#issuecomment-519944731)).
@@ -241,23 +241,28 @@ AppVeyor only runs when it detects changes that are likely to affect the manuscr
 ## README updates
 
 The continuous integration configuration should now be complete.
-Now update `README.md` files to reference the new repository:
+Now update `README.md` files to reference your new repository:
 
-```sh
+```shell
 # Perform substitutions
 sed "s/manubot\/rootstock/$OWNER\/$REPO/g" README.md > tmp && mv -f tmp README.md
 sed "s/manubot\.github\.io\/rootstock/$OWNER\.github\.io\/$REPO/g" README.md > tmp && mv -f tmp README.md
-
-# Remove deletable content file
-git rm content/02.delete-me.md
 ```
 
 ## Finalize
 
+The `content/02.delete-me.md` file details the Markdown syntax and formatting options available with Manubot.
+Remove it to reduce the content to a blank manuscript:
+
+```shell
+# Remove deletable content file
+git rm content/02.delete-me.md
+```
+
 Run `git status` or `git diff --color-words` to double check the changes thus far.
 If the changes look okay, commit and push:
 
-```sh
+```shell
 git add --update
 git commit --message "Brand repo to $OWNER/$REPO"
 git push origin master
