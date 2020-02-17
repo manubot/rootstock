@@ -83,6 +83,12 @@ Manubot integrates with cloud services to perform continuous integration (CI).
 For Manubot that means automatically building and deploying your manuscript.
 Manubot supports the following services:
 
+| Service | Default | Artifacts | Deployment | Config | Private Repos |
+|---------|---------|-----------|---------|--------|---------------|
+| [GitHub Actions](https://github.com/features/actions) | ✔️ | ✔️ | ✔️ | [`manubot.yaml`](.github/workflows/manubot.yaml) | 2,000 minutes per month |
+| [Travis CI](https://travis-ci.com) | ❌ | ❌ | ✔️ needs setup | [`.travis.yml`](.travis.yml) | 100 build trial |
+| [AppVeyor](https://www.appveyor.com/) | ❌ | ✔️ with PR comments | ❌ | [`.appveyor.yml`](.appveyor.yml) | 14 day trial |
+
 - [GitHub Actions](https://github.com/features/actions).
   Configured at [`.github/workflows/manubot.yaml`](.github/workflows/manubot.yaml)
 - [Travis CI](https://travis-ci.com).

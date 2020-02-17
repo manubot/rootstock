@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## deploy.sh: run during a Travis CI build to deploy manuscript outputs to the output and gh-pages branches on GitHub.
+## deploy.sh: run during a CI build to deploy manuscript outputs to the output and gh-pages branches on GitHub.
 
 # Set options for extra caution & debugging
 set -o errexit \
