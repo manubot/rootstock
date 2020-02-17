@@ -1,7 +1,7 @@
 # Table of contents
 
 - [Table of contents](#table-of-contents)
-- [Cloning the manubot/rootstock repository to create a new manuscript](#cloning-the-manubot-rootstock-repository-to-create-a-new-manuscript)
+- [Creating a new manuscript](#creating-a-new-manuscript)
   * [Configuration](#configuration)
   * [Create repository](#create-repository)
   * [Continuous integration](#continuous-integration)
@@ -17,10 +17,12 @@
 
 _generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
 
-# Cloning the manubot/rootstock repository to create a new manuscript
+# Creating a new manuscript
 
-The process to create a new Manubot manuscript is a bit challenging, because it requires a few steps that are difficult to automate.
+These instructions detail how to create a new manuscript based off of the [`manubot/rootstock`](https://github.com/manubot/rootstock/) repository.
+The process can be a bit challenging, because it requires a few steps that are difficult to automate.
 However, you will only have to perform these steps once for each manuscript.
+
 These steps should be performed in a command-line shell (terminal), starting in the directory where you want the manuscript folder be created.
 Setup is supported on Linux, macOS, and Windows.
 Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
