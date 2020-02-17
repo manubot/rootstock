@@ -28,9 +28,11 @@ git config --global user.name "$(git log --max-count=1 --format='%an')"
 git checkout "$BRANCH"
 
 if [ -v SECRET_GITHUB_TOKEN ] && [ "$SECRET_GITHUB_TOKEN" != "" ]; then
+  echo >&2 "[INFO] Detected SECRET_GITHUB_TOKEN. Will deploy via HTTPS."
   USE_GITHUB_TOKEN=true
   git remote set-url origin "https://$SECRET_GITHUB_TOKEN@github.com/$REPO_SLUG.git"
 else
+  echo >&2 "[INFO] Missing SECRET_GITHUB_TOKEN. Will deploy via SSH."
   USE_GITHUB_TOKEN=false
   git remote set-url origin "git@github.com:$REPO_SLUG.git"
 fi

@@ -95,9 +95,28 @@ We recommend using either GitHub Actions or Travis CI, but not both to avoid dep
 AppVeyor can be used in addition to GitHub Actions or Travis CI to comment on pull request with download links to rendered PDFs.
 GitHub Actions do upload rendered manuscripts as artifacts, but do not leave pull request comments.
 
+### GitHub Actions
+
+If you plan on only using GitHub actions, you can remove configuration files for other CI services:
+
+```shell
+# remove Travis CI config
+git rm .travis.yml
+# remove AppVeyor config
+git rm .appveyor.yml
+# remove ci/install.sh if not using neither Travis CI nor AppVeyor
+git rm ci/install.sh
+```
+
+<details>
+<summary>Expand for Deploy Key</summary>
+
 ### Deploy key
 
-Generate a deploy key so CI can write to the repository.
+Deployment on Travis CI requires a SSH Deploy Key.
+Previousely, GitHub Actions also required an SSH Deploy Key, but now GitHub supports using `secrets.GITHUB_TOKEN`.
+Therefore, users following the default configuration of deploying only via GitHub Actions can skip these steps.
+Otherwise, generate a deploy key so CI can write to the repository.
 
 ```sh
 # Generate deploy.key.pub (public) and deploy.key (private)
@@ -142,19 +161,7 @@ Click "Add a new secret".
 For "Name", enter `MANUBOT_SSH_PRIVATE_KEY`.
 Next, copy-paste the content of `ci/deploy.key.txt` into "Value"
 (printed above by `cat`, including any trailing `=` characters if present).
-
-### GitHub Actions
-
-If you plan on only using GitHub actions, you can remove configuration files for other CI services:
-
-```shell
-# remove Travis CI config
-git rm .travis.yml
-# remove AppVeyor config
-git rm .appveyor.yml
-# remove ci/install.sh if not using neither Travis CI nor AppVeyor
-git rm ci/install.sh
-```
+</details>
 
 <details>
 <summary>Expand for Travis CI setup</summary>
