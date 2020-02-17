@@ -26,8 +26,16 @@ git config --global push.default simple
 git config --global user.email "$(git log --max-count=1 --format='%ae')"
 git config --global user.name "$(git log --max-count=1 --format='%an')"
 git checkout "$BRANCH"
-git remote set-url origin "git@github.com:$REPO_SLUG.git"
 
+if [ -v SECRET_GITHUB_TOKEN ] && [ "$SECRET_GITHUB_TOKEN" != "" ]; then
+  USE_GITHUB_TOKEN=true
+  git remote set-url origin "https://$SECRET_GITHUB_TOKEN@github.com/$REPO_SLUG.git"
+else
+  USE_GITHUB_TOKEN=false
+  git remote set-url origin "git@github.com:$REPO_SLUG.git"
+fi
+
+if [ $USE_GITHUB_TOKEN = false ]; then
 # Decrypt and add SSH key
 eval "$(ssh-agent -s)"
 (
@@ -46,6 +54,7 @@ chmod 600 ci/deploy.key
 ssh-add ci/deploy.key
 fi
 )
+fi
 
 # Fetch and create gh-pages and output branches
 # Travis does a shallow and single branch git clone
@@ -87,6 +96,3 @@ ghp-import \
   --branch=gh-pages \
   --message="$MESSAGE" \
   webpage
-
-# Workaround https://github.com/travis-ci/travis-ci/issues/8082
-ssh-agent -k
