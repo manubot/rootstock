@@ -1,19 +1,21 @@
+# Table of contents
+
+- [Table of contents](#table-of-contents)
 - [Cloning the manubot/rootstock repository to create a new manuscript](#cloning-the-manubot-rootstock-repository-to-create-a-new-manuscript)
   * [Configuration](#configuration)
   * [Create repository](#create-repository)
   * [Continuous integration](#continuous-integration)
-    + [Deploy key](#deploy-key)
+    + [GitHub Actions](#github-actions)
+    + [SSH Deploy Key](#ssh-deploy-key)
       - [Add the public key to GitHub](#add-the-public-key-to-github)
       - [Add the private key to GitHub](#add-the-private-key-to-github)
-    + [GitHub Actions](#github-actions)
     + [Travis CI](#travis-ci)
     + [Previewing pull request builds with AppVeyor](#previewing-pull-request-builds-with-appveyor)
-    + [CI clean up](#ci-clean-up)
   * [README updates](#readme-updates)
   * [Finalize](#finalize)
 - [Merging upstream rootstock changes](#merging-upstream-rootstock-changes)
 
-_Table of contents generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
+_generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
 
 # Cloning the manubot/rootstock repository to create a new manuscript
 
@@ -81,7 +83,7 @@ git push --set-upstream origin output
 
 Manubot integrates with cloud services to perform continuous integration (CI).
 For Manubot that means automatically building and deploying your manuscript.
-Manubot supports the following services:
+Manubot supports the following CI services:
 
 | Service | Default | Artifacts | Deployment | Config | Private Repos |
 |---------|---------|-----------|---------|--------|---------------|
@@ -89,21 +91,26 @@ Manubot supports the following services:
 | [Travis CI](https://travis-ci.com) | ❌ | ❌ | ✔️ needs setup | [`.travis.yml`](.travis.yml) | 100 build trial |
 | [AppVeyor](https://www.appveyor.com/) | ❌ | ✔️ with PR comments | ❌ | [`.appveyor.yml`](.appveyor.yml) | 14 day trial |
 
-- [GitHub Actions](https://github.com/features/actions).
-  Configured at [`.github/workflows/manubot.yaml`](.github/workflows/manubot.yaml)
-- [Travis CI](https://travis-ci.com).
-  Configured at [`.travis.yml`](.travis.yml).
-- [AppVeyor](https://www.appveyor.com/).
-  Configured at [`.appveyor.yml`](.appveyor.yml).
+Notes on table fields:
 
-GitHub Actions is the default service for new manucripts since it's easiest to setup.
-We recommend using either GitHub Actions or Travis CI, but not both to avoid deploying manuscripts multiple times.
-AppVeyor can be used in addition to GitHub Actions or Travis CI to comment on pull request with download links to rendered PDFs.
-GitHub Actions do upload rendered manuscripts as artifacts, but do not leave pull request comments.
+- **Default**: Whether the following SETUP instructions enable the service by default.
+- **Artifacts**: Manuscript outputs that are saved alongside the CI build logs.
+  Both GitHub Actions and AppVeyor upload the rendered manuscript as an artifact for pull request builds.
+  However, only AppVeyor comments on pull requests with a download link to the artifacts ([example](https://github.com/manubot/rootstock/pull/262#issuecomment-519944731)).
+- **Deployment**: Whether the CI service can write outputs back to the GitHub repository (to the `output` and `gh-pages` branches).
+  Deployment provides GitHub Pages with the latest manuscript version to serve to the manuscript's URL.
+  GitHub Actions will deploy by default without any additional setup.
+  Travis CI will only deploy if an SSH Private Key is provided.
+  To avoid deploying a manuscript multiple times, disable GitHub Actions before providing an SSH Private Key to Travis.
+- **Config**: File configuring what operations CI will perform.
+- **Private Repos**: Quota for private repos.
+  Only GitHub Actions supports cost-free builds of private repositories beyond a trial period.
+  All services are cost-free for public repos.
 
 ### GitHub Actions
 
-If you plan on only using GitHub actions, you can remove configuration files for other CI services:
+GitHub Actions is the recommended default CI service because it requires no additional setup.
+To use GitHub Actions only, remove configuration files for other CI services:
 
 ```shell
 # remove Travis CI config
@@ -114,13 +121,17 @@ git rm .appveyor.yml
 git rm ci/install.sh
 ```
 
-<details>
-<summary>Expand for Deploy Key</summary>
+GitHub Actions is able to deploy without any setup using the [`GITHUB_TOKEN`](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for authentication.
+Deploying on Travis CI requires creating an SSH Deploy Key.
+The following sections, collapsed by default, detail how to generate an SSH Deploy Key.
 
-### Deploy key
+<details>
+<summary>Expand for SSH Deploy Key setup</summary>
+
+### SSH Deploy Key
 
 Deployment on Travis CI requires a SSH Deploy Key.
-Previously, GitHub Actions also required an SSH Deploy Key, but now GitHub supports using `secrets.GITHUB_TOKEN`.
+Previously, GitHub Actions also required an SSH Deploy Key, but now GitHub can deploy using the `GITHUB_TOKEN` secret.
 Therefore, users following the default configuration of deploying only via GitHub Actions can skip these steps.
 Otherwise, generate a deploy key so CI can write to the repository.
 
@@ -153,6 +164,9 @@ Check the "Allow write access" box below.
 Finally, click "Add key".
 
 #### Add the private key to GitHub
+
+If you would like GitHub Actions to use SSH for deployment, rather than via HTTPS using `GITHUB_TOKEN`, perform the steps in this section.
+**Skip this section if solely using Travis CI for deployment.**
 
 ```sh
 # Print the URL for adding the private key to GitHub
@@ -197,6 +211,14 @@ Make sure "Display value in build logs" remains toggled off (the default).
 
 While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
 This ensures previous Manubot builds deploy before subsequent ones begin.
+
+Once the public and private deploy keys have been copied to their cloud locations, you can optionally remove the untracked files:
+
+```sh
+# Optionally remove untracked files
+rm ci/deploy.key*
+```
+
 </details>
 
 <details>
@@ -214,18 +236,9 @@ The repository already contains an `.appveyor.yml` build configuration file, so 
 AppVeyor only runs when it detects changes that are likely to affect the manuscript.
 </details>
 
-### CI clean up
-
-The continuous integration configuration is now complete.
-Clean up:
-
-```sh
-# Optionally remove untracked files
-rm ci/deploy.key*
-```
-
 ## README updates
 
+The continuous integration configuration should now be complete.
 Now update `README.md` files to reference the new repository:
 
 ```sh
@@ -239,10 +252,7 @@ git rm content/02.delete-me.md
 
 ## Finalize
 
-Run `git status` or `git diff --color-words` to check that the following files have unstaged changes:
-
-+ `README.md`
-
+Run `git status` or `git diff --color-words` to double check the changes thus far.
 If the changes look okay, commit and push:
 
 ```sh
@@ -252,7 +262,7 @@ git push origin master
 ```
 
 You should be good to go now.
-A good first step is to modify `content/metadata.yaml` with the relevant information for your manuscript.
+A good first step is to modify [`content/metadata.yaml`](content/metadata.yaml) with the relevant information for your manuscript.
 
 # Merging upstream rootstock changes
 
