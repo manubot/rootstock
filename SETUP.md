@@ -1,6 +1,5 @@
 # Table of contents
 
-- [Table of contents](#table-of-contents)
 - [Creating a new manuscript](#creating-a-new-manuscript)
   * [Configuration](#configuration)
   * [Create repository](#create-repository)
@@ -97,6 +96,7 @@ Notes on table fields:
 
 - **Default**: Whether the following uncollapsed setup instructions enable the service by default.
 - **Artifacts**: Manuscript outputs that are saved alongside the CI build logs.
+  This is especially helpful for previewing changes that are under development in a pull request.
   Both GitHub Actions and AppVeyor upload the rendered manuscript as an artifact for pull request builds.
   However, only AppVeyor comments on pull requests with a download link to the artifacts ([example](https://github.com/manubot/rootstock/pull/262#issuecomment-519944731)).
 - **Deployment**: Whether the CI service can write outputs back to the GitHub repository (to the `output` and `gh-pages` branches).
@@ -105,6 +105,7 @@ Notes on table fields:
   Travis CI will only deploy if an SSH Private Key is provided.
   To avoid deploying a manuscript multiple times, disable GitHub Actions before providing an SSH Private Key to Travis.
 - **Config**: File configuring what operations CI will perform.
+  Removing this file is one method to disable the CI service.
 - **Private Repos**: Quota for private repos.
   Only GitHub Actions supports cost-free builds of private repositories beyond a trial period.
   All services are cost-free for public repos.
@@ -132,7 +133,7 @@ The following sections, collapsed by default, detail how to generate an SSH Depl
 
 ### SSH Deploy Key
 
-Deployment on Travis CI requires a SSH Deploy Key.
+Deployment on Travis CI requires an SSH Deploy Key.
 Previously, GitHub Actions also required an SSH Deploy Key, but now GitHub can deploy using the `GITHUB_TOKEN` secret.
 Therefore, users following the default configuration of deploying only via GitHub Actions can skip these steps.
 Otherwise, generate a deploy key so CI can write to the repository.
