@@ -116,9 +116,11 @@ git rm ci/install.sh
 ```
 
 GitHub Actions is _usually_ able to deploy without any setup using the [`GITHUB_TOKEN`](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for authentication.
-GitHub Pages deployment using `GITHUB_TOKEN` recently started _mostly_ working on GitHub without an official announcement.
-If it does not work for you, [let us know](https://github.com/manubot/rootstock/issues/new).
-One workaround is to use an SSH Deploy Key instead (see below).
+GitHub Pages deployment using `GITHUB_TOKEN` recently started working on GitHub without an official announcement.
+If it does not work for you after completing this setup, try reselecting "gh-pages branch" as the Source for GitHub Pages in the repository Settings.
+GitHub Pages should now trigger on the next commit.
+If not, [let us know](https://github.com/manubot/rootstock/issues/new).
+For more reliable deployment on GitHub, you can also use an SSH Deploy Key instead (see below).
 
 Deploying on Travis CI requires creating an SSH Deploy Key.
 The following sections, collapsed by default, detail how to generate an SSH Deploy Key.
