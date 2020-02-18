@@ -9,7 +9,6 @@ on:
 jobs:
   manubot:
     name: Manubot
-    if: '!github.repository.fork'
     runs-on: ubuntu-latest
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
