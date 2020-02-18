@@ -46,14 +46,14 @@ REPO=rootstock
 **Execute the remaining commands verbatim.**
 They do not need to be edited (if the setup works as intended).
 
-Next you must clone `manubot/rootstock` and configure its branches and remotes:
+Next you must clone `manubot/rootstock` and reconfigure the remote repositories:
 
 ```sh
 # Clone manubot/rootstock
 git clone --single-branch https://github.com/manubot/rootstock.git $REPO
 cd $REPO
 
-# Configure remotes and branches
+# Configure remotes
 git remote add rootstock https://github.com/manubot/rootstock.git
 
 # Option A: Set origin URL using its web address
@@ -115,8 +115,8 @@ git rm .appveyor.yml
 git rm ci/install.sh
 ```
 
-GitHub Actions is able to deploy without any setup using the [`GITHUB_TOKEN`](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for authentication.
-GitHub Pages deployment using `GITHUB_TOKEN` recently started working on GitHub without an official announcement.
+GitHub Actions is _usually_ able to deploy without any setup using the [`GITHUB_TOKEN`](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for authentication.
+GitHub Pages deployment using `GITHUB_TOKEN` recently started _mostly_ working on GitHub without an official announcement.
 If it does not work for you, [let us know](https://github.com/manubot/rootstock/issues/new).
 One workaround is to use an SSH Deploy Key instead (see below).
 
