@@ -50,18 +50,11 @@ Next you must clone `manubot/rootstock` and configure its branches and remotes:
 
 ```sh
 # Clone manubot/rootstock
-git clone https://github.com/manubot/rootstock.git $REPO
+git clone --single-branch https://github.com/manubot/rootstock.git $REPO
 cd $REPO
 
 # Configure remotes and branches
 git remote add rootstock https://github.com/manubot/rootstock.git
-git checkout --orphan gh-pages
-git rm -r --force .
-git commit --allow-empty \
-  --message "Initialize empty branch" \
-  --message "[ci skip]"
-git checkout -b output
-git checkout master
 
 # Option A: Set origin URL using its web address
 git remote set-url origin https://github.com/$OWNER/$REPO.git
@@ -76,8 +69,6 @@ Next, push your cloned manuscript:
 
 ```sh
 git push --set-upstream origin master
-git push --set-upstream origin gh-pages
-git push --set-upstream origin output
 ```
 
 ## Continuous integration
@@ -125,6 +116,10 @@ git rm ci/install.sh
 ```
 
 GitHub Actions is able to deploy without any setup using the [`GITHUB_TOKEN`](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) for authentication.
+GitHub Pages deployment using `GITHUB_TOKEN` recently started working on GitHub without an official announcement.
+If it does not work for you, [let us know](https://github.com/manubot/rootstock/issues/new).
+One workaround is to use an SSH Deploy Key instead (see below).
+
 Deploying on Travis CI requires creating an SSH Deploy Key.
 The following sections, collapsed by default, detail how to generate an SSH Deploy Key.
 
