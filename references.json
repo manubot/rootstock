@@ -1,161 +1,153 @@
 [
   {
-    "publisher": "The Royal Society",
-    "issue": "141",
-    "DOI": "10.1098/rsif.2017.0387",
     "type": "article-journal",
-    "page": "20170387",
-    "source": "Crossref",
-    "title": "Opportunities and obstacles for deep learning in biology and medicine",
-    "volume": "15",
+    "id": "PZMP42Ak",
     "author": [
       {
-        "given": "Travers",
-        "family": "Ching"
+        "family": "Ching",
+        "given": "Travers"
       },
       {
-        "given": "Daniel S.",
-        "family": "Himmelstein"
+        "family": "Himmelstein",
+        "given": "Daniel S."
       },
       {
-        "given": "Brett K.",
-        "family": "Beaulieu-Jones"
+        "family": "Beaulieu-Jones",
+        "given": "Brett K."
       },
       {
-        "given": "Alexandr A.",
-        "family": "Kalinin"
+        "family": "Kalinin",
+        "given": "Alexandr A."
       },
       {
-        "given": "Brian T.",
-        "family": "Do"
+        "family": "Do",
+        "given": "Brian T."
       },
       {
-        "given": "Gregory P.",
-        "family": "Way"
+        "family": "Way",
+        "given": "Gregory P."
       },
       {
-        "given": "Enrico",
-        "family": "Ferrero"
+        "family": "Ferrero",
+        "given": "Enrico"
       },
       {
-        "given": "Paul-Michael",
-        "family": "Agapow"
+        "family": "Agapow",
+        "given": "Paul-Michael"
       },
       {
-        "given": "Michael",
-        "family": "Zietz"
+        "family": "Zietz",
+        "given": "Michael"
       },
       {
-        "given": "Michael M.",
-        "family": "Hoffman"
+        "family": "Hoffman",
+        "given": "Michael M."
       },
       {
-        "given": "Wei",
-        "family": "Xie"
+        "family": "Xie",
+        "given": "Wei"
       },
       {
-        "given": "Gail L.",
-        "family": "Rosen"
+        "family": "Rosen",
+        "given": "Gail L."
       },
       {
-        "given": "Benjamin J.",
-        "family": "Lengerich"
+        "family": "Lengerich",
+        "given": "Benjamin J."
       },
       {
-        "given": "Johnny",
-        "family": "Israeli"
+        "family": "Israeli",
+        "given": "Johnny"
       },
       {
-        "given": "Jack",
-        "family": "Lanchantin"
+        "family": "Lanchantin",
+        "given": "Jack"
       },
       {
-        "given": "Stephen",
-        "family": "Woloszynek"
+        "family": "Woloszynek",
+        "given": "Stephen"
       },
       {
-        "given": "Anne E.",
-        "family": "Carpenter"
+        "family": "Carpenter",
+        "given": "Anne E."
       },
       {
-        "given": "Avanti",
-        "family": "Shrikumar"
+        "family": "Shrikumar",
+        "given": "Avanti"
       },
       {
-        "given": "Jinbo",
-        "family": "Xu"
+        "family": "Xu",
+        "given": "Jinbo"
       },
       {
-        "given": "Evan M.",
-        "family": "Cofer"
+        "family": "Cofer",
+        "given": "Evan M."
       },
       {
-        "given": "Christopher A.",
-        "family": "Lavender"
+        "family": "Lavender",
+        "given": "Christopher A."
       },
       {
-        "given": "Srinivas C.",
-        "family": "Turaga"
+        "family": "Turaga",
+        "given": "Srinivas C."
       },
       {
-        "given": "Amr M.",
-        "family": "Alexandari"
+        "family": "Alexandari",
+        "given": "Amr M."
       },
       {
-        "given": "Zhiyong",
-        "family": "Lu"
+        "family": "Lu",
+        "given": "Zhiyong"
       },
       {
-        "given": "David J.",
-        "family": "Harris"
+        "family": "Harris",
+        "given": "David J."
       },
       {
-        "given": "Dave",
-        "family": "DeCaprio"
+        "family": "DeCaprio",
+        "given": "Dave"
       },
       {
-        "given": "Yanjun",
-        "family": "Qi"
+        "family": "Qi",
+        "given": "Yanjun"
       },
       {
-        "given": "Anshul",
-        "family": "Kundaje"
+        "family": "Kundaje",
+        "given": "Anshul"
       },
       {
-        "given": "Yifan",
-        "family": "Peng"
+        "family": "Peng",
+        "given": "Yifan"
       },
       {
-        "given": "Laura K.",
-        "family": "Wiley"
+        "family": "Wiley",
+        "given": "Laura K."
       },
       {
-        "given": "Marwin H. S.",
-        "family": "Segler"
+        "family": "Segler",
+        "given": "Marwin H. S."
       },
       {
-        "given": "Simina M.",
-        "family": "Boca"
+        "family": "Boca",
+        "given": "Simina M."
       },
       {
-        "given": "S. Joshua",
-        "family": "Swamidass"
+        "family": "Swamidass",
+        "given": "S. Joshua"
       },
       {
-        "given": "Austin",
-        "family": "Huang"
+        "family": "Huang",
+        "given": "Austin"
       },
       {
-        "given": "Anthony",
-        "family": "Gitter"
+        "family": "Gitter",
+        "given": "Anthony"
       },
       {
-        "given": "Casey S.",
-        "family": "Greene"
+        "family": "Greene",
+        "given": "Casey S."
       }
     ],
-    "container-title": "Journal of The Royal Society Interface",
-    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -165,58 +157,49 @@
         ]
       ]
     },
+    "container-title": "Journal of The Royal Society Interface",
+    "DOI": "10.1098/rsif.2017.0387",
+    "volume": "15",
+    "issue": "141",
+    "page": "20170387",
+    "publisher": "The Royal Society",
+    "title": "Opportunities and obstacles for deep learning in biology and medicine",
     "URL": "https://doi.org/gddkhn",
-    "container-title-short": "J. R. Soc. Interface",
     "PMCID": "PMC5938574",
     "PMID": "29618526",
-    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.1098/rsif.2017.0387",
-    "id": "PZMP42Ak"
+    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.1098/rsif.2017.0387"
   },
   {
-    "publisher": "Public Library of Science (PLoS)",
-    "issue": "6",
-    "DOI": "10.1371/journal.pcbi.1007128",
     "type": "article-journal",
-    "page": "e1007128",
-    "source": "Crossref",
-    "title": "Open collaborative writing with Manubot",
-    "volume": "15",
+    "id": "YuJbg3zO",
     "author": [
       {
-        "given": "Daniel S.",
-        "family": "Himmelstein"
+        "family": "Himmelstein",
+        "given": "Daniel S."
       },
       {
-        "given": "Vincent",
-        "family": "Rubinetti"
+        "family": "Rubinetti",
+        "given": "Vincent"
       },
       {
-        "given": "David R.",
-        "family": "Slochower"
+        "family": "Slochower",
+        "given": "David R."
       },
       {
-        "given": "Dongbo",
-        "family": "Hu"
+        "family": "Hu",
+        "given": "Dongbo"
       },
       {
-        "given": "Venkat S.",
-        "family": "Malladi"
+        "family": "Malladi",
+        "given": "Venkat S."
       },
       {
-        "given": "Casey S.",
-        "family": "Greene"
+        "family": "Greene",
+        "given": "Casey S."
       },
       {
-        "given": "Anthony",
-        "family": "Gitter"
-      }
-    ],
-    "container-title": "PLOS Computational Biology",
-    "language": "en",
-    "editor": [
-      {
-        "given": "Dina",
-        "family": "Schneidman-Duhovny"
+        "family": "Gitter",
+        "given": "Anthony"
       }
     ],
     "issued": {
@@ -228,53 +211,51 @@
         ]
       ]
     },
+    "container-title": "PLOS Computational Biology",
+    "DOI": "10.1371/journal.pcbi.1007128",
+    "volume": "15",
+    "issue": "6",
+    "page": "e1007128",
+    "publisher": "Public Library of Science (PLoS)",
+    "title": "Open collaborative writing with Manubot",
     "URL": "https://doi.org/c7np",
-    "container-title-short": "PLoS Comput Biol",
     "PMCID": "PMC6611653",
     "PMID": "31233491",
-    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.1371/journal.pcbi.1007128",
-    "id": "YuJbg3zO"
+    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.1371/journal.pcbi.1007128"
   },
   {
-    "publisher": "eLife Sciences Publications, Ltd",
-    "abstract": "<jats:p>The website Sci-Hub enables users to download PDF versions of scholarly articles, including many articles that are paywalled at their journal’s site. Sci-Hub has grown rapidly since its creation in 2011, but the extent of its coverage has been unclear. Here we report that, as of March 2017, Sci-Hub’s database contains 68.9% of the 81.6 million scholarly articles registered with Crossref and 85.1% of articles published in toll access journals. We find that coverage varies by discipline and publisher, and that Sci-Hub preferentially covers popular, paywalled content. For toll access articles, we find that Sci-Hub provides greater coverage than the University of Pennsylvania, a major research university in the United States. Green open access to toll access articles via licit services, on the other hand, remains quite limited. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. For the first time, nearly all scholarly literature is available gratis to anyone with an Internet connection, suggesting the toll access business model may become unsustainable.</jats:p>",
-    "DOI": "10.7554/elife.32822",
     "type": "article-journal",
-    "source": "Crossref",
-    "title": "Sci-Hub provides access to nearly all scholarly literature",
-    "volume": "7",
+    "id": "IhliSZDo",
     "author": [
       {
-        "given": "Daniel S",
-        "family": "Himmelstein"
+        "family": "Himmelstein",
+        "given": "Daniel S"
       },
       {
-        "given": "Ariel Rodriguez",
-        "family": "Romero"
+        "family": "Romero",
+        "given": "Ariel Rodriguez"
       },
       {
-        "given": "Jacob G",
-        "family": "Levernier"
+        "family": "Levernier",
+        "given": "Jacob G"
       },
       {
-        "given": "Thomas Anthony",
-        "family": "Munro"
+        "family": "Munro",
+        "given": "Thomas Anthony"
       },
       {
-        "given": "Stephen Reid",
-        "family": "McLaughlin"
+        "family": "McLaughlin",
+        "given": "Stephen Reid"
       },
       {
-        "given": "Bastian",
-        "family": "Greshake Tzovaras"
+        "family": "Greshake Tzovaras",
+        "given": "Bastian"
       },
       {
-        "given": "Casey S",
-        "family": "Greene"
+        "family": "Greene",
+        "given": "Casey S"
       }
     ],
-    "container-title": "eLife",
-    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -284,11 +265,16 @@
         ]
       ]
     },
+    "abstract": "The website Sci-Hub enables users to download PDF versions of scholarly articles, including many articles that are paywalled at their journal’s site. Sci-Hub has grown rapidly since its creation in 2011, but the extent of its coverage has been unclear. Here we report that, as of March 2017, Sci-Hub’s database contains 68.9% of the 81.6 million scholarly articles registered with Crossref and 85.1% of articles published in toll access journals. We find that coverage varies by discipline and publisher, and that Sci-Hub preferentially covers popular, paywalled content. For toll access articles, we find that Sci-Hub provides greater coverage than the University of Pennsylvania, a major research university in the United States. Green open access to toll access articles via licit services, on the other hand, remains quite limited. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. For the first time, nearly all scholarly literature is available gratis to anyone with an Internet connection, suggesting the toll access business model may become unsustainable.",
+    "container-title": "eLife",
+    "DOI": "10.7554/elife.32822",
+    "volume": "7",
+    "publisher": "(:unav)",
+    "title": "Sci-Hub provides access to nearly all scholarly literature",
     "URL": "https://doi.org/ckcj",
     "PMCID": "PMC5832410",
     "PMID": "29424689",
-    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.7554/elife.32822",
-    "id": "IhliSZDo"
+    "note": "This CSL JSON Item was automatically generated by Manubot v0.3.1 using citation-by-identifier.\nstandard_id: doi:10.7554/elife.32822"
   },
   {
     "id": "zBPP9YKu",
@@ -324,7 +310,7 @@
         [
           2020,
           2,
-          18
+          28
         ]
       ]
     },
@@ -442,7 +428,7 @@
         [
           "2020",
           2,
-          18
+          28
         ]
       ]
     },
