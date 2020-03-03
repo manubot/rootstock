@@ -24,7 +24,12 @@ jobs:
         with:
           # fetch entire commit history to support get_rootstock_commit
           fetch-depth: 0
-      - name: Cache
+      - name: Cache Conda
+        uses: actions/cache@v1
+        with:
+          path: /usr/share/miniconda/envs/manubot
+          key: conda-cache-${{ runner.os }}-${{ hashFiles('build/environment.yml') }}
+      - name: Cache Manubot Files
         uses: actions/cache@v1
         with:
           path: ci/cache
