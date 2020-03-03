@@ -42,8 +42,6 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
-      - name: Conda Config
-        run: conda config --show
       - name: Build Manuscript
         shell: bash --login {0}
         run: bash build/build.sh
