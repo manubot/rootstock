@@ -37,7 +37,6 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
-          miniconda-version: 'latest'
       - name: Build Manuscript
         shell: bash --login {0}
         run: bash build/build.sh
