@@ -46,6 +46,21 @@ jobs:
         with:
           name: manuscript-${{ github.run_id }}-${{ env.TRIGGERING_SHA_7 }}
           path: output
+      - name: Create Artifact Comment
+        run: |
+          ARTIFACT_MESSAGE="GitHub Actions build 123456 for commit abcd123 by XXXXX is now complete. The rendered manuscript from this build is temporarily available."
+          echo "::set-env name=ARTIFACT_MESSAGE::$ARTIFACT_MESSAGE"
+      - name: Comment on Pull Request
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '${{ env.ARTIFACT_MESSAGE }}'
+            })
       - name: Deploy Manuscript
         if: github.ref == 'refs/heads/master' && github.event_name == 'push' && !github.event.repository.fork
         env:
