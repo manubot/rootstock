@@ -53,6 +53,7 @@ jobs:
       - name: Comment on Pull Request
         uses: actions/github-script@0.9.0
         with:
+          debug: true
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.issues.createComment({
