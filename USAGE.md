@@ -281,6 +281,12 @@ metadata:
 ```
 
 The value for `metadata.csl` can be a URL, allowing access to thousands of existing styles hosted by [Zotero](https://www.zotero.org/styles) or the [CSL GitHub](https://github.com/citation-style-language/styles).
+For example, the following options replace the Manubot citation style with the _PeerJ_ style:
+
+```yaml
+metadata:
+  csl: https://github.com/citation-style-language/styles/raw/906cd6d43d0c136190ecfbb12f6af0ca794e3c5b/peerj.csl
+```
 
 ## Spellchecking
 
