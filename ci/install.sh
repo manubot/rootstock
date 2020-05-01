@@ -22,5 +22,5 @@ conda activate manubot
 if [ "${SPELLCHECK:-}" = "true" ]; then
   sudo apt-get update -y
   sudo apt-get install -y aspell aspell-en
-  wget https://raw.githubusercontent.com/pandoc/lua-filters/1c553017ecc58914c22bf2372902dca4a456929b/spellcheck/spellcheck.lua
+  wget https://raw.githubusercontent.com/agitter/lua-filters/25066659816b0c05c52da2699bac4ab09b8ca80b/spellcheck/spellcheck.lua
 fi
