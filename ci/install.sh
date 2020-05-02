@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-## install.sh: run during a Travis CI or AppVeyor build to install the conda environment.
+## install.sh: run during a Travis CI or AppVeyor build to install the conda environment
+## and the optional Pandoc spellcheck dependencies.
 
 # Set options for extra caution & debugging
 set -o errexit \
@@ -20,7 +21,5 @@ conda activate manubot
 
 # Install Spellcheck filter for Pandoc
 if [ "${SPELLCHECK:-}" = "true" ]; then
-  sudo apt-get update -y
-  sudo apt-get install -y aspell aspell-en
-  wget https://raw.githubusercontent.com/agitter/lua-filters/25066659816b0c05c52da2699bac4ab09b8ca80b/spellcheck/spellcheck.lua
+  bash ci/install-spellcheck.sh
 fi
