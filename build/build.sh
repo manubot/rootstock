@@ -87,7 +87,7 @@ if [ "${SPELLCHECK:-}" = "true" ]; then
   export ASPELL_CONF="add-extra-dicts $(pwd)/build/assets/custom-dictionary.txt; ignore-case true"
 
   # Identify and store spelling errors
-  pandoc --lua-filter spellcheck.lua output/manuscript.md | sort -fu > output/spelling-errors.txt
+  pandoc --lua-filter build/assets/spellcheck.lua output/manuscript.md | sort -fu > output/spelling-errors.txt
   echo >&2 "Potential spelling errors:"
   cat output/spelling-errors.txt
 
