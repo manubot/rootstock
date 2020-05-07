@@ -1,7 +1,7 @@
 # Output directory containing the formatted manuscript
 
 The [`gh-pages`](https://github.com/manubot/rootstock/tree/gh-pages) branch hosts the contents of this directory at <https://manubot.github.io/rootstock/>.
-The permalink for this webpage version is <https://manubot.github.io/rootstock/v/92f0285a37636017e0a3e231bb64e414b8a0cfb5/>.
+The permalink for this webpage version is <https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/>.
 To redirect to the permalink for the latest manuscript version at anytime, use the link <https://manubot.github.io/rootstock/v/freeze/>.
 
 ## Files
@@ -35,4 +35,4 @@ Verifying timestamps with the `ots verify` command requires running a local bitc
 ## Source
 
 The manuscripts in this directory were built from
-[`92f0285a37636017e0a3e231bb64e414b8a0cfb5`](https://github.com/manubot/rootstock/commit/92f0285a37636017e0a3e231bb64e414b8a0cfb5).
+[`8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697`](https://github.com/manubot/rootstock/commit/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697).
