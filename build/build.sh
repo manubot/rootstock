@@ -32,8 +32,8 @@ mkdir -p output
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
   --data-dir="$PANDOC_DATA_DIR" \
-  --defaults=common \
-  --defaults=html
+  --defaults=common.yaml \
+  --defaults=html.yaml
 
 # Return null if docker command is missing, otherwise return path to docker
 DOCKER_EXISTS="$(command -v docker || true)"
@@ -46,9 +46,9 @@ if [ "${BUILD_PDF:-}" != "false" ] && [ -z "$DOCKER_EXISTS" ]; then
   ln -s content/images
   pandoc \
     --data-dir="$PANDOC_DATA_DIR" \
-    --defaults=common \
-    --defaults=html \
-    --defaults=pdf-weasyprint
+    --defaults=common.yaml \
+    --defaults=html.yaml \
+    --defaults=pdf-weasyprint.yaml
   rm images
 fi
 
@@ -81,8 +81,8 @@ if [ "${BUILD_DOCX:-}" = "true" ]; then
   echo >&2 "Exporting Word Docx manuscript"
   pandoc --verbose \
     --data-dir="$PANDOC_DATA_DIR" \
-    --defaults=common \
-    --defaults=docx
+    --defaults=common.yaml \
+    --defaults=docx.yaml
 fi
 
 # Spellcheck
