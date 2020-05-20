@@ -80,11 +80,11 @@ Manubot supports Pandoc [citations](https://pandoc.org/MANUAL.html#citations).
 Citations are processed in 3 stages:
 
 1. Pandoc parses the input Markdown to locate citation keys.
-2. The [`pandoc-manubot-cite`](https://github.com/manubot/manubot#pandoc-filter) filter automatically retreives the bibliographic metadata for citation keys.
+2. The [`pandoc-manubot-cite`](https://github.com/manubot/manubot#pandoc-filter) filter automatically retrieves the bibliographic metadata for citation keys.
 3. The [`pandoc-citeproc`](https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md) filter renders in-text citations and generates styled references.
 
-When using Manubot, citation keys should be formatted like `@source:identifier`,
-where `source` is one of the options described below.
+When using Manubot, citation keys should be formatted like `@prefix:accession`,
+where `prefix` is one of the options described below.
 When choosing which source to use for a citation, we recommend the following order:
 
 1. DOI (Digital Object Identifier), cite like `@doi:10.15363/thinklab.4`.
@@ -92,28 +92,28 @@ When choosing which source to use for a citation, we recommend the following ord
    shortDOIs begin with `10/` rather than `10.` and can also be cited.
    For example, Manubot will expand `@doi:10/993` to the DOI above.
    We suggest using shortDOIs to cite DOIs containing forbidden characters, such as `(` or `)`.
-2. PubMed Central ID, cite like `@pmcid:PMC4497619`.
-3. PubMed ID, cite like `@pmid:26158728`.
+2. PubMed Central ID, cite like `@pmc:PMC4497619`.
+3. PubMed ID, cite like `@pubmed:26158728`.
 4. _arXiv_ ID, cite like `@arxiv:1508.06576v2`.
 5. ISBN (International Standard Book Number), cite like `@isbn:9781339919881`.
-6. URL / webpage, cite like `@url:https://nyti.ms/1QUgAt1`.
+6. URL / webpage, cite like `@https://nyti.ms/1QUgAt1`.
    URL citations can be helpful if the above methods return incorrect metadata.
-   For example, `@doi:10.1038/ng.3834` [incorrectly handles](https://github.com/manubot/manubot/issues/158) the consortium name resulting in a blank author, while `@url:https://doi.org/10.1038/ng.3834` succeeds.
-   Similarly, `@url:https://doi.org/10.1101/142760` is a [workaround](https://github.com/manubot/manubot/issues/16) to set the journal name of bioRxiv preprints to _bioRxiv_.
+   For example, `@doi:10.1038/ng.3834` [incorrectly handles](https://github.com/manubot/manubot/issues/158) the consortium name resulting in a blank author, while `@https://doi.org/10.1038/ng.3834` succeeds.
+   Similarly, `@https://doi.org/10.1101/142760` is a [workaround](https://github.com/manubot/manubot/issues/16) to set the journal name of bioRxiv preprints to _bioRxiv_.
 7. Wikidata Items, cite like `@wikidata:Q50051684`.
    Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata as an alternative to using a `raw` citation.
-8. For references that do not have any of the persistent identifiers above, use a raw citation like `@raw:old-manuscript`.
+8. For references that do not have any of the persistent identifiers above, use a raw citation like `@old-manuscript`.
    Metadata for raw citations must be provided manually.
 
 Cite multiple items at once like:
 
 ```md
-Here is a sentence with several citations [@doi:10.15363/thinklab.4; @pmid:26158728; @arxiv:1508.06576; @isbn:9780394603988].
+Here is a sentence with several citations [@doi:10.15363/thinklab.4; @pubmed:26158728; @arxiv:1508.06576; @isbn:9780394603988].
 ```
 
 Note that multiple citations must be semicolon separated.
 Be careful not to cite the same study using identifiers from multiple sources.
-For example, the following citations all refer to the same study, but will be treated as separate references: `[@doi:10.7717/peerj.705; @pmcid:PMC4304851; @pmid:25648772]`.
+For example, the following citations all refer to the same study, but will be treated as separate references: `[@doi:10.7717/peerj.705; @pmc:PMC4304851; @pubmed:25648772]`.
 
 Citation keys must adhere to the syntax described in the [Pandoc manual](https://pandoc.org/MANUAL.html#citations):
 
