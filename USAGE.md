@@ -76,14 +76,14 @@ We recommend always specifying the width of SVG images (even if just `width="100
 
 ### Citations
 
-Manubot supports Pandoc [citations](https://pandoc.org/MANUAL.html#citations).
+Manubot supports [Pandoc citations](https://pandoc.org/MANUAL.html#citations), but with added support for citing persistent identifiers directly.
 Citations are processed in 3 stages:
 
 1. Pandoc parses the input Markdown to locate citation keys.
-2. The [`pandoc-manubot-cite`](https://github.com/manubot/manubot#pandoc-filter) filter automatically retrieves the bibliographic metadata for citation keys.
-3. The [`pandoc-citeproc`](https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md) filter renders in-text citations and generates styled references.
+2. The [`pandoc-manubot-cite` filter](https://github.com/manubot/manubot#pandoc-filter) automatically retrieves the bibliographic metadata for citation keys.
+3. The [`pandoc-citeproc` filter](https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md) renders in-text citations and generates styled references.
 
-When using Manubot, citation keys should be formatted like `@prefix:accession`,
+When citing persistent identifiers, citation keys should be formatted like `@prefix:accession`,
 where `prefix` is one of the options described below.
 When choosing which source to use for a citation, we recommend the following order:
 
@@ -101,9 +101,12 @@ When choosing which source to use for a citation, we recommend the following ord
    For example, `@doi:10.1038/ng.3834` [incorrectly handles](https://github.com/manubot/manubot/issues/158) the consortium name resulting in a blank author, while `@https://doi.org/10.1038/ng.3834` succeeds.
    Similarly, `@https://doi.org/10.1101/142760` is a [workaround](https://github.com/manubot/manubot/issues/16) to set the journal name of bioRxiv preprints to _bioRxiv_.
 7. Wikidata Items, cite like `@wikidata:Q50051684`.
-   Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata as an alternative to using a `raw` citation.
-8. For references that do not have any of the persistent identifiers above, use a raw citation like `@old-manuscript`.
-   Metadata for raw citations must be provided manually.
+   Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata.
+8. Any other compact identifier supported by <https://identifiers.org>.
+   Manubot uses the Identifiers.org Resolution Service to support [hundreds of prefixes](https://github.com/manubot/manubot/blob/7055bcc6524fdf1ef97d838cf0158973e2061595/manubot/cite/handlers.py#L122-L831).
+   For example, citing `@clinicaltrials:NCT04280705` will produce the same bibliographic metadata as `@https://identifiers.org/clinicaltrials:NCT04280705` or `@https://clinicaltrials.gov/ct2/show/NCT04280705`.
+9. For references that do not have any of the above persistent identifiers, the citation key does not need to include a prefix.
+   Citing `@old-manuscript` will work, but only if reference metadata is provided manually.
 
 Cite multiple items at once like:
 
@@ -134,46 +137,42 @@ pandoc:
   manubot-fail-on-errors: True
 ```
 
-#### Citation tags
+#### Citation aliases
 
-The system also supports citation tags, which map from one citation key (an alias) to another.
+The system also supports citation aliases, which map from one citation key (the "alias" or "tag") to another.
 Tags are recommended for the following applications:
 
-1. A citation's identifier contains forbidden characters, you must use a tag.
+1. A citation key contains forbidden characters.
 2. A single reference is cited many times.
-   Therefore, it might make sense to define a tag, so if the citation updates (e.g. a newer version becomes available), only a single change is required.
+   Therefore, it might make sense to define an alias, so if the citation updates (e.g. a newer version becomes available), only a single change is required.
 
-Tags can be defined using Markdown's [link reference syntax](https://spec.commonmark.org/0.29/#link-reference-definitions) as follows:
+Aliases can be defined using Markdown's [link reference syntax](https://spec.commonmark.org/0.29/#link-reference-definitions) as follows:
 
 ```markdown
-Citing a URL containing a `?` character [@tag:my-url].
-Citing a DOI containing parentheses [@doi:my-doi].
+Citing a URL containing a `?` character [@my-url].
+Citing a DOI containing parentheses [@my-doi].
 
-[@tag:my-url]: url:https://openreview.net/forum?id=HkwoSDPgg
-[@tag:my-doi]: doi:10.1016/S0022-2836(05)80360-2
+[@my-url]: https://openreview.net/forum?id=HkwoSDPgg
+[@my-doi]: doi:10.1016/S0022-2836(05)80360-2
 ```
 
 This syntax is also used by [`pandoc-url2cite`](https://github.com/phiresky/pandoc-url2cite).
 Make sure to place these link reference definitions in their own paragraphs.
 These paragraphs can be in any of the content Markdown files.
 
-Another method for defining tags is to define `pandoc.citekey-aliases` in `metadata.yaml`:
+Another method for defining aliases is to define `pandoc.citekey-aliases` in `metadata.yaml`:
 
 ```yaml
 pandoc:
   citekey-aliases:
-    tag:my-url: url:https://openreview.net/forum?id=HkwoSDPgg
-    tag:my-doi: doi:10.1016/S0022-2836(05)80360-2
+    my-url: https://openreview.net/forum?id=HkwoSDPgg
+    my-doi: doi:10.1016/S0022-2836(05)80360-2
 ```
-
-For backwards compatibility, tags can also be defined in `content/citation-tags.tsv`.
-If `citation-tags.tsv` defines the tag `study-x`, then this study can be cited like `@tag:study-x`.
-This method is deprecated.
 
 ## Reference metadata
 
 Manubot stores the bibliographic details for references (the set of all cited works) as CSL JSON ([Citation Style Language Items](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
-For all citation sources besides `raw`, Manubot automatically generates CSL JSON.
+Manubot automatically generates CSL JSON for most persistent identifiers (as described in [Citations](#citations) above).
 In some cases, automatic metadata retrieval fails or provides incorrect or incomplete information.
 Errors are most common for `url` references.
 Therefore, Manubot supports user-provided metadata, which we refer to as "manual references".
@@ -182,18 +181,18 @@ When a manual reference is provided, Manubot uses the supplied metadata and does
 Manubot searches the `content` directory for files that match the glob pattern `manual-references*.*` and expects that these files contain manual references.
 [`content/manual-references.json`](content/manual-references.json) is the default file to specify custom CSL JSON metadata.
 Manual references are matched to citations using their "id" field.
-For example, to manually specify the metadata for the citation `@url:https://github.com/manubot/rootstock`, add a CSL JSON Item to `manual-references.json` that contains the following excerpt:
+For example, to manually specify the metadata for the citation `@https://github.com/manubot/rootstock`, add a CSL JSON Item to `manual-references.json` that contains the following excerpt:
 
 ```json
-"id": "url:https://github.com/manubot/rootstock",
+"id": "https://github.com/manubot/rootstock",
 ```
 
-The metadata for `raw` citations must be provided in a manual reference file (e.g. `manual-references.json`) or an error will occur.
-For example, to cite `@raw:private-message` in a manuscript, a corresponding CSL JSON Item is required, such as:
+The metadata for unhandled citations — any citation key that is a not a supported persistent ID — must be provided in a manual reference file (e.g. `manual-references.json`) or an error will occur.
+For example, to cite `@private-message` in a manuscript, a corresponding CSL JSON Item is required, such as:
 
 ```json
 {
-  "id": "raw:private-message",
+  "id": "private-message",
   "type": "personal_communication",
   "title": "Personal communication with Doctor X"
 }
@@ -204,10 +203,10 @@ For guidance on what CSL JSON should be like for different document types, refer
 
 Manubot offers some support for other bibliographic metadata formats besides CSL JSON, by delegating conversion to the `pandoc-citeproc --bib2json` [utility](https://github.com/jgm/pandoc-citeproc/blob/master/man/pandoc-citeproc.1.md#convert-mode).
 Formats are inferred from filename extensions.
-So, for example, to provide metadata for `@url:https://github.com/manubot/rootstock` in BibTeX format, create the file `content/manual-references.bib` and create an item whose definition starts with the excerpt:
+So, for example, to provide metadata for `@https://github.com/manubot/rootstock` in BibTeX format, create the file `content/manual-references.bib` and create an item whose definition starts with the excerpt:
 
 ```latex
-@misc{url:https://github.com/manubot/rootstock,
+@misc{https://github.com/manubot/rootstock,
 ```
 
 Processed reference metadata in CSL JSON format, either generated by Manubot or specified via manual references, is exported to `references.json`.
