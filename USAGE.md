@@ -106,7 +106,7 @@ When choosing which source to use for a citation, we recommend the following ord
    Manubot uses the Identifiers.org Resolution Service to support [hundreds of prefixes](https://github.com/manubot/manubot/blob/7055bcc6524fdf1ef97d838cf0158973e2061595/manubot/cite/handlers.py#L122-L831).
    For example, citing `@clinicaltrials:NCT04280705` will produce the same bibliographic metadata as `@https://identifiers.org/clinicaltrials:NCT04280705` or `@https://clinicaltrials.gov/ct2/show/NCT04280705`.
 9. For references that do not have any of the above persistent identifiers, the citation key does not need to include a prefix.
-   Citing `@old-manuscript` will work, but only if reference metadata is provided manually.
+   Citing `@old-manuscript` will work, but only if reference metadata is [provided manually](#reference-metadata).
 
 Cite multiple items at once like:
 
