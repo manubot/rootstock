@@ -19,7 +19,7 @@ dependencies:
   - yamllint=1.21.0
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/dhimmel/manubot@e15cf4647c978a6d9359a1e1ef984dd0d7383522
+    - git+https://github.com/manubot/manubot@47b03e0c202e6a0561e6548ba08a4ad790f56eee
     - jsonref==0.2
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
