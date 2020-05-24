@@ -103,7 +103,7 @@ When choosing which source to use for a citation, we recommend the following ord
 7. Wikidata Items, cite like `@wikidata:Q50051684`.
    Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata.
 8. Any other compact identifier supported by <https://identifiers.org>.
-   Manubot uses the Identifiers.org Resolution Service to support [hundreds of prefixes](https://github.com/manubot/manubot/blob/7055bcc6524fdf1ef97d838cf0158973e2061595/manubot/cite/handlers.py#L122-L831).
+   Manubot uses the Identifiers.org Resolution Service to support [hundreds](https://github.com/manubot/manubot/blob/7055bcc6524fdf1ef97d838cf0158973e2061595/manubot/cite/handlers.py#L122-L831 "Actual prefix support is determined by this manubot source code.") of [prefixes](https://registry.identifiers.org/registry "Identifiers.org prefix search").
    For example, citing `@clinicaltrials:NCT04280705` will produce the same bibliographic metadata as `@https://identifiers.org/clinicaltrials:NCT04280705` or `@https://clinicaltrials.gov/ct2/show/NCT04280705`.
 9. For references that do not have any of the above persistent identifiers, the citation key does not need to include a prefix.
    Citing `@old-manuscript` will work, but only if reference metadata is [provided manually](#reference-metadata).
@@ -123,7 +123,7 @@ Citation keys must adhere to the syntax described in the [Pandoc manual](https:/
 > The citation key must begin with a letter, digit, or `_`, and may contain alphanumerics, `_`, and internal punctuation characters (`:.#$%&-+?<>~/`).
 
 To evaluate whether a citation key fully matches this syntax, try [this online regex](https://regex101.com/r/mXZyY2/latest).
-If the citation key is not valid, use the [citation tag](#citation-tag) workaround below.
+If the citation key is not valid, use the [citation aliases](#citation-aliases) workaround below.
 This is required for citation keys that contain forbidden characters such as `;` or `=` or end with a non-alphanumeric character such as `/`.
 <!-- See [jgm/pandoc#6026](https://github.com/jgm/pandoc/issues/6026) for progress on a more flexible Markdown citation key syntax. -->
 
@@ -140,7 +140,7 @@ pandoc:
 #### Citation aliases
 
 The system also supports citation aliases, which map from one citation key (the "alias" or "tag") to another.
-Tags are recommended for the following applications:
+Aliases are recommended for the following applications:
 
 1. A citation key contains forbidden characters.
 2. A single reference is cited many times.
@@ -174,7 +174,8 @@ pandoc:
 Manubot stores the bibliographic details for references (the set of all cited works) as CSL JSON ([Citation Style Language Items](http://citeproc-js.readthedocs.io/en/latest/csl-json/markup.html#csl-json-items)).
 Manubot automatically generates CSL JSON for most persistent identifiers (as described in [Citations](#citations) above).
 In some cases, automatic metadata retrieval fails or provides incorrect or incomplete information.
-Errors are most common for `url` references.
+Errors are most common for references generated from scraping HTML metadata from websites.
+This occurs most frequently for `https`/`http`/`url` citations as well as identifiers.org prefixes without explicit support listed above.
 Therefore, Manubot supports user-provided metadata, which we refer to as "manual references".
 When a manual reference is provided, Manubot uses the supplied metadata and does not attempt to generate it.
 
