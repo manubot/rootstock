@@ -4,7 +4,7 @@ author-meta:
 - Jane Roe
 bibliography:
 - content/manual-references.json
-date-meta: '2020-05-07'
+date-meta: '2020-05-24'
 header-includes: '<!--
 
   Manubot generated metadata rendered from header-includes-template.html.
@@ -23,9 +23,9 @@ header-includes: '<!--
 
   <meta property="twitter:title" content="Manuscript Title" />
 
-  <meta name="dc.date" content="2020-05-07" />
+  <meta name="dc.date" content="2020-05-24" />
 
-  <meta name="citation_publication_date" content="2020-05-07" />
+  <meta name="citation_publication_date" content="2020-05-24" />
 
   <meta name="dc.language" content="en-US" />
 
@@ -106,7 +106,7 @@ This manuscript
 ([permalink](https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/))
 was automatically generated
 from [manubot/rootstock@8b9b5ce](https://github.com/manubot/rootstock/tree/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697)
-on May 7, 2020.
+on May 24, 2020.
 </em></small>
 
 ## Authors
