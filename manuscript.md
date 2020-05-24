@@ -67,11 +67,11 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/" />
 
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
@@ -103,9 +103,9 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697/))
+([permalink](https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/))
 was automatically generated
-from [manubot/rootstock@8b9b5ce](https://github.com/manubot/rootstock/tree/8b9b5ced2c7c963bf3ea5afb8f31f9a4a54ab697)
+from [manubot/rootstock@b746270](https://github.com/manubot/rootstock/tree/b7462701ff85854a67d878db4af89d0268bb11d2)
 on May 24, 2020.
 </em></small>
 
@@ -238,24 +238,24 @@ Bare URL link: <https://manubot.org>
 
 Citation by DOI [@doi:10.7554/eLife.32822].
 
-Citation by PubMed Central ID [@pmcid:PMC6103790].
+Citation by PubMed Central ID [@pmc:PMC6103790].
 
-Citation by PubMed ID [@pmid:30718888].
+Citation by PubMed ID [@pubmed:30718888].
 
 Citation by Wikidata ID [@wikidata:Q56458321].
 
 Citation by ISBN [@isbn:9780262517638].
 
-Citation by URL [@url:https://greenelab.github.io/meta-review/].
+Citation by URL [@https://greenelab.github.io/meta-review/].
 
-Citation by tag [@tag:deep-review].
+Citation by alias [@deep-review].
 
-Multiple citations can be put inside the same set of brackets [@doi:10.7554/eLife.32822; @tag:deep-review; @isbn:9780262517638].
-Manubot plugins provide easier, more convenient visualization of and navigation between citations [@doi:10.1371/journal.pcbi.1007128; @pmid:30718888; @pmcid:PMC6103790; @tag:deep-review].
+Multiple citations can be put inside the same set of brackets [@doi:10.7554/eLife.32822; @deep-review; @isbn:9780262517638].
+Manubot plugins provide easier, more convenient visualization of and navigation between citations [@doi:10.1371/journal.pcbi.1007128; @pubmed:30718888; @pmc:PMC6103790; @deep-review].
 
 Citation tags (i.e. aliases) can be defined in their own paragraphs using Markdown's reference link syntax:
 
-[@tag:deep-review]: doi:10.1098/rsif.2017.0387
+[@deep-review]: doi:10.1098/rsif.2017.0387
 
 ## Referencing figures, tables, equations
 
