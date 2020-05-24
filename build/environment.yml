@@ -19,8 +19,7 @@ dependencies:
   - yamllint=1.21.0
   - pip:
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@47b03e0c202e6a0561e6548ba08a4ad790f56eee
-    - jsonref==0.2
+    - git+https://github.com/manubot/manubot@1c3c74b2d4179e448ae73269bec0d291cbe805cd
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
     - pandoc-eqnos==2.1.1
