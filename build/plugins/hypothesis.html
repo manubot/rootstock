@@ -1,6 +1,16 @@
-<!-- annotations plugin configuration -->
+<!-- annotations plugin -->
 
 <script>
+    // /////////////////////////
+    // DESCRIPTION
+    // /////////////////////////
+
+    // This third-party plugin 'Hypothesis' allows public annotation of the
+    // manuscript.
+
+    // https://web.hypothes.is/
+
+    // plugin configuration
     window.hypothesisConfig = function() {
         return {
             branding: {
@@ -13,17 +23,81 @@
             }
         };
     };
+
+    // hypothesis client script
+    const embed = 'https://hypothes.is/embed.js';
+    // hypothesis annotation count query url
+    const query = 'https://api.hypothes.is/api/search?limit=0&url='
+
+    
+    // start script
+    function start() {
+        const button = makeButton();
+        document.body.insertBefore(button, document.body.firstChild);
+        insertCount(button);
+    }
+
+    // make button
+    function makeButton() {
+        // create button
+        const button = document.createElement('button');
+        button.id = 'hypothesis_button';
+        button.innerHTML = document.querySelector(
+            '.icon_hypothesis'
+        ).innerHTML;
+        button.title = 'Hypothesis annotations';
+        button.classList.add('icon_button');
+
+        function onClick(event) {
+            onButtonClick(event, button);
+        }
+
+        // attach click listeners
+        button.addEventListener('click', onClick);
+
+        return button;
+    }
+
+    // insert annotations count
+    async function insertCount(button) {
+        // get annotation count from Hypothesis based on url
+        let count = '-';
+        try {
+            const response = await fetch(query + window.location.href);
+            const json = await response.json();
+            count = json.total || '-';
+        } catch(error) {
+            console.log(error);
+        }
+        
+        // put count into button
+        const counter = document.createElement('span');
+        counter.id = 'hypothesis_count';
+        counter.innerHTML = count;
+        button.title = 'View ' + count + ' Hypothesis annotations';
+        button.append(counter);
+    }
+
+    // when button is clicked
+    function onButtonClick(event, button) {
+        const script = document.createElement('script');
+        script.src = embed;
+        document.body.append(script);
+        button.remove();
+    }
+
+    window.addEventListener('load', start);
 </script>
 
-<!-- annotations plugin -->
+<!-- hypothesis icon -->
 
-<script src='https://hypothes.is/embed.js'>
-    // /////////////////////////
-    // DESCRIPTION
-    // /////////////////////////
-
-    // This third-party plugin 'Hypothesis' allows public annotation of the
-    // manuscript.
-
-    // https://web.hypothes.is/
-</script>
+<template class="icon_hypothesis">
+    <!-- modified from: https://fontawesome.com/icons/quote-right -->
+    <svg width="16" height="16" viewBox="0 0 512 512" tabindex="-1">
+        <path
+            fill="currentColor"
+            d="M464 32H336c-26.5 0-48 21.5-48 48v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48zm-288 0H48C21.5 32 0 53.5 0 80v128c0 26.5 21.5 48 48 48h80v64c0 35.3-28.7 64-64 64h-8c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24h8c88.4 0 160-71.6 160-160V80c0-26.5-21.5-48-48-48z"
+            tabindex="-1"
+        ></path>
+    </svg>
+</template>
