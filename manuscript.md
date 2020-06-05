@@ -4,7 +4,7 @@ author-meta:
 - Jane Roe
 bibliography:
 - content/manual-references.json
-date-meta: '2020-05-24'
+date-meta: '2020-06-05'
 header-includes: '<!--
 
   Manubot generated metadata rendered from header-includes-template.html.
@@ -23,9 +23,9 @@ header-includes: '<!--
 
   <meta property="twitter:title" content="Manuscript Title" />
 
-  <meta name="dc.date" content="2020-05-24" />
+  <meta name="dc.date" content="2020-06-05" />
 
-  <meta name="citation_publication_date" content="2020-05-24" />
+  <meta name="citation_publication_date" content="2020-06-05" />
 
   <meta name="dc.language" content="en-US" />
 
@@ -67,11 +67,11 @@ header-includes: '<!--
 
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
 
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/d61267c8ff1d7bc16644f4e15b814c1b4ca2bd31/" />
 
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/d61267c8ff1d7bc16644f4e15b814c1b4ca2bd31/" />
 
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/manuscript.pdf" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/d61267c8ff1d7bc16644f4e15b814c1b4ca2bd31/manuscript.pdf" />
 
   <meta property="og:type" content="article" />
 
@@ -103,10 +103,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/b7462701ff85854a67d878db4af89d0268bb11d2/))
+([permalink](https://manubot.github.io/rootstock/v/d61267c8ff1d7bc16644f4e15b814c1b4ca2bd31/))
 was automatically generated
-from [manubot/rootstock@b746270](https://github.com/manubot/rootstock/tree/b7462701ff85854a67d878db4af89d0268bb11d2)
-on May 24, 2020.
+from [manubot/rootstock@d61267c](https://github.com/manubot/rootstock/tree/d61267c8ff1d7bc16644f4e15b814c1b4ca2bd31)
+on June 5, 2020.
 </em></small>
 
 ## Authors
@@ -205,6 +205,10 @@ Document section headings:
 ### Heading 3
 
 #### Heading 4
+
+##### Heading 5
+
+###### Heading 6
 
 ### A heading centered on its own printed page{.center .page_center}
 
