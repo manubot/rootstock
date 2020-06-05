@@ -63,7 +63,10 @@
         // get annotation count from Hypothesis based on url
         let count = '-';
         try {
-            const response = await fetch(query + window.location.href);
+            const canonical = 
+                (document.querySelector('link[rel="canonical"]') || {}).href;
+            const url = window.location.href;
+            const response = await fetch(query + (canonical || url));
             const json = await response.json();
             count = json.total || '-';
         } catch(error) {
