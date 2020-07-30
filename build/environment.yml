@@ -22,10 +22,10 @@ dependencies:
     - git+https://github.com/manubot/manubot@a57ccf0be6972329ff3010eaaa0c5df7ccebb2d5
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
-    - pandoc-eqnos==2.1.1
-    - pandoc-fignos==2.2.0
-    - pandoc-tablenos==2.1.1
-    - pandoc-xnos==2.2.0
+    - pandoc-eqnos==2.2.0
+    - pandoc-fignos==2.3.0
+    - pandoc-tablenos==2.2.0
+    - pandoc-xnos==2.4.1
     - pybase62==0.4.3
     - pysha3==1.0.2
     - python-bitcoinlib==0.10.2
