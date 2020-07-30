@@ -8,7 +8,7 @@ dependencies:
   - ghp-import=0.5.5
   - jinja2=2.11.2
   - jsonschema=3.2.0
-  - pandoc=2.10
+  - pandoc=2.10.1
   - pango=1.40.14
   - pip=20.1
   - psutil=5.7.0
