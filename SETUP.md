@@ -70,7 +70,10 @@ Next, push your cloned manuscript:
 ```sh
 git push --set-upstream origin master
 ```
-
+An alternative way to push your cloned manuscrit would be:
+```sh
+git push --set-upstream https://github.com/OWNER/REPO
+```
 ## Continuous integration
 
 Manubot integrates with cloud services to perform continuous integration (CI).
