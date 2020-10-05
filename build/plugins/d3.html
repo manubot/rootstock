@@ -1,11 +1,43 @@
 <!-- d3 plugin -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js" integrity="sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==" crossorigin="anonymous">
+<script>
+    var d3ScriptTag = document.createElement('script');
+    d3ScriptTag.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js");
+    d3ScriptTag.setAttribute("integrity", "sha512-C2RveGuPIWqkaLAluvoxyiaN1XYNe5ss11urhZWZYBUA9Ydgj+hfGKPcxCzTwut1/fmjEZR7Ac35f2aycT8Ogw==");
+    d3ScriptTag.setAttribute("crossorigin", "anonymous");
+    document.head.appendChild(d3ScriptTag);
+
+    // https://stackoverflow.com/questions/35783441/include-svg-files-with-html-and-still-be-able-to-apply-styles-to-them
+    replaceElementWithInline = (e) =>
+        fetch(e.getAttribute(e.nodeName === "OBJECT" ? "data" : "src"))
+            .then(response => response.text())
+            .then(text => { e.outerHTML = text; return Promise.resolve(); });
+
+    d3ScriptTag.onload = function() {
+        var exchanges = [];
+        d3.selectAll("figure>img")
+            .filter((d, i, n) => n[i].src.endsWith(".svg"))
+            .each((d, i, n) => exchanges.push(replaceElementWithInline(n[i])));
+        Promise.all(exchanges).then(e => {
+            document.dispatchEvent(new Event("D3Loaded"));
+        });
+    }
     // /////////////////////////
     // DESCRIPTION
     // /////////////////////////
 
     // This third-party plugin 'd3' allows embedded scripts to utilize the d3
     // platform inline in manubot documents.
+    //
+    // It does this by first loading in and replacing figure <img> tags that
+    // include SVG files with the content of those files, then firing the D3Loaded event
+    // at the document level.
+    //
+    // To take advantage of this, you can use inline <script> components that listen
+    // for the document's D3Loaded event, like so:
+    //
+    // document.addEventListener("D3Loaded", function(event) {
+    //    ... do your stuff here ...
+    // });
 
 </script>
