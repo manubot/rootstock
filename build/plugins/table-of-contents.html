@@ -85,7 +85,8 @@
 
         // when mouse is clicked anywhere in window
         function onClick() {
-            closePanel();
+            if (isSmallScreen())
+                closePanel();
         }
 
         // when window is scrolled or hash changed
