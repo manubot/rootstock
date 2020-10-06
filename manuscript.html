@@ -113,9 +113,9 @@
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/b92b960fcd0fb39c933375f84d5cfc365fc07ca0/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/b92b960fcd0fb39c933375f84d5cfc365fc07ca0/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/b92b960fcd0fb39c933375f84d5cfc365fc07ca0/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -136,9 +136,9 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://manubot.github.io/rootstock/v/b92b960fcd0fb39c933375f84d5cfc365fc07ca0/">permalink</a>)
+(<a href="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/manubot/rootstock/tree/b92b960fcd0fb39c933375f84d5cfc365fc07ca0">manubot/rootstock@b92b960</a>
+from <a href="https://github.com/manubot/rootstock/tree/37a11499b204458dfb620970f103769289b31e1f">manubot/rootstock@37a1149</a>
 on October 6, 2020.
 </em></small></p>
 <h2 id="authors">Authors</h2>
@@ -373,7 +373,7 @@ White background specified to serve as a backdrop for transparent sections of th
 </tbody>
 </table>
 </div>
-<div id="tbl:d42c6b34-c0ed-4f3b-8b79-49f191ba364c" class="tablenos">
+<div id="tbl:b113432d-e93f-4e49-aadd-eadc677e0c21" class="tablenos">
 <table>
 <caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin.
 </caption>
@@ -3243,8 +3243,6 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             window.addEventListener('load', start);
     })();
 </script>
-<!-- table of contents plugin -->
-
 <script>
     (function() {
         // /////////////////////////
@@ -3267,10 +3265,13 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             // which types of elements to add links for, in
             // "document.querySelector" format
             typesQuery: 'h1, h2, h3',
-            // whether default behavior is to be closed ('false'), open
-            // ('true'), or only open when screen wide enough to fit panel
-            // ('auto'). note: still always starts closed when page loads.
-            open: 'auto',
+            // whether toc starts open. use 'true' or 'false', or 'auto' to
+            // use 'true' behavior when screen wide enough and 'false' when not
+            startOpen: 'false',
+            // whether toc closes when clicking on toc link. use 'true' or
+            // 'false', or 'auto' to use 'false' behavior when screen wide
+            // enough and 'true' when not
+            clickClose: 'auto',
             // if list item is more than this many characters, text will be
             // truncated
             charLimit: '50',
@@ -3295,13 +3296,21 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             if (!panel)
                 return;
             makeEntries(panel);
+            // attach panel to document after making entries, so 'toc' heading
+            // in panel isn't included in toc
             document.body.insertBefore(panel, document.body.firstChild);
 
-            closePanel();
+            // initial panel state
+            if (
+                options.startOpen === 'true' ||
+                (options.startOpen === 'auto' && !isSmallScreen())
+            )
+                openPanel();
+            else
+                closePanel();
 
             // attach click, scroll, and hash change listeners to window
             window.addEventListener('click', onClick);
-            window.addEventListener('touchstart', onClick);
             window.addEventListener('scroll', onScroll);
             window.addEventListener('hashchange', onScroll);
             window.addEventListener('keyup', onKeyUp);
@@ -3319,25 +3328,10 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             return window.innerWidth < 816 + 260 * 2;
         }
 
-        // open/close panel based on option and screen size
-        function openOrClosePanel() {
-            if (
-                options.open === 'true' ||
-                (options.open === 'auto' && !isSmallScreen())
-            )
-                openPanel();
-            else
-                closePanel();
-        }
-
         // when mouse is clicked anywhere in window
         function onClick() {
-            const panel = document.getElementById('toc_panel');
-            if (!panel)
-                return;
-
-            if (panel.dataset.open === 'true')
-                openOrClosePanel();
+            if (isSmallScreen())
+                closePanel();
         }
 
         // when window is scrolled or hash changed
@@ -3419,8 +3413,8 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             button.classList.add('icon_button');
 
             // create header text
-            const text = document.createElement('h3');
-            text.innerHTML = 'View Table of Contents';
+            const text = document.createElement('h4');
+            text.innerHTML = 'Table of Contents';
 
             // create container for toc list
             const list = document.createElement('div');
@@ -3497,8 +3491,14 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
         }
 
         // when link is clicked
-        function onLinkClick() {
-            openOrClosePanel();
+        function onLinkClick(event) {
+            if (
+                options.clickClose === 'true' ||
+                (options.clickClose === 'auto' && isSmallScreen())
+            )
+                closePanel();
+            else
+                openPanel();
         }
 
         // open panel if closed, close if opened
