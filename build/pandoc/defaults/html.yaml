@@ -2,7 +2,7 @@
 # Load on top of common defaults.
 to: html5
 output-file: output/manuscript.html
-include-in-header:
+include-before-body:
 # - build/plugins/d3.html
 include-after-body:
 - build/themes/default.html
