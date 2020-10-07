@@ -30,8 +30,8 @@
       // takes an svg <img> tag, fetches its source code, and replaces it 
       async function inlineSvg(svg) {
           try {
-              svg.outerHTML =
-                  await (await fetch(svg.src)).text() || svg.outerHTML;
+              const text = await (await fetch(svg.src)).text();
+              svg.outerHTML = text;
           } catch(error) {
               console.log(error);
           }
