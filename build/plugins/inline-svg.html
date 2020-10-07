@@ -28,7 +28,7 @@
       }
 
       // takes an svg <img> tag, fetches its source code, and replaces it 
-      async function inlineSvg(img) {
+      async function inlineSvg(svg) {
         const text = await (await fetch(svg.src)).text();
         svg.outerHTML = text;
       }
