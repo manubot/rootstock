@@ -1,0 +1,39 @@
+<!-- inline svg plugin -->
+
+<script>
+  (function() {
+      // /////////////////////////
+      // DESCRIPTION
+      // /////////////////////////
+
+      // This Manubot plugin fetches the text source code of SVGs in <img> tags,
+      // and inserts it into the document in place. This provides many
+      // advantages, such as being able to style SVGs globally from the CSS
+      // themes, and being able to make SVGs interactive with JavaScript and D3.
+
+      // /////////////////////////
+      // SCRIPT
+      // /////////////////////////
+
+      // start script
+      async function start() {
+          // get all <img> tags that have "src" attributes that end with ".svg"
+          const imgs = document.querySelectorAll('img[src$=".svg"]');
+          const inlineSvgs = Array.from(imgs).map(inlineSvg);
+          await Promise.all(inlineSvgs);
+
+          // dispatch "inline finished" event
+          // user d3 scripts should wait to hear this event before running
+          document.dispatchEvent(new Event('D3Loaded'));
+      }
+
+      // takes an svg <img> tag, fetches its source code, and replaces it 
+      async function inlineSvg(img) {
+        const text = await (await fetch(svg.src)).text();
+        svg.outerHTML = text;
+      }
+
+      // start script when document is finished loading
+      window.addEventListener('load', start);
+  })();
+</script>

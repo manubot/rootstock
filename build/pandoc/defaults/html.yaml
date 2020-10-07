@@ -11,6 +11,8 @@ include-after-body:
 - build/plugins/link-highlight.html
 - build/plugins/table-of-contents.html
 - build/plugins/lightbox.html
+# - build/plugins/inline-svg.html
+# - build/plugins/d3.html
 - build/plugins/attributes.html
 - build/plugins/math.html
 - build/plugins/hypothesis.html
