@@ -7,13 +7,13 @@
       // /////////////////////////
 
       // This Manubot plugin fetches the text source code of SVGs in <img> tags,
-      // and inserts it into the document in place. This provides many
+      // and inserts it into the document in-place. This provides many
       // advantages, such as being able to style SVGs globally from the CSS
       // themes, and being able to make SVGs interactive with JavaScript and D3.
-      // If you have a script that expects SVGs to be inlined, wait for a
+      // If you have a script that expects SVGs to be inlined, wait for an
       // "SVGLoaded" event before running it.
 
-      // Note: This requires the page to be served from a server to work.
+      // Note: This requires the page to be served from a server to work
       // See: https://stackoverflow.com/a/11063963/2180570
       // Tip: Use the manubot commands to open the page in a local webserver
       // See: https://github.com/manubot/rootstock#local-execution
@@ -38,7 +38,7 @@
           try {
               // fetch svg source code
               const response = await fetch(img.src);
-              if (!response.ok) throw new Error('Couldn\'t get SVG source')
+              if (!response.ok) throw new Error('Couldn\'t get SVG source');
               const source = await response.text();
               if (!source.trim()) throw new Error('No SVG source');
               // parse specifically as svg, create new (hidden) dom node
