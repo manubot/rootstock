@@ -10,6 +10,8 @@
       // and inserts it into the document in place. This provides many
       // advantages, such as being able to style SVGs globally from the CSS
       // themes, and being able to make SVGs interactive with JavaScript and D3.
+      // If you have a script that expects SVGs to be inlined, wait for a
+      // "SVGLoaded" event before running it.
 
       // Note: This requires the page to be served from a server to work.
       // See: https://stackoverflow.com/a/11063963/2180570
@@ -28,8 +30,7 @@
           await Promise.all(inlineSvgs);
 
           // dispatch "inline finished" event
-          // user d3 scripts should wait to hear this event before running
-          document.dispatchEvent(new Event('D3Loaded'));
+          document.dispatchEvent(new Event('SVGLoaded'));
       }
 
       // take an svg <img> tag, fetch its source code, and replace it 
