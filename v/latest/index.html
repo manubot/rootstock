@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2020-10-06" />
+  <meta name="dcterms.date" content="2020-10-21" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -91,8 +91,8 @@
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2020-10-06" />
-  <meta name="citation_publication_date" content="2020-10-06" />
+  <meta name="dc.date" content="2020-10-21" />
+  <meta name="citation_publication_date" content="2020-10-21" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -113,9 +113,9 @@
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/17492f1711e05278291d6b355125c990a1a068d6/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/17492f1711e05278291d6b355125c990a1a068d6/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/17492f1711e05278291d6b355125c990a1a068d6/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -136,10 +136,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://manubot.github.io/rootstock/v/37a11499b204458dfb620970f103769289b31e1f/">permalink</a>)
+(<a href="https://manubot.github.io/rootstock/v/17492f1711e05278291d6b355125c990a1a068d6/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/manubot/rootstock/tree/37a11499b204458dfb620970f103769289b31e1f">manubot/rootstock@37a1149</a>
-on October 6, 2020.
+from <a href="https://github.com/manubot/rootstock/tree/17492f1711e05278291d6b355125c990a1a068d6">manubot/rootstock@17492f1</a>
+on October 21, 2020.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -373,7 +373,7 @@ White background specified to serve as a backdrop for transparent sections of th
 </tbody>
 </table>
 </div>
-<div id="tbl:b113432d-e93f-4e49-aadd-eadc677e0c21" class="tablenos">
+<div id="tbl:d2ced834-9bec-432c-aad9-3e11f757ec93" class="tablenos">
 <table>
 <caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin.
 </caption>
@@ -722,7 +722,8 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
     }
 
     /* figure image element */
-    figure img {
+    figure > img,
+    figure > svg {
         max-width: 100%;
         display: block;
         margin-left: auto;
@@ -730,7 +731,8 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
     }
 
     /* figure auto-number */
-    img + figcaption > span:first-of-type {
+    img + figcaption > span:first-of-type,
+    svg + figcaption > span:first-of-type {
         font-weight: bold;
         margin-right: 5px;
     }
@@ -1310,7 +1312,8 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
         }
 
         /* tooltip copy of <img> */
-        #tooltip_content > figure > img {
+        #tooltip_content > figure > img,
+        #tooltip_content > figure > svg {
             max-height: 260px;
         }
 
@@ -1561,7 +1564,7 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
 
     @media only screen {
         /* regular <img> in document when hovered */
-        .lightbox_document_img:hover {
+        img.lightbox_document_img:hover {
             cursor: pointer;
         }
 
@@ -4308,7 +4311,7 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
             window.addEventListener('load', start);
     })();
 </script>
-<!-- math plugin configuration -->
+<!-- mathjax plugin configuration -->
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -4316,12 +4319,16 @@ DOI: <a href="https://doi.org/10.1371/journal.pcbi.1007128">10.1371/journal.pcbi
         "HTML-CSS": { linebreaks: { automatic: true } },
         "SVG": { linebreaks: { automatic: true } },
         "fast-preview": { disabled: true }
-    });
+  });
 </script>
 
-<!-- math plugin -->
+<!-- mathjax plugin -->
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML'>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-MML-AM_CHTML.js"
+    integrity="sha512-sRJwTwSmIAJfESgwGDn84X0s72u/n6qBjPShCGXi307x3ZFynu/u2A8652KZhmvjP0U0zeOFCxoMtj9imy9nOQ=="
+    crossorigin="anonymous"
+>
     // /////////////////////////
     // DESCRIPTION
     // /////////////////////////
