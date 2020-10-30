@@ -1,0 +1,4 @@
+# Pandoc --defaults for Pandoc markdown output.
+# Load on top of common defaults.
+to: markdown
+output-file: output/manuscript-rendered.md
