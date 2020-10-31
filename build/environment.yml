@@ -12,7 +12,7 @@ dependencies:
   - pango=1.40.14
   - pip=20.2
   - psutil=5.7.3
-  - python=3.7
+  - python=3.9.0
   - pyyaml=5.3
   - requests=2.24.0
   - watchdog=0.10.3
