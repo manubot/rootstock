@@ -119,8 +119,9 @@ fi
 if [ "${BUILD_JATS:-}" != "false" ]; then
   echo >&2 "Exporting JATS XML manuscript"
   pandoc --verbose \
-    --defaults="$PANDOC_DEFAULTS_DIR/common.yaml" \
-    --defaults="$PANDOC_DEFAULTS_DIR/jats.yaml"
+    --data-dir="$PANDOC_DATA_DIR" \
+    --defaults=common.yaml \
+    --defaults=jats.yaml
 fi
 
 echo >&2 "Build complete"
