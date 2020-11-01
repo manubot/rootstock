@@ -35,11 +35,19 @@ pandoc --verbose \
   --defaults=common.yaml \
   --defaults=html.yaml
 
-echo >&2 "Exporting Markdown manuscript"
+echo >&2 "Exporting Pandoc Markdown manuscript after performing filters"
 pandoc --verbose \
   --data-dir="$PANDOC_DATA_DIR" \
   --defaults=common.yaml \
-  --defaults=markdown.yaml
+  --to=markdown \
+  --output=output/manuscript-post-filters.md
+
+echo >&2 "Exporting CommonMark manuscript"
+pandoc --verbose \
+  --data-dir="$PANDOC_DATA_DIR" \
+  --defaults=common.yaml \
+  --to=commonmark \
+  --output=output/manuscript-commonmark.md
 
 # Set DOCKER_RUNNING to a non-empty string if docker is running, otherwise null.
 DOCKER_RUNNING="$(docker info &> /dev/null && echo "yes" || true)"
