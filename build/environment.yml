@@ -24,10 +24,10 @@ dependencies:
     - isbnlib==3.10.3
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
-    - pandoc-eqnos==2.3.0
-    - pandoc-fignos==2.3.1
-    - pandoc-tablenos==2.2.2
-    - pandoc-xnos==2.4.3
+    - pandoc-eqnos==2.4.0
+    - pandoc-fignos==2.4.0
+    - pandoc-tablenos==2.3.0
+    - pandoc-xnos==2.5.0
     - panflute==2.0.3
     - pybase62==0.4.3
     - pysha3==1.0.2
