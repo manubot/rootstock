@@ -68,7 +68,7 @@ Do not initialize the repository, other than optionally adding a Description.
 Next, push your cloned manuscript:
 
 ```sh
-git push --set-upstream origin master
+git push --set-upstream origin main
 ```
 
 ## Continuous integration
@@ -263,7 +263,7 @@ If the changes look okay, commit and push:
 ```shell
 git add --update
 git commit --message "Brand repo to $OWNER/$REPO"
-git push origin master
+git push origin main
 ```
 
 You should be good to go now.
@@ -290,7 +290,7 @@ Second, pull the new commits from rootstock, but do not automerge:
 git config remote.rootstock.url || git remote add rootstock https://github.com/manubot/rootstock.git
 
 # pull the new commits from rootstock
-git pull --no-ff --no-rebase --no-commit rootstock master
+git pull --no-ff --no-rebase --no-commit rootstock main
 ```
 
 If all goes well, there won't be any conflicts.
@@ -302,7 +302,7 @@ You may notice changes that affect how items in `content` are processed.
 If so, you should edit and stage `content` files as needed.
 When there are no longer any unstaged changes, then do `git commit`.
 
-If updating `master` via a pull request, proceed to push the commit to GitHub and open a pull request.
+If updating your default branch (i.e. `main` or `master`) via a pull request, proceed to push the commit to GitHub and open a pull request.
 Once the pull request is ready to merge, use GitHub's "Create a merge commit" option rather than "Squash and merge" or "Rebase and merge" to preserve the rootstock commit hashes.
 
 The environment for local builds does not automatically update when [`build/environment.yml`](build/environment.yml) changes.
