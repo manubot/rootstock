@@ -19,6 +19,7 @@ include-after-body:
 - build/plugins/hypothesis.html
 - build/plugins/analytics.html
 variables:
+  document-css: false
   math: ''
 html-math-method:
   method: mathjax
