@@ -13,7 +13,7 @@ For basic formatting, check out the [CommonMark Help](https://commonmark.org/hel
 In addition, Manubot supports an extended version of markdown, tailored for scholarly writing, which includes [Pandoc's Markdown](https://pandoc.org/MANUAL.html#pandocs-markdown) and the extensions discussed below.
 
 The `content/02.delete-me.md` file in the Rootstock repository shows many of the elements and formatting options supported by Manubot.
-See the [raw markdown](https://gitlab.com/manubot/rootstock/blob/master/content/02.delete-me.md#L) in this file and compare it to the [rendered manuscript](https://manubot.github.io/rootstock/).
+See the [raw markdown](https://gitlab.com/manubot/rootstock/blob/main/content/02.delete-me.md#L) in this file and compare it to the [rendered manuscript](https://manubot.github.io/rootstock/).
 
 Within a paragraph in markdown, single newlines are interpreted as whitespace (same as a space).
 A paragraph's source does not need to contain newlines.
