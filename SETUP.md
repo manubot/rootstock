@@ -13,6 +13,7 @@
   * [README updates](#readme-updates)
   * [Finalize](#finalize)
 - [Merging upstream rootstock changes](#merging-upstream-rootstock-changes)
+  * [Default branch](#default-branch)
 
 _generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
 
@@ -68,7 +69,7 @@ Do not initialize the repository, other than optionally adding a Description.
 Next, push your cloned manuscript:
 
 ```sh
-git push --set-upstream origin master
+git push --set-upstream origin main
 ```
 
 ## Continuous integration
@@ -263,7 +264,7 @@ If the changes look okay, commit and push:
 ```shell
 git add --update
 git commit --message "Brand repo to $OWNER/$REPO"
-git push origin master
+git push origin main
 ```
 
 You should be good to go now.
@@ -290,7 +291,7 @@ Second, pull the new commits from rootstock, but do not automerge:
 git config remote.rootstock.url || git remote add rootstock https://github.com/manubot/rootstock.git
 
 # pull the new commits from rootstock
-git pull --no-ff --no-rebase --no-commit rootstock master
+git pull --no-ff --no-rebase --no-commit rootstock main
 ```
 
 If all goes well, there won't be any conflicts.
@@ -302,7 +303,7 @@ You may notice changes that affect how items in `content` are processed.
 If so, you should edit and stage `content` files as needed.
 When there are no longer any unstaged changes, then do `git commit`.
 
-If updating `master` via a pull request, proceed to push the commit to GitHub and open a pull request.
+If updating your default branch (i.e. `main` or `master`) via a pull request, proceed to push the commit to GitHub and open a pull request.
 Once the pull request is ready to merge, use GitHub's "Create a merge commit" option rather than "Squash and merge" or "Rebase and merge" to preserve the rootstock commit hashes.
 
 The environment for local builds does not automatically update when [`build/environment.yml`](build/environment.yml) changes.
@@ -312,3 +313,18 @@ To update your local conda `manubot` environment with new changes, run:
 # update a local conda environment
 conda env update --file build/environment.yml
 ```
+
+## Default branch
+
+On 2020-10-01, GitHub [changed](https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/) the default branch name for new repositories from `master` to `main`.
+More information on GitHub's migration is available at [github/renaming](https://github.com/github/renaming).
+
+On 2020-12-10, Manubot [updated](https://github.com/manubot/rootstock/pull/399) the Rootstock default branch to `main`.
+For existing manuscripts, the default branch will remain `master`,
+unless manually switched to `main`.
+Rootstock has been configured to run continuous integration on both `main` and `master`,
+so existing manuscripts can, but are not required, to switch their default branch to `main`.
+
+Upgrading to the latest Rootstock will change several READMEs links to `main`.
+For manuscripts that do not plan to switch their default branch,
+do not include these changes in the upgrade merge commit.
