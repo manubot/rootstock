@@ -13,6 +13,7 @@
   * [README updates](#readme-updates)
   * [Finalize](#finalize)
 - [Merging upstream rootstock changes](#merging-upstream-rootstock-changes)
+  * [Default branch](#default-branch)
 
 _generated with [markdown-toc](https://ecotrust-canada.github.io/markdown-toc/)_
 
@@ -312,3 +313,18 @@ To update your local conda `manubot` environment with new changes, run:
 # update a local conda environment
 conda env update --file build/environment.yml
 ```
+
+## Default branch
+
+On 2020-10-01, GitHub [changed](https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main/) the default branch name for new repositories from `master` to `main`.
+More information on GitHub's migration is available at [github/renaming](https://github.com/github/renaming).
+
+On 2020-12-10, Manubot [updated](https://github.com/manubot/rootstock/pull/399) the Rootstock default branch to `main`.
+For existing manuscripts, the default branch will remain `master`,
+unless manually switched to `main`.
+Rootstock has been configured to run continuous integration on both `main` and `master`,
+so existing manuscripts can, but are not required, to switch their default branch to `main`.
+
+Upgrading to the latest Rootstock will change several READMEs links to `main`.
+For manuscripts that do not plan to switch their default branch,
+do not include these changes in the upgrade merge commit.
