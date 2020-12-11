@@ -1,99 +1,61 @@
 ---
-author-meta:
-- John Doe
-- Jane Roe
-bibliography:
-- content/manual-references.json
-date-meta: '2020-11-10'
-header-includes: '<!--
-
-  Manubot generated metadata rendered from header-includes-template.html.
-
-  Suggest improvements at https://github.com/manubot/manubot/blob/master/manubot/process/header-includes-template.html
-
-  -->
-
-  <meta name="dc.format" content="text/html" />
-
-  <meta name="dc.title" content="Manuscript Title" />
-
-  <meta name="citation_title" content="Manuscript Title" />
-
-  <meta property="og:title" content="Manuscript Title" />
-
-  <meta property="twitter:title" content="Manuscript Title" />
-
-  <meta name="dc.date" content="2020-11-10" />
-
-  <meta name="citation_publication_date" content="2020-11-10" />
-
-  <meta name="dc.language" content="en-US" />
-
-  <meta name="citation_language" content="en-US" />
-
-  <meta name="dc.relation.ispartof" content="Manubot" />
-
-  <meta name="dc.publisher" content="Manubot" />
-
-  <meta name="citation_journal_title" content="Manubot" />
-
-  <meta name="citation_technical_report_institution" content="Manubot" />
-
-  <meta name="citation_author" content="John Doe" />
-
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
-
-  <meta name="twitter:creator" content="@johndoe" />
-
-  <meta name="citation_author" content="Jane Roe" />
-
-  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
-
-  <meta name="citation_author_institution" content="Department of Whatever, University of Something" />
-
-  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
-
-  <link rel="canonical" href="https://manubot.github.io/rootstock/" />
-
-  <meta property="og:url" content="https://manubot.github.io/rootstock/" />
-
-  <meta property="twitter:url" content="https://manubot.github.io/rootstock/" />
-
-  <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
-
-  <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
-
-  <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/97b294802ffcd39071b6e5b8ab59f60faf4be118/" />
-
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/97b294802ffcd39071b6e5b8ab59f60faf4be118/" />
-
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/97b294802ffcd39071b6e5b8ab59f60faf4be118/manuscript.pdf" />
-
-  <meta property="og:type" content="article" />
-
-  <meta property="twitter:card" content="summary_large_image" />
-
-  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
-
-  <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
-
-  <meta name="theme-color" content="#ad1457" />
-
-  <!-- end Manubot generated metadata -->'
+title: Manuscript Title
 keywords:
 - markdown
 - publishing
 - manubot
 lang: en-US
-manubot-clear-requests-cache: false
+date-meta: '2020-12-11'
+author-meta:
+- John Doe
+- Jane Roe
+header-includes: |-
+  <!--
+  Manubot generated metadata rendered from header-includes-template.html.
+  Suggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html
+  -->
+  <meta name="dc.format" content="text/html" />
+  <meta name="dc.title" content="Manuscript Title" />
+  <meta name="citation_title" content="Manuscript Title" />
+  <meta property="og:title" content="Manuscript Title" />
+  <meta property="twitter:title" content="Manuscript Title" />
+  <meta name="dc.date" content="2020-12-11" />
+  <meta name="citation_publication_date" content="2020-12-11" />
+  <meta name="dc.language" content="en-US" />
+  <meta name="citation_language" content="en-US" />
+  <meta name="dc.relation.ispartof" content="Manubot" />
+  <meta name="dc.publisher" content="Manubot" />
+  <meta name="citation_journal_title" content="Manubot" />
+  <meta name="citation_technical_report_institution" content="Manubot" />
+  <meta name="citation_author" content="John Doe" />
+  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
+  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+  <meta name="twitter:creator" content="@johndoe" />
+  <meta name="citation_author" content="Jane Roe" />
+  <meta name="citation_author_institution" content="Department of Something, University of Whatever" />
+  <meta name="citation_author_institution" content="Department of Whatever, University of Something" />
+  <meta name="citation_author_orcid" content="XXXX-XXXX-XXXX-XXXX" />
+  <link rel="canonical" href="https://manubot.github.io/rootstock/" />
+  <meta property="og:url" content="https://manubot.github.io/rootstock/" />
+  <meta property="twitter:url" content="https://manubot.github.io/rootstock/" />
+  <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
+  <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
+  <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/690aac113b4ee7dbb32a0af10a3d36c51a207025/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/690aac113b4ee7dbb32a0af10a3d36c51a207025/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/690aac113b4ee7dbb32a0af10a3d36c51a207025/manuscript.pdf" />
+  <meta property="og:type" content="article" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
+  <link rel="mask-icon" href="https://manubot.org/safari-pinned-tab.svg" color="#ad1457" />
+  <meta name="theme-color" content="#ad1457" />
+  <!-- end Manubot generated metadata -->
+bibliography:
+- content/manual-references.json
 manubot-output-bibliography: output/references.json
 manubot-output-citekeys: output/citations.tsv
 manubot-requests-cache-path: ci/cache/requests-cache
-title: Manuscript Title
+manubot-clear-requests-cache: false
 ...
 
 
@@ -103,10 +65,10 @@ title: Manuscript Title
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/97b294802ffcd39071b6e5b8ab59f60faf4be118/))
+([permalink](https://manubot.github.io/rootstock/v/690aac113b4ee7dbb32a0af10a3d36c51a207025/))
 was automatically generated
-from [manubot/rootstock@97b2948](https://github.com/manubot/rootstock/tree/97b294802ffcd39071b6e5b8ab59f60faf4be118)
-on November 10, 2020.
+from [manubot/rootstock@690aac1](https://github.com/manubot/rootstock/tree/690aac113b4ee7dbb32a0af10a3d36c51a207025)
+on December 11, 2020.
 </em></small>
 
 ## Authors
@@ -329,7 +291,7 @@ Loaded from a specific (hashed) version of the image on GitHub.
 **A vector `.svg` image loaded from GitHub.**
 The parameter `sanitize=true` is necessary to properly load SVGs hosted via GitHub URLs.
 White background specified to serve as a backdrop for transparent sections of the image.
-](https://raw.githubusercontent.com/manubot/resources/master/test/vector.svg?sanitize=true "Vector image"){#fig:vector-image height=2.5in .white}
+](https://raw.githubusercontent.com/manubot/resources/main/test/vector.svg?sanitize=true "Vector image"){#fig:vector-image height=2.5in .white}
 
 ## Tables
 
