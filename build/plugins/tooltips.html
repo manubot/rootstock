@@ -38,7 +38,7 @@
     }.bind(this);
 
     // run open function after delay
-    this.openTooltipTimer = window.setTimeout(delayOpenTooltip, options.delay);
+    this.openTooltipTimer = window.setTimeout(delayOpenTooltip, delay);
   }
 
   // when mouse leaves link
@@ -47,7 +47,7 @@
     window.clearTimeout(this.openTooltipTimer);
 
     // don't close on unhover if option specifies
-    if (options.clickClose === "true") return;
+    if (clickClose === "true") return;
 
     // function to close tooltip
     const delayCloseTooltip = function () {
@@ -57,10 +57,7 @@
     };
 
     // run close function after delay
-    this.closeTooltipTimer = window.setTimeout(
-      delayCloseTooltip,
-      options.delay
-    );
+    this.closeTooltipTimer = window.setTimeout(delayCloseTooltip, delay);
   }
 
   // when link is focused (tabbed to)
@@ -253,7 +250,7 @@
 
   // when tooltip is unhovered
   function onTooltipUnhover(event) {
-    if (options.clickClose === "true") return;
+    if (clickClose === "true") return;
 
     // make sure new mouse/touch/focus no longer over tooltip or any
     // element within it
@@ -354,7 +351,7 @@
   // scroll to and focus element
   function goToElement(element, offset) {
     // expand accordion section if collapsed
-    expandElement(element);
+    expandHeading(element);
     const y =
       getRectInView(element).top -
       getRectInView(document.documentElement).top -

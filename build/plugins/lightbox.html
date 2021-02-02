@@ -8,7 +8,7 @@
 
 <script type="module">
   // list of possible zoom/scale factors
-  const zoomSteps =
+  const zooms =
     "0.1, 0.25, 0.333333, 0.5, 0.666666, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.5, 3, 3.5, 4, 5, 6, 7, 8";
   // whether to fit image to view ('fit'), display at 100% and shrink if
   // necessary ('shrink'), or always display at 100% ('100')
@@ -135,17 +135,9 @@
     img.style.maxHeight = "";
     img.id = "lightbox_img";
 
-    // build sorted list of unique zoomSteps, always including a 100%
-    let zoomSteps = [];
-    const optionsZooms = zoomSteps.split(/[^0-9.]/);
-    for (const optionZoom of optionsZooms) {
-      const newZoom = parseFloat(optionZoom);
-      if (newZoom && !zoomSteps.includes(newZoom)) zoomSteps.push(newZoom);
-    }
-    if (!zoomSteps.includes(1)) zoomSteps.push(1);
-    zoomSteps = zoomSteps.sort(function sortNumber(a, b) {
-      return a - b;
-    });
+    // build sorted list of zoomSteps
+    const zoomSteps = zooms.split(/[^0-9.]/).map((step) => parseFloat(step));
+    zoomSteps.sort((a, b) => a - b);
 
     // <img> object property variables
     let zoom = 1;
