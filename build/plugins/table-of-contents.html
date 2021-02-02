@@ -1,315 +1,404 @@
-<script>
-    (function() {
-        // /////////////////////////
-        // DESCRIPTION
-        // /////////////////////////
+<!--
+  Table of Contents Plugin
 
-        // This Manubot plugin provides a "table of contents" (toc) panel on
-        // the side of the document that allows the user to conveniently
-        // navigate between sections of the document.
+  Provides a "table of contents" (toc) panel on the side of the document that
+  allows the user to conveniently navigate between sections of the document.
+-->
 
-        // /////////////////////////
-        // OPTIONS
-        // /////////////////////////
+<script type="module">
+  // which types of elements to add links for, in "document.querySelector" format
+  const typesQuery = "h1, h2, h3";
+  // whether toc starts open. use 'true' or 'false', or 'auto' to
+  // use 'true' behavior when screen wide enough and 'false' when not
+  const startOpen = "false";
+  // whether toc closes when clicking on toc link. use 'true' or
+  // 'false', or 'auto' to use 'false' behavior when screen wide
+  // enough and 'true' when not
+  const clickClose = "auto";
+  // if list item is more than this many characters, text will be
+  // truncated
+  const charLimit = "50";
+  // whether or not to show bullets next to each toc item
+  const bullets = "false";
 
-        // plugin name prefix for url parameters
-        const pluginName = 'tableOfContents';
+  // start script
+  function start() {
+    // make toc panel and populate with entries (links to document
+    // sections)
+    const panel = makePanel();
+    if (!panel) return;
+    makeEntries(panel);
+    // attach panel to document after making entries, so 'toc' heading
+    // in panel isn't included in toc
+    document.body.insertBefore(panel, document.body.firstChild);
 
-        // default plugin options
-        const options = {
-            // which types of elements to add links for, in
-            // "document.querySelector" format
-            typesQuery: 'h1, h2, h3',
-            // whether toc starts open. use 'true' or 'false', or 'auto' to
-            // use 'true' behavior when screen wide enough and 'false' when not
-            startOpen: 'false',
-            // whether toc closes when clicking on toc link. use 'true' or
-            // 'false', or 'auto' to use 'false' behavior when screen wide
-            // enough and 'true' when not
-            clickClose: 'auto',
-            // if list item is more than this many characters, text will be
-            // truncated
-            charLimit: '50',
-            // whether or not to show bullets next to each toc item
-            bullets: 'false',
-            // whether plugin is on or not
-            enabled: 'true'
-        };
+    // initial panel state
+    if (startOpen === "true" || (startOpen === "auto" && !isSmallScreen()))
+      openPanel();
+    else closePanel();
 
-        // change options above, or override with url parameter, eg:
-        // 'manuscript.html?pluginName-enabled=false'
+    // attach click, scroll, and hash change listeners to window
+    window.addEventListener("click", onClick);
+    window.addEventListener("scroll", onScroll);
+    window.addEventListener("hashchange", onScroll);
+    window.addEventListener("keyup", onKeyUp);
+    onScroll();
 
-        // /////////////////////////
-        // SCRIPT
-        // /////////////////////////
+    // add class to push document body down out of way of toc button
+    document.body.classList.add("toc_body_nudge");
+  }
 
-        // start script
-        function start() {
-            // make toc panel and populate with entries (links to document
-            // sections)
-            const panel = makePanel();
-            if (!panel)
-                return;
-            makeEntries(panel);
-            // attach panel to document after making entries, so 'toc' heading
-            // in panel isn't included in toc
-            document.body.insertBefore(panel, document.body.firstChild);
+  // determine if screen wide enough to fit toc panel
+  function isSmallScreen() {
+    // in default theme:
+    // 816px = 8.5in = width of "page" (<body>) element
+    // 260px = min width of toc panel (*2 for both sides of <body>)
+    return window.innerWidth < 816 + 260 * 2;
+  }
 
-            // initial panel state
-            if (
-                options.startOpen === 'true' ||
-                (options.startOpen === 'auto' && !isSmallScreen())
-            )
-                openPanel();
-            else
-                closePanel();
+  // when mouse is clicked anywhere in window
+  function onClick() {
+    if (isSmallScreen()) closePanel();
+  }
 
-            // attach click, scroll, and hash change listeners to window
-            window.addEventListener('click', onClick);
-            window.addEventListener('scroll', onScroll);
-            window.addEventListener('hashchange', onScroll);
-            window.addEventListener('keyup', onKeyUp);
-            onScroll();
+  // when window is scrolled or hash changed
+  function onScroll() {
+    highlightViewed();
+  }
 
-            // add class to push document body down out of way of toc button
-            document.body.classList.add('toc_body_nudge');
-        }
+  // when key pressed
+  function onKeyUp(event) {
+    if (!event || !event.key) return;
 
-        // determine if screen wide enough to fit toc panel
-        function isSmallScreen() {
-            // in default theme:
-            // 816px = 8.5in = width of "page" (<body>) element
-            // 260px = min width of toc panel (*2 for both sides of <body>)
-            return window.innerWidth < 816 + 260 * 2;
-        }
+    // close on esc
+    if (event.key === "Escape") closePanel();
+  }
 
-        // when mouse is clicked anywhere in window
-        function onClick() {
-            if (isSmallScreen())
-                closePanel();
-        }
+  // find entry of currently viewed document section in toc and highlight
+  function highlightViewed() {
+    const firstId = getFirstInView(typesQuery);
 
-        // when window is scrolled or hash changed
-        function onScroll() {
-            highlightViewed();
-        }
+    // get toc entries (links), unhighlight all, then highlight viewed
+    const list = document.getElementById("toc_list");
+    if (!firstId || !list) return;
+    const links = list.querySelectorAll("a");
+    for (const link of links) link.dataset.viewing = "false";
+    const link = list.querySelector('a[href="#' + firstId + '"]');
+    if (!link) return;
+    link.dataset.viewing = "true";
+  }
 
-        // when key pressed
-        function onKeyUp(event) {
-            if (!event || !event.key)
-                return;
+  // get first or previous toc listed element in top half of view
+  function getFirstInView(query) {
+    // get all elements matching query and with id
+    const elements = document.querySelectorAll(query);
+    const elementsWithIds = [];
+    for (const element of elements) {
+      if (element.id) elementsWithIds.push(element);
+    }
 
-            // close on esc
-            if (event.key === 'Escape')
-                closePanel();
-        }
+    // get first or previous element in top half of view
+    for (let i = 0; i < elementsWithIds.length; i++) {
+      const element = elementsWithIds[i];
+      const prevElement = elementsWithIds[Math.max(0, i - 1)];
+      if (element.getBoundingClientRect().top >= 0) {
+        if (element.getBoundingClientRect().top < window.innerHeight / 2)
+          return element.id;
+        else return prevElement.id;
+      }
+    }
+  }
 
-        // find entry of currently viewed document section in toc and highlight
-        function highlightViewed() {
-            const firstId = getFirstInView(options.typesQuery);
+  // make panel
+  function makePanel() {
+    // create panel
+    const panel = document.createElement("div");
+    panel.id = "toc_panel";
+    if (bullets === "true") panel.dataset.bullets = "true";
 
-            // get toc entries (links), unhighlight all, then highlight viewed
-            const list = document.getElementById('toc_list');
-            if (!firstId || !list)
-                return;
-            const links = list.querySelectorAll('a');
-            for (const link of links)
-                link.dataset.viewing = 'false';
-            const link = list.querySelector('a[href="#' + firstId + '"]');
-            if (!link)
-                return;
-            link.dataset.viewing = 'true';
-        }
+    // create header
+    const header = document.createElement("div");
+    header.id = "toc_header";
 
-        // get first or previous toc listed element in top half of view
-        function getFirstInView(query) {
-            // get all elements matching query and with id
-            const elements = document.querySelectorAll(query);
-            const elementsWithIds = [];
-            for (const element of elements) {
-                if (element.id)
-                    elementsWithIds.push(element);
-            }
+    // create toc button
+    const button = document.createElement("button");
+    button.id = "toc_button";
+    button.innerHTML = document.querySelector(".icon_th_list").innerHTML;
+    button.title = "Table of Contents";
+    button.classList.add("icon_button");
 
+    // create header text
+    const text = document.createElement("h4");
+    text.innerHTML = "Table of Contents";
 
-            // get first or previous element in top half of view
-            for (let i = 0; i < elementsWithIds.length; i++) {
-                const element = elementsWithIds[i];
-                const prevElement = elementsWithIds[Math.max(0, i - 1)];
-                if (element.getBoundingClientRect().top >= 0) {
-                    if (
-                        element.getBoundingClientRect().top <
-                        window.innerHeight / 2
-                    )
-                        return element.id;
-                    else
-                        return prevElement.id;
-                }
-            }
-        }
+    // create container for toc list
+    const list = document.createElement("div");
+    list.id = "toc_list";
 
-        // make panel
-        function makePanel() {
-            // create panel
-            const panel = document.createElement('div');
-            panel.id = 'toc_panel';
-            if (options.bullets === 'true')
-                panel.dataset.bullets = 'true';
+    // attach click listeners
+    panel.addEventListener("click", onPanelClick);
+    header.addEventListener("click", onHeaderClick);
+    button.addEventListener("click", onButtonClick);
 
-            // create header
-            const header = document.createElement('div');
-            header.id = 'toc_header';
+    // attach elements
+    header.appendChild(button);
+    header.appendChild(text);
+    panel.appendChild(header);
+    panel.appendChild(list);
 
-            // create toc button
-            const button = document.createElement('button');
-            button.id = 'toc_button';
-            button.innerHTML = document.querySelector('.icon_th_list').innerHTML;
-            button.title = 'Table of Contents';
-            button.classList.add('icon_button');
+    return panel;
+  }
 
-            // create header text
-            const text = document.createElement('h4');
-            text.innerHTML = 'Table of Contents';
+  // create toc entries (links) to each element of the specified types
+  function makeEntries(panel) {
+    const elements = document.querySelectorAll(typesQuery);
+    for (const element of elements) {
+      // do not add link if element doesn't have assigned id
+      if (!element.id) continue;
 
-            // create container for toc list
-            const list = document.createElement('div');
-            list.id = 'toc_list';
+      // create link/list item
+      const link = document.createElement("a");
+      link.classList.add("toc_link");
+      switch (element.tagName.toLowerCase()) {
+        case "h1":
+          link.dataset.level = "1";
+          break;
+        case "h2":
+          link.dataset.level = "2";
+          break;
+        case "h3":
+          link.dataset.level = "3";
+          break;
+        case "h4":
+          link.dataset.level = "4";
+          break;
+      }
+      link.title = element.innerText;
+      let text = element.innerText;
+      if (text.length > charLimit) text = text.slice(0, charLimit) + "...";
+      link.innerHTML = text;
+      link.href = "#" + element.id;
+      link.addEventListener("click", onLinkClick);
 
-            // attach click listeners
-            panel.addEventListener('click', onPanelClick);
-            header.addEventListener('click', onHeaderClick);
-            button.addEventListener('click', onButtonClick);
+      // attach link
+      panel.querySelector("#toc_list").appendChild(link);
+    }
+  }
 
-            // attach elements
-            header.appendChild(button);
-            header.appendChild(text);
-            panel.appendChild(header);
-            panel.appendChild(list);
+  // when panel is clicked
+  function onPanelClick(event) {
+    // stop click from propagating to window/document and closing panel
+    event.stopPropagation();
+  }
 
-            return panel;
-        }
+  // when header itself is clicked
+  function onHeaderClick(event) {
+    togglePanel();
+  }
 
-        // create toc entries (links) to each element of the specified types
-        function makeEntries(panel) {
-            const elements = document.querySelectorAll(options.typesQuery);
-            for (const element of elements) {
-                // do not add link if element doesn't have assigned id
-                if (!element.id)
-                    continue;
+  // when button is clicked
+  function onButtonClick(event) {
+    togglePanel();
+    // stop header underneath button from also being clicked
+    event.stopPropagation();
+  }
 
-                // create link/list item
-                const link = document.createElement('a');
-                link.classList.add('toc_link');
-                switch (element.tagName.toLowerCase()) {
-                    case 'h1':
-                        link.dataset.level = '1';
-                        break;
-                    case 'h2':
-                        link.dataset.level = '2';
-                        break;
-                    case 'h3':
-                        link.dataset.level = '3';
-                        break;
-                    case 'h4':
-                        link.dataset.level = '4';
-                        break;
-                }
-                link.title = element.innerText;
-                let text = element.innerText;
-                if (text.length > options.charLimit)
-                    text = text.slice(0, options.charLimit) + '...';
-                link.innerHTML = text;
-                link.href = '#' + element.id;
-                link.addEventListener('click', onLinkClick);
+  // when link is clicked
+  function onLinkClick(event) {
+    if (clickClose === "true" || (clickClose === "auto" && isSmallScreen()))
+      closePanel();
+    else openPanel();
+  }
 
-                // attach link
-                panel.querySelector('#toc_list').appendChild(link);
-            }
-        }
+  // open panel if closed, close if opened
+  function togglePanel() {
+    const panel = document.getElementById("toc_panel");
+    if (!panel) return;
 
-        // when panel is clicked
-        function onPanelClick(event) {
-            // stop click from propagating to window/document and closing panel
-            event.stopPropagation();
-        }
+    if (panel.dataset.open === "true") closePanel();
+    else openPanel();
+  }
 
-        // when header itself is clicked
-        function onHeaderClick(event) {
-            togglePanel();
-        }
+  // open panel
+  function openPanel() {
+    const panel = document.getElementById("toc_panel");
+    if (panel) panel.dataset.open = "true";
+  }
 
-        // when button is clicked
-        function onButtonClick(event) {
-            togglePanel();
-            // stop header underneath button from also being clicked
-            event.stopPropagation();
-        }
+  // close panel
+  function closePanel() {
+    const panel = document.getElementById("toc_panel");
+    if (panel) panel.dataset.open = "false";
+  }
 
-        // when link is clicked
-        function onLinkClick(event) {
-            if (
-                options.clickClose === 'true' ||
-                (options.clickClose === 'auto' && isSmallScreen())
-            )
-                closePanel();
-            else
-                openPanel();
-        }
-
-        // open panel if closed, close if opened
-        function togglePanel() {
-            const panel = document.getElementById('toc_panel');
-            if (!panel)
-                return;
-
-            if (panel.dataset.open === 'true')
-                closePanel();
-            else
-                openPanel();
-        }
-
-        // open panel
-        function openPanel() {
-            const panel = document.getElementById('toc_panel');
-            if (panel)
-                panel.dataset.open = 'true';
-        }
-
-        // close panel
-        function closePanel() {
-            const panel = document.getElementById('toc_panel');
-            if (panel)
-                panel.dataset.open = 'false';
-        }
-
-        // load options from url parameters
-        function loadOptions() {
-            const url = window.location.search;
-            const params = new URLSearchParams(url);
-            for (const optionName of Object.keys(options)) {
-                const paramName = pluginName + '-' + optionName;
-                const param = params.get(paramName);
-                if (param !== '' && param !== null)
-                    options[optionName] = param;
-            }
-        }
-        loadOptions();
-
-        // start script when document is finished loading
-        if (options.enabled === 'true')
-            window.addEventListener('load', start);
-    })();
+  // start script when document is finished loading
+  window.addEventListener("load", start);
 </script>
 
 <!-- th list icon -->
 
 <template class="icon_th_list">
-    <!-- modified from: https://fontawesome.com/icons/th-list -->
-    <svg width="16" height="16" viewBox="0 0 512 512" tabindex="-1">
-        <path
-            fill="currentColor"
-            d="M96 96c0 26.51-21.49 48-48 48S0 122.51 0 96s21.49-48 48-48 48 21.49 48 48zM48 208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm96-236h352c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-            tabindex="-1"
-        ></path>
-    </svg>
+  <!-- modified from: https://fontawesome.com/icons/th-list -->
+  <svg width="16" height="16" viewBox="0 0 512 512" tabindex="-1">
+    <path
+      fill="currentColor"
+      d="M96 96c0 26.51-21.49 48-48 48S0 122.51 0 96s21.49-48 48-48 48 21.49 48 48zM48 208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm0 160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm96-236h352c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h352c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H144c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
+      tabindex="-1"
+    ></path>
+  </svg>
 </template>
+
+<style>
+  @media only screen {
+    /* toc panel */
+    #toc_panel {
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      z-index: 2;
+    }
+
+    /* toc panel when closed */
+    #toc_panel[data-open="false"] {
+      min-width: 60px;
+      width: 60px;
+      height: 60px;
+      border-right: solid 1px #bdbdbd;
+      border-bottom: solid 1px #bdbdbd;
+    }
+
+    /* toc panel when open */
+    #toc_panel[data-open="true"] {
+      min-width: 260px;
+      max-width: 480px;
+      /* keep panel edge consistent distance away from "page" edge */
+      width: calc(((100vw - 8.5in) / 2) - 30px - 40px);
+      bottom: 0;
+      border-right: solid 1px #bdbdbd;
+    }
+
+    /* toc panel header */
+    #toc_header {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 60px;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* toc panel header when hovered */
+    #toc_header:hover {
+      cursor: pointer;
+    }
+
+    /* toc panel header when panel open */
+    #toc_panel[data-open="true"] > #toc_header {
+      border-bottom: solid 1px #bdbdbd;
+    }
+
+    /* toc open/close header button */
+    #toc_button {
+      margin-right: 20px;
+    }
+
+    /* hide toc list and header text when closed */
+    #toc_panel[data-open="false"] > #toc_header > *:not(#toc_button),
+    #toc_panel[data-open="false"] > #toc_list {
+      display: none;
+    }
+
+    /* toc list of entries */
+    #toc_list {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 20px;
+      position: absolute;
+      top: calc(60px + 1px);
+      bottom: 0;
+      overflow: auto;
+    }
+
+    /* toc entry, link to section in document */
+    .toc_link {
+      display: block;
+      padding: 5px;
+      position: relative;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* toc entry when hovered or when "viewed" */
+    .toc_link:hover,
+    .toc_link[data-viewing="true"] {
+      background: #f5f5f5;
+    }
+
+    /* toc entry, level 1 indentation */
+    .toc_link[data-level="1"] {
+      margin-left: 0;
+    }
+
+    /* toc entry, level 2 indentation */
+    .toc_link[data-level="2"] {
+      margin-left: 20px;
+    }
+
+    /* toc entry, level 3 indentation */
+    .toc_link[data-level="3"] {
+      margin-left: 40px;
+    }
+
+    /* toc entry, level 4 indentation */
+    .toc_link[data-level="4"] {
+      margin-left: 60px;
+    }
+
+    /* toc entry bullets */
+    #toc_panel[data-bullets="true"] .toc_link[data-level]:before {
+      position: absolute;
+      left: -15px;
+      top: -1px;
+      font-size: 1.5em;
+    }
+
+    /* toc entry, level 2 bullet */
+    #toc_panel[data-bullets="true"] .toc_link[data-level="2"]:before {
+      content: "\2022";
+    }
+
+    /* toc entry, level 3 bullet */
+    #toc_panel[data-bullets="true"] .toc_link[data-level="3"]:before {
+      content: "\25AB";
+    }
+
+    /* toc entry, level 4 bullet */
+    #toc_panel[data-bullets="true"] .toc_link[data-level="4"]:before {
+      content: "-";
+    }
+  }
+
+  /* when on screen < 8.5in wide */
+  @media only screen and (max-width: 8.5in) {
+    /* push <body> ("page") element down to make room for toc icon */
+    .toc_body_nudge {
+      padding-top: 60px;
+    }
+
+    /* toc icon when panel closed and not hovered */
+    #toc_panel[data-open="false"]:not(:hover) {
+      background: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  /* always hide toc panel on print */
+  @media only print {
+    #toc_panel {
+      display: none;
+    }
+  }
+</style>
