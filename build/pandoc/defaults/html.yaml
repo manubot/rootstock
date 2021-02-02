@@ -22,7 +22,7 @@ include-before-body:
   - build/plugins/analytics.html
 # - build/plugins/d3.html
   - build/plugins/hypothesis.html
-  - build/plugins/math.html
+  - build/plugins/mathjax.html
 # - build/plugins/scite.html
 
 variables:
