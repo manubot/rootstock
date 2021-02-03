@@ -38,6 +38,7 @@
     if (!doi) return;
     // create cite badge and put after citation
     const badge = document.createElement("div");
+    badge.innerHTML = "Loading Scite badge...";
     badge.classList.add("scite-badge");
     badge.setAttribute("data-doi", doi);
     badge.setAttribute("data-layout", "horizontal");

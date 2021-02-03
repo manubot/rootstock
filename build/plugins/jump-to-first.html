@@ -29,9 +29,10 @@
     // update url hash so navigating "back" in history will return user to button
     window.location.hash = this.dataset.id;
     // scroll to link
-    window.setTimeout(function () {
+    const timeout = function () {
       goToElement(first, window.innerHeight * 0.5);
-    }, 0);
+    };
+    window.setTimeout(timeout, 0);
   }
 
   // get first occurrence of link to item in document
