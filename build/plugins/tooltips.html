@@ -351,7 +351,7 @@
   // scroll to and focus element
   function goToElement(element, offset) {
     // expand accordion section if collapsed
-    expandHeading(element);
+    expandElement(element);
     const y =
       getRectInView(element).top -
       getRectInView(document.documentElement).top -

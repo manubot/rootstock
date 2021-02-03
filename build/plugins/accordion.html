@@ -22,7 +22,7 @@
         (startCollapsed === "auto" && isSmallScreen())
       )
         collapseHeading(heading);
-      else expandHeading(heading);
+      else expandElement(heading);
     }
 
     // attach hash change listener to window
@@ -68,7 +68,7 @@
   // collapse section if expanded, expand if collapsed
   function toggleCollapse(heading) {
     if (heading.dataset.collapsed === "false") collapseHeading(heading);
-    else expandHeading(heading);
+    else expandElement(heading);
   }
 
   // elements to exclude from collapse, such as table of contents panel,
@@ -83,7 +83,7 @@
   }
 
   // expand section
-  function expandHeading(heading) {
+  function expandElement(heading) {
     heading.setAttribute("data-collapsed", "false");
     const children = getChildren(heading);
     for (const child of children) child.setAttribute("data-collapsed", "false");

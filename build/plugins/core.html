@@ -89,18 +89,22 @@
     return false;
   }
 
-  // expand heading containing element if necessary
-  function expandHeading(element) {
+  // expand any collapsed parent containers of element if necessary
+  function expandElement(element) {
     if (isCollapsed(element)) {
+      // accordion plugin
       const heading = firstBefore(element, "h2");
       if (heading) heading.click();
+      // details/summary HTML element
+      const summary = firstBefore(element, "summary");
+      if (summary) summary.click();
     }
   }
 
   // scroll to and focus element
   function goToElement(element, offset) {
     // expand accordion section if collapsed
-    expandHeading(element);
+    expandElement(element);
     const y =
       getRectInView(element).top -
       getRectInView(document.documentElement).top -
