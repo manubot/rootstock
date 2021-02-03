@@ -40,7 +40,12 @@
     const badge = document.createElement("div");
     badge.classList.add("scite-badge");
     badge.setAttribute("data-doi", doi);
+    badge.setAttribute("data-layout", "horizontal");
+    badge.setAttribute("data-show-zero", "true");
     element.append(badge);
+    // modify preceding citation <p> element
+    const p = element.querySelector("p");
+    if (p) p.style.marginBottom = "0";
   }
 
   // start script when document is finished loading
@@ -50,5 +55,6 @@
 <style>
   .scite-badge {
     text-indent: 0;
+    margin-top: 10px;
   }
 </style>
