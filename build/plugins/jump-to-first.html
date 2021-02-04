@@ -15,8 +15,7 @@
 
   // start script
   function start() {
-    if (references !== "false")
-      makeButtons("ref-", ":first-child", "reference");
+    if (references !== "false") makeButtons("ref-", "p", "reference");
     if (figures !== "false") makeButtons("fig:", "figcaption", "figure");
     if (tables !== "false") makeButtons("tbl:", "caption", "table");
   }
@@ -45,15 +44,15 @@
   }
 
   // add button next to each reference entry, figure, or table
-  function makeButtons(query, slotQuery, subject) {
+  function makeButtons(query, containerQuery, subject) {
     const elements = document.querySelectorAll(`[id^="${query}"`);
     for (const element of elements) {
       const id = element.id;
-      const buttonSlot = element.querySelector(slotQuery);
+      const buttonContainer = element.querySelector(containerQuery);
       const first = getFirstOccurrence(id);
 
       // if can't find link to reference or place to put button, ignore
-      if (!first || !buttonSlot) continue;
+      if (!first || !buttonContainer) continue;
 
       // make jump button
       let button = document.createElement("button");
@@ -63,8 +62,8 @@
       button.innerHTML = icon.innerHTML;
       button.dataset.id = id;
       button.dataset.ignore = "true";
-      buttonSlot.insertBefore(button, buttonSlot.firstElementChild);
       button.addEventListener("click", onButtonClick);
+      buttonContainer.prepend(button);
     }
   }
 
