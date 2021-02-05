@@ -3,6 +3,9 @@
 to: html5
 output-file: output/manuscript.html
 include-before-body:
+### third-party plugins
+#- build/plugins/d3.html
+include-after-body:
 ### theme
 - build/themes/default.html
 ### first-party plugins
@@ -18,7 +21,6 @@ include-before-body:
 - build/plugins/tooltips.html
 ### third-party plugins
 - build/plugins/analytics.html
-#- build/plugins/d3.html
 - build/plugins/hypothesis.html
 - build/plugins/mathjax.html
 #- build/plugins/scite.html
