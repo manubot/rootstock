@@ -1,0 +1,129 @@
+<!-- 
+    Plugin Core
+
+    Functions needed for and shared across all first-party plugins.
+-->
+
+<script>
+  // get element that is target of hash (from link element or url)
+  function getHashTarget(link) {
+    const hash = link ? link.hash : window.location.hash;
+    const id = hash.slice(1);
+    let target = document.querySelector(`[id="${id}"]`);
+    if (!target) return;
+
+    // if figure or table, modify target to get expected element
+    if (id.indexOf("fig:") === 0) target = target.querySelector("figure");
+    if (id.indexOf("tbl:") === 0) target = target.querySelector("table");
+
+    return target;
+  }
+
+  // get position/dimensions of element or viewport
+  function getRectInView(element) {
+    let rect = {};
+    rect.left = 0;
+    rect.top = 0;
+    rect.right = document.documentElement.clientWidth;
+    rect.bottom = document.documentElement.clientHeight;
+    let style = {};
+
+    if (element instanceof HTMLElement) {
+      rect = element.getBoundingClientRect();
+      style = window.getComputedStyle(element);
+    }
+
+    const margin = {};
+    margin.left = parseFloat(style.marginLeftWidth) || 0;
+    margin.top = parseFloat(style.marginTopWidth) || 0;
+    margin.right = parseFloat(style.marginRightWidth) || 0;
+    margin.bottom = parseFloat(style.marginBottomWidth) || 0;
+
+    const border = {};
+    border.left = parseFloat(style.borderLeftWidth) || 0;
+    border.top = parseFloat(style.borderTopWidth) || 0;
+    border.right = parseFloat(style.borderRightWidth) || 0;
+    border.bottom = parseFloat(style.borderBottomWidth) || 0;
+
+    const newRect = {};
+    newRect.left = rect.left + margin.left + border.left;
+    newRect.top = rect.top + margin.top + border.top;
+    newRect.right = rect.right + margin.right + border.right;
+    newRect.bottom = rect.bottom + margin.bottom + border.bottom;
+    newRect.width = newRect.right - newRect.left;
+    newRect.height = newRect.bottom - newRect.top;
+
+    return newRect;
+  }
+
+  // get position of element relative to page
+  function getRectInPage(element) {
+    const rect = getRectInView(element);
+    const body = getRectInView(document.body);
+
+    const newRect = {};
+    newRect.left = rect.left - body.left;
+    newRect.top = rect.top - body.top;
+    newRect.right = rect.right - body.left;
+    newRect.bottom = rect.bottom - body.top;
+    newRect.width = rect.width;
+    newRect.height = rect.height;
+
+    return newRect;
+  }
+
+  // get closest element before specified element that matches query
+  function firstBefore(element, query) {
+    while (element && element !== document.body && !element.matches(query))
+      element = element.previousElementSibling || element.parentNode;
+
+    return element;
+  }
+
+  // check if element is part of collapsed heading
+  function isCollapsed(element) {
+    while (element && element !== document.body) {
+      if (element.dataset.collapsed === "true") return true;
+      element = element.parentNode;
+    }
+    return false;
+  }
+
+  // expand any collapsed parent containers of element if necessary
+  function expandElement(element) {
+    if (isCollapsed(element)) {
+      // accordion plugin
+      const heading = firstBefore(element, "h2");
+      if (heading) heading.click();
+      // details/summary HTML element
+      const summary = firstBefore(element, "summary");
+      if (summary) summary.click();
+    }
+  }
+
+  // scroll to and focus element
+  function goToElement(element, offset) {
+    // expand accordion section if collapsed
+    expandElement(element);
+    const y =
+      getRectInView(element).top -
+      getRectInView(document.documentElement).top -
+      (offset || 0);
+
+    // trigger any function listening for "onscroll" event
+    window.dispatchEvent(new Event("scroll"));
+    window.scrollTo(0, y);
+    document.activeElement.blur();
+    element.focus();
+  }
+
+  // get list of elements after a start element up to element matching query
+  function nextUntil(element, query, exclude) {
+    const elements = [];
+    while (((element = element.nextElementSibling), element)) {
+      if (element.matches(query)) break;
+      if (!element.matches(exclude)) elements.push(element);
+    }
+    return elements;
+  }
+</script>

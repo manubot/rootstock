@@ -3,22 +3,28 @@
 to: html5
 output-file: output/manuscript.html
 # include-before-body:
-# - build/plugins/d3.html
+### third-party plugins
+#- build/plugins/d3.html
 include-after-body:
+### theme
 - build/themes/default.html
-# - build/plugins/inline-svg.html
-- build/plugins/anchors.html
+### first-party plugins
+- build/plugins/core.html # needed for all first-party plugins
 - build/plugins/accordion.html
-- build/plugins/tooltips.html
+- build/plugins/anchors.html
+- build/plugins/attributes.html
+#- build/plugins/inline-svg.html
 - build/plugins/jump-to-first.html
+- build/plugins/lightbox.html
 - build/plugins/link-highlight.html
 - build/plugins/table-of-contents.html
-- build/plugins/lightbox.html
-- build/plugins/attributes.html
-- build/plugins/math.html
-- build/plugins/hypothesis.html
+- build/plugins/tooltips.html
+### third-party plugins
 - build/plugins/analytics.html
+- build/plugins/hypothesis.html
+- build/plugins/mathjax.html
+#- build/plugins/scite.html
 variables:
-  math: ''
+  math: ""
 html-math-method:
   method: mathjax
