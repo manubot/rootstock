@@ -5,7 +5,6 @@ output-file: output/manuscript.html
 include-before-body:
 ### theme
 - build/themes/default.html
-
 ### first-party plugins
 - build/plugins/core.html # needed for all first-party plugins
 - build/plugins/accordion.html
@@ -17,14 +16,12 @@ include-before-body:
 - build/plugins/link-highlight.html
 - build/plugins/table-of-contents.html
 - build/plugins/tooltips.html
-
 ### third-party plugins
 - build/plugins/analytics.html
 #- build/plugins/d3.html
 - build/plugins/hypothesis.html
 - build/plugins/mathjax.html
 #- build/plugins/scite.html
-
 variables:
   math: ""
 html-math-method:
