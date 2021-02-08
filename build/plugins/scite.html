@@ -14,7 +14,7 @@
 <script>
   // start script
   function start() {
-    // if printing, exit and don't show badges
+    // if printing, exit and don't run badges
     if (window.matchMedia("print").matches) return;
 
     // get citation elements
@@ -52,5 +52,11 @@
   .scite-badge {
     text-indent: 0;
     margin-top: 10px;
+  }
+
+  @media print {
+    .scite-badge {
+      display: none;
+    }
   }
 </style>
