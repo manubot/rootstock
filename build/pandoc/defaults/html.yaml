@@ -23,7 +23,7 @@ include-after-body:
 - build/plugins/analytics.html
 - build/plugins/hypothesis.html
 - build/plugins/mathjax.html
-#- build/plugins/scite.html
+- build/plugins/scite.html
 variables:
   math: ""
 html-math-method:
