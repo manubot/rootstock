@@ -5,11 +5,6 @@
   See https://scite.ai/.
 -->
 
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://cdn.scite.ai/badge/scite-badge-latest.min.css"
-/>
 <script
   async
   type="application/javascript"
@@ -19,13 +14,13 @@
 <script>
   // start script
   function start() {
+    // if printing, exit and don't run badges
+    if (window.matchMedia("print").matches) return;
+
     // get citation elements
     const query = ".references div[id*='ref-']";
     const elements = document.querySelectorAll(query);
     for (const element of elements) addBadge(element);
-
-    // attach scroll listener to window
-    window.addEventListener("scroll", onScroll);
   }
 
   // add badge in citation element
@@ -57,5 +52,11 @@
   .scite-badge {
     text-indent: 0;
     margin-top: 10px;
+  }
+
+  @media print {
+    .scite-badge {
+      display: none;
+    }
   }
 </style>
