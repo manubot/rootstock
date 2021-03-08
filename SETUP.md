@@ -1,7 +1,8 @@
 # Table of contents
 
 - [Creating a new manuscript](#creating-a-new-manuscript)
-  * [Configuration](#configuration)
+  * [Using setup script](#using-setup-script)
+  * [Manual Configuration](#manual-configuration)
   * [Create repository](#create-repository)
   * [Continuous integration](#continuous-integration)
     + [GitHub Actions](#github-actions)
@@ -27,7 +28,26 @@ These steps should be performed in a command-line shell (terminal), starting in 
 Setup is supported on Linux, macOS, and Windows.
 Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
-## Configuration
+## Using setup script
+Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script]((https://github.com/manubot/rootstock/setup.bash). This simply runs the steps detailed below in the Manual Configuration.
+
+First, you must manually create an empty GitHub repository at <https://github.com/new>.
+Do not initialize the repository, other than optionally adding a Description.
+
+Next, copy `setup.bash` to the directory where you would like to clone your manuscript repo, then make it executable.
+
+Then run the script using the `OWNER` and `REPO` details for your manuscript repo location:
+i.e. `https://github.com/OWNER/REPO`.
+
+````sh
+# Make script executable
+chmod +x setup.bash
+# Run script with your repo details as arguments
+./setup.bash -o OWNER -r REPO
+````
+The script will then clone the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
+
+## Manual Configuration
 
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
