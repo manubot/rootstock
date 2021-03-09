@@ -34,26 +34,17 @@ Creating a new manuscript using GitHub actions, the recommended default CI servi
 First, you must manually create an empty GitHub repository at <https://github.com/new>.
 Do not initialize the repository, other than optionally adding a Description.
 
-Next, copy `setup.bash` to the directory where you would like to clone your manuscript repo, then make it executable.
+Next, run ths command below. This will copy `setup.bash` and run it.
+You can check the code that will be executed [here](https://github.com/manubot/rootstock/setup.bash).
 
-Then run the script using the `OWNER` and `REPO` details for your manuscript repo location:
+Replace `OWNER` and `REPO` details for your manuscript repo location:
 i.e. `https://github.com/OWNER/REPO`.
 
 ````sh
-# create file in dir to contain the manuscript repo
-touch setup.bash
-
-# Use your favourite editor to copy and paste in the
-# contents of https://github.com/manubot/rootstock/setup.bash
-
-# Make script executable
-chmod +x setup.bash
-
-# Run script with your repo details as arguments
-./setup.bash -o OWNER -r REPO
+bash <( curl https://raw.githubusercontent.com/manubot/rootstock/main/setup.bash ) -o OWNER -r REPO
 ````
 The script will then clone the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
-
+The repo is now ready for you to start adding your own content.
 ## Manual Configuration
 
 First, you must configure two environment variables (`OWNER` and `REPO`).
