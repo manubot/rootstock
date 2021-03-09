@@ -45,6 +45,7 @@ bash <( curl https://raw.githubusercontent.com/manubot/rootstock/main/setup.bash
 ````
 The script will then clone the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
 The repo is now ready for you to start adding your own content.
+
 ## Manual Configuration
 
 First, you must configure two environment variables (`OWNER` and `REPO`).

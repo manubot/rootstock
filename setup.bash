@@ -6,15 +6,44 @@
 # Stop on first error.
 set -e
 
-usage() { echo "Usage: $0 [-o <owner-string>] [-r <repo-string>]" 1>&2; exit 1; }
+usage() {
+echo "Usage: $0 [--owner <owner-string>] [--repo <repo-string>]"
+echo "Replace OWNER and REPO details for your manuscript repo location:"
+echo "i.e. https://github.com/OWNER/REPO."
+1>&2; exit 1; }
 
-# Get the repo name.
-while getopts o:r: flag
-do
-    case "${flag}" in
-        o) OWNER=${OPTARG};;
-        r) REPO=${OPTARG};;
-    esac
+# Option strings
+SHORT=o:r:
+LONG=owner:,repo:
+
+# read the options
+OPTS=$(getopt --options $SHORT --long $LONG --name "$0" -- "$@")
+
+if [ $? != 0 ] ; then echo "Failed to parse options...exiting." >&2 ; exit 1 ; fi
+
+eval set -- "$OPTS"
+
+# extract options and their arguments into variables.
+while true ; do
+  case "$1" in
+    -o | --owner )
+      shift;
+      OWNER=$1
+      shift
+      ;;
+    -r | --repo )
+      REPO="$2"
+      shift 2
+      ;;
+    -- )
+      shift
+      break
+      ;;
+    *)
+      echo "Internal error!"
+      exit 1
+      ;;
+  esac
 done
 
 if [ -z "${OWNER}" ] || [ -z "${REPO}" ]; then
