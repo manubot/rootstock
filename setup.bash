@@ -28,25 +28,25 @@ do
  read -r -p "Have you manually created https://github.com/${OWNER}/${REPO}? [y/n] " input
 
  case $input in
-     [yY][eE][sS]|[yY])
+   [yY][eE][sS]|[yY])
 
- echo
- echo "Continuing Setup..."
- echo
- break
- ;;
-     [nN][oO]|[nN])
- echo
- echo "Go to https://github.com/new and create https://github.com/${OWNER}/${REPO}"
- echo "Note: the new repo must be completely empty or the script will fail."
- echo
- break
-        ;;
-     *)
- echo
- echo "Invalid input, try again..."
- echo
- ;;
+     echo
+     echo "Continuing Setup..."
+     echo
+     break
+     ;;
+  [nN][oO]|[nN])
+     echo
+     echo "Go to https://github.com/new and create https://github.com/${OWNER}/${REPO}"
+     echo "Note: the new repo must be completely empty or the script will fail."
+     echo
+     exit 1
+     ;;
+  *)
+     echo
+     echo "Invalid input, try again..."
+     echo
+     ;;
  esac
 done
 
