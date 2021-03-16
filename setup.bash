@@ -12,9 +12,37 @@ echo "Replace OWNER and REPO details for your manuscript repo location:"
 echo "i.e. https://github.com/OWNER/REPO."
 1>&2; exit 1; }
 
+# Check if to continue
+check(){
+while true
+do
+ echo "Once you have created your repo press enter to continue setup,"
+ read -r -p "or type exit to quit now: " input
+
+ case $input in
+   "")
+     echo
+     echo "Continuing Setup..."
+     echo
+     break
+     ;;
+  [eE][xX][iI][tT])
+     exit 1
+     ;;
+  *)
+     echo
+     echo "Invalid input, try again..."
+     echo
+     ;;
+ esac
+done
+}
+
 # Option strings
-SHORT=o:r:
-LONG=owner:,repo:
+SHORT=o:r:hy
+LONG=owner:,repo:,help,yes
+
+YES=0
 
 # read the options
 OPTS=$(getopt --options $SHORT --long $LONG --name "$0" -- "$@")
@@ -35,9 +63,18 @@ while true ; do
       REPO="$2"
       shift 2
       ;;
+    -y | --yes )
+      YES=1
+      shift
+      ;;
     -- )
       shift
       break
+      ;;
+    -h | --help )
+      shift
+      usage
+      exit 1
       ;;
     *)
       echo "Internal error!"
@@ -47,37 +84,52 @@ while true ; do
 done
 
 if [ -z "${OWNER}" ] || [ -z "${REPO}" ]; then
-    usage
+  echo "This script will take you through the setup process for Manubot."
+  echo "First, we need to specify where to create the GitHub repo for your manuscript."
+  echo
+  echo "The URL will take this format: https://github.com/OWNER/REPO."
+  echo "OWNER is your username or organisation"
+  echo "REPO is the name of your repository"
+  echo
+  read -r -p "Type in the OWNER now:" input
+  OWNER=$input
+  read -r -p "Type in the REPO now:" input
+  REPO=$input
 fi
 
-# Check Remote Repo Exists.
-echo
-while true
-do
- read -r -p "Have you manually created https://github.com/${OWNER}/${REPO}? [y/n] " input
+# If using interactive mode, check remote repo exists.
+if [[ "$YES" == '0' ]]; then
+  while true
+  do
+   echo
+   read -r -p "Have you manually created https://github.com/${OWNER}/${REPO}? [y/n] " input
 
- case $input in
-   [yY][eE][sS]|[yY])
+   case $input in
+     [yY][eE][sS]|[yY])
 
-     echo
-     echo "Continuing Setup..."
-     echo
-     break
-     ;;
-  [nN][oO]|[nN])
-     echo
-     echo "Go to https://github.com/new and create https://github.com/${OWNER}/${REPO}"
-     echo "Note: the new repo must be completely empty or the script will fail."
-     echo
-     exit 1
-     ;;
-  *)
-     echo
-     echo "Invalid input, try again..."
-     echo
-     ;;
- esac
-done
+       echo
+       echo "Continuing Setup..."
+       echo
+       break
+       ;;
+    [nN][oO]|[nN])
+       echo
+       echo "Go to https://github.com/new and create https://github.com/${OWNER}/${REPO}"
+       echo "Note: the new repo must be completely empty or the script will fail."
+       echo
+       check
+       break
+       ;;
+    *)
+       echo
+       echo "Invalid input, try again..."
+       echo
+       ;;
+   esac
+  done
+else
+  echo "Setting up https://github.com/${OWNER}/${REPO}"
+fi
 
 # Clone manubot/rootstock
 echo
