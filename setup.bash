@@ -17,7 +17,9 @@ echo
 echo "Options:"
 echo "  -o --owner   GitHub user or organisation name."
 echo "  -r --repo    Name of the repository for your new manuscript."
-echo "  -y --yes     Continue script without asking for confirmation that the repo exists."
+echo "  -y --yes     Non-interactive mode. Continue script without asking for confirmation that the repo exists."
+echo "  -s --ssh     Use SSH to authenticate GitHub account. HTTPS is used by default."
+echo "               Option only effective if --yes is also set, otherwise answer given in user interaction takes precedence."
 echo "  -h --help    Display usage information."
 1>&2; exit 1; }
 
@@ -48,10 +50,11 @@ done
 }
 
 # Option strings
-SHORT=o:r:hy
-LONG=owner:,repo:,help,yes
+SHORT=o:r:hys
+LONG=owner:,repo:,help,yes,ssh
 
-YES=0
+YES=0  # continue when prompted
+AUTH=0 # used https or ssh auth
 
 # read the options
 OPTS=$(getopt --options $SHORT --long $LONG --name "$0" -- "$@")
@@ -74,6 +77,10 @@ while true ; do
       ;;
     -y | --yes )
       YES=1
+      shift
+      ;;
+    -s | --ssh )
+      AUTH=1;
       shift
       ;;
     -- )
@@ -148,12 +155,50 @@ git clone --single-branch https://github.com/manubot/rootstock.git ${REPO}
 cd ${REPO}
 
 echo
-echo "Setup tracking using https..."
-echo
+echo "Setup tracking of remote..."
+
 # Configure remotes
 git remote add rootstock https://github.com/manubot/rootstock.git
-# Option A: Set origin URL using its web address
-git remote set-url origin https://github.com/${OWNER}/${REPO}.git
+
+# Check auth method
+if [[ "$YES" == '0' ]]; then
+  while true
+  do
+   echo
+   read -r -p "Would you like to use SSH to authenticate your GitHub account? [y/n]" input
+
+   case $input in
+     [yY][eE][sS]|[yY])
+       AUTH=1
+       break
+       ;;
+    [nN][oO]|[nN])
+       AUTH=0
+       break
+       ;;
+    *)
+       echo
+       echo "Invalid input, try again..."
+       echo
+       ;;
+   esac
+  done
+fi
+
+case $AUTH in
+  0)
+  echo
+  echo "Seting origin URL using its https web address"
+  echo
+  git remote set-url origin https://github.com/${OWNER}/${REPO}.git
+  ;;
+  1)
+  echo
+  echo "Seting origin URL using SSH"
+  echo
+  git remote set-url origin git@github.com:$OWNER/$REPO.git
+  ;;
+esac
 
 git push --set-upstream origin main
 
