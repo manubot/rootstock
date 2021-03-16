@@ -36,7 +36,7 @@ Use the command below to copy `setup.bash` and run it.
 You can check the code that will be executed [here](https://github.com/manubot/rootstock/setup.bash).
 
 ````sh
-bash <( curl https://raw.githubusercontent.com/manubot/rootstock/main/setup.bash )
+bash <( curl https://github.com/manubot/rootstock/raw/main/setup.bash )
 ````
 The script will then take you through the process of cloning the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
 Your new manuscript repo is then ready for you to start adding your own content.
