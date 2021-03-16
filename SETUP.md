@@ -2,7 +2,7 @@
 
 - [Creating a new manuscript](#creating-a-new-manuscript)
   * [Using setup script](#using-setup-script)
-  * [Manual Configuration](#manual-configuration)
+  * [Manual configuration](#manual-configuration)
   * [Create repository](#create-repository)
   * [Continuous integration](#continuous-integration)
     + [GitHub Actions](#github-actions)
@@ -29,12 +29,14 @@ Setup is supported on Linux, macOS, and Windows.
 Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
 ## Using setup script
-Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script](https://github.com/manubot/rootstock/setup.bash). This simply runs the steps detailed below in the Manual Configuration.
+Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script](https://github.com/manubot/rootstock/setup.bash).
+This simply runs the steps detailed below in the manual configuration.
 
 First, you must manually create an empty GitHub repository at <https://github.com/new>.
 Do not initialize the repository, other than optionally adding a Description.
 
-Next, run ths command below. This will copy `setup.bash` and run it.
+Next, run the command below.
+This will copy `setup.bash` and run it.
 You can check the code that will be executed [here](https://github.com/manubot/rootstock/setup.bash).
 
 Replace `OWNER` and `REPO` details for your manuscript repo location:
@@ -44,9 +46,9 @@ i.e. `https://github.com/OWNER/REPO`.
 bash <( curl https://raw.githubusercontent.com/manubot/rootstock/main/setup.bash ) -o OWNER -r REPO
 ````
 The script will then clone the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
-The repo is now ready for you to start adding your own content.
+Your new manuscript repo is now ready for you to start adding your own content.
 
-## Manual Configuration
+## Manual configuration
 
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
