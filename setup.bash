@@ -7,9 +7,18 @@
 set -e
 
 usage() {
-echo "Usage: $0 [--owner <owner-string>] [--repo <repo-string>]"
-echo "Replace OWNER and REPO details for your manuscript repo location:"
+echo "Usage: $0 [--owner text] [--repo text] [--yes]"
+echo "Guides the user through the creation of a new Manubot repository for their manuscript."
+echo
+echo "If no options are supplied a fully interactive process is used."
+echo "OWNER and REPO refer to the details of your manuscript repo location:"
 echo "i.e. https://github.com/OWNER/REPO."
+echo
+echo "Options:"
+echo "  -o --owner   GitHub user or organisation name."
+echo "  -r --repo    Name of the repository for your new manuscript."
+echo "  -y --yes     Continue script without asking for confirmation that the repo exists."
+echo "  -h --help    Display usage information."
 1>&2; exit 1; }
 
 # Check if to continue
