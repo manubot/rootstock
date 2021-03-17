@@ -63,7 +63,11 @@ git remote set-url origin https://github.com/$OWNER/$REPO.git
 git remote set-url origin git@github.com:$OWNER/$REPO.git
 ```
 
-Next, you must manually create an empty GitHub repository at <https://github.com/new>.
+Then you need to create an empty GitHub repository. 
+You can do that at <https://github.com/new> or via the  [GitHub command line interface](https://github.com/cli/cli):
+```sh
+$ gh repo create
+```
 Make sure to use the same "Owner" and "Repository name" specified above.
 Do not initialize the repository, other than optionally adding a Description.
 Next, push your cloned manuscript:
