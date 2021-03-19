@@ -224,7 +224,7 @@ git push origin main
 echo
 echo "Setup complete"
 echo
-echo "The new repo as been created here: $(pwd)/${REPO}"
+echo "The new repo has been created at $(pwd)"
 echo
 echo "A good first step is to modify content/metadata.yaml with the relevant information for your manuscript."
 echo
