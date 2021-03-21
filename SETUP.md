@@ -29,11 +29,11 @@ Setup is supported on Linux, macOS, and Windows.
 Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
 ## Using setup script
-Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script](https://github.com/manubot/rootstock/setup.bash).
+Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script](https://github.com/manubot/rootstock/blob/main/setup.bash).
 This simply runs the steps detailed below in the manual configuration.
 
 Use the command below to copy `setup.bash` and run it.
-You can check the code that will be executed [here](https://github.com/manubot/rootstock/setup.bash).
+You can check the code that will be executed [here](https://github.com/manubot/rootstock/blob/main/setup.bash).
 
 ````sh
 bash <( curl --location https://github.com/manubot/rootstock/raw/main/setup.bash )
@@ -54,6 +54,7 @@ bash setup.bash --help
 
 ## Manual configuration
 
+If you do not wish to use the above setup script to configure your new manuscript repository, you can instead execute the steps manually.
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
 Make sure that the case of `OWNER` matches how your username is displayed on GitHub.

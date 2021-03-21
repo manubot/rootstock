@@ -1,7 +1,7 @@
 #!/bin/bash
 # Setup Manubot
 # Based on https://github.com/manubot/rootstock/blob/main/SETUP.md
-# This is designed to be run from the terminal on linux
+# This is designed to be run from the bash terminal
 
 # Stop on first error.
 set -e
@@ -165,7 +165,7 @@ if [[ "$YES" == '0' ]]; then
   while true
   do
    echo
-   read -r -p "Would you like to use SSH to authenticate your GitHub account? [y/n]" input
+   read -r -p "Would you like to use SSH to authenticate your GitHub account? [y/n] " input
 
    case $input in
      [yY][eE][sS]|[yY])
