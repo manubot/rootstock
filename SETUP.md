@@ -63,8 +63,8 @@ git remote set-url origin https://github.com/$OWNER/$REPO.git
 git remote set-url origin git@github.com:$OWNER/$REPO.git
 ```
 
-Then you need to create an empty GitHub repository. 
-You can do that at <https://github.com/new> or via the  [GitHub command line interface](https://github.com/cli/cli):
+Then create an empty repository on GitHub. 
+You can do this at <https://github.com/new> or via the [GitHub command line interface](https://github.com/cli/cli) (if installed) with `gh repo create`.
 ```sh
 $ gh repo create
 ```
