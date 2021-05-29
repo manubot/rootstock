@@ -29,14 +29,18 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push
+      - name: Docker build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          push: true
+          push: false
+          load: true
           context: build
           tags: |
-            ${{ github.repository_owner }}/manubot:latest
+            ghcr.io/${{ github.repository_owner }}/manubot:latest
+          cache-to: type=inline
+      - name: Show Docker images
+        run: docker images --all
       - name: Set Environment Variables
         run: |
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
@@ -46,6 +50,7 @@ jobs:
           echo "DEFAULT_BRANCH=${DEFAULT_BRANCH}" >> $GITHUB_ENV
           echo "DEFAULT_BRANCH_REF=refs/heads/$DEFAULT_BRANCH" >> $GITHUB_ENV
           echo "DEFAULT_BRANCH=$DEFAULT_BRANCH"
+          echo "IMAGE=ghcr.io/${{ github.repository_owner }}/manubot" >> $GITHUB_ENV
       - name: Cache
         uses: actions/cache@v1
         with:
@@ -67,8 +72,12 @@ jobs:
             bash ci/install-spellcheck.sh
           fi
       - name: Build Manuscript
-        shell: bash --login {0}
-        run: bash build/build.sh
+        run: |
+          docker run \
+            --workdir /manuscript \
+            --mount "type=bind,source=$(pwd),target=/manuscript" \
+            $IMAGE \
+            bash build/build.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
         with:
