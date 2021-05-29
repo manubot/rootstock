@@ -1,0 +1,4 @@
+# Pandoc --defaults for LaTeX output.
+# Load on top of common defaults.
+to: latex
+output-file: output/manuscript.tex
