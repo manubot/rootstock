@@ -10,7 +10,7 @@ RUN conda env create \
   && conda clean --all --force-pkgs-dirs --yes
 
 ENV PATH $CONDA_PREFIX/envs/$CONDA_ENV/bin:$PATH
-RUN echo "conda activate $CONDA_ENV" > ~/.bashrc
-RUN /bin/bash -c "conda activate $CONDA_ENV"
+RUN echo "source activate $CONDA_ENV" > ~/.bashrc
+RUN /bin/bash -c "source activate $CONDA_ENV"
 
 ENV CONDA_DEFAULT_ENV=$CONDA_ENV
