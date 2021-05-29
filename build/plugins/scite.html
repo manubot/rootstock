@@ -1,0 +1,62 @@
+<!-- 
+  Scite Plugin (third party)
+
+  Adds a Scite badge next to each citation in the references section.
+  See https://scite.ai/.
+-->
+
+<script
+  async
+  type="application/javascript"
+  src="https://cdn.scite.ai/badge/scite-badge-latest.min.js"
+></script>
+
+<script>
+  // start script
+  function start() {
+    // if printing, exit and don't run badges
+    if (window.matchMedia("print").matches) return;
+
+    // get citation elements
+    const query = ".references div[id*='ref-']";
+    const elements = document.querySelectorAll(query);
+    for (const element of elements) addBadge(element);
+  }
+
+  // add badge in citation element
+  function addBadge(element) {
+    // get citation text
+    const text = element.innerText;
+    // find doi string, eg "DOI: xxxxx/xxxxx"
+    const match = text.match(/DOI:\s+(\S*)/) || {};
+    const doi = match[1];
+    if (!doi) return;
+    // create cite badge and put after citation
+    const badge = document.createElement("div");
+    badge.innerHTML = "Loading Scite badge...";
+    badge.classList.add("scite-badge");
+    badge.setAttribute("data-doi", doi);
+    badge.setAttribute("data-layout", "horizontal");
+    badge.setAttribute("data-show-zero", "true");
+    element.append(badge);
+    // modify preceding citation <p> element
+    const p = element.querySelector("p");
+    if (p) p.style.marginBottom = "0";
+  }
+
+  // start script when document is finished loading
+  window.addEventListener("load", start);
+</script>
+
+<style>
+  .scite-badge {
+    text-indent: 0;
+    margin-top: 10px;
+  }
+
+  @media print {
+    .scite-badge {
+      display: none;
+    }
+  }
+</style>

@@ -110,6 +110,19 @@ When choosing which source to use for a citation, we recommend the following ord
 9. For references that do not have any of the above persistent identifiers, the citation key does not need to include a prefix.
    Citing `@old-manuscript` will work, but only if reference metadata is [provided manually](#reference-metadata).
 
+Manubot is able to infer certain prefixes,
+such some citations can be formatted like `@accession` (without a prefix).
+Examples includes DOIs like `@10.15363/thinklab.4` or `@10/993`,
+PMC / PubMed identifiers like `@PMC4497619` or `@26158728`,
+arXiv identifier like `@1508.06576v2`,
+and Wikidata identifiers like `@Q50051684`.
+To disable citekey prefix inference, add the following to `metadata.yaml`:
+
+```yaml
+pandoc:
+  manubot-infer-citekey-prefixes: false
+```
+
 Cite multiple items at once like:
 
 ```md
@@ -136,7 +149,7 @@ By default, `pandoc-manubot-cite` does not fail upon invalid citations, although
 
 ```yaml
 pandoc:
-  manubot-fail-on-errors: True
+  manubot-fail-on-errors: true
 ```
 
 #### Citation aliases

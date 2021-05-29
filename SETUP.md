@@ -1,7 +1,8 @@
 # Table of contents
 
 - [Creating a new manuscript](#creating-a-new-manuscript)
-  * [Configuration](#configuration)
+  * [Using setup script](#using-setup-script)
+  * [Manual configuration](#manual-configuration)
   * [Create repository](#create-repository)
   * [Continuous integration](#continuous-integration)
     + [GitHub Actions](#github-actions)
@@ -27,8 +28,33 @@ These steps should be performed in a command-line shell (terminal), starting in 
 Setup is supported on Linux, macOS, and Windows.
 Windows setup requires [Git Bash](https://gitforwindows.org/) or [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/faq).
 
-## Configuration
+## Using setup script
+Creating a new manuscript using GitHub actions, the recommended default CI service (see below), can be achieved easily using the [setup script](https://github.com/manubot/rootstock/blob/main/setup.bash).
+This simply runs the steps detailed below in the manual configuration.
 
+Use the command below to copy `setup.bash` and run it.
+You can check the code that will be executed [here](https://github.com/manubot/rootstock/blob/main/setup.bash).
+
+````sh
+bash <( curl --location https://github.com/manubot/rootstock/raw/main/setup.bash )
+````
+The script will then take you through the process of cloning the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
+Your new manuscript repo is then ready for you to start adding your own content.
+
+This script does not not create the remote repo for you, so you will be prompted to manually create an empty GitHub repository at <https://github.com/new>.
+Do not initialize the repository, other than optionally adding a description.
+
+### CLI
+There is also a command line interface for users who want to create manuscripts at scale and in an automated way.
+See the help for details.
+
+````sh
+bash setup.bash --help
+````
+
+## Manual configuration
+
+If you do not wish to use the above setup script to configure your new manuscript repository, you can instead execute the steps manually.
 First, you must configure two environment variables (`OWNER` and `REPO`).
 These variables specify the GitHub repository for the manuscript (i.e. `https://github.com/OWNER/REPO`).
 Make sure that the case of `OWNER` matches how your username is displayed on GitHub.
@@ -63,7 +89,8 @@ git remote set-url origin https://github.com/$OWNER/$REPO.git
 git remote set-url origin git@github.com:$OWNER/$REPO.git
 ```
 
-Next, you must manually create an empty GitHub repository at <https://github.com/new>.
+Then create an empty repository on GitHub. 
+You can do this at <https://github.com/new> or via the [GitHub command line interface](https://github.com/cli/cli) (if installed) with `gh repo create`.
 Make sure to use the same "Owner" and "Repository name" specified above.
 Do not initialize the repository, other than optionally adding a Description.
 Next, push your cloned manuscript:
