@@ -5,6 +5,7 @@ dependencies:
   - cairo=1.14.12
   - cairocffi=0.8.0
   - cffi=1.12.3
+  - gcc_linux-64=9.3.0  # required for pip install pysha3
   - ghp-import=0.5.5
   - jinja2=2.11.2
   - jsonschema=3.2.0
@@ -30,7 +31,7 @@ dependencies:
     - pandoc-tablenos==2.2.2
     - pandoc-xnos==2.4.3
     - pybase62==0.4.3
-    - pysha3==1.0.2
+    - pysha3==1.0.2  # required for opentimestamps
     - python-bitcoinlib==0.10.2
     - requests-cache==0.5.2
     - weasyprint==0.42.3
