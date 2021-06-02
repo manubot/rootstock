@@ -6,7 +6,7 @@ filters:
 - pandoc-eqnos
 - pandoc-tablenos
 - pandoc-manubot-cite
-- pandoc-citeproc
+- citeproc
 wrap: preserve
 metadata:
   csl: build/assets/style.csl
