@@ -15,9 +15,11 @@
 
   // start script
   function start() {
-    if (references !== "false") makeButtons("ref-", "p", "reference");
-    if (figures !== "false") makeButtons("fig:", "figcaption", "figure");
-    if (tables !== "false") makeButtons("tbl:", "caption", "table");
+    if (references !== "false")
+      makeButtons(`div[id^="ref-"]`, ".csl-left-margin", "reference");
+    if (figures !== "false")
+      makeButtons(`div[id^="fig:"]`, "figcaption", "figure");
+    if (tables !== "false") makeButtons(`div[id^="tbl:"]`, "caption", "table");
   }
 
   // when jump button clicked
@@ -45,7 +47,7 @@
 
   // add button next to each reference entry, figure, or table
   function makeButtons(query, containerQuery, subject) {
-    const elements = document.querySelectorAll(`[id^="${query}"`);
+    const elements = document.querySelectorAll(query);
     for (const element of elements) {
       const id = element.id;
       const buttonContainer = element.querySelector(containerQuery);

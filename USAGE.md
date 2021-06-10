@@ -133,14 +133,23 @@ Note that multiple citations must be semicolon separated.
 Be careful not to cite the same study using identifiers from multiple sources.
 For example, the following citations all refer to the same study, but will be treated as separate references: `[@doi:10.7717/peerj.705; @pmc:PMC4304851; @pubmed:25648772]`.
 
-Citation keys must adhere to the syntax described in the [Pandoc manual](https://pandoc.org/MANUAL.html#citations):
+The citation key syntax is described in the [Pandoc manual](https://pandoc.org/MANUAL.html#citation-syntax):
 
-> The citation key must begin with a letter, digit, or `_`, and may contain alphanumerics, `_`, and internal punctuation characters (`:.#$%&-+?<>~/`).
+> Unless a citation key start with a letter, digit, or `_`,
+> and contains only alphanumerics and internal punctuation characters (`:.#$%&-+?<>~/`),
+> it must be surrounded by curly braces,
+> which are not considered part of the key.
+> In `@Foo_bar.baz.`, the key is `Foo_bar.baz`.
+> The final period is not *internal* punctuation,
+> so it is not included in the key.
+> In `@{Foo_bar.baz.}`, the key is `Foo_bar.baz.`, including the final period.
+> The curly braces are recommended if you use URLs as keys:
+> `[@{https://example.com/bib?name=foobar&date=2000}, p. 33]`.
 
-To evaluate whether a citation key fully matches this syntax, try [this online regex](https://regex101.com/r/mXZyY2/latest).
-If the citation key is not valid, use the [citation aliases](#citation-aliases) workaround below.
-This is required for citation keys that contain forbidden characters such as `;` or `=` or end with a non-alphanumeric character such as `/`.
-<!-- See [jgm/pandoc#6026](https://github.com/jgm/pandoc/issues/6026) for progress on a more flexible Markdown citation key syntax. -->
+If a citation key does not fully match [this online regex](https://regex101.com/r/mXZyY2/latest)
+(for example, contains characters such as `;` or `=` or end with a non-alphanumeric character such as `/`),
+make sure to surround it with curly braces or use the [citation aliases](#citation-aliases) workaround below.
+<!-- See [jgm/pandoc#6026](https://github.com/jgm/pandoc/issues/6026) on the curly-brace syntax for Markdown citation keys, which was introduced in Pandoc 2.14. -->
 
 Prior to Rootstock commit [`6636b91`](https://github.com/manubot/rootstock/commit/6636b912c6b41593acd2041d34cd4158c1b317fb) on 2020-01-14, Manubot processed citations separately from Pandoc.
 Switching to a Pandoc filter improved reliability on complex documents, but restricted the syntax of citation keys slightly.

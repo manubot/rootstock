@@ -25,6 +25,7 @@ include-after-body:
 - build/plugins/mathjax.html
 #- build/plugins/scite.html
 variables:
+  document-css: false
   math: ""
 html-math-method:
   method: mathjax

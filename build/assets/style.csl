@@ -47,7 +47,7 @@
       <text variable="citation-number"/>
     </layout>
   </citation>
-  <bibliography hanging-indent="true" second-field-align="flush">
+  <bibliography second-field-align="flush">
     <layout>
       <text variable="citation-number" suffix=". "/>
       <group delimiter=" ">

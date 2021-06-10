@@ -230,6 +230,7 @@
       "data-selected",
       "data-highlighted",
       "data-glow",
+      "class",
     ];
     for (const attribute of attributes) {
       sourceCopy.removeAttribute(attribute);
@@ -290,9 +291,8 @@
     prevButton.classList.add("icon_button");
     nextButton.classList.add("icon_button");
     prevButton.innerHTML = document.querySelector(".icon_caret_left").innerHTML;
-    nextButton.innerHTML = document.querySelector(
-      ".icon_caret_right"
-    ).innerHTML;
+    nextButton.innerHTML =
+      document.querySelector(".icon_caret_right").innerHTML;
     navBar.appendChild(prevButton);
     navBar.appendChild(document.createTextNode(text));
     navBar.appendChild(nextButton);
@@ -336,7 +336,7 @@
     if (!target) return;
 
     // if ref or figure, modify target to get expected element
-    if (id.indexOf("ref-") === 0) target = target.querySelector("p");
+    if (id.indexOf("ref-") === 0) target = target.querySelector(":nth-child(2)");
     else if (id.indexOf("fig:") === 0) target = target.querySelector("figure");
 
     return target;
