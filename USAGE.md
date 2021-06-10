@@ -133,7 +133,7 @@ Note that multiple citations must be semicolon separated.
 Be careful not to cite the same study using identifiers from multiple sources.
 For example, the following citations all refer to the same study, but will be treated as separate references: `[@doi:10.7717/peerj.705; @pmc:PMC4304851; @pubmed:25648772]`.
 
-The citation key syntax is described in the [Pandoc manual](https://pandoc.org/MANUAL.html#citations):
+The citation key syntax is described in the [Pandoc manual](https://pandoc.org/MANUAL.html#citation-syntax):
 
 > Unless a citation key start with a letter, digit, or `_`,
 > and contains only alphanumerics and internal punctuation characters (`:.#$%&-+?<>~/`),
