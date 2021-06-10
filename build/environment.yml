@@ -9,7 +9,6 @@ dependencies:
   - jinja2=2.11.2
   - jsonschema=3.2.0
   - pandoc=2.14
-  - panflute=2.1.0
   - pango=1.40.14
   - pip=20.2
   - psutil=5.7.3
@@ -29,6 +28,7 @@ dependencies:
     - pandoc-fignos==2.4.0
     - pandoc-tablenos==2.3.0
     - pandoc-xnos==2.5.0
+    - panflute==2.1.0
     - pybase62==0.4.3
     - pysha3==1.0.2
     - python-bitcoinlib==0.10.2
