@@ -11,17 +11,14 @@ on:
       - master
   workflow_dispatch:
     inputs:
-      ref:
-        description: Git reference (branch, commit, tag) to build
-        default: main
       BUILD_PDF:
-        description: Build PDF output
+        description: generate PDF output
         default: "true"
       BUILD_DOCX:
-        description: Build DOCX output
+        description: generate DOCX output
         default: "false"
       BUILD_LATEX:
-        description: Build LaTeX output
+        description: generate LaTeX output
         default: "false"
 jobs:
   manubot:
@@ -34,15 +31,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          # when there is no ref input (not a workflow_dispatch) should use default ref behavior
-          ref: ${{ github.event.inputs.ref }}
           # fetch entire commit history to support get_rootstock_commit
           fetch-depth: 0
       - name: Set Environment Variables (Workflow Dispatch)
         if: github.event_name == 'workflow_dispatch'
         run: |
-          # overwriting GITHUB_SHA might be dangerous
-          echo "GITHUB_SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
           echo "BUILD_PDF=${{ github.event.inputs.BUILD_PDF }}" >> $GITHUB_ENV
           echo "BUILD_DOCX=${{ github.event.inputs.BUILD_DOCX }}" >> $GITHUB_ENV
           echo "BUILD_LATEX=${{ github.event.inputs.BUILD_LATEX }}" >> $GITHUB_ENV
