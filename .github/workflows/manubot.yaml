@@ -8,6 +8,17 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+    inputs:
+      BUILD_PDF:
+        description: generate PDF output
+        default: "true"
+      BUILD_DOCX:
+        description: generate DOCX output
+        default: "false"
+      BUILD_LATEX:
+        description: generate LaTeX output
+        default: "false"
 jobs:
   manubot:
     name: Manubot
