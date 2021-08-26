@@ -8,6 +8,17 @@ on:
     branches:
       - main
       - master
+  workflow_dispatch:
+    inputs:
+      BUILD_PDF:
+        description: generate PDF output (true or false)
+        default: "true"
+      BUILD_DOCX:
+        description: generate DOCX output (true or false)
+        default: "false"
+      BUILD_LATEX:
+        description: generate LaTeX output (true or false)
+        default: "false"
 jobs:
   manubot:
     name: Manubot
@@ -21,6 +32,12 @@ jobs:
         with:
           # fetch entire commit history to support get_rootstock_commit
           fetch-depth: 0
+      - name: Set Environment Variables (Workflow Dispatch)
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          echo "BUILD_PDF=${{ github.event.inputs.BUILD_PDF }}" >> $GITHUB_ENV
+          echo "BUILD_DOCX=${{ github.event.inputs.BUILD_DOCX }}" >> $GITHUB_ENV
+          echo "BUILD_LATEX=${{ github.event.inputs.BUILD_LATEX }}" >> $GITHUB_ENV
       - name: Set Environment Variables
         run: |
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
