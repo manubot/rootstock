@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="John Doe" />
   <meta name="author" content="Jane Roe" />
-  <meta name="dcterms.date" content="2021-08-26" />
+  <meta name="dcterms.date" content="2021-09-23" />
   <meta name="keywords" content="markdown, publishing, manubot" />
   <title>Manuscript Title</title>
   <style>
@@ -111,8 +111,8 @@
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2021-08-26" />
-  <meta name="citation_publication_date" content="2021-08-26" />
+  <meta name="dc.date" content="2021-09-23" />
+  <meta name="citation_publication_date" content="2021-09-23" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -133,9 +133,9 @@
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/d2ca9953a443537288a4eb4f8707847b6fe39336/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/d2ca9953a443537288a4eb4f8707847b6fe39336/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/d2ca9953a443537288a4eb4f8707847b6fe39336/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/4e8f9b1040b2456db1947fe30fc628bf48f8fb3b/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/4e8f9b1040b2456db1947fe30fc628bf48f8fb3b/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/4e8f9b1040b2456db1947fe30fc628bf48f8fb3b/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -156,10 +156,10 @@
 </header>
 <p><small><em>
 This manuscript
-(<a href="https://manubot.github.io/rootstock/v/d2ca9953a443537288a4eb4f8707847b6fe39336/">permalink</a>)
+(<a href="https://manubot.github.io/rootstock/v/4e8f9b1040b2456db1947fe30fc628bf48f8fb3b/">permalink</a>)
 was automatically generated
-from <a href="https://github.com/manubot/rootstock/tree/d2ca9953a443537288a4eb4f8707847b6fe39336">manubot/rootstock@d2ca995</a>
-on August 26, 2021.
+from <a href="https://github.com/manubot/rootstock/tree/4e8f9b1040b2456db1947fe30fc628bf48f8fb3b">manubot/rootstock@4e8f9b1</a>
+on September 23, 2021.
 </em></small></p>
 <h2 id="authors">Authors</h2>
 <ul>
@@ -393,7 +393,7 @@ White background specified to serve as a backdrop for transparent sections of th
 </tbody>
 </table>
 </div>
-<div id="tbl:c1bc5f80-6b3e-4cef-85cb-cd27449b90b6" class="tablenos">
+<div id="tbl:a35ae0f3-4189-4750-be46-3b8ef9fa0758" class="tablenos">
 <table id="tbl:">
 <caption><span>Table 3:</span> A table with merged cells using the <code>attributes</code> plugin.
 </caption>
@@ -1318,7 +1318,8 @@ useful for <em>warnings</em> - <a href="https://manubot.org/">manubot.org</a></s
       // start expanded/collapsed based on option
       if (
         startCollapsed === "true" ||
-        (startCollapsed === "auto" && isSmallScreen())
+        (startCollapsed === "auto" && isSmallScreen()) ||
+        heading.dataset.collapsed === "true"
       )
         collapseHeading(heading);
       else expandElement(heading);
@@ -1651,8 +1652,9 @@ useful for <em>warnings</em> - <a href="https://manubot.org/">manubot.org</a></s
     }
   }
 
-  // start script when document is finished loading
-  window.addEventListener("load", start);
+  // start script on DOMContentLoaded instead of load to ensure this plugins
+  // runs before other plugins
+  window.addEventListener("DOMContentLoaded", start);
 </script>
 <!--
   Jump to First Plugin
@@ -3497,7 +3499,7 @@ useful for <em>warnings</em> - <a href="https://manubot.org/">manubot.org</a></s
   Allows public annotation of the  manuscript. See https://web.hypothes.is/.
 -->
 
-<script>
+<script type="module">
   // configuration
   window.hypothesisConfig = function () {
     return {
