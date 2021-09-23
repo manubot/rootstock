@@ -79,6 +79,7 @@
     }
   }
 
-  // start script when document is finished loading
-  window.addEventListener("load", start);
+  // start script on DOMContentLoaded instead of load to ensure this plugins
+  // runs before other plugins
+  window.addEventListener("DOMContentLoaded", start);
 </script>

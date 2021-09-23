@@ -19,7 +19,8 @@
       // start expanded/collapsed based on option
       if (
         startCollapsed === "true" ||
-        (startCollapsed === "auto" && isSmallScreen())
+        (startCollapsed === "auto" && isSmallScreen()) ||
+        heading.dataset.collapsed === "true"
       )
         collapseHeading(heading);
       else expandElement(heading);
