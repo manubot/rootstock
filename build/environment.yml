@@ -17,7 +17,7 @@ dependencies:
   - requests-cache=0.8.1
   - requests=2.26.0
   - toml=0.10.2
-  - watchdog=2.1.6
+  - watchdog=0.10.3
   - yamllint=1.26.3
   - pip:
     - errorhandler==2.0.1
