@@ -60,7 +60,9 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
-          miniconda-version: 'latest'
+          mamba-version: "*"
+          channels: conda-forge,defaults
+          channel-priority: true
       - name: Install Spellcheck
         shell: bash --login {0}
         run: |
