@@ -104,10 +104,11 @@ When choosing which source to use for a citation, we recommend the following ord
    Similarly, `@https://doi.org/10.1101/142760` is a [workaround](https://github.com/manubot/manubot/issues/16) to set the journal name of bioRxiv preprints to _bioRxiv_.
 7. Wikidata Items, cite like `@wikidata:Q50051684`.
    Note that anyone can edit or add records on [Wikidata](https://www.wikidata.org), so users are encouraged to contribute metadata for hard-to-cite works to Wikidata.
-8. Any other compact identifier supported by <https://identifiers.org>.
-   Manubot uses the Identifiers.org Resolution Service to support [hundreds](https://github.com/manubot/manubot/blob/7055bcc6524fdf1ef97d838cf0158973e2061595/manubot/cite/handlers.py#L122-L831 "Actual prefix support is determined by this manubot source code.") of [prefixes](https://registry.identifiers.org/registry "Identifiers.org prefix search").
-   For example, citing `@clinicaltrials:NCT04280705` will produce the same bibliographic metadata as `@https://identifiers.org/clinicaltrials:NCT04280705` or `@https://clinicaltrials.gov/ct2/show/NCT04280705`.
-9. For references that do not have any of the above persistent identifiers, the citation key does not need to include a prefix.
+8. Any other compact identifier supported by <https://bioregistry.io>.
+   Manubot uses the Bioregistry to support [hundreds](https://github.com/manubot/manubot/blob/a4af68125ab6bb322fdfb1689cfeec09f0cb1b60/manubot/cite/handlers.py#L155-L1485 "Actual prefix support is determined by this manubot source code.") of [prefixes](https://bioregistry.io/registry/ "Bioregistry prefix search").
+   For example, citing `@clinicaltrials:NCT04280705` will produce the same bibliographic metadata as `@https://bioregistry.io/clinicaltrials:NCT04280705` or `@https://clinicaltrials.gov/ct2/show/NCT04280705`.
+9. For references that do not have any of the above persistent identifiers,
+   the citation key does not need to include a prefix.
    Citing `@old-manuscript` will work, but only if reference metadata is [provided manually](#reference-metadata).
 
 Manubot is able to infer certain prefixes,
@@ -199,7 +200,7 @@ Manubot stores the bibliographic details for references (the set of all cited wo
 Manubot automatically generates CSL JSON for most persistent identifiers (as described in [Citations](#citations) above).
 In some cases, automatic metadata retrieval fails or provides incorrect or incomplete information.
 Errors are most common for references generated from scraping HTML metadata from websites.
-This occurs most frequently for `https`/`http`/`url` citations as well as identifiers.org prefixes without explicit support listed above.
+This occurs most frequently for `https`/`http`/`url` citations as well as Bioregistry prefixes without explicit support listed above.
 Therefore, Manubot supports user-provided metadata, which we refer to as "manual references".
 When a manual reference is provided, Manubot uses the supplied metadata and does not attempt to generate it.
 
