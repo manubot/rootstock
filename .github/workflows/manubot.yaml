@@ -11,14 +11,17 @@ on:
   workflow_dispatch:
     inputs:
       BUILD_PDF:
-        description: generate PDF output (true or false)
-        default: "true"
+        type: boolean
+        description: generate PDF output
+        default: true
       BUILD_DOCX:
-        description: generate DOCX output (true or false)
-        default: "false"
+        type: boolean
+        description: generate DOCX output
+        default: false
       BUILD_LATEX:
-        description: generate LaTeX output (true or false)
-        default: "false"
+        type: boolean
+        description: generate LaTeX output
+        default: false
 jobs:
   manubot:
     name: Manubot
