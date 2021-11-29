@@ -9,7 +9,6 @@
     + [SSH Deploy Key](#ssh-deploy-key)
       - [Add the public key to GitHub](#add-the-public-key-to-github)
       - [Add the private key to GitHub](#add-the-private-key-to-github)
-    + [Travis CI](#travis-ci)
     + [Previewing pull request builds with AppVeyor](#previewing-pull-request-builds-with-appveyor)
   * [README updates](#readme-updates)
   * [Finalize](#finalize)
@@ -108,7 +107,6 @@ Manubot supports the following CI services:
 | Service | Default | Artifacts | Deployment | Config | Private Repos |
 |---------|---------|-----------|---------|--------|---------------|
 | [GitHub Actions](https://github.com/features/actions) | ✔️ | ✔️ | ✔️ | [`manubot.yaml`](.github/workflows/manubot.yaml) | 2,000 minutes per month |
-| [Travis CI](https://travis-ci.com) | ❌ | ❌ | ✔️ needs setup | [`.travis.yml`](.travis.yml) | 100 build trial |
 | [AppVeyor](https://www.appveyor.com/) | ❌ | ✔️ with PR comments | ❌ | [`.appveyor.yml`](.appveyor.yml) | 14 day trial |
 
 Notes on table fields:
@@ -121,13 +119,15 @@ Notes on table fields:
 - **Deployment**: Whether the CI service can write outputs back to the GitHub repository (to the `output` and `gh-pages` branches).
   Deployment provides GitHub Pages with the latest manuscript version to serve to the manuscript's URL.
   GitHub Actions will deploy by default without any additional setup.
-  Travis CI will only deploy if an SSH Private Key is provided.
-  To avoid deploying a manuscript multiple times, disable GitHub Actions before providing an SSH Private Key to Travis.
 - **Config**: File configuring what operations CI will perform.
   Removing this file is one method to disable the CI service.
 - **Private Repos**: Quota for private repos.
   Only GitHub Actions supports cost-free builds of private repositories beyond a trial period.
   All services are cost-free for public repos.
+
+Manubot was originally designed to use Travis CI,
+but later switched to primarily use GitHub Actions.
+Support for Travis was [removed](https://github.com/manubot/rootstock/issues/446) in 2021.
 
 ### GitHub Actions
 
@@ -135,11 +135,9 @@ GitHub Actions is the recommended default CI service because it requires no addi
 To use GitHub Actions only, remove configuration files for other CI services:
 
 ```shell
-# remove Travis CI config
-git rm .travis.yml
 # remove AppVeyor config
 git rm .appveyor.yml
-# remove ci/install.sh if using neither Travis CI nor AppVeyor
+# remove ci/install.sh (only used by AppVeyor)
 git rm ci/install.sh
 ```
 
@@ -148,9 +146,10 @@ GitHub Pages deployment using `GITHUB_TOKEN` recently started working on GitHub 
 If it does not work for you after completing this setup, try reselecting "gh-pages branch" as the Source for GitHub Pages in the repository Settings.
 GitHub Pages should now trigger on the next commit.
 If not, [let us know](https://github.com/manubot/rootstock/issues/new).
-For more reliable deployment on GitHub, you can also use an SSH Deploy Key instead (see below).
 
-Deploying on Travis CI requires creating an SSH Deploy Key.
+For an alternative deployment method on GitHub,
+you can use an SSH Deploy Key instead.
+However, the setup is more complex.
 The following sections, collapsed by default, detail how to generate an SSH Deploy Key.
 
 <details>
@@ -158,9 +157,9 @@ The following sections, collapsed by default, detail how to generate an SSH Depl
 
 ### SSH Deploy Key
 
-Deployment on Travis CI requires an SSH Deploy Key.
-Previously, GitHub Actions also required an SSH Deploy Key, but now GitHub can deploy using the `GITHUB_TOKEN` secret.
-Therefore, users following the default configuration of deploying only via GitHub Actions can skip these steps.
+Previously, GitHub Actions required an SSH Deploy Key,
+but now GitHub can deploy using the `GITHUB_TOKEN` secret.
+Therefore, users following the default configuration can skip these steps.
 Otherwise, generate a deploy key so CI can write to the repository.
 
 ```sh
@@ -171,7 +170,7 @@ ssh-keygen \
   -f ci/deploy.key
 
 # Encode deploy.key to remove newlines, writing encoded text to deploy.key.txt.
-# This is required for entry into the Travis settings.
+# This was required for entry into the Travis settings.
 openssl base64 -A -in ci/deploy.key > ci/deploy.key.txt
 ```
 
@@ -194,7 +193,6 @@ Finally, click "Add key".
 #### Add the private key to GitHub
 
 If you would like GitHub Actions to use SSH for deployment, rather than via HTTPS using `GITHUB_TOKEN`, perform the steps in this section.
-**Skip this section if solely using Travis CI for deployment.**
 
 ```sh
 # Print the URL for adding the private key to GitHub
@@ -211,43 +209,6 @@ Next, copy-paste the content of `ci/deploy.key.txt` into "Value"
 (printed above by `cat`, including any trailing `=` characters if present).
 </details>
 
-<details>
-<summary>Expand for Travis CI setup</summary>
-
-### Travis CI
-
-Travis CI is another option for continuous integration.
-Now you must manually enable Travis CI for the new repository at <https://travis-ci.com>.
-Click the `+` sign to "Add New Repository".
-If you don't see your repository listed, push the "Sync account" button.
-Finally, flick the repository's switch to enable CI.
-
-```sh
-# Print the URL for adding the private key to Travis CI
-echo "https://travis-ci.com/$OWNER/$REPO/settings"
-
-# Print the encoded private key for copy-pasting to Travis CI
-cat ci/deploy.key.txt && echo
-```
-
-Next, go to the Travis CI repository settings page (URL echoed above).
-Add a new record in the "Environment Variables" section.
-For "NAME", enter `MANUBOT_SSH_PRIVATE_KEY`.
-Next, copy-paste the content of `deploy.key.txt` into "VALUE"
-(printed above by `cat`, including any trailing `=` characters if present).
-Make sure "Display value in build logs" remains toggled off (the default).
-
-While in the Travis CI settings, activate the [limit concurrent jobs](https://blog.travis-ci.com/2014-07-18-per-repository-concurrency-setting/) toggle and enter `1` in the value field.
-This ensures previous Manubot builds deploy before subsequent ones begin.
-
-Once the public and private deploy keys have been copied to their cloud locations, you can optionally remove the untracked files:
-
-```sh
-# Optionally remove untracked files
-rm ci/deploy.key*
-```
-
-</details>
 
 <details>
 <summary>Expand for AppVeyor setup</summary>
@@ -255,7 +216,7 @@ rm ci/deploy.key*
 ### Previewing pull request builds with AppVeyor
 
 You can optionally enable AppVeyor continuous integration to view pull request builds.
-Unlike Travis CI, AppVeyor supports storing manuscripts generated during pull request builds as artifacts.
+AppVeyor supports storing manuscripts generated during pull request builds as artifacts.
 These can be previewed to facilitate pull request review and ensure formatting and reference changes render as expected.
 When a pull request build runs successfully, **@AppVeyorBot** will comment on the pull request with a download link to the manuscript PDF.
 

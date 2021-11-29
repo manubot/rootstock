@@ -8,7 +8,7 @@ For example, run local builds using the command `BUILD_PDF=false bash build/buil
 
 To build a DOCX file of the manuscript, set the `BUILD_DOCX` environment variable to `true`.
 For example, use the command `BUILD_DOCX=true bash build/build.sh`.
-To export DOCX for all CI builds, set an environment variable (see docs for [GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables) or [Travis CI](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings)).
+To export DOCX for all CI builds, set an environment variable (see docs for [GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables)).
 Currently, equation numbers via `pandoc-eqnos` are not supported for DOCX output.
 
 Format conversion is done using [Pandoc](https://pandoc.org/MANUAL.html).
