@@ -41,9 +41,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/698464823d1a7d5e447b3ddb0969868d626704aa/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/698464823d1a7d5e447b3ddb0969868d626704aa/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/698464823d1a7d5e447b3ddb0969868d626704aa/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/0703e8ea932e5cb01fda331732298425697a6f30/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/0703e8ea932e5cb01fda331732298425697a6f30/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/0703e8ea932e5cb01fda331732298425697a6f30/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,9 +65,9 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/698464823d1a7d5e447b3ddb0969868d626704aa/))
+([permalink](https://manubot.github.io/rootstock/v/0703e8ea932e5cb01fda331732298425697a6f30/))
 was automatically generated
-from [manubot/rootstock@6984648](https://github.com/manubot/rootstock/tree/698464823d1a7d5e447b3ddb0969868d626704aa)
+from [manubot/rootstock@0703e8e](https://github.com/manubot/rootstock/tree/0703e8ea932e5cb01fda331732298425697a6f30)
 on December 3, 2021.
 </em></small>
 
