@@ -7,13 +7,10 @@ set -o errexit \
     -o nounset \
     -o pipefail
 
-# set environment variables for either Travis or GitHub Actions
-REPO_SLUG=${TRAVIS_REPO_SLUG:-$GITHUB_REPOSITORY}
-COMMIT=${TRAVIS_COMMIT:-$GITHUB_SHA}
-CI_BUILD_WEB_URL=${CI_BUILD_WEB_URL:-$TRAVIS_BUILD_WEB_URL}
-CI_JOB_WEB_URL=${CI_JOB_WEB_URL:-$TRAVIS_JOB_WEB_URL}
-BRANCH=${TRAVIS_BRANCH:-$DEFAULT_BRANCH}
-BRANCH=${BRANCH:-main}
+# set environment variables for GitHub Actions
+REPO_SLUG=${GITHUB_REPOSITORY}
+COMMIT=${GITHUB_SHA}
+BRANCH=${DEFAULT_BRANCH:-main}
 
 # Add commit hash to the README
 OWNER_NAME="$(dirname "$REPO_SLUG")"
@@ -49,21 +46,12 @@ set +o xtrace  # disable xtrace in subshell for private key operations
 if [ -v MANUBOT_SSH_PRIVATE_KEY ]; then
   base64 --decode <<< "$MANUBOT_SSH_PRIVATE_KEY" | ssh-add -
 else
-echo >&2 "DeprecationWarning: Loading deploy.key from an encrypted file.
-In the future, using the MANUBOT_ACCESS_TOKEN or MANUBOT_SSH_PRIVATE_KEY environment variable may be required."
-openssl aes-256-cbc \
-  -K $encrypted_9befd6eddffe_key \
-  -iv $encrypted_9befd6eddffe_iv \
-  -in ci/deploy.key.enc \
-  -out ci/deploy.key -d
-chmod 600 ci/deploy.key
-ssh-add ci/deploy.key
+  echo >&2 "Deployment will fail since neither of the following environment variables are set: MANUBOT_ACCESS_TOKEN or MANUBOT_SSH_PRIVATE_KEY."
 fi
 )
 fi
 
 # Fetch and create gh-pages and output branches
-# Travis does a shallow and single branch git clone
 git remote set-branches --add origin gh-pages output
 git fetch origin gh-pages:gh-pages output:output || \
   echo >&2 "[INFO] could not fetch gh-pages or output from origin."

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## install.sh: run during a Travis CI or AppVeyor build to install the conda environment
+## install.sh: run during an AppVeyor build to install the conda environment
 ## and the optional Pandoc spellcheck dependencies.
 
 # Set options for extra caution & debugging

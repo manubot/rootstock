@@ -5,8 +5,6 @@
 [![HTML Manuscript](https://img.shields.io/badge/manuscript-HTML-blue.svg)](https://manubot.github.io/rootstock/)
 [![PDF Manuscript](https://img.shields.io/badge/manuscript-PDF-blue.svg)](https://manubot.github.io/rootstock/manuscript.pdf)
 [![GitHub Actions Status](https://github.com/manubot/rootstock/workflows/Manubot/badge.svg)](https://github.com/manubot/rootstock/actions)
-[![Travis Build Status](https://travis-ci.com/manubot/rootstock.svg?branch=main)](https://travis-ci.com/manubot/rootstock)
-<!-- usage note: delete CI badges above for services not used by your manuscript -->
 
 ## Manuscript description
 
@@ -85,7 +83,7 @@ The `gh-pages` branch uses [GitHub Pages](https://pages.github.com/) to host the
 + **HTML manuscript** at https://manubot.github.io/rootstock/
 + **PDF manuscript** at https://manubot.github.io/rootstock/manuscript.pdf
 
-For continuous integration configuration details, see [`.github/workflows/manubot.yaml`](.github/workflows/manubot.yaml) if using GitHub Actions or [`.travis.yml`](.travis.yml) if using Travis CI.
+For continuous integration configuration details, see [`.github/workflows/manubot.yaml`](.github/workflows/manubot.yaml).
 
 ## License
 
