@@ -36,6 +36,9 @@ jobs:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
       SPELLCHECK: false
       MANUBOT_USE_DOCKER: false
+    defaults:
+      run:
+        shell: bash --login {0}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -44,13 +47,11 @@ jobs:
           fetch-depth: 0
       - name: Set Environment Variables (Workflow Dispatch)
         if: github.event_name == 'workflow_dispatch'
-        shell: bash
         run: |
           echo "BUILD_PDF=${{ github.event.inputs.BUILD_PDF }}" >> $GITHUB_ENV
           echo "BUILD_DOCX=${{ github.event.inputs.BUILD_DOCX }}" >> $GITHUB_ENV
           echo "BUILD_LATEX=${{ github.event.inputs.BUILD_LATEX }}" >> $GITHUB_ENV
       - name: Set Environment Variables
-        shell: bash
         run: |
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
           echo "TRIGGERING_SHA_7=${TRIGGERING_SHA::7}" >> $GITHUB_ENV
@@ -74,13 +75,11 @@ jobs:
           auto-activate-base: false
           miniforge-version: 'latest'
       - name: Install Spellcheck
-        shell: bash --login {0}
         run: |
           if [ "${SPELLCHECK:-}" = "true" ]; then
             bash ci/install-spellcheck.sh
           fi
       - name: Build Manuscript
-        shell: bash --login {0}
         run: bash build/build.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
@@ -94,5 +93,4 @@ jobs:
           MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
           CI_BUILD_WEB_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks
           CI_JOB_WEB_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        shell: bash --login {0}
         run: bash ci/deploy.sh
