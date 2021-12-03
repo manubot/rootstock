@@ -8,6 +8,8 @@ on:
     branches:
       - main
       - master
+  # NOTE: scheduled workflows aren't supported
+  # https://github.community/t/github-event-repository-fork-context-does-detect-forks-in-scheduled-jobs/185925
   workflow_dispatch:
     inputs:
       BUILD_PDF:
@@ -70,7 +72,7 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
-          miniconda-version: 'latest'
+          miniforge-version: 'latest'
       - name: Install Spellcheck
         shell: bash --login {0}
         run: |

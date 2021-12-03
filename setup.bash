@@ -204,11 +204,9 @@ git push --set-upstream origin main
 
 # To use GitHub Actions only:
 echo "Setup for GitHub Actions ONLY..."
-# remove Travis CI config
-git rm .travis.yml
 # remove AppVeyor config
 git rm .appveyor.yml
-# remove ci/install.sh if using neither Travis CI nor AppVeyor
+# remove ci/install.sh (only used by AppVeyor)
 git rm ci/install.sh
 
 # Update README
