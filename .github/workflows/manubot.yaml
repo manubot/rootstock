@@ -63,7 +63,7 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
-          miniconda-version: 'latest'
+          miniforge-version: 'latest'
       - name: Install Spellcheck
         shell: bash --login {0}
         run: |
