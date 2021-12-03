@@ -8,6 +8,8 @@ on:
     branches:
       - main
       - master
+  # NOTE: scheduled workflows aren't supported
+  # https://github.community/t/github-event-repository-fork-context-does-detect-forks-in-scheduled-jobs/185925
   workflow_dispatch:
     inputs:
       BUILD_PDF:
@@ -46,7 +48,7 @@ jobs:
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
           echo "TRIGGERING_SHA_7=${TRIGGERING_SHA::7}" >> $GITHUB_ENV
           echo "TRIGGERING_SHA: $TRIGGERING_SHA"
-          DEFAULT_BRANCH=$(git remote show origin | grep --perl-regexp --only-matching "(?<=HEAD branch: ).+")
+          DEFAULT_BRANCH=${{ github.event.repository.default_branch }}
           echo "DEFAULT_BRANCH=${DEFAULT_BRANCH}" >> $GITHUB_ENV
           echo "DEFAULT_BRANCH_REF=refs/heads/$DEFAULT_BRANCH" >> $GITHUB_ENV
           echo "DEFAULT_BRANCH=$DEFAULT_BRANCH"
