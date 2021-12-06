@@ -27,15 +27,11 @@ on:
 jobs:
   manubot:
     name: Manubot
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ubuntu-latest
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
-      SPELLCHECK: false
-      MANUBOT_USE_DOCKER: false
+      SPELLCHECK: true
+      MANUBOT_USE_DOCKER: true
     defaults:
       run:
         shell: bash --login {0}
