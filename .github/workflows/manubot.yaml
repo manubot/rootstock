@@ -31,6 +31,10 @@ jobs:
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
       SPELLCHECK: true
+      MANUBOT_USE_DOCKER: true
+    defaults:
+      run:
+        shell: bash --login {0}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -67,13 +71,11 @@ jobs:
           auto-activate-base: false
           miniforge-version: 'latest'
       - name: Install Spellcheck
-        shell: bash --login {0}
         run: |
           if [ "${SPELLCHECK:-}" = "true" ]; then
             bash ci/install-spellcheck.sh
           fi
       - name: Build Manuscript
-        shell: bash --login {0}
         run: bash build/build.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v1
@@ -87,5 +89,4 @@ jobs:
           MANUBOT_SSH_PRIVATE_KEY: ${{ secrets.MANUBOT_SSH_PRIVATE_KEY }}
           CI_BUILD_WEB_URL: https://github.com/${{ github.repository }}/commit/${{ github.sha }}/checks
           CI_JOB_WEB_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        shell: bash --login {0}
         run: bash ci/deploy.sh
