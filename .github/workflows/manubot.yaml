@@ -24,14 +24,29 @@ on:
         type: boolean
         description: generate LaTeX output
         default: false
+      SPELLCHECK:
+        type: boolean
+        description: Check spelling
+        default: true
+      MANUBOT_USE_DOCKER:
+        type: boolean
+        description: Use Docker to generate PDF
+        default: true
 jobs:
   manubot:
     name: Manubot
     runs-on: ubuntu-latest
     env:
+      # Set Manubot preferences from workflow_dispatch input
+      # or a default value (for push/pull_request events).
+      # Edit default values by changing the true/false value after ||.
+      BUILD_PDF: ${{ format(github.event.inputs.BUILD_PDF) || true }}
+      BUILD_DOCX: ${{ format(github.event.inputs.BUILD_DOCX) || false }}
+      BUILD_LATEX: ${{ format(github.event.inputs.BUILD_LATEX) || false }}
+      SPELLCHECK: ${{ format(github.event.inputs.SPELLCHECK) || true }}
+      MANUBOT_USE_DOCKER: ${{ format(github.event.inputs.MANUBOT_USE_DOCKER) || true }}
+      # Set environment variables needed internally by Manubot.
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
-      SPELLCHECK: true
-      MANUBOT_USE_DOCKER: true
     defaults:
       run:
         shell: bash --login {0}
@@ -41,12 +56,6 @@ jobs:
         with:
           # fetch entire commit history to support get_rootstock_commit
           fetch-depth: 0
-      - name: Set Environment Variables (Workflow Dispatch)
-        if: github.event_name == 'workflow_dispatch'
-        run: |
-          echo "BUILD_PDF=${{ github.event.inputs.BUILD_PDF }}" >> $GITHUB_ENV
-          echo "BUILD_DOCX=${{ github.event.inputs.BUILD_DOCX }}" >> $GITHUB_ENV
-          echo "BUILD_LATEX=${{ github.event.inputs.BUILD_LATEX }}" >> $GITHUB_ENV
       - name: Set Environment Variables
         run: |
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
