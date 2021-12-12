@@ -80,10 +80,8 @@ jobs:
           auto-activate-base: false
           miniforge-version: 'latest'
       - name: Install Spellcheck
-        run: |
-          if [ "${SPELLCHECK:-}" = "true" ]; then
-            bash ci/install-spellcheck.sh
-          fi
+        if: env.SPELLCHECK == 'true'
+        run: bash ci/install-spellcheck.sh
       - name: Build Manuscript
         run: bash build/build.sh
       - name: Upload Artifacts
