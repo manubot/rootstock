@@ -24,14 +24,23 @@ on:
         type: boolean
         description: generate LaTeX output
         default: false
+      SPELLCHECK:
+        type: boolean
+        description: Check spelling
+        default: true
+      MANUBOT_USE_DOCKER:
+        type: boolean
+        description: Use Docker to generate PDF
+        default: true
 jobs:
   manubot:
     name: Manubot
     runs-on: ubuntu-latest
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
+      # Set SPELLCHECK to true/false for whether to check spelling in this action.
+      # For workflow dispatch jobs, this SPELLCHECK setting will be overridden by the user input.
       SPELLCHECK: true
-      MANUBOT_USE_DOCKER: true
     defaults:
       run:
         shell: bash --login {0}
@@ -47,6 +56,8 @@ jobs:
           echo "BUILD_PDF=${{ github.event.inputs.BUILD_PDF }}" >> $GITHUB_ENV
           echo "BUILD_DOCX=${{ github.event.inputs.BUILD_DOCX }}" >> $GITHUB_ENV
           echo "BUILD_LATEX=${{ github.event.inputs.BUILD_LATEX }}" >> $GITHUB_ENV
+          echo "SPELLCHECK=${{ github.event.inputs.SPELLCHECK }}" >> $GITHUB_ENV
+          echo "MANUBOT_USE_DOCKER=${{ github.event.inputs.MANUBOT_USE_DOCKER }}" >> $GITHUB_ENV
       - name: Set Environment Variables
         run: |
           TRIGGERING_SHA=${GITHUB_PULL_REQUEST_SHA:-$GITHUB_SHA}
@@ -71,10 +82,8 @@ jobs:
           auto-activate-base: false
           miniforge-version: 'latest'
       - name: Install Spellcheck
-        run: |
-          if [ "${SPELLCHECK:-}" = "true" ]; then
-            bash ci/install-spellcheck.sh
-          fi
+        if: env.SPELLCHECK == 'true'
+        run: bash ci/install-spellcheck.sh
       - name: Build Manuscript
         run: bash build/build.sh
       - name: Upload Artifacts
