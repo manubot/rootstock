@@ -1,206 +1,222 @@
 [
   {
+    "publisher": "The Royal Society",
+    "issue": "141",
+    "abstract": "<jats:p>Deep learning describes a class of machine learning algorithms that are capable of combining raw inputs into layers of intermediate features. These algorithms have recently shown impressive results across a variety of domains. Biology and medicine are data-rich disciplines, but the data are complex and often ill-understood. Hence, deep learning techniques may be particularly well suited to solve problems of these fields. We examine applications of deep learning to a variety of biomedical problems—patient classification, fundamental biological processes and treatment of patients—and discuss whether deep learning will be able to transform these tasks or if the biomedical sphere poses unique challenges. Following from an extensive literature review, we find that deep learning has yet to revolutionize biomedicine or definitively resolve any of the most pressing challenges in the field, but promising advances have been made on the prior state of the art. Even though improvements over previous baselines have been modest in general, the recent progress indicates that deep learning methods will provide valuable means for speeding up or aiding human investigation. Though progress has been made linking a specific neural network's prediction to input features, understanding how users should interpret these models to make testable hypotheses about the system under study remains an open challenge. Furthermore, the limited amount of labelled data for training presents problems in some domains, as do legal and privacy constraints on work with sensitive health records. Nonetheless, we foresee deep learning enabling changes at both bench and bedside with the potential to transform several areas of biology and medicine.</jats:p>",
+    "DOI": "10.1098/rsif.2017.0387",
     "type": "article-journal",
-    "id": "PZMP42Ak",
+    "page": "20170387",
+    "source": "Crossref",
+    "title": "Opportunities and obstacles for deep learning in biology and medicine",
+    "volume": "15",
     "author": [
       {
-        "family": "Ching",
-        "given": "Travers"
+        "given": "Travers",
+        "family": "Ching"
       },
       {
-        "family": "Himmelstein",
-        "given": "Daniel S."
+        "given": "Daniel S.",
+        "family": "Himmelstein"
       },
       {
-        "family": "Beaulieu-Jones",
-        "given": "Brett K."
+        "given": "Brett K.",
+        "family": "Beaulieu-Jones"
       },
       {
-        "family": "Kalinin",
-        "given": "Alexandr A."
+        "given": "Alexandr A.",
+        "family": "Kalinin"
       },
       {
-        "family": "Do",
-        "given": "Brian T."
+        "given": "Brian T.",
+        "family": "Do"
       },
       {
-        "family": "Way",
-        "given": "Gregory P."
+        "given": "Gregory P.",
+        "family": "Way"
       },
       {
-        "family": "Ferrero",
-        "given": "Enrico"
+        "given": "Enrico",
+        "family": "Ferrero"
       },
       {
-        "family": "Agapow",
-        "given": "Paul-Michael"
+        "given": "Paul-Michael",
+        "family": "Agapow"
       },
       {
-        "family": "Zietz",
-        "given": "Michael"
+        "given": "Michael",
+        "family": "Zietz"
       },
       {
-        "family": "Hoffman",
-        "given": "Michael M."
+        "given": "Michael M.",
+        "family": "Hoffman"
       },
       {
-        "family": "Xie",
-        "given": "Wei"
+        "given": "Wei",
+        "family": "Xie"
       },
       {
-        "family": "Rosen",
-        "given": "Gail L."
+        "given": "Gail L.",
+        "family": "Rosen"
       },
       {
-        "family": "Lengerich",
-        "given": "Benjamin J."
+        "given": "Benjamin J.",
+        "family": "Lengerich"
       },
       {
-        "family": "Israeli",
-        "given": "Johnny"
+        "given": "Johnny",
+        "family": "Israeli"
       },
       {
-        "family": "Lanchantin",
-        "given": "Jack"
+        "given": "Jack",
+        "family": "Lanchantin"
       },
       {
-        "family": "Woloszynek",
-        "given": "Stephen"
+        "given": "Stephen",
+        "family": "Woloszynek"
       },
       {
-        "family": "Carpenter",
-        "given": "Anne E."
+        "given": "Anne E.",
+        "family": "Carpenter"
       },
       {
-        "family": "Shrikumar",
-        "given": "Avanti"
+        "given": "Avanti",
+        "family": "Shrikumar"
       },
       {
-        "family": "Xu",
-        "given": "Jinbo"
+        "given": "Jinbo",
+        "family": "Xu"
       },
       {
-        "family": "Cofer",
-        "given": "Evan M."
+        "given": "Evan M.",
+        "family": "Cofer"
       },
       {
-        "family": "Lavender",
-        "given": "Christopher A."
+        "given": "Christopher A.",
+        "family": "Lavender"
       },
       {
-        "family": "Turaga",
-        "given": "Srinivas C."
+        "given": "Srinivas C.",
+        "family": "Turaga"
       },
       {
-        "family": "Alexandari",
-        "given": "Amr M."
+        "given": "Amr M.",
+        "family": "Alexandari"
       },
       {
-        "family": "Lu",
-        "given": "Zhiyong"
+        "given": "Zhiyong",
+        "family": "Lu"
       },
       {
-        "family": "Harris",
-        "given": "David J."
+        "given": "David J.",
+        "family": "Harris"
       },
       {
-        "family": "DeCaprio",
-        "given": "Dave"
+        "given": "Dave",
+        "family": "DeCaprio"
       },
       {
-        "family": "Qi",
-        "given": "Yanjun"
+        "given": "Yanjun",
+        "family": "Qi"
       },
       {
-        "family": "Kundaje",
-        "given": "Anshul"
+        "given": "Anshul",
+        "family": "Kundaje"
       },
       {
-        "family": "Peng",
-        "given": "Yifan"
+        "given": "Yifan",
+        "family": "Peng"
       },
       {
-        "family": "Wiley",
-        "given": "Laura K."
+        "given": "Laura K.",
+        "family": "Wiley"
       },
       {
-        "family": "Segler",
-        "given": "Marwin H. S."
+        "given": "Marwin H. S.",
+        "family": "Segler"
       },
       {
-        "family": "Boca",
-        "given": "Simina M."
+        "given": "Simina M.",
+        "family": "Boca"
       },
       {
-        "family": "Swamidass",
-        "given": "S. Joshua"
+        "given": "S. Joshua",
+        "family": "Swamidass"
       },
       {
-        "family": "Huang",
-        "given": "Austin"
+        "given": "Austin",
+        "family": "Huang"
       },
       {
-        "family": "Gitter",
-        "given": "Anthony"
+        "given": "Anthony",
+        "family": "Gitter"
       },
       {
-        "family": "Greene",
-        "given": "Casey S."
+        "given": "Casey S.",
+        "family": "Greene"
       }
     ],
+    "container-title": "Journal of The Royal Society Interface",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
           2018,
-          4,
           4
         ]
       ]
     },
-    "abstract": "Deep learning describes a class of machine learning algorithms that are capable of combining raw inputs into layers of intermediate features. These algorithms have recently shown impressive results across a variety of domains. Biology and medicine are data-rich disciplines, but the data are complex and often ill-understood. Hence, deep learning techniques may be particularly well suited to solve problems of these fields. We examine applications of deep learning to a variety of biomedical problems—patient classification, fundamental biological processes and treatment of patients—and discuss whether deep learning will be able to transform these tasks or if the biomedical sphere poses unique challenges. Following from an extensive literature review, we find that deep learning has yet to revolutionize biomedicine or definitively resolve any of the most pressing challenges in the field, but promising advances have been made on the prior state of the art. Even though improvements over previous baselines have been modest in general, the recent progress indicates that deep learning methods will provide valuable means for speeding up or aiding human investigation. Though progress has been made linking a specific neural network's prediction to input features, understanding how users should interpret these models to make testable hypotheses about the system under study remains an open challenge. Furthermore, the limited amount of labelled data for training presents problems in some domains, as do legal and privacy constraints on work with sensitive health records. Nonetheless, we foresee deep learning enabling changes at both bench and bedside with the potential to transform several areas of biology and medicine.",
-    "container-title": "Journal of The Royal Society Interface",
-    "DOI": "10.1098/rsif.2017.0387",
-    "volume": "15",
-    "issue": "141",
-    "page": "20170387",
-    "publisher": "The Royal Society",
-    "title": "Opportunities and obstacles for deep learning in biology and medicine",
     "URL": "https://doi.org/gddkhn",
+    "container-title-short": "J. R. Soc. Interface.",
     "PMCID": "PMC5938574",
     "PMID": "29618526",
+    "id": "PZMP42Ak",
     "note": "This CSL Item was generated by Manubot v0.5.2 from its persistent identifier (standard_id).\nstandard_id: doi:10.1098/rsif.2017.0387"
   },
   {
+    "publisher": "Public Library of Science (PLoS)",
+    "issue": "6",
+    "DOI": "10.1371/journal.pcbi.1007128",
     "type": "article-journal",
-    "id": "YuJbg3zO",
+    "page": "e1007128",
+    "source": "Crossref",
+    "title": "Open collaborative writing with Manubot",
+    "volume": "15",
     "author": [
       {
-        "family": "Himmelstein",
-        "given": "Daniel S."
+        "given": "Daniel S.",
+        "family": "Himmelstein"
       },
       {
-        "family": "Rubinetti",
-        "given": "Vincent"
+        "given": "Vincent",
+        "family": "Rubinetti"
       },
       {
-        "family": "Slochower",
-        "given": "David R."
+        "given": "David R.",
+        "family": "Slochower"
       },
       {
-        "family": "Hu",
-        "given": "Dongbo"
+        "given": "Dongbo",
+        "family": "Hu"
       },
       {
-        "family": "Malladi",
-        "given": "Venkat S."
+        "given": "Venkat S.",
+        "family": "Malladi"
       },
       {
-        "family": "Greene",
-        "given": "Casey S."
+        "given": "Casey S.",
+        "family": "Greene"
       },
       {
-        "family": "Gitter",
-        "given": "Anthony"
+        "given": "Anthony",
+        "family": "Gitter"
+      }
+    ],
+    "container-title": "PLOS Computational Biology",
+    "language": "en",
+    "editor": [
+      {
+        "given": "Dina",
+        "family": "Schneidman-Duhovny"
       }
     ],
     "issued": {
@@ -212,51 +228,53 @@
         ]
       ]
     },
-    "container-title": "PLOS Computational Biology",
-    "DOI": "10.1371/journal.pcbi.1007128",
-    "volume": "15",
-    "issue": "6",
-    "page": "e1007128",
-    "publisher": "Public Library of Science (PLoS)",
-    "title": "Open collaborative writing with Manubot",
     "URL": "https://doi.org/c7np",
+    "container-title-short": "PLoS Comput Biol",
     "PMCID": "PMC6611653",
     "PMID": "31233491",
+    "id": "YuJbg3zO",
     "note": "This CSL Item was generated by Manubot v0.5.2 from its persistent identifier (standard_id).\nstandard_id: doi:10.1371/journal.pcbi.1007128"
   },
   {
+    "publisher": "eLife Sciences Publications, Ltd",
+    "abstract": "<jats:p>The website Sci-Hub enables users to download PDF versions of scholarly articles, including many articles that are paywalled at their journal’s site. Sci-Hub has grown rapidly since its creation in 2011, but the extent of its coverage has been unclear. Here we report that, as of March 2017, Sci-Hub’s database contains 68.9% of the 81.6 million scholarly articles registered with Crossref and 85.1% of articles published in toll access journals. We find that coverage varies by discipline and publisher, and that Sci-Hub preferentially covers popular, paywalled content. For toll access articles, we find that Sci-Hub provides greater coverage than the University of Pennsylvania, a major research university in the United States. Green open access to toll access articles via licit services, on the other hand, remains quite limited. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. For the first time, nearly all scholarly literature is available gratis to anyone with an Internet connection, suggesting the toll access business model may become unsustainable.</jats:p>",
+    "DOI": "10.7554/elife.32822",
     "type": "article-journal",
-    "id": "IhliSZDo",
+    "source": "Crossref",
+    "title": "Sci-Hub provides access to nearly all scholarly literature",
+    "volume": "7",
     "author": [
       {
-        "family": "Himmelstein",
-        "given": "Daniel S"
+        "given": "Daniel S",
+        "family": "Himmelstein"
       },
       {
-        "family": "Romero",
-        "given": "Ariel Rodriguez"
+        "given": "Ariel Rodriguez",
+        "family": "Romero"
       },
       {
-        "family": "Levernier",
-        "given": "Jacob G"
+        "given": "Jacob G",
+        "family": "Levernier"
       },
       {
-        "family": "Munro",
-        "given": "Thomas Anthony"
+        "given": "Thomas Anthony",
+        "family": "Munro"
       },
       {
-        "family": "McLaughlin",
-        "given": "Stephen Reid"
+        "given": "Stephen Reid",
+        "family": "McLaughlin"
       },
       {
-        "family": "Greshake Tzovaras",
-        "given": "Bastian"
+        "given": "Bastian",
+        "family": "Greshake Tzovaras"
       },
       {
-        "family": "Greene",
-        "given": "Casey S"
+        "given": "Casey S",
+        "family": "Greene"
       }
     ],
+    "container-title": "eLife",
+    "language": "en",
     "issued": {
       "date-parts": [
         [
@@ -266,16 +284,10 @@
         ]
       ]
     },
-    "abstract": "The website Sci-Hub enables users to download PDF versions of scholarly articles, including many articles that are paywalled at their journal’s site. Sci-Hub has grown rapidly since its creation in 2011, but the extent of its coverage has been unclear. Here we report that, as of March 2017, Sci-Hub’s database contains 68.9% of the 81.6 million scholarly articles registered with Crossref and 85.1% of articles published in toll access journals. We find that coverage varies by discipline and publisher, and that Sci-Hub preferentially covers popular, paywalled content. For toll access articles, we find that Sci-Hub provides greater coverage than the University of Pennsylvania, a major research university in the United States. Green open access to toll access articles via licit services, on the other hand, remains quite limited. Our interactive browser at https://greenelab.github.io/scihub allows users to explore these findings in more detail. For the first time, nearly all scholarly literature is available gratis to anyone with an Internet connection, suggesting the toll access business model may become unsustainable.",
-    "container-title": "eLife",
-    "DOI": "10.7554/elife.32822",
-    "volume": "7",
-    "page": "e32822",
-    "publisher": "eLife Sciences Publications, Ltd",
-    "title": "Sci-Hub provides access to nearly all scholarly literature",
     "URL": "https://doi.org/ckcj",
     "PMCID": "PMC5832410",
     "PMID": "29424689",
+    "id": "IhliSZDo",
     "note": "This CSL Item was generated by Manubot v0.5.2 from its persistent identifier (standard_id).\nstandard_id: doi:10.7554/elife.32822"
   },
   {
@@ -312,7 +324,7 @@
         [
           2022,
           1,
-          8
+          25
         ]
       ]
     },
@@ -421,7 +433,7 @@
         [
           "2022",
           1,
-          8
+          25
         ]
       ]
     },
