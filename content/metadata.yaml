@@ -1,26 +1,22 @@
 ---
-title: "Manuscript Title"
+title: "CNApy Users Guide"
 keywords:
-  - markdown
-  - publishing
-  - manubot
+  - constraint-programming 
+  - metabolic-models
 lang: en-US
 authors:
-  - github: johndoe
-    name: John Doe
-    initials: JD
-    orcid: XXXX-XXXX-XXXX-XXXX
-    twitter: johndoe
-    email: john.doe@something.com
+  - github: sthiele
+    name: Sven Thiele
+    initials: ST
+    orcid: 0000-0002-5812-6963
     affiliations:
-      - Department of Something, University of Whatever
-    funders:
-      - Grant XXXXXXXX
-  - github: janeroe
-    name: Jane Roe
-    initials: JR
-    orcid: XXXX-XXXX-XXXX-XXXX
-    email: jane.roe@whatever.edu
+      - Analysis and Redesign of Biological Networks, Max Planck Institute for Dynamics of Complex Technical Systems Magdeburg
+    # funders:
+      # - Grant XXXXXXXX
+  - github: axelvonkamp
+    name: Axel von Kamp
+    initials: AVK
+    # orcid: XXXX-XXXX-XXXX-XXXX
+    # email: jane.roe@whatever.edu
     affiliations:
-      - Department of Something, University of Whatever
-      - Department of Whatever, University of Something
+      - Analysis and Redesign of Biological Networks, Max Planck Institute for Dynamics of Complex Technical Systems Magdeburg
