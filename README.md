@@ -11,9 +11,7 @@
 
 <!-- usage note: edit this section. -->
 
-This repository is the CNApy users guide with manubot.
-See [`SETUP.md`](SETUP.md) and replace this paragraph with a description of their manuscript.
-See [`USAGE.md`](USAGE.md) for documentation how to write a manuscript.
+This repository contains the CNApy Users Guide with Manubot.
 
 ## Manubot
 
