@@ -1,4 +1,4 @@
-# CNApy Users Guide
+# CNApy Guide
 
 <!-- usage note: edit the H1 title above to personalize the manuscript -->
 
@@ -11,7 +11,7 @@
 
 <!-- usage note: edit this section. -->
 
-This repository contains the CNApy Users Guide with Manubot.
+This repository contains the CNApy Guide with Manubot.
 
 ## Manubot
 
