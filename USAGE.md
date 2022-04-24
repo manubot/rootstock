@@ -76,6 +76,11 @@ For example, the following will override the figure number to be "S1" and set th
 
 We recommend always specifying the width of SVG images (even if just `width="100%"`), since otherwise SVGs may not render properly in the [WeasyPrint](https://weasyprint.org/) PDF export.
 
+### Sections
+
+Manubot supports section references, as provided by the [`pandoc-secnos`](https://github.com/tomduck/pandoc-secnos) library.
+Adding an anchor to a section header with `{#sec:section-name}` makes it available for citation using `@sec:section-name` inline in the text.
+
 ### Citations
 
 Manubot supports [Pandoc citations](https://pandoc.org/MANUAL.html#citations), but with added support for citing persistent identifiers directly.
