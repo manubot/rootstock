@@ -260,6 +260,7 @@ initials: DSH  # optional
 orcid: 0000-0002-3012-7446  # mandatory
 twitter: dhimmel  # optional
 email: daniel.himmelstein@gmail.com  # suggested
+corresponding: true  # optional, if set to true displays author's email for correspondence
 affiliations:  # as a list, strongly suggested
   - Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania
   - Department of Biological & Medical Informatics, University of California, San Francisco
