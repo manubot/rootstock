@@ -40,7 +40,7 @@ bash <( curl --location https://github.com/manubot/rootstock/raw/main/setup.bash
 The script will then take you through the process of cloning the rootstock repo, make the changes required to use GitHub actions, edit the README to point to your repo and commit the changes.
 Your new manuscript repo is then ready for you to start adding your own content.
 
-This script does not not create the remote repo for you, so you will be prompted to manually create an empty GitHub repository at <https://github.com/new>.
+This script does not create the remote repo for you, so you will be prompted to manually create an empty GitHub repository at <https://github.com/new>.
 Do not initialize the repository, other than optionally adding a description.
 
 ### CLI
