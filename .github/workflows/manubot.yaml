@@ -8,8 +8,10 @@ on:
     branches:
       - main
       - master
-  # NOTE: scheduled workflows aren't supported
-  # https://github.community/t/github-event-repository-fork-context-does-detect-forks-in-scheduled-jobs/185925
+  # NOTE: scheduled workflows are supported as of 2022-09-27 (example commented below)
+  # https://github.com/community/community/discussions/12269#discussioncomment-3747667
+  # scheduled:
+  #   - cron: '40 10 1 * *'  # https://crontab.guru/#40_10_1_*_*
   workflow_dispatch:
     inputs:
       BUILD_PDF:
