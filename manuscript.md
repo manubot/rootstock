@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2022-10-23'
+date-meta: '2022-11-06'
 author-meta:
 - John Doe
 - Jane Roe
@@ -19,8 +19,8 @@ header-includes: |-
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2022-10-23" />
-  <meta name="citation_publication_date" content="2022-10-23" />
+  <meta name="dc.date" content="2022-11-06" />
+  <meta name="citation_publication_date" content="2022-11-06" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -41,9 +41,9 @@ header-includes: |-
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/284db4739a9bdf8b51f5c1ae62a8d39ac681dd78/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/284db4739a9bdf8b51f5c1ae62a8d39ac681dd78/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/284db4739a9bdf8b51f5c1ae62a8d39ac681dd78/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/187023a9aa5ed82d1c728e38c854d01bd03c3f70/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/187023a9aa5ed82d1c728e38c854d01bd03c3f70/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/187023a9aa5ed82d1c728e38c854d01bd03c3f70/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -65,10 +65,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/284db4739a9bdf8b51f5c1ae62a8d39ac681dd78/))
+([permalink](https://manubot.github.io/rootstock/v/187023a9aa5ed82d1c728e38c854d01bd03c3f70/))
 was automatically generated
-from [manubot/rootstock@284db47](https://github.com/manubot/rootstock/tree/284db4739a9bdf8b51f5c1ae62a8d39ac681dd78)
-on October 23, 2022.
+from [manubot/rootstock@187023a](https://github.com/manubot/rootstock/tree/187023a9aa5ed82d1c728e38c854d01bd03c3f70)
+on November 6, 2022.
 </em></small>
 
 ## Authors
