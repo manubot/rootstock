@@ -246,8 +246,14 @@ One tip is to embed the date `references.json` was generated into the frozen man
 
 [`content/metadata.yaml`](content/metadata.yaml) contains manuscript metadata that gets passed through to Pandoc, via a [`yaml_metadata_block`](https://pandoc.org/MANUAL.html#extension-yaml_metadata_block).
 `metadata.yaml` should contain the manuscript `title`, `authors` list, `keywords`, and `lang` ([language tag](https://www.w3.org/International/articles/language-tags/ "W3C: Language tags in HTML and XML")).
-Additional metadata, such as `date`, will automatically be created by the Manubot.
-Manubot uses the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) specified in [`build.sh`](build/build.sh) for setting the manuscript's date.
+
+When the `date` field is missing or null,
+Manubot uses the current time for the publication date.
+This is ideal for manuscripts that are being actively written,
+but once complete it might make sense to set an explicit date (ISO-format like '2022-10-31'),
+such that future minor changes do not update the publication date.
+The generated date will still reflect the time of the Manubot build.
+Manubot uses the [timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) specified in [`build.sh`](build/build.sh) for the generated date.
 For example, setting the `TZ` environment variable to `Etc/UTC` directs the Manubot to use Coordinated Universal Time.
 
 We recommend authors add themselves to `metadata.yaml` via pull request (when requested by a maintainer), thereby signaling that they've read and approved the manuscript.

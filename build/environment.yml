@@ -13,14 +13,14 @@ dependencies:
   - python=3.10.0
   - requests-cache=0.8.1
   - requests=2.26.0
-  - toml=0.10.2
+  - tomli=2.0.1
   - watchdog==2.1.6
   - weasyprint=53.4
   - yamllint=1.26.3
   - pip:
     - cffi==1.15.0
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@90925eeff90e3aaacaa504fc9a47107609cffc17
+    - git+https://github.com/manubot/manubot@35178e6e561ae9778ab26123654b567526236c32
     - isbnlib==3.10.9
     - opentimestamps-client==0.7.0
     - opentimestamps==0.4.1
