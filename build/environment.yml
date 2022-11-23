@@ -7,7 +7,7 @@ dependencies:
   - ghp-import=2.1.0
   - jinja2=3.1.2
   - jsonschema=4.17.0
-  - pandoc=2.18
+  - pandoc=2.19.2
   - pango=1.48.10
   - pip=22.3.1
   - python=3.11.0
@@ -20,7 +20,7 @@ dependencies:
   - pip:
     - cffi==1.15.0
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@9519c59ac6813dded9a6dbbbfd0efa125fde437c
+    - git+https://github.com/manubot/manubot@053355653b41eae11fdcf4704e9e507dc636fa3b
     - isbnlib==3.10.10
     - opentimestamps-client==0.7.1
     - opentimestamps==0.4.3
