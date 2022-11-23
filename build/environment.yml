@@ -4,34 +4,33 @@ channels:
 dependencies:
   - cairo=1.16.0
   - cairocffi=1.2.0
-  - ghp-import=2.0.2
-  - jinja2=3.0.3
-  - jsonschema=4.2.1
-  - pandoc=2.17.0.1
+  - ghp-import=2.1.0
+  - jinja2=3.1.2
+  - jsonschema=4.17.0
+  - pandoc=2.19.2
   - pango=1.48.10
-  - pip=21.3.1
-  - python=3.10.0
-  - requests-cache=0.8.1
-  - requests=2.26.0
+  - pip=22.3.1
+  - python=3.11.0
+  - requests-cache=0.9.6
+  - requests=2.28.1
   - tomli=2.0.1
-  - watchdog==2.1.6
+  - watchdog==2.1.9
   - weasyprint=53.4
-  - yamllint=1.26.3
+  - yamllint=1.28.0
   - pip:
     - cffi==1.15.0
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@35178e6e561ae9778ab26123654b567526236c32
-    - isbnlib==3.10.9
-    - opentimestamps-client==0.7.0
-    - opentimestamps==0.4.1
+    - git+https://github.com/manubot/manubot@053355653b41eae11fdcf4704e9e507dc636fa3b
+    - isbnlib==3.10.10
+    - opentimestamps-client==0.7.1
+    - opentimestamps==0.4.3
     - pandoc-eqnos==2.5.0
     - pandoc-fignos==2.4.0
     - pandoc-tablenos==2.3.0
     - pandoc-xnos==2.5.0
     - pandocfilters==1.5.0
-    - panflute==2.1.0
-    - psutil==5.8.0
-    - pybase62==0.4.3
-    - pysha3==1.0.2
-    - python-bitcoinlib==0.10.2
-    - pyyaml==5.4.1
+    - panflute==2.2.3
+    - psutil==5.9.4
+    - pybase62==0.5.0
+    - python-bitcoinlib==0.11.2
+    - pyyaml==6.0
