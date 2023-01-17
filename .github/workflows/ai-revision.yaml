@@ -1,0 +1,54 @@
+name: ai-revision
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to revise'
+        required: true
+        type: string
+        default: 'main'
+      file_names:
+        description: 'File names to revise'
+        required: false
+        type: string
+        default: ''
+      model:
+        description: 'Language model'
+        required: true
+        type: string
+        default: 'text-davinci-003'
+      branch_name:
+        description: 'Output branch'
+        required: true
+        type: string
+        default: 'ai-revision-davinci'
+
+jobs:
+  chatgpt-revise:
+    name: GPT Revise
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with: 
+          ref: ${{ inputs.branch }} 
+      - name: Install Manubot AI Editor
+        run: bash ci/install-manuscript-editor.sh
+      - name: Revise manuscript
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
+          AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
+          # More variables can be specified to control the behavior of the model:
+          #  https://github.com/greenelab/manubot-ai-editor/blob/main/libs/manubot/ai_editor/env_vars.py
+        run: python ci/run-manuscript-editor.py
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: 'GPT revised manuscript'
+          title: 'GPT (${{ inputs.model }}) used to revise manuscript'
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          add-paths: |
+            content/*.md
+          branch: ${{ inputs.branch_name }}
+          draft: true
