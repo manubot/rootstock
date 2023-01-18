@@ -19,7 +19,10 @@ if __name__ == "__main__":
     )
 
     # revise the manuscript
-    with tempfile.TemporaryDirectory() as output_folder:
+    with tempfile.TemporaryDirectory() as t:
+        output_folder = Path(t)
+        print(f"Temporary directory: {output_folder}")
+
         me.revise_manuscript(output_folder, model, debug=True)
 
         # move the revised manuscript back to the content folder
