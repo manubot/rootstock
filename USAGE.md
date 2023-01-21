@@ -336,6 +336,8 @@ Then the user can review these changes and merge the pull request if they are ac
 More information about this tool is available in [this preprint](https://greenelab.github.io/manubot-gpt-manuscript/).
 
 You must provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token.
+The easiest way to set this is to go to your organization's settings page and, within "Secrets and variables," select "Actions."
+Next, create a secret with the appropriate name and the value of the API token.
 By default, the tool uses the model `text-davinci-003`.
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 The cost for a revision of a standard manuscript should be around $0.50.
