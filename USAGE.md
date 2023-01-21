@@ -327,6 +327,19 @@ Potential spelling errors will be printed in the continuous integration log alon
 Words in `build/assets/custom-dictionary.txt` are ignored during spellchecking.
 Spellchecking is currently only supported for English language manuscripts.
 
+## AI-assisted authoring
+
+The workflow `ai-revision` is available to assist authors in writing their manuscripts.
+It uses large language models (LLM) to revise the manuscript text, fixing spelling and grammar errors, and improving the sentence structure and the writing style with section-specific prompts.
+It is manually triggered by the user (it never runs automatically), and it generates a pull request with suggested revisions.
+Then the user can review these changes and merge the pull request if they are acceptable.
+More information about this tool is available in [this preprint](https://greenelab.github.io/manubot-gpt-manuscript/).
+
+The workflow allows to specify the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
+Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/greenelab/manubot-ai-editor) to revise the manuscript.
+For more advanced users, the behavior of the Manubot AI Editor or the parameters used for the language model can be changed using environment variables.
+These variables can be changed in the workflow file (`ai-revision.yaml`).
+
 ## Manubot feedback
 
 If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`manubot/manubot`](https://github.com/manubot/manubot) or [`manubot/rootstock`](https://github.com/manubot/rootstock).
