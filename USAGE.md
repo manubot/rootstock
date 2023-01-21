@@ -335,6 +335,10 @@ It is manually triggered by the user (it never runs automatically), and it gener
 Then the user can review these changes and merge the pull request if they are acceptable.
 More information about this tool is available in [this preprint](https://greenelab.github.io/manubot-gpt-manuscript/).
 
+You must provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token.
+By default, the tool uses the model `text-davinci-003`.
+Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
+The cost for a revision of a standard manuscript should be around $0.50.
 The workflow allows to specify the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
 Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/greenelab/manubot-ai-editor) to revise the manuscript.
 For more advanced users, the behavior of the Manubot AI Editor or the parameters used for the language model can be changed using environment variables.
