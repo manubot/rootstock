@@ -329,7 +329,7 @@ Spellchecking is currently only supported for English language manuscripts.
 
 ## AI-assisted authoring
 
-The workflow `ai-revision` is available to assist authors in writing their manuscripts.
+The workflow [`ai-revision`](.github/workflows/ai-revision.yaml) is available to assist authors in writing their manuscripts.
 It uses large language models (LLM) to revise the manuscript text, fixing spelling and grammar errors, and improving the sentence structure and the writing style with section-specific prompts.
 It is manually triggered by the user (it never runs automatically), and it generates a pull request with suggested revisions.
 Then the user can review these changes and merge the pull request if they are acceptable.
