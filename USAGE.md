@@ -333,7 +333,7 @@ The workflow [`ai-revision`](.github/workflows/ai-revision.yaml) is available to
 It uses large language models (LLM) to revise the manuscript text, fixing spelling and grammar errors, and improving the sentence structure and the writing style with section-specific prompts.
 It is manually triggered by the user (it never runs automatically), and it generates a pull request with suggested revisions.
 Then the user can review these changes and merge the pull request if they are acceptable.
-More information about this tool is available in [this preprint](https://greenelab.github.io/manubot-gpt-manuscript/).
+More information about this tool is available in [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/).
 
 You must provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token.
 The easiest way to set this is to go to your organization's settings page and, within "Secrets and variables," select "Actions."
