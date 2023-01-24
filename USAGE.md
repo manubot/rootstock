@@ -237,7 +237,7 @@ initials: DSH  # optional
 orcid: 0000-0002-3012-7446  # mandatory
 twitter: dhimmel  # optional
 mastodon: dhimmel  # optional: mastodon username
-mastodon-server: mastodon.social  # optional: mastodon server (instance)
+mastodon-server: genomic.social  # optional: mastodon server (instance)
 email: daniel.himmelstein@gmail.com  # suggested
 affiliations:  # as a list, strongly suggested
   - Department of Systems Pharmacology and Translational Therapeutics, University of Pennsylvania
