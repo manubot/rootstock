@@ -346,6 +346,11 @@ Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/gr
 For more advanced users, the behavior of the Manubot AI Editor or the parameters used for the language model can be changed using environment variables.
 These variables can be changed in the workflow file (`ai-revision.yaml`).
 
+It is important to note that using language models in scientific writing is a matter of debate among researchers and journal editors.
+Therefore, it's advisable to follow the guidelines that journals and the research community propose.
+For example, the *Nature* journal has published [rules about using language models in scholarly writing](https://www.nature.com/articles/d41586-023-00191-1), such as not listing the tools as authors and documenting how they were used.
+Since a Manubot-based manuscript uses GitHub, one approach consists in linking the AI-generated pull request, which will transparently show the changes suggested by the AI tool.
+
 ## Manubot feedback
 
 If you experience any issues with the Manubot or would like to contribute to its source code, please visit [`manubot/manubot`](https://github.com/manubot/manubot) or [`manubot/rootstock`](https://github.com/manubot/rootstock).
