@@ -41,7 +41,7 @@ jobs:
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/greenelab/manubot-ai-editor/blob/main/libs/manubot/ai_editor/env_vars.py
-        run: python ci/run-manuscript-editor.py
+        run: manubot ai-revision --content-directory content/
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
