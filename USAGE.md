@@ -337,7 +337,7 @@ More information about this tool is available in [this manuscript](https://green
 
 You must provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token.
 The easiest way to set this is to go to your organization's settings page and, within "Secrets and variables," select "Actions."
-Next, create a secret with the appropriate name and the value of the API token.
+Next, create a secret with the name `OPENAI_API_KEY` and the value of the API token.
 By default, the tool uses the model `text-davinci-003`.
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 The cost for a revision of a standard manuscript should be around $0.50.
