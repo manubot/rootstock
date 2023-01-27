@@ -24,7 +24,7 @@ on:
         default: 'ai-revision-davinci'
 
 jobs:
-  chatgpt-revise:
+  ai-revise:
     name: GPT Revise
     runs-on: ubuntu-latest
     steps:
