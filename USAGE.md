@@ -342,7 +342,7 @@ By default, the tool uses the model `text-davinci-003`.
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 With $0.02 per 1000 tokens using the most powerful AI models, the cost for a revision of a standard manuscript (around 35 paragraphs) should be around $0.50.
 The workflow allows specifying the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
-Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/greenelab/manubot-ai-editor) to revise the manuscript.
+Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/manubot/manubot-ai-editor) to revise the manuscript.
 For more advanced users, the behavior of the Manubot AI Editor or the parameters used for the language model can be changed using environment variables.
 These variables can be changed in the workflow file (`ai-revision.yaml`).
 
