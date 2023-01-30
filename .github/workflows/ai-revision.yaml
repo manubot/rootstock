@@ -25,7 +25,7 @@ on:
 
 jobs:
   ai-revise:
-    name: GPT Revise
+    name: AI Revise
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
