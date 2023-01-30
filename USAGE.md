@@ -349,7 +349,7 @@ These variables can be changed in the workflow file (`ai-revision.yaml`).
 It is important to note that using language models in scientific writing is a matter of debate among researchers and journal editors.
 Therefore, it's advisable to follow the guidelines that journals and the research community propose.
 For example, the *Nature* journal has published [rules about using language models in scholarly writing](https://www.nature.com/articles/d41586-023-00191-1), such as not listing the tools as authors and documenting how they were used.
-Since a Manubot-based manuscript uses GitHub, one approach consists in linking the AI-generated pull request, which will transparently show the changes suggested by the AI tool.
+Since a Manubot-based manuscript uses GitHub, one approach consists of linking the AI-generated pull request, which will transparently show the changes suggested by the AI tool.
 
 ## Manubot feedback
 
