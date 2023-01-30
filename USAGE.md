@@ -265,6 +265,8 @@ name: Daniel S. Himmelstein  # mandatory
 initials: DSH  # optional
 orcid: 0000-0002-3012-7446  # mandatory
 twitter: dhimmel  # optional
+mastodon: dhimmel  # optional: mastodon username
+mastodon-server: genomic.social  # optional: mastodon server (instance)
 email: daniel.himmelstein@gmail.com  # suggested
 corresponding: true  # optional, if set to true displays author's email for correspondence
 affiliations:  # as a list, strongly suggested

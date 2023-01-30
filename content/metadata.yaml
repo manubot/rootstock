@@ -12,6 +12,8 @@ authors:
     initials: JD
     orcid: XXXX-XXXX-XXXX-XXXX
     twitter: johndoe
+    mastodon: johndoe
+    mastodon-server: mastodon.social
     email: john.doe@something.com
     affiliations:
       - Department of Something, University of Whatever
