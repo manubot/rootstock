@@ -33,7 +33,7 @@ jobs:
         with: 
           ref: ${{ inputs.branch }} 
       - name: Install Manubot AI Editor
-        run: bash ci/install-manuscript-editor.sh
+        run: pip install manubot[ai-rev]
       - name: Revise manuscript
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
