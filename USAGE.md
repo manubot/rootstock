@@ -335,9 +335,11 @@ It is manually triggered by the user (it never runs automatically), and it gener
 Then the user can review these changes and merge the pull request if they are acceptable.
 More information about this tool is available in [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/).
 
-You must provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token.
-The easiest way to set this is to go to your GitHub user or organization's settings page and, within "Secrets and variables," select "Actions."
-Next, create a secret with the name `OPENAI_API_KEY` and the value of the API token.
+You need to change your repository settings to 1) provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token, and 2) allow workflows to create pull requests.
+For 1), go to the settings page and, within "Secrets and variables," select "Actions."
+Next, create a repository secret with the name `OPENAI_API_KEY` and the value of the API token (you can also do this using "Organization secrets" if available).
+For 2), go to "Actions", "General", "Workflow permissions", and activate the checkbox "Allow GitHub Actions to create and approve pull requests."
+
 By default, the tool uses the model `text-davinci-003`.
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 With $0.02 per 1000 tokens using the most powerful AI models, the cost for a revision of a standard manuscript (around 35 paragraphs) should be around $0.50.
