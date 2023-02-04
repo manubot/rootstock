@@ -368,6 +368,14 @@ DOI: [10.1371/journal.pcbi.1007128](https://doi.org/10.1371/journal.pcbi.1007128
 
 The Manubot version of this manuscript is available at <https://greenelab.github.io/meta-review/>.
 
+To cite the Manubot AI Editor or for more information on its design, see `@doi:10.1101/2023.01.21.525030`:
+
+> **A publishing infrastructure for AI-assisted academic authoring**<br>
+Milton Pividori, Casey S. Greene<br>
+*bioRxiv* (2023) <https://doi.org/grpf8m><br>
+DOI: [10.1101/2023.01.21.525030](https://doi.org/10.1101/2023.01.21.525030)
+
+
 ## Acknowledgments
 
 We would like to thank the contributors and funders whose support makes the Manubot project possible.
