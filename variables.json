@@ -7,12 +7,12 @@
       "manubot"
     ],
     "lang": "en-US",
-    "date-meta": "2023-01-30",
+    "date-meta": "2023-02-06",
     "author-meta": [
       "John Doe",
       "Jane Roe"
     ],
-    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Manuscript Title\" />\n<meta name=\"citation_title\" content=\"Manuscript Title\" />\n<meta property=\"og:title\" content=\"Manuscript Title\" />\n<meta property=\"twitter:title\" content=\"Manuscript Title\" />\n<meta name=\"dc.date\" content=\"2023-01-30\" />\n<meta name=\"citation_publication_date\" content=\"2023-01-30\" />\n<meta property=\"article:published_time\" content=\"2023-01-30\" />\n<meta name=\"dc.modified\" content=\"2023-01-30T15:07:33+00:00\" />\n<meta property=\"article:modified_time\" content=\"2023-01-30T15:07:33+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"John Doe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<meta name=\"twitter:creator\" content=\"@johndoe\" />\n<meta name=\"citation_author\" content=\"Jane Roe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_institution\" content=\"Department of Whatever, University of Something\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<link rel=\"canonical\" href=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"og:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"twitter:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_pdf_url\" content=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://manubot.github.io/rootstock/v/7b10343b044ae84fc0d5733ea7de3151e1fa4885/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://manubot.github.io/rootstock/v/7b10343b044ae84fc0d5733ea7de3151e1fa4885/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://manubot.github.io/rootstock/v/7b10343b044ae84fc0d5733ea7de3151e1fa4885/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->\n",
+    "header-includes": "<!--\nManubot generated metadata rendered from header-includes-template.html.\nSuggest improvements at https://github.com/manubot/manubot/blob/main/manubot/process/header-includes-template.html\n-->\n<meta name=\"dc.format\" content=\"text/html\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta name=\"dc.title\" content=\"Manuscript Title\" />\n<meta name=\"citation_title\" content=\"Manuscript Title\" />\n<meta property=\"og:title\" content=\"Manuscript Title\" />\n<meta property=\"twitter:title\" content=\"Manuscript Title\" />\n<meta name=\"dc.date\" content=\"2023-02-06\" />\n<meta name=\"citation_publication_date\" content=\"2023-02-06\" />\n<meta property=\"article:published_time\" content=\"2023-02-06\" />\n<meta name=\"dc.modified\" content=\"2023-02-06T17:52:18+00:00\" />\n<meta property=\"article:modified_time\" content=\"2023-02-06T17:52:18+00:00\" />\n<meta name=\"dc.language\" content=\"en-US\" />\n<meta name=\"citation_language\" content=\"en-US\" />\n<meta name=\"dc.relation.ispartof\" content=\"Manubot\" />\n<meta name=\"dc.publisher\" content=\"Manubot\" />\n<meta name=\"citation_journal_title\" content=\"Manubot\" />\n<meta name=\"citation_technical_report_institution\" content=\"Manubot\" />\n<meta name=\"citation_author\" content=\"John Doe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<meta name=\"twitter:creator\" content=\"@johndoe\" />\n<meta name=\"citation_author\" content=\"Jane Roe\" />\n<meta name=\"citation_author_institution\" content=\"Department of Something, University of Whatever\" />\n<meta name=\"citation_author_institution\" content=\"Department of Whatever, University of Something\" />\n<meta name=\"citation_author_orcid\" content=\"XXXX-XXXX-XXXX-XXXX\" />\n<link rel=\"canonical\" href=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"og:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta property=\"twitter:url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_fulltext_html_url\" content=\"https://manubot.github.io/rootstock/\" />\n<meta name=\"citation_pdf_url\" content=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"application/pdf\" href=\"https://manubot.github.io/rootstock/manuscript.pdf\" />\n<link rel=\"alternate\" type=\"text/html\" href=\"https://manubot.github.io/rootstock/v/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/\" />\n<meta name=\"manubot_html_url_versioned\" content=\"https://manubot.github.io/rootstock/v/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/\" />\n<meta name=\"manubot_pdf_url_versioned\" content=\"https://manubot.github.io/rootstock/v/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/manuscript.pdf\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"twitter:card\" content=\"summary_large_image\" />\n<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"https://manubot.org/favicon-192x192.png\" />\n<link rel=\"mask-icon\" href=\"https://manubot.org/safari-pinned-tab.svg\" color=\"#ad1457\" />\n<meta name=\"theme-color\" content=\"#ad1457\" />\n<!-- end Manubot generated metadata -->\n",
     "bibliography": [
       "content/manual-references.json"
     ],
@@ -22,10 +22,10 @@
     "manubot-clear-requests-cache": false
   },
   "manubot": {
-    "date": "2023-01-30",
-    "date_long": "January 30, 2023",
-    "generated": "2023-01-30T15:07:33+00:00",
-    "generated_date_long": "January 30, 2023",
+    "date": "2023-02-06",
+    "date_long": "February 6, 2023",
+    "generated": "2023-02-06T17:52:18+00:00",
+    "generated_date_long": "February 6, 2023",
     "randomize_author_order": false,
     "authors": [
       {
@@ -79,17 +79,17 @@
       "repo_slug": "manubot/rootstock",
       "repo_owner": "manubot",
       "repo_name": "rootstock",
-      "commit": "7b10343b044ae84fc0d5733ea7de3151e1fa4885",
-      "triggering_commit": "7b10343b044ae84fc0d5733ea7de3151e1fa4885",
-      "build_url": "https://github.com/manubot/rootstock/commit/7b10343b044ae84fc0d5733ea7de3151e1fa4885/checks",
-      "job_url": "https://github.com/manubot/rootstock/actions/runs/4045177485"
+      "commit": "47b6cf6b810ca9b8bacf846dae9318fac17a09c9",
+      "triggering_commit": "47b6cf6b810ca9b8bacf846dae9318fac17a09c9",
+      "build_url": "https://github.com/manubot/rootstock/commit/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/checks",
+      "job_url": "https://github.com/manubot/rootstock/actions/runs/4105859003"
     },
     "html_url": "https://manubot.github.io/rootstock/",
     "pdf_url": "https://manubot.github.io/rootstock/manuscript.pdf",
-    "html_url_versioned": "https://manubot.github.io/rootstock/v/7b10343b044ae84fc0d5733ea7de3151e1fa4885/",
-    "pdf_url_versioned": "https://manubot.github.io/rootstock/v/7b10343b044ae84fc0d5733ea7de3151e1fa4885/manuscript.pdf",
+    "html_url_versioned": "https://manubot.github.io/rootstock/v/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/",
+    "pdf_url_versioned": "https://manubot.github.io/rootstock/v/47b6cf6b810ca9b8bacf846dae9318fac17a09c9/manuscript.pdf",
     "manubot_version": "0.5.5",
-    "rootstock_commit": "7b10343b044ae84fc0d5733ea7de3151e1fa4885",
+    "rootstock_commit": "47b6cf6b810ca9b8bacf846dae9318fac17a09c9",
     "manuscript_stats": {
       "word_count": 1552
     }
