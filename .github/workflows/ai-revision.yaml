@@ -1,0 +1,66 @@
+name: ai-revision
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to revise'
+        required: true
+        type: string
+        default: 'main'
+      file_names:
+        description: 'File names to revise'
+        required: false
+        type: string
+        default: ''
+      model:
+        description: 'Language model'
+        required: true
+        type: string
+        default: 'text-davinci-003'
+      branch_name:
+        description: 'Output branch'
+        required: true
+        type: string
+        default: 'ai-revision-davinci'
+
+jobs:
+  ai-revise:
+    name: AI Revise
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash --login {0}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with: 
+          ref: ${{ inputs.branch }} 
+      - name: Install environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install Manubot AI revision dependencies
+        run: |
+          # install using the same URL used for manubot in build/environment.yml
+          manubot_line=$(grep "github.com/manubot/manubot" build/environment.yml)
+          manubot_url=$(echo "$manubot_line" | awk -F"- " '{print $2}')
+
+          pip install ${manubot_url}#egg=manubot[ai-rev]
+      - name: Revise manuscript
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
+          AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
+          # More variables can be specified to control the behavior of the model:
+          #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
+        run: manubot ai-revision --content-directory content/
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: 'revise using AI model\n\nUsing the OpenAI model ${{ inputs.model }}'
+          title: 'AI-based revision using ${{ inputs.model }}'
+          author: OpenAI model ${{ inputs.model }} <support@openai.com>
+          add-paths: |
+            content/*.md
+          branch: ${{ inputs.branch_name }}
+          draft: true
