@@ -116,4 +116,12 @@ if [ "${SPELLCHECK:-}" = "true" ]; then
   rm output/expanded-spelling-errors.txt
 fi
 
+if [ "${BUILD_JATS:-}" != "false" ]; then
+  echo >&2 "Exporting JATS XML manuscript"
+  pandoc --verbose \
+    --data-dir="$PANDOC_DATA_DIR" \
+    --defaults=common.yaml \
+    --defaults=jats.yaml
+fi
+
 echo >&2 "Build complete"
