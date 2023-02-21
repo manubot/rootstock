@@ -38,6 +38,8 @@ jobs:
   manubot:
     name: Manubot
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     env:
       GITHUB_PULL_REQUEST_SHA: ${{ github.event.pull_request.head.sha }}
       # Set SPELLCHECK to true/false for whether to check spelling in this action.
