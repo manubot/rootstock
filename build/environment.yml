@@ -9,7 +9,7 @@ dependencies:
   - jsonschema=4.17.0
   - pandoc=2.19.2
   - pango=1.48.10
-  - pip=22.3.1
+  - pip=23.0.1
   - python=3.11.0
   - requests-cache=0.9.6
   - requests=2.28.1
@@ -20,7 +20,7 @@ dependencies:
   - pip:
     - cffi==1.15.0
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@d4242ffa4194e4a13a68c5f6466feff559d3f9d5
+    - git+https://github.com/manubot/manubot@f62dd4cfdebf67f99f63c9b2e64edeaa591eeb69
     - isbnlib==3.10.10
     - opentimestamps-client==0.7.1
     - opentimestamps==0.4.3
