@@ -5,7 +5,7 @@ keywords:
 - publishing
 - manubot
 lang: en-US
-date-meta: '2023-03-12'
+date-meta: '2023-04-23'
 author-meta:
 - John Doe
 - Jane Roe
@@ -20,11 +20,11 @@ header-includes: |
   <meta name="citation_title" content="Manuscript Title" />
   <meta property="og:title" content="Manuscript Title" />
   <meta property="twitter:title" content="Manuscript Title" />
-  <meta name="dc.date" content="2023-03-12" />
-  <meta name="citation_publication_date" content="2023-03-12" />
-  <meta property="article:published_time" content="2023-03-12" />
-  <meta name="dc.modified" content="2023-03-12T13:41:36+00:00" />
-  <meta property="article:modified_time" content="2023-03-12T13:41:36+00:00" />
+  <meta name="dc.date" content="2023-04-23" />
+  <meta name="citation_publication_date" content="2023-04-23" />
+  <meta property="article:published_time" content="2023-04-23" />
+  <meta name="dc.modified" content="2023-04-23T21:35:59+00:00" />
+  <meta property="article:modified_time" content="2023-04-23T21:35:59+00:00" />
   <meta name="dc.language" content="en-US" />
   <meta name="citation_language" content="en-US" />
   <meta name="dc.relation.ispartof" content="Manubot" />
@@ -45,9 +45,9 @@ header-includes: |
   <meta name="citation_fulltext_html_url" content="https://manubot.github.io/rootstock/" />
   <meta name="citation_pdf_url" content="https://manubot.github.io/rootstock/manuscript.pdf" />
   <link rel="alternate" type="application/pdf" href="https://manubot.github.io/rootstock/manuscript.pdf" />
-  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/f3e0520060162f71f0950ea88d44de526d241ad1/" />
-  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/f3e0520060162f71f0950ea88d44de526d241ad1/" />
-  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/f3e0520060162f71f0950ea88d44de526d241ad1/manuscript.pdf" />
+  <link rel="alternate" type="text/html" href="https://manubot.github.io/rootstock/v/72a96c90f2aab350de5e06f57587f654d5df1d6b/" />
+  <meta name="manubot_html_url_versioned" content="https://manubot.github.io/rootstock/v/72a96c90f2aab350de5e06f57587f654d5df1d6b/" />
+  <meta name="manubot_pdf_url_versioned" content="https://manubot.github.io/rootstock/v/72a96c90f2aab350de5e06f57587f654d5df1d6b/manuscript.pdf" />
   <meta property="og:type" content="article" />
   <meta property="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" sizes="192x192" href="https://manubot.org/favicon-192x192.png" />
@@ -69,10 +69,10 @@ manubot-clear-requests-cache: false
 
 <small><em>
 This manuscript
-([permalink](https://manubot.github.io/rootstock/v/f3e0520060162f71f0950ea88d44de526d241ad1/))
+([permalink](https://manubot.github.io/rootstock/v/72a96c90f2aab350de5e06f57587f654d5df1d6b/))
 was automatically generated
-from [manubot/rootstock@f3e0520](https://github.com/manubot/rootstock/tree/f3e0520060162f71f0950ea88d44de526d241ad1)
-on March 12, 2023.
+from [manubot/rootstock@72a96c9](https://github.com/manubot/rootstock/tree/72a96c90f2aab350de5e06f57587f654d5df1d6b)
+on April 23, 2023.
 </em></small>
 
 
