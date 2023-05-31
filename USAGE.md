@@ -332,15 +332,21 @@ Spellchecking is currently only supported for English language manuscripts.
 ## AI-assisted authoring
 
 The workflow [`ai-revision`](.github/workflows/ai-revision.yaml) is available to assist authors in writing their manuscripts.
-It uses large language models to revise the manuscript text, fixing spelling and grammar errors, and improving the sentence structure and the writing style with section-specific prompts.
+It uses large language models to revise the manuscript text, fix spelling and grammar errors, and improve the sentence structure and the writing style with section-specific prompts.
 It is manually triggered by the user (it never runs automatically), and it generates a pull request with suggested revisions.
 Then the user can review these changes and merge the pull request if they are acceptable.
 More information about this tool is available in [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/).
 
 You need to change your repository settings to 1) provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token, and 2) allow workflows to create pull requests.
+Optionally, you need to 3) provide the manuscript section each of your Markdown files belongs to (Introduction, Methods, etc.).
 For 1), go to the settings page and, within "Secrets and variables," select "Actions."
 Next, create a repository secret with the name `OPENAI_API_KEY` and the value of the API token (you can also do this using "Organization secrets" if available).
 For 2), go to "Actions", "General", "Workflow permissions", and activate the checkbox "Allow GitHub Actions to create and approve pull requests."
+For 3), since the tool uses section-specific prompts for revision, it needs to know which section your Markdown files belong to.
+For this, it will try to infer them from the file names automatically.
+If this fails, the tool might not revise all of your files.
+In this case, you need to modify the "Revise manuscript" step in the workflow file (`.github/workflows/ai-revision.yaml`) to indicate the section of each file using the `AI_EDITOR_FILENAME_SECTION_MAPPING` environment variable that is described [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py).
+An example would be `AI_EDITOR_FILENAME_SECTION_MAPPING: '{"05.main-text.md": "methods"}'`.
 
 By default, the tool uses the model `text-davinci-003`.
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
