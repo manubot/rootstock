@@ -352,7 +352,7 @@ In this case, you need to indicate the section of each file using the "section m
 For 2), you can provide your own custom prompt, which will be used for all the files regardless of their section.
 For example, instead of the more complex section-specific prompts in 1), you might just want to perform simpler revision tasks.
 An example of a custom prompt is "proofread the following paragraph".
-You can provide your custom prompt when you manually trigger the workflow by using the "custom prompt" field.
+You can provide your custom prompt when you manually trigger the workflow by using the "Custom prompt" field.
 This could be more appropriate if you are testing different prompts.
 To set a fixed prompt for all runs, read the documentation [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) to set the "custom prompt" environment variable.
 
