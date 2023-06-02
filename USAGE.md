@@ -356,7 +356,7 @@ You can provide your custom prompt when you manually trigger the workflow by usi
 This could be more appropriate if you are testing different prompts.
 To set a fixed prompt for all runs, read the documentation [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) to set the "custom prompt" environment variable.
 
-By default, the tool uses the model `text-davinci-003`, but you are encouraged to check the [OpenAI documentation](https://platform.openai.com/docs/models) to see which models are available, which one is the most suitable for your manuscript, and [whether our tools supports it](https://github.com/manubot/manubot-ai-editor).
+By default, the tool uses the model `text-davinci-003`, but you are encouraged to check the [OpenAI documentation](https://platform.openai.com/docs/models) to see which models are available, which one is the most suitable for your manuscript, and [whether our tool supports it](https://github.com/manubot/manubot-ai-editor).
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 With $0.02 per 1000 tokens using the most powerful AI models, the cost for a revision of a standard manuscript (around 35 paragraphs) should be around $0.50.
 The workflow allows specifying the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
