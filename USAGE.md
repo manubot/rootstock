@@ -349,7 +349,10 @@ For 1), you can check [this manuscript](https://greenelab.github.io/manubot-gpt-
 These prompts are already provided, but they need to know the section of each of your Markdown files (for instance, if it is the abstract, or the introduction, etc.).
 For this, the tool will try to infer them from the file names automatically, and if this fails, the tool might not revise all of your files.
 In this case, you need to indicate the section of each file using the "section mapping" environment variable that is described [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) (read the header of the file for more instructions).
-
+For 2), you can provide your own custom prompt, which will be used for all the files regardless of their section.
+For example, instead of the more complex section-specific prompts in 1), you might just want to perform simpler revision tasks.
+An example of custom prompt is "proofread the following paragraph".
+Read the documentation [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) to set the "custom prompt" environment variable.
 
 By default, the tool uses the model `text-davinci-003`, but you are encouraged to check the [OpenAI documentation](https://platform.openai.com/docs/models) to see which models are available, which one is the most suitable for your manuscript, and [whether our tools supports it](https://github.com/manubot/manubot-ai-editor).
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
