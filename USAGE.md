@@ -338,17 +338,20 @@ Then the user can review these changes and merge the pull request if they are ac
 More information about this tool is available in [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/).
 
 You need to change your repository settings to 1) provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token, and 2) allow workflows to create pull requests.
-Optionally, you need to 3) provide the manuscript section each of your Markdown files belongs to (Introduction, Methods, etc.).
 For 1), go to the settings page and, within "Secrets and variables," select "Actions."
 Next, create a repository secret with the name `OPENAI_API_KEY` and the value of the API token (you can also do this using "Organization secrets" if available).
 For 2), go to "Actions", "General", "Workflow permissions", and activate the checkbox "Allow GitHub Actions to create and approve pull requests."
-For 3), since the tool uses section-specific prompts for revision, it needs to know which section your Markdown files belong to.
-For this, it will try to infer them from the file names automatically.
-If this fails, the tool might not revise all of your files.
-In this case, you need to modify the "Revise manuscript" step in the workflow file (`.github/workflows/ai-revision.yaml`) to indicate the section of each file using the `AI_EDITOR_FILENAME_SECTION_MAPPING` environment variable that is described [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py).
-An example would be `AI_EDITOR_FILENAME_SECTION_MAPPING: '{"05.main-text.md": "methods"}'`.
 
-By default, the tool uses the model `text-davinci-003`.
+Additionally, you also need to decide which type of prompts you want to use.
+"Prompts" are the instructions given to the language model to revise your manuscript.
+Basically, you can select 1) the default set of section-specific prompts already provided by the tool, or 2) a custom prompt that you provide.
+For 1), you can check [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/) for a more detailed description of the section-specific prompts.
+These prompts are already provided, but they need to know the section of each of your Markdown files (for instance, if it is the abstract, or the introduction, etc.).
+For this, the tool will try to infer them from the file names automatically, and if this fails, the tool might not revise all of your files.
+In this case, you need to indicate the section of each file using the "section mapping" environment variable that is described [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) (read the header of the file for more instructions).
+
+
+By default, the tool uses the model `text-davinci-003`, but you are encouraged to check the [OpenAI documentation](https://platform.openai.com/docs/models) to see which models are available, which one is the most suitable for your manuscript, and [whether our tools supports it](https://github.com/manubot/manubot-ai-editor).
 Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
 With $0.02 per 1000 tokens using the most powerful AI models, the cost for a revision of a standard manuscript (around 35 paragraphs) should be around $0.50.
 The workflow allows specifying the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
