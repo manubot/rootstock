@@ -15,7 +15,7 @@ echo "OWNER and REPO refer to the details of your manuscript repo location:"
 echo "i.e. https://github.com/OWNER/REPO."
 echo
 echo "Options:"
-echo "  -o --owner   GitHub user or organisation name."
+echo "  -o --owner   GitHub user or organization name."
 echo "  -r --repo    Name of the repository for your new manuscript."
 echo "  -y --yes     Non-interactive mode. Continue script without asking for confirmation that the repo exists."
 echo "  -s --ssh     Use SSH to authenticate GitHub account. HTTPS is used by default."
@@ -104,7 +104,7 @@ if [ -z "${OWNER}" ] || [ -z "${REPO}" ]; then
   echo "First, we need to specify where to create the GitHub repo for your manuscript."
   echo
   echo "The URL will take this format: https://github.com/OWNER/REPO."
-  echo "OWNER is your username or organisation"
+  echo "OWNER is your username or organization"
   echo "REPO is the name of your repository"
   echo
   read -r -p "Type in the OWNER now:" input
@@ -188,13 +188,13 @@ fi
 case $AUTH in
   0)
   echo
-  echo "Seting origin URL using its https web address"
+  echo "Setting origin URL using its https web address"
   echo
   git remote set-url origin https://github.com/${OWNER}/${REPO}.git
   ;;
   1)
   echo
-  echo "Seting origin URL using SSH"
+  echo "Setting origin URL using SSH"
   echo
   git remote set-url origin git@github.com:$OWNER/$REPO.git
   ;;
