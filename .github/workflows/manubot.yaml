@@ -84,7 +84,9 @@ jobs:
           activate-environment: manubot
           environment-file: build/environment.yml
           auto-activate-base: false
+          miniforge-variant: Mambaforge
           miniforge-version: 'latest'
+          use-mamba: true
       - name: Install Spellcheck
         if: env.SPELLCHECK == 'true'
         run: bash ci/install-spellcheck.sh
