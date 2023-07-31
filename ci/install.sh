@@ -7,7 +7,7 @@
 set -o errexit \
     -o pipefail
 
-wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge-pypy3-$(uname)-$(uname -m).sh \
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh \
   --output-document miniforge.sh
 bash miniforge.sh -b -p $HOME/miniconda
 source $HOME/miniconda/etc/profile.d/conda.sh
@@ -15,8 +15,8 @@ hash -r
 conda config \
   --set always_yes yes \
   --set changeps1 no
-conda env create --quiet --file build/environment.yml
-conda list --name manubot
+mamba env create --quiet --file build/environment.yml
+mamba list --name manubot
 conda activate manubot
 
 # Install Spellcheck filter for Pandoc

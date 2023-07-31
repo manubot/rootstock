@@ -20,12 +20,17 @@ To change the options, either edit the YAML files directly or add additional `--
 
 Note: currently, **Windows is not supported**.
 
-Install the [conda](https://conda.io) environment specified in [`environment.yml`](environment.yml) by running the following commands
+The Manubot environment is managed with [conda](https://conda.io).
+If you do not have `conda` installed, we recommend using the Miniforge3 (includes `conda`) or Mambaforge (includes `conda` and `mamba`) installers from [miniforge](https://github.com/conda-forge/miniforge).
+Install the environment from [`environment.yml`](environment.yml) by running one of following commands
 (from the repository's root directory):
 
 ```sh
-# Install the environment
+# Install the environment using conda
 conda env create --file build/environment.yml
+
+# Install the environment using mamba (faster)
+mamba env create --file build/environment.yml
 ```
 
 If the `manubot` environment is already installed, but needs to be updated to reflect changes to `environment.yml`, use one of the following options:
@@ -38,6 +43,9 @@ conda env update --file build/environment.yml
 # Slower than option 1, but guarantees a fresh environment.
 conda env remove --name manubot
 conda env create --file build/environment.yml
+
+# option 3: reinstall the manubot environment faster using mamba.
+mamba env create --force --file build/environment.yml
 ```
 
 Activate with `conda activate manubot` (assumes `conda` version of [at least](https://github.com/conda/conda/blob/9d759d8edeb86569c25f6eb82053f09581013a2a/CHANGELOG.md#440-2017-12-20) 4.4).
