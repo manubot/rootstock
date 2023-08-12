@@ -322,6 +322,8 @@ metadata:
   csl: https://github.com/citation-style-language/styles/raw/906cd6d43d0c136190ecfbb12f6af0ca794e3c5b/peerj.csl
 ```
 
+Instructions for generating additional manuscript output formats such as DOCX can be found in [`build/README.md`](build/README.md).
+
 ## Spellchecking
 
 When the `SPELLCHECK` environment variable is `true`, the pandoc [spellcheck filter](https://github.com/pandoc/lua-filters/tree/master/spellcheck) is run.

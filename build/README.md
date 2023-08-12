@@ -7,8 +7,19 @@ However, setting the `BUILD_PDF` environment variable to `false` will suppress P
 For example, run local builds using the command `BUILD_PDF=false bash build/build.sh`.
 
 To build a DOCX file of the manuscript, set the `BUILD_DOCX` environment variable to `true`.
-For example, use the command `BUILD_DOCX=true bash build/build.sh`.
-To export DOCX for all CI builds, set an environment variable (see docs for [GitHub Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables)).
+For example, use the command `BUILD_DOCX=true bash build/build.sh` locally.
+To export DOCX for all CI builds, set an environment variable in the CI configuration file.
+For GitHub Actions, set the variable in `.github\workflows\manubot.yaml` (see [docs](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables)):
+
+```yaml
+name: Manubot
+env:
+  BUILD_DOCX: true
+```
+
+To generate a single DOCX output of the latest manuscript with GitHub Actions, click the "Actions" tab at the top of the repository.
+Select the "Manubot" workflow, then the "Run workflow" button and check "generate DOCX output" before clicking the green "Run workflow" button.
+
 Currently, equation numbers via `pandoc-eqnos` are not supported for DOCX output.
 
 Format conversion is done using [Pandoc](https://pandoc.org/MANUAL.html).
