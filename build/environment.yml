@@ -21,7 +21,7 @@ dependencies:
   - pip:
     - cffi==1.15.0
     - errorhandler==2.0.1
-    - git+https://github.com/manubot/manubot@d4242ffa4194e4a13a68c5f6466feff559d3f9d5
+    - git+https://github.com/manubot/manubot@6e6f6a5aac381120faf3ef02e594b5babc77da2b
     - isbnlib==3.10.10
     - opentimestamps-client==0.7.1
     - opentimestamps==0.4.3
