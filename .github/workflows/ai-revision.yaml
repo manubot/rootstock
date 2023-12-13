@@ -17,6 +17,11 @@ on:
         required: true
         type: string
         default: 'text-davinci-003'
+      custom_prompt:
+        description: 'Custom prompt'
+        required: false
+        type: string
+        default: ''
       branch_name:
         description: 'Output branch'
         required: true
@@ -54,6 +59,7 @@ jobs:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
+          AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
         run: manubot ai-revision --content-directory content/
