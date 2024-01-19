@@ -20,7 +20,7 @@ only_commits:
     - ci/install.sh
     - content/
 
-image: ubuntu
+image: ubuntu2204
 services:
   - docker
 
