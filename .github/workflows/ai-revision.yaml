@@ -16,7 +16,7 @@ on:
         description: 'Language model'
         required: true
         type: string
-        default: 'text-davinci-003'
+        default: 'gpt-3.5-turbo'
       custom_prompt:
         description: 'Custom prompt'
         required: false
@@ -26,7 +26,7 @@ on:
         description: 'Output branch'
         required: true
         type: string
-        default: 'ai-revision-davinci'
+        default: 'ai-revision-gpt35'
 
 jobs:
   ai-revise:
