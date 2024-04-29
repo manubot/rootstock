@@ -1,0 +1,4 @@
+files:
+  ignore:
+    - front\-matter
+    - back\-matter
