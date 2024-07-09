@@ -2,3 +2,7 @@ files:
   ignore:
     - front\-matter
     - back\-matter
+  matchings:
+    - files:
+        - .*\.md$
+      prompt: default
