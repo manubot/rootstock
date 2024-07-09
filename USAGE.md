@@ -341,7 +341,7 @@ Running the AI Editor is _fully in your control_.
 It will only run if you manually trigger the workflow [`ai-revision`](.github/workflows/ai-revision.yaml).
 The workflow will generate a pull request with suggested revisions for you to review and either accept or reject.
 
-For _full documentation and support_, see the separate [`manubot-ai-editor` repo](https://github.com/manubot/manubot-ai-editor).
+For _full documentation and support_, see the separate [`manubot-ai-editor` repo](https://github.com/manubot/manubot-ai-editor) and [our manuscript](https://doi.org/10.1093/jamia/ocae139).
 
 ## Manubot feedback
 
@@ -358,12 +358,12 @@ DOI: [10.1371/journal.pcbi.1007128](https://doi.org/10.1371/journal.pcbi.1007128
 
 The Manubot version of this manuscript is available at <https://greenelab.github.io/meta-review/>.
 
-To cite the Manubot AI Editor or for more information on its design, see `@doi:10.1101/2023.01.21.525030`:
+To cite the Manubot AI Editor or for more information on its design, see `@doi:10.1093/jamia/ocae139`:
 
-> **A publishing infrastructure for AI-assisted academic authoring**<br>
+> **A publishing infrastructure for Artificial Intelligence (AI)-assisted academic authoring**<br>
 Milton Pividori, Casey S. Greene<br>
-*bioRxiv* (2023) <https://doi.org/grpf8m><br>
-DOI: [10.1101/2023.01.21.525030](https://doi.org/10.1101/2023.01.21.525030)
+*Journal of the American Medical Informatics Association* (2024) <https://doi.org/gtw9d3><br>
+DOI: [10.1093/jamia/ocae139](https://doi.org/10.1093/jamia/ocae139)
 
 
 ## Acknowledgments
