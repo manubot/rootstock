@@ -333,43 +333,15 @@ Spellchecking is currently only supported for English language manuscripts.
 
 ## AI-assisted authoring
 
-The workflow [`ai-revision`](.github/workflows/ai-revision.yaml) is available to assist authors in writing their manuscripts.
-It uses large language models to revise the manuscript text, fix spelling and grammar errors, and improve the sentence structure and the writing style with section-specific prompts.
-It is manually triggered by the user (it never runs automatically), and it generates a pull request with suggested revisions.
-Then the user can review these changes and merge the pull request if they are acceptable.
-More information about this tool is available in [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/).
+Manubot features a powerful integrated _AI Editor_ that can proofread and revise your manuscript.
+It can fix lower-level issues such as spelling and grammar errors, but can also make higher-level improvements like simplifying sentence structure, increasing clarity, refining writing style, and more.
+You can also customize how it revises your writing in different sections of your manuscript.
 
-You need to change your repository settings to 1) provide a secret with name `OPENAI_API_KEY` containing your OpenAI API token, and 2) allow workflows to create pull requests.
-For 1), go to the settings page and, within "Secrets and variables," select "Actions."
-Next, create a repository secret with the name `OPENAI_API_KEY` and the value of the API token (you can also do this using "Organization secrets" if available).
-For 2), go to "Actions", "General", "Workflow permissions", and activate the checkbox "Allow GitHub Actions to create and approve pull requests."
+Running the AI Editor is _fully in your control_.
+It will only run if you manually trigger the workflow [`ai-revision`](.github/workflows/ai-revision.yaml).
+The workflow will generate a pull request with suggested revisions for you to review and either accept or reject.
 
-Additionally, you also need to decide which type of prompts you want to use.
-"Prompts" are the instructions given to the language model to revise your manuscript.
-Basically, you can select 1) the default set of section-specific prompts already provided by the tool, or 2) a custom prompt that you provide.
-For 1), you can check [this manuscript](https://greenelab.github.io/manubot-gpt-manuscript/) for a more detailed description of the section-specific prompts.
-These prompts are already provided, but they need to know the section of each of your Markdown files (for instance, if it is the abstract, or the introduction, etc.).
-For this, the tool will try to infer them from the file names automatically, and if this fails, the tool might not revise all of your files.
-In this case, you need to indicate the section of each file using the "section mapping" environment variable that is described [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) (read the header of the file for more instructions).
-For 2), you can provide your own custom prompt, which will be used for all the files regardless of their section.
-For example, instead of the more complex section-specific prompts in 1), you might just want to perform simpler revision tasks.
-An example of a custom prompt is "proofread the following paragraph".
-You can provide your custom prompt when you manually trigger the workflow by using the "Custom prompt" field.
-This could be more appropriate if you are testing different prompts.
-To set a fixed prompt for all runs, read the documentation [here](https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py) to set the "custom prompt" environment variable.
-
-By default, the tool uses the model `text-davinci-003`, but you are encouraged to check the [OpenAI documentation](https://platform.openai.com/docs/models) to see which models are available, which one is the most suitable for your manuscript, and [whether our tool supports it](https://github.com/manubot/manubot-ai-editor).
-Make sure to check the [pricing](https://openai.com/api/pricing/) of the OpenAI API.
-With $0.02 per 1000 tokens using the most powerful AI models, the cost for a revision of a standard manuscript (around 35 paragraphs) should be around $0.50.
-The workflow allows specifying the branch and file names (in the `content/` directory) to revise, the language model to use, and the output branch name.
-Internally, the workflow uses the tool [Manubot AI Editor](https://github.com/manubot/manubot-ai-editor) to revise the manuscript.
-For more advanced users, the behavior of the Manubot AI Editor or the parameters used for the language model can be changed using environment variables.
-These variables can be changed in the workflow file (`ai-revision.yaml`).
-
-It is important to note that using language models in scientific writing is a matter of debate among researchers and journal editors.
-Therefore, it's advisable to follow the guidelines that journals and the research community propose.
-For example, the *Nature* journal has published [rules about using language models in scholarly writing](https://www.nature.com/articles/d41586-023-00191-1), such as not listing the tools as authors and documenting how they were used.
-Since a Manubot-based manuscript uses GitHub, one approach consists of linking the AI-generated pull request, which will transparently show the changes suggested by the AI tool.
+For _full documentation and support_, see the separate [`manubot-ai-editor` repo](https://github.com/manubot/manubot-ai-editor) and [our manuscript](https://doi.org/10.1093/jamia/ocae139).
 
 ## Manubot feedback
 
@@ -386,12 +358,12 @@ DOI: [10.1371/journal.pcbi.1007128](https://doi.org/10.1371/journal.pcbi.1007128
 
 The Manubot version of this manuscript is available at <https://greenelab.github.io/meta-review/>.
 
-To cite the Manubot AI Editor or for more information on its design, see `@doi:10.1101/2023.01.21.525030`:
+To cite the Manubot AI Editor or for more information on its design, see `@doi:10.1093/jamia/ocae139`:
 
-> **A publishing infrastructure for AI-assisted academic authoring**<br>
+> **A publishing infrastructure for Artificial Intelligence (AI)-assisted academic authoring**<br>
 Milton Pividori, Casey S. Greene<br>
-*bioRxiv* (2023) <https://doi.org/grpf8m><br>
-DOI: [10.1101/2023.01.21.525030](https://doi.org/10.1101/2023.01.21.525030)
+*Journal of the American Medical Informatics Association* (2024) <https://doi.org/gtw9d3><br>
+DOI: [10.1093/jamia/ocae139](https://doi.org/10.1093/jamia/ocae139)
 
 
 ## Acknowledgments
