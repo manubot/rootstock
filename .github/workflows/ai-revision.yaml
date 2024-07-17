@@ -62,9 +62,9 @@ jobs:
           AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
-        run: manubot ai-revision --content-directory content/
+        run: manubot ai-revision --content-directory content/ --config-directory ci/
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: 'revise using AI model\n\nUsing the OpenAI model ${{ inputs.model }}'
           title: 'AI-based revision using ${{ inputs.model }}'

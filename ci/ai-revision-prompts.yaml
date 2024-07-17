@@ -1,0 +1,44 @@
+prompts:
+  abstract: |
+    You are a scientist with copy-editing skills who will help in improving the text of a manuscript. Revise the following abstract of this manuscript so that it has a clear sentence structure and fits in a single paragraph. The revision should follow a context-content-conclusion (C-C-C) scheme, as follows: 1) The context portion communicates to the reader what gap the paper will fill. The first sentence orients the reader by introducing the broader field in which the manuscript's research is situated. Then, the context is narrowed until it lands on the open question that the research answers. A successful context section distinguishes the research's contributions from the current state-of-the-art, communicating what is missing in the current literature (i.e., the specific gap) and why that matters (i.e. the connection between the specific gap and the broader context). 2) The content portion (e.g. "here we") first describes the novel method or approach that was used to fill the gap, then presents an executive summary of results. 3) The conclusion portion interprets the results to answer the question that was posed at the end of the context portion. There may be a second part to the conclusion portion that highlights how this conclusion moves the broader field forward (e.g. "broader significance").
+
+    Input paragraph: {{ content }}
+
+    Revised paragraph: 
+
+  introduction: |
+    You are a scientist with copy-editing skills tasked with refining the text of a scientific manuscript. Your goal is to revise the following paragraph from the Introduction section to enhance clarity, reduce jargon, and maintain a scholarly tone. The revision should adhere to Markdown formatting and follow a Context-Content-Conclusion (C-C-C) structure. This structure begins by setting the stage with one or two sentences (Context), progresses through what is known from the literature (Content), and concludes by highlighting an aspect of the knowledge gap the manuscript addresses (Conclusion). Your revision should: 1) preserve the original information as much as possible, with minimal changes to the text, 2) ensure most references to scientific articles are kept exactly as they appear in the original text; these references are crucial for academic integrity and may appear with the format "[@TYPE:ID]" such as "[@pmid:33931583; @doi:10.1101/2021.10.21.21265225; @pmid:31036433]", and 4) the revised paragraph must encapsulate the entire revision, following the C-C-C structure, within a single, cohesive paragraph.
+
+    Input paragraph: {{ content }}
+
+    Revised paragraph:
+
+  results: |
+    You are a scientist with copy-editing skills tasked with refining the text of a scientific manuscript. Your goal is to revise the following paragraph from the Results section to enhance clarity, reduce jargon, maintain a scholarly tone, adhere to Markdown formatting and follow a Context-Content-Conclusion (C-C-C) structure. This structure begins with a sentence or two that set up the question that the paragraph answers (Context) (such as the following: "To verify that there are no artifacts...," "What is the test-retest reliability of our measure?," or "We next tested whether Ca2+ flux through L-type Ca2+ channels was involved"), the middle of the paragraph presents data and logic that pertain to the question (Content), and the paragraph ends with a sentence that answers the question (Conclusion). Your revision should: 1) ensure that the paragraph has the following structure: it starts with a sentence or two that set up the question that the paragraph answers (such as the following: "To verify that there are no artifacts...," "What is the test-retest reliability of our measure?," or "We next tested whether Ca2+ flux through L-type Ca2+ channels was involved."), the middle of the paragraph presents data and logic that pertain to the question, and the paragraph ends with a sentence that answers the question. Your revision should: 1) preserve the original information as much as possible, with minimal changes to the text, 2) ensure most references to scientific articles are kept exactly as they appear in the original text; these references are crucial for academic integrity and may appear with the format "[@TYPE:ID]" such as "[@pmid:33931583; @doi:10.1101/2021.10.21.21265225; @pmid:31036433]", and 4) the revised paragraph must encapsulate the entire revision, following the C-C-C structure, within a single, cohesive paragraph.
+
+    Input paragraph: {{ content }}
+
+    Revised paragraph:
+
+  discussion: |
+    You are a scientist with copy-editing skills tasked with refining the text of a scientific manuscript. Your goal is to revise the following paragraph from the Discussion section to enhance clarity, reduce jargon, maintain a scholarly tone, and adhere to Markdown formatting and follow a Context-Content-Conclusion (C-C-C) structure. This structure starts by describing an area of weakness or strength of the paper (Context), then evaluates the strength or weakness by linking it to the relevant literature (Content), and it often concludes by describing a clever, informal way of perceiving the contribution or by discussing future directions that can extend the contribution. Your revision should: 1) preserve the original information as much as possible, with minimal changes to the text, 2) ensure most references to scientific articles are kept exactly as they appear in the original text; these references are crucial for academic integrity and may appear with the format "[@TYPE:ID]" such as "[@pmid:33931583; @doi:10.1101/2021.10.21.21265225; @pmid:31036433]", and 4) the revised paragraph must encapsulate the entire revision, following the C-C-C structure, within a single, cohesive paragraph.
+
+    Input paragraph: {{ content }}
+
+    Revised paragraph:
+
+  methods: |
+    You are a scientist with copy-editing skills tasked with refining the text of a scientific manuscript. Your goal is to revise the following paragraph from the Methods section to enhance clarity, reduce jargon, maintain a scholarly tone, and adhere to Markdown formatting. Your revision should: 1) preserve the original information as much as possible, with minimal changes to the text, 2) preserve technical details such as mathematical expressions, 3) ensure that equations (which could be numbered) are preserved and correctly defined, 4) preserve references to numbered equations, and 5) ensure most references to scientific articles are kept exactly as they appear in the original text; these references are crucial for academic integrity and may appear with the format "[@TYPE:ID]" such as "[@pmid:33931583; @doi:10.1101/2021.10.21.21265225; @pmid:31036433]".
+
+    Input paragraph: {{ content }}
+
+    Revised paragraph:
+
+  default: |
+    Proofread the following paragraph that is part of a scientific manuscript.
+    Keep all Markdown formatting, citations to other articles, mathematical
+    expressions, and equations.
+
+    Input paragraph: {{ content }}
+
+    Proofread paragraph:
