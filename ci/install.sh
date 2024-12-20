@@ -7,7 +7,7 @@
 set -o errexit \
     -o pipefail
 
-wget https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh \
+wget https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh \
   --output-document miniforge.sh
 bash miniforge.sh -b -p $HOME/miniconda
 source $HOME/miniconda/etc/profile.d/conda.sh
