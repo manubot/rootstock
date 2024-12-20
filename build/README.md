@@ -32,7 +32,7 @@ To change the options, either edit the YAML files directly or add additional `--
 Note: currently, **Windows is not supported**.
 
 The Manubot environment is managed with [conda](https://conda.io).
-If you do not have `conda` installed, we recommend using the Miniforge3 (includes `conda`) or Mambaforge (includes `conda` and `mamba`) installers from [miniforge](https://github.com/conda-forge/miniforge).
+If you do not have `conda` installed, we recommend using the Miniforge3 installer from [miniforge](https://github.com/conda-forge/miniforge) (includes `conda` and `mamba`).
 Install the environment from [`environment.yml`](environment.yml) by running one of following commands
 (from the repository's root directory):
 
