@@ -12,6 +12,16 @@ on:
         required: false
         type: string
         default: ''
+      model_provider:
+        description: 'Model Provider'
+        required: true
+        type: string
+        default: 'openai'
+      model_provider_email:
+        description: 'Model Provider Author Email'
+        required: true
+        type: string
+        default: '<support@openai.com>'
       model:
         description: 'Language model'
         required: true
@@ -56,7 +66,8 @@ jobs:
           pip install ${manubot_url}#egg=manubot[ai-rev]
       - name: Revise manuscript
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY || secrets.OPENAI_API_KEY }}
+          AI_EDITOR_MODEL_PROVIDER: ${{ inputs.model_provider }}
           AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
           AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
@@ -66,9 +77,9 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: 'revise using AI model\n\nUsing the OpenAI model ${{ inputs.model }}'
+          commit-message: 'revise using AI model\n\nUsing the ${{ inputs.model_provider }} model ${{ inputs.model }}'
           title: 'AI-based revision using ${{ inputs.model }}'
-          author: OpenAI model ${{ inputs.model }} <support@openai.com>
+          author: ${{ inputs.model_provider }} model ${{ inputs.model }} ${{ inputs.model_provider_email }}
           add-paths: |
             content/*.md
           branch: ${{ inputs.branch_name }}
