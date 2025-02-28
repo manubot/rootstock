@@ -13,20 +13,15 @@ on:
         type: string
         default: ''
       model_provider:
-        description: 'Model Provider'
+        description: 'Model Provider (one of "openai", "anthropic")'
         required: true
         type: string
         default: 'openai'
-      model_provider_email:
-        description: 'Model Provider Author Email'
-        required: true
-        type: string
-        default: '<support@openai.com>'
       model:
         description: 'Language model'
         required: true
         type: string
-        default: 'gpt-4-turbo'
+        default: 'gpt-4o'
       custom_prompt:
         description: 'Custom prompt'
         required: false
@@ -79,7 +74,7 @@ jobs:
         with:
           commit-message: 'revise using AI model\n\nUsing the ${{ inputs.model_provider }} model ${{ inputs.model }}'
           title: 'AI-based revision using ${{ inputs.model }}'
-          author: ${{ inputs.model_provider }} model ${{ inputs.model }} ${{ inputs.model_provider_email }}
+          author: ${{ inputs.model_provider }} model ${{ inputs.model }} <support@${{ inputs.model_provider }}.com>
           add-paths: |
             content/*.md
           branch: ${{ inputs.branch_name }}
