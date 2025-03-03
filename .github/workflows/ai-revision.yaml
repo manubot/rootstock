@@ -74,7 +74,7 @@ jobs:
         with:
           commit-message: 'revise using AI model\n\nUsing the ${{ inputs.model_provider }} model ${{ inputs.model }}'
           title: 'AI-based revision using ${{ inputs.model }}'
-          author: ${{ inputs.model_provider }} model ${{ inputs.model }} <support@${{ inputs.model_provider }}.com>
+          author: ${{ inputs.model_provider }} model ${{ inputs.model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
             content/*.md
           branch: ${{ inputs.branch_name }}
