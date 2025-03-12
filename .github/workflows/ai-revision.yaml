@@ -72,7 +72,10 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: 'revise using AI model\n\nUsing the ${{ inputs.model_provider }} model ${{ inputs.model }}'
+          commit-message: |
+            revise using AI model
+            
+            Using the ${{ inputs.model_provider }} model ${{ inputs.model }}
           title: 'AI-based revision using ${{ inputs.model }}'
           author: ${{ inputs.model_provider }} model ${{ inputs.model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
