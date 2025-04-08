@@ -58,7 +58,10 @@ jobs:
           manubot_line=$(grep "github.com/manubot/manubot" build/environment.yml)
           manubot_url=$(echo "$manubot_line" | awk -F"- " '{print $2}')
 
-          pip install ${manubot_url}#egg=manubot[ai-rev]
+          # pip install ${manubot_url}#egg=manubot[ai-rev]
+          
+          # use the multi-provider commit instead, just for testing
+          pip install git+https://github.com/manubot/manubot@98b8ebca27d8102451923a820b01d0da9e1323de#egg=manubot[ai-rev]
       - name: Revise manuscript
         env:
           PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY || secrets.OPENAI_API_KEY }}
