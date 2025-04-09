@@ -24,7 +24,6 @@ on:
       model:
         description: 'Language model (blank to use provider default)'
         type: string
-        default: 'gpt-4o'
       custom_prompt:
         description: 'Custom prompt'
         required: false
@@ -92,7 +91,7 @@ jobs:
           fi
 
           echo "Using the model provider '${AI_EDITOR_MODEL_PROVIDER}' with language model '${AI_EDITOR_LANGUAGE_MODEL:-<default>}'"
-          
+
           manubot ai-revision --content-directory content/ --config-directory ci/
 
       - name: Create Pull Request
