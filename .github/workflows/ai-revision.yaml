@@ -61,7 +61,7 @@ jobs:
           pip install ${manubot_url}#egg=manubot[ai-rev]
           
           # install the multi-provider version of manubot-ai-editor over the current one, just for now
-          pip install git+https://github.com/manubot/manubot-ai-editor@98b8ebca27d8102451923a820b01d0da9e1323de#egg=manubot-ai-editor
+          pip install git+https://github.com/manubot/manubot-ai-editor@langchain-anthropic-integration#egg=manubot-ai-editor
       - name: Revise manuscript
         env:
           PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY || secrets.OPENAI_API_KEY }}
