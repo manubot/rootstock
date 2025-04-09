@@ -90,8 +90,6 @@ jobs:
             echo "Warning: no language model was defined; the default model for your chosen provider will be used"
           fi
 
-          echo "Using the model provider '${AI_EDITOR_MODEL_PROVIDER}' with language model '${AI_EDITOR_LANGUAGE_MODEL:-<default>}'"
-
           manubot ai-revision --content-directory content/ --config-directory ci/
 
       - name: Create Pull Request
