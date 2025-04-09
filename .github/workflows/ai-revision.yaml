@@ -33,7 +33,7 @@ on:
         description: 'Output branch'
         required: true
         type: string
-        default: 'ai-revision-gpt4turbo'
+        default: 'ai-revision-results'
 
 jobs:
   ai-revise:
@@ -90,7 +90,11 @@ jobs:
             echo "Warning: no language model was defined; the default model for your chosen provider will be used"
           fi
 
-          manubot ai-revision --content-directory content/ --config-directory ci/
+          manubot ai-revision --content-directory content/ --config-directory ci/ | tee ai-editor-stdout.txt
+
+          # scrape the actual provider and language model used from manubot-ai-editor's output
+          echo "final_model_provider=$( grep -e '^Model provider: ' ai-editor-stdout.txt | cut -d':' -f2- | xargs )" >> "$GITHUB_ENV"
+          echo "final_language_model=$( grep -e '^Language model: ' ai-editor-stdout.txt | cut -d':' -f2- | xargs )" >> "$GITHUB_ENV"
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
@@ -98,9 +102,9 @@ jobs:
           commit-message: |
             revise using AI model
             
-            Using the ${{ inputs.model_provider }} model ${{ inputs.model }}
-          title: 'AI-based revision using ${{ inputs.model }}'
-          author: ${{ inputs.model_provider }} model ${{ inputs.model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
+            Using the ${{ env.final_model_provider }} model ${{ env.final_language_model }}
+          title: 'AI-based revision using ${{ env.final_language_model }}'
+          author: ${{ env.final_model_provider }} model ${{ env.final_language_model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
             content/*.md
           branch: ${{ inputs.branch_name }}
