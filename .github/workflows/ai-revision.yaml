@@ -13,13 +13,16 @@ on:
         type: string
         default: ''
       model_provider:
-        description: 'Model Provider (one of "openai", "anthropic")'
+        description: 'Model Provider'
         required: true
-        type: string
-        default: 'openai'
+        type: choice
+        default: '(repo default)'
+        options:
+          - openai
+          - anthropic
+          - (repo default)
       model:
-        description: 'Language model'
-        required: true
+        description: 'Language model (blank to use provider default)'
         type: string
         default: 'gpt-4o'
       custom_prompt:
@@ -66,12 +69,32 @@ jobs:
         env:
           PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY || secrets.OPENAI_API_KEY }}
           AI_EDITOR_MODEL_PROVIDER: ${{ inputs.model_provider }}
-          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
+          REPO_DEFAULT_MODEL_PROVIDER: ${{ vars.AI_EDITOR_MODEL_PROVIDER }}
+          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model || vars.AI_EDITOR_LANGUAGE_MODEL }}
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
           AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
-        run: manubot ai-revision --content-directory content/ --config-directory ci/
+        run: |
+          if [[ "${AI_EDITOR_MODEL_PROVIDER}" = "(repo default)" ]]; then
+            # attempt to retrieve repo default model provider from the AI_EDITOR_MODEL_PROVIDER repo var
+            if [[ ! -z "${REPO_DEFAULT_MODEL_PROVIDER}" ]]; then
+              echo "* Using repo-default model provider AI_EDITOR_MODEL_PROVIDER repo variable: ${REPO_DEFAULT_MODEL_PROVIDER}"
+              export AI_EDITOR_MODEL_PROVIDER="${REPO_DEFAULT_MODEL_PROVIDER}"
+            else
+              echo "Error: Repo-default provider was specified, but no AI_EDITOR_MODEL_PROVIDER repo variable was set"
+              exit 1
+            fi
+          fi
+
+          if [[ -z "${AI_EDITOR_LANGUAGE_MODEL}" ]]; then
+            echo "Warning: no language model was defined; the default model for your chosen provider will be used"
+          fi
+
+          echo "Using the model provider '${AI_EDITOR_MODEL_PROVIDER}' with language model '${AI_EDITOR_LANGUAGE_MODEL:-<default>}'"
+          
+          manubot ai-revision --content-directory content/ --config-directory ci/
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
