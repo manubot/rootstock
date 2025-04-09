@@ -81,8 +81,8 @@ jobs:
               echo "* Using repo-default model provider AI_EDITOR_MODEL_PROVIDER repo variable: ${REPO_DEFAULT_MODEL_PROVIDER}"
               export AI_EDITOR_MODEL_PROVIDER="${REPO_DEFAULT_MODEL_PROVIDER}"
             else
-              echo "Error: Repo-default provider was specified, but no AI_EDITOR_MODEL_PROVIDER repo variable was set"
-              exit 1
+              echo "Warning: Repo-default provider was specified, but no AI_EDITOR_MODEL_PROVIDER repo variable was set, defaulting to 'openai'"
+              export AI_EDITOR_MODEL_PROVIDER="openai"
             fi
           fi
 
