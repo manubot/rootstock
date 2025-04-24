@@ -33,7 +33,7 @@ on:
         description: 'Output branch'
         required: true
         type: string
-        default: 'ai-revision-results'
+        default: 'ai-revision-{1}'
 
 jobs:
   ai-revise:
@@ -107,5 +107,5 @@ jobs:
           author: ${{ env.final_model_provider }} model ${{ env.final_language_model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
             content/*.md
-          branch: ${{ inputs.branch_name }}
+          branch: ${{ format(inputs.branch_name, env.final_model_provider, env.final_language_model) }}
           draft: true
