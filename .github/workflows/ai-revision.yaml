@@ -72,6 +72,9 @@ jobs:
           AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model || vars.AI_EDITOR_LANGUAGE_MODEL }}
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
           AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
+          # if specified, these will override PROVIDER_API_KEY when using that provider
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
         run: |
