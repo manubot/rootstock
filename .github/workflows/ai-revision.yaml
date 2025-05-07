@@ -78,6 +78,8 @@ jobs:
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
         run: |
+          set -eo pipefail
+          
           if [[ "${AI_EDITOR_MODEL_PROVIDER}" = "(repo default)" ]]; then
             # attempt to retrieve repo default model provider from the AI_EDITOR_MODEL_PROVIDER repo var
             if [[ ! -z "${REPO_DEFAULT_MODEL_PROVIDER}" ]]; then
