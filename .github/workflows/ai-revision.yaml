@@ -33,7 +33,7 @@ on:
         description: 'Output branch'
         required: true
         type: string
-        default: 'ai-revision-{1}'
+        default: 'ai-revision-{0}-{1}'
 
 jobs:
   ai-revise:
