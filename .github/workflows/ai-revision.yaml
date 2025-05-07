@@ -104,6 +104,15 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
+          body: |
+            This PR was automatically created by the ai-revision workflow.
+
+            **Provider:** ${{ env.final_model_provider }}
+            **Model:**  ${{ env.final_language_model }}
+            
+            Please review the contents of the PR and determine if the changes made by the revision model are acceptable.
+            If not, you can commit directly to this PR branch to make changes.
+            
           commit-message: |
             revise using AI model
             
