@@ -12,11 +12,18 @@ on:
         required: false
         type: string
         default: ''
-      model:
-        description: 'Language model'
+      model_provider:
+        description: 'Model Provider'
         required: true
+        type: choice
+        default: '(repo default)'
+        options:
+          - openai
+          - anthropic
+          - (repo default)
+      model:
+        description: 'Language model (blank to use provider default)'
         type: string
-        default: 'gpt-4-turbo'
       custom_prompt:
         description: 'Custom prompt'
         required: false
@@ -26,7 +33,7 @@ on:
         description: 'Output branch'
         required: true
         type: string
-        default: 'ai-revision-gpt4turbo'
+        default: 'ai-revision-{0}-{1}'
 
 jobs:
   ai-revise:
@@ -56,20 +63,60 @@ jobs:
           pip install ${manubot_url}#egg=manubot[ai-rev]
       - name: Revise manuscript
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model }}
+          PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY }}
+          AI_EDITOR_MODEL_PROVIDER: ${{ inputs.model_provider }}
+          REPO_DEFAULT_MODEL_PROVIDER: ${{ vars.AI_EDITOR_MODEL_PROVIDER }}
+          AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model || vars.AI_EDITOR_LANGUAGE_MODEL }}
           AI_EDITOR_FILENAMES_TO_REVISE: ${{ inputs.file_names }}
           AI_EDITOR_CUSTOM_PROMPT: ${{ inputs.custom_prompt }}
+          # if specified, these will override PROVIDER_API_KEY when using that provider
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # More variables can be specified to control the behavior of the model:
           #  https://github.com/manubot/manubot-ai-editor/blob/main/libs/manubot_ai_editor/env_vars.py
-        run: manubot ai-revision --content-directory content/ --config-directory ci/
+        run: |
+          set -eo pipefail
+          
+          if [[ "${AI_EDITOR_MODEL_PROVIDER}" = "(repo default)" ]]; then
+            # attempt to retrieve repo default model provider from the AI_EDITOR_MODEL_PROVIDER repo var
+            if [[ ! -z "${REPO_DEFAULT_MODEL_PROVIDER}" ]]; then
+              echo "* Using repo-default model provider AI_EDITOR_MODEL_PROVIDER repo variable: ${REPO_DEFAULT_MODEL_PROVIDER}"
+              export AI_EDITOR_MODEL_PROVIDER="${REPO_DEFAULT_MODEL_PROVIDER}"
+            else
+              echo "Warning: Repo-default provider was specified, but no AI_EDITOR_MODEL_PROVIDER repo variable was set, defaulting to 'openai'"
+              export AI_EDITOR_MODEL_PROVIDER="openai"
+            fi
+          fi
+
+          if [[ -z "${AI_EDITOR_LANGUAGE_MODEL}" ]]; then
+            echo "Warning: no language model was defined; the default model for your chosen provider will be used"
+          fi
+
+          manubot ai-revision --content-directory content/ --config-directory ci/ | tee ai-editor-stdout.txt
+
+          # scrape the actual provider and language model used from manubot-ai-editor's output
+          echo "final_model_provider=$( grep -e '^Model provider: ' ai-editor-stdout.txt | cut -d':' -f2- | xargs )" >> "$GITHUB_ENV"
+          echo "final_language_model=$( grep -e '^Language model: ' ai-editor-stdout.txt | cut -d':' -f2- | xargs )" >> "$GITHUB_ENV"
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: 'revise using AI model\n\nUsing the OpenAI model ${{ inputs.model }}'
-          title: 'AI-based revision using ${{ inputs.model }}'
-          author: OpenAI model ${{ inputs.model }} <support@openai.com>
+          body: |
+            This PR was automatically created by the ai-revision workflow.
+
+            **Provider:** ${{ env.final_model_provider }}
+            **Model:**  ${{ env.final_language_model }}
+            
+            Please review the contents of the PR and determine if the changes made by the revision model are acceptable.
+            If not, you can commit directly to this PR branch to make changes.
+            
+          commit-message: |
+            revise using AI model
+            
+            Using the ${{ env.final_model_provider }} model ${{ env.final_language_model }}
+          title: 'AI-based revision using ${{ env.final_language_model }}'
+          author: ${{ env.final_model_provider }} model ${{ env.final_language_model }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
           add-paths: |
             content/*.md
-          branch: ${{ inputs.branch_name }}
+          branch: ${{ format(inputs.branch_name, env.final_model_provider, env.final_language_model) }}
           draft: true
