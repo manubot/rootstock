@@ -63,7 +63,7 @@ jobs:
           pip install ${manubot_url}#egg=manubot[ai-rev]
       - name: Revise manuscript
         env:
-          PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY || secrets.OPENAI_API_KEY }}
+          PROVIDER_API_KEY: ${{ secrets.PROVIDER_API_KEY }}
           AI_EDITOR_MODEL_PROVIDER: ${{ inputs.model_provider }}
           REPO_DEFAULT_MODEL_PROVIDER: ${{ vars.AI_EDITOR_MODEL_PROVIDER }}
           AI_EDITOR_LANGUAGE_MODEL: ${{ inputs.model || vars.AI_EDITOR_LANGUAGE_MODEL }}
