@@ -47,7 +47,8 @@ Then, you can build the manuscript on POSIX systems by running the following com
 # Activate the manubot conda environment (assumes conda version >= 4.4)
 conda activate manubot
 
-# Build the manuscript, saving outputs to the output directory
+# Build the manuscript, saving outputs to the output directory.
+# Edit the MANUSCRIPT variable in build/build.sh to change the basename.
 bash build/build.sh
 
 # At this point, the HTML & PDF outputs will have been created. The remaining

@@ -37,9 +37,10 @@ install:
 
 test_script:
   - bash build/build.sh
-  - MANUSCRIPT_FILENAME=manuscript-$APPVEYOR_BUILD_VERSION-${TRIGGERING_COMMIT:0:7}
-  - cp output/manuscript.html $MANUSCRIPT_FILENAME.html
-  - cp output/manuscript.pdf $MANUSCRIPT_FILENAME.pdf
+  - MANUSCRIPT="${MANUSCRIPT:-manuscript}"
+  - MANUSCRIPT_FILENAME=${MANUSCRIPT}-${APPVEYOR_BUILD_VERSION}-${TRIGGERING_COMMIT:0:7}
+  - cp output/${MANUSCRIPT}.html $MANUSCRIPT_FILENAME.html
+  - cp output/${MANUSCRIPT}.pdf $MANUSCRIPT_FILENAME.pdf
   - appveyor PushArtifact $MANUSCRIPT_FILENAME.html
   - appveyor PushArtifact $MANUSCRIPT_FILENAME.pdf
   - |
