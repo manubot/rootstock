@@ -11,6 +11,11 @@ export TZ=Etc/UTC
 # Default Python to read/write text files using UTF-8 encoding
 export LC_ALL=en_US.UTF-8
 
+# Edit this default to change the manuscript basename used for output files.
+# Example: MANUSCRIPT="my-paper" generates output/my-paper.md, .pdf, .docx, and .tex.
+MANUSCRIPT="${MANUSCRIPT:-manuscript}"
+MANUSCRIPT="${MANUSCRIPT##*/}"
+MANUSCRIPT_BASE="${MANUSCRIPT%.*}"
 
 # Set DOCKER_RUNNING to true if docker is running, otherwise false.
 DOCKER_RUNNING="$(docker info &> /dev/null && echo "true" || (true && echo "false"))"
@@ -25,6 +30,10 @@ MANUBOT_USE_DOCKER="${MANUBOT_USE_DOCKER:-$DOCKER_RUNNING}"
 # Pandoc's configuration is specified via files of option defaults
 # located in the $PANDOC_DATA_DIR/defaults directory.
 PANDOC_DATA_DIR="${PANDOC_DATA_DIR:-build/pandoc}"
+PANDOC_DEFAULTS_DIR="$(mktemp -d)"
+trap 'rm -rf "$PANDOC_DEFAULTS_DIR"' EXIT
+cp -R "$PANDOC_DATA_DIR/defaults" "$PANDOC_DEFAULTS_DIR/"
+sed -i "s#output/manuscript#output/${MANUSCRIPT_BASE}#g" "$PANDOC_DEFAULTS_DIR"/defaults/*.yaml
 
 # Generate reference information
 echo >&2 "Retrieving and processing reference metadata"
@@ -38,11 +47,16 @@ manubot process \
 # Make output directory
 mkdir -p output
 
+# Render the generated markdown from the configured manuscript name.
+if [ -f output/manuscript.md ] && [ ! -f "output/${MANUSCRIPT_BASE}.md" ]; then
+  mv output/manuscript.md "output/${MANUSCRIPT_BASE}.md"
+fi
+
 # Create HTML output
 # https://pandoc.org/MANUAL.html
 echo >&2 "Exporting HTML manuscript"
 pandoc --verbose \
-  --data-dir="$PANDOC_DATA_DIR" \
+  --data-dir="$PANDOC_DEFAULTS_DIR" \
   --defaults=common.yaml \
   --defaults=html.yaml
 
@@ -53,7 +67,7 @@ if [ "${BUILD_PDF}" != "false" ] && [ "${MANUBOT_USE_DOCKER}" != "true" ]; then
   if [ -L images ]; then rm images; fi  # if images is a symlink, remove it
   ln -s content/images
   pandoc \
-    --data-dir="$PANDOC_DATA_DIR" \
+    --data-dir="$PANDOC_DEFAULTS_DIR" \
     --defaults=common.yaml \
     --defaults=html.yaml \
     --defaults=pdf-weasyprint.yaml
@@ -80,7 +94,7 @@ if [ "${BUILD_PDF}" != "false" ] && [ "${MANUBOT_USE_DOCKER}" == "true" ]; then
     athenapdf \
     --delay=${MANUBOT_ATHENAPDF_DELAY:-1100} \
     --pagesize=A4 \
-    manuscript.html manuscript.pdf
+    "${MANUSCRIPT_BASE}.html" "${MANUSCRIPT_BASE}.pdf"
   rm -rf output/images
 fi
 
@@ -88,7 +102,7 @@ fi
 if [ "${BUILD_DOCX}" = "true" ]; then
   echo >&2 "Exporting Word Docx manuscript"
   pandoc --verbose \
-    --data-dir="$PANDOC_DATA_DIR" \
+    --data-dir="$PANDOC_DEFAULTS_DIR" \
     --defaults=common.yaml \
     --defaults=docx.yaml
 fi
@@ -97,7 +111,7 @@ fi
 if [ "${BUILD_LATEX}" = "true" ]; then
   echo >&2 "Exporting LaTeX manuscript"
   pandoc \
-    --data-dir="$PANDOC_DATA_DIR" \
+    --data-dir="$PANDOC_DEFAULTS_DIR" \
     --defaults=common.yaml \
     --defaults=latex.yaml
 fi
@@ -108,9 +122,9 @@ if [ "${SPELLCHECK}" = "true" ]; then
 
   # Identify and store spelling errors
   pandoc \
-    --data-dir="$PANDOC_DATA_DIR" \
+    --data-dir="$PANDOC_DEFAULTS_DIR" \
     --lua-filter spellcheck.lua \
-    output/manuscript.md \
+    "output/${MANUSCRIPT_BASE}.md" \
     | sort -fu > output/spelling-errors.txt
   echo >&2 "Potential spelling errors:"
   cat output/spelling-errors.txt
